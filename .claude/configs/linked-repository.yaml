@@ -1,0 +1,15 @@
+# 链接GitHub仓库配置
+# 格式: repository-{序号}: GitHub仓库URL
+# 用途: /P命令通过此配置文件自动识别所有关联仓库，实现跨仓库文件同步
+
+version: 1.0.0
+last_updated: 2025-10-21
+
+# 仓库列表
+repository-0: https://github.com/ZEN-VOID/ZTL-digital-operations-center.git
+
+# 说明:
+# - repository-0: ZTL数智化作战中心主仓库
+# - 所有URL必须是完整的GitHub仓库地址
+# - URL必须以.git结尾
+# - /P命令会自动识别当前工作区对应的仓库

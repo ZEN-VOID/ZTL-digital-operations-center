@@ -25,25 +25,26 @@ last_updated: 2025-09-30
 
 ## 🎯 核心功能(七步流程)
 
-### 1. GitHub MCP启用检查
-**目标**: 确保GitHub MCP已启用并正确配置
+### 1. GitHub CLI状态检查
+**目标**: 确保GitHub CLI (gh) 已安装并正确认证
 
 **检查内容**:
-- 验证GitHub MCP服务状态
-- 确认认证配置正确
-- 检查必要权限
+- 验证gh工具已安装
+- 确认GitHub认证状态 (`gh auth status`)
+- 检查仓库创建权限
 
 ### 2. 仓库创建
 **目标**: 在GitHub创建新的远程仓库
 
 ```bash
-gh repo create [仓库名] --private
+gh repo create [仓库名] --public --source=. --remote=origin
 ```
 
 **创建选项**:
 - 仓库名称: 默认使用当前工作区目录名
-- 可见性: private（私有仓库）
-- 描述信息: 可选的仓库描述
+- 可见性: --public (公开仓库) 或 --private (私有仓库)
+- 源目录: --source=. (当前目录)
+- 远程名称: --remote=origin (自动配置remote)
 
 ### 3. Git初始化
 **目标**: 初始化本地Git仓库（如果尚未初始化）
@@ -153,9 +154,9 @@ git push -u origin main
 
 ```mermaid
 graph TD
-    A[启动创建流程] --> B[步骤1: 检查GitHub MCP]
-    B --> C{MCP已启用?}
-    C -->|否| D[提示启用MCP]
+    A[启动创建流程] --> B[步骤1: 检查GitHub CLI]
+    B --> C{gh已安装并认证?}
+    C -->|否| D[提示安装/认证gh]
     C -->|是| E[步骤2: 创建GitHub仓库]
     E --> F{创建成功?}
     F -->|否| G[显示错误信息]
@@ -221,11 +222,12 @@ LICENSE决策:
 命令: gh repo create
 参数:
   - 仓库名: 当前工作区目录名
-  - 可见性: --private（私有仓库）
-  - 描述: 可选
+  - 可见性: --public (公开) 或 --private (私有)
+  - 源目录: --source=. (当前目录)
+  - 远程配置: --remote=origin (自动添加remote)
 
 执行示例:
-  gh repo create MyAwesomeProject --private
+  gh repo create MyAwesomeProject --public --source=. --remote=origin
 ```
 
 ### Git配置
@@ -233,10 +235,12 @@ LICENSE决策:
 初始化:
   命令: git init
   条件: 仅当当前目录不是Git仓库时执行
+  说明: gh repo create使用--source=.时会自动初始化
 
 远程配置:
-  添加远程: git remote add origin [URL]
+  添加远程: gh repo create会自动配置origin
   推送并跟踪: git push -u origin main
+  说明: 使用--remote=origin参数自动添加remote
 ```
 
 ### 配置文件格式
@@ -256,9 +260,9 @@ linked-workspace.yaml格式:
 
 ### 系统配置
 ```yaml
-配置版本: v2.0.0
-更新时间: 2025-09-30
-默认仓库类型: private
+配置版本: v3.0.0
+更新时间: 2025-10-21
+默认仓库类型: public
 默认分支: main
 LICENSE类型: MIT
 ```
@@ -269,11 +273,10 @@ LICENSE类型: MIT
   - Git (>= 2.20)
   - GitHub CLI (gh) (>= 2.0)
   - Claude Code v2.0+
-  - GitHub MCP已启用
 
 必需配置:
-  - Git用户信息配置
-  - GitHub认证配置
+  - Git用户信息配置 (git config user.name/email)
+  - GitHub CLI认证 (gh auth login)
   - 仓库创建权限
 ```
 
@@ -298,13 +301,14 @@ LICENSE类型: MIT
 
 **执行结果**:
 ```
-✅ GitHub MCP已启用
-✅ 创建私有仓库: https://github.com/CoderPro/MyAwesomeProject
-✅ Git初始化完成（或已跳过）
+✅ GitHub CLI已就绪 (gh v2.40.1)
+✅ 认证状态: 已登录为 CoderPro
+✅ 创建公开仓库: https://github.com/CoderPro/MyAwesomeProject
+✅ Git初始化完成
+✅ 远程origin自动配置
 ✅ 创建LICENSE文件
 ✅ 添加所有文件
-✅ 初始提交: "Initial commit"
-✅ 配置远程仓库
+✅ 初始提交: "Initial commit: MyAwesomeProject v1.0"
 ✅ 推送到GitHub: main分支
 ✅ 更新linked-repository.yaml:
     repository-1: https://github.com/CoderPro/MyAwesomeProject.git
@@ -326,13 +330,14 @@ LICENSE类型: MIT
 
 **执行结果**:
 ```
-✅ GitHub MCP已启用
-✅ 创建私有仓库: https://github.com/CoderPro/ExistingProject
+✅ GitHub CLI已就绪
+✅ 认证状态: 已登录
+✅ 创建公开仓库: https://github.com/CoderPro/ExistingProject
 ⚠️ 检测到已有Git仓库，跳过初始化
 ✅ LICENSE文件已存在，跳过创建
 ✅ 添加所有文件（包括新修改）
-✅ 初始提交: "Initial commit"
-✅ 配置远程仓库
+✅ 初始提交: "Initial commit: ExistingProject migration"
+✅ 远程origin自动配置
 ✅ 推送所有提交历史到GitHub
 ✅ 更新配置文件
 🎉 项目迁移完成!
@@ -360,14 +365,15 @@ workspace-2: d:\@ZEN-VOID\Round-0\NewProject
 
 ### 常见错误类型
 
-#### 1. GitHub MCP未启用
+#### 1. GitHub CLI未安装或未认证
 ```yaml
-症状: 提示 "GitHub MCP not enabled"
-原因: GitHub MCP服务未启用或配置错误
+症状: 提示 "gh: command not found" 或 "not logged in"
+原因: GitHub CLI未安装或未完成认证
 处理:
-  - 检查MCP服务状态
-  - 引导启用GitHub MCP
-  - 验证认证配置
+  - macOS: brew install gh
+  - Windows: winget install GitHub.cli
+  - Linux: 参考官方文档
+  - 认证: gh auth login
 ```
 
 #### 2. 仓库名称冲突
@@ -550,8 +556,8 @@ git status
 ### 最佳实践
 ```yaml
 执行前:
-  - 确认GitHub MCP已启用
-  - 检查Git用户信息配置
+  - 确认GitHub CLI已安装并认证 (gh auth status)
+  - 检查Git用户信息配置 (git config --list)
   - 准备好.gitignore文件
   - 确认目录名称符合GitHub规范
 
@@ -585,6 +591,7 @@ git status
 
 ---
 
-**配置版本**: v2.0.0
-**更新时间**: 2025-09-30
+**配置版本**: v3.0.0
+**更新时间**: 2025-10-21
 **维护原则**: 自动化、一致性、准确性
+**主要变更**: 从GitHub MCP迁移到GitHub CLI (gh)

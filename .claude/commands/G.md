@@ -1,8 +1,8 @@
 ---
 name: GitHub同步推送
 description: 将本地项目完整同步推送到GitHub仓库，确保远程与本地完全一致
-version: 3.0.0
-last_updated: 2025-09-30
+version: 4.0.0
+last_updated: 2025-10-21
 ---
 
 # GitHub同步推送
@@ -163,24 +163,29 @@ graph TD
 
 ### 系统配置
 ```yaml
-配置版本: v3.0.0
-更新时间: 2025-09-30
+配置版本: v4.0.0
+更新时间: 2025-10-21
 目标分支: main
 提交信息模板: "项目同步更新 - {timestamp}"
+认证方式: Git凭据 (SSH/HTTPS)
 ```
 
 ### 执行环境
 ```yaml
 必需条件:
-  - Git已安装并配置
+  - Git已安装并配置 (>= 2.20)
   - 当前目录是Git仓库
   - 远程仓库已配置(origin)
   - 有推送权限
 
+认证配置:
+  - SSH密钥认证 (推荐)
+  - HTTPS + Git凭据管理
+  - GitHub Personal Access Token
+
 可选配置:
-  - SSH密钥认证
-  - HTTPS凭据缓存
   - Git别名配置
+  - 自定义提交模板
 ```
 
 ## 📝 示例场景
@@ -406,6 +411,7 @@ git push --force-with-lease
 
 ---
 
-**配置版本**: v3.0.0
-**更新时间**: 2025-09-30
+**配置版本**: v4.0.0
+**更新时间**: 2025-10-21
 **维护原则**: 简化流程、快速同步
+**兼容性**: 使用标准Git命令，无需GitHub CLI
