@@ -1,0 +1,26 @@
+{
+  "agent_id": "E2",
+  "task_description": "将3D瓦猫IP转换为扁平化潮玩风格-变体1深蓝色守护神风格",
+  "input_data": {
+    "image_url": "D:\\@ZEN-VOID\\ZTL\\ZTL-AI-Powered-Digital-Design\\input\\吼巷\\设计\\IP\\微信图片_20250923171305_56_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将深蓝色3D瓦猫IP形象转换为扁平化2D潮玩风格设计。要求：1)保留深蓝色主色调(深蓝#1a4d8f、浅蓝#4a9eff)；2)粗黑色描边(3-5px)；3)大色块扁平化填充，无渐变；4)添加对称式传统装饰纹饰(扇形耳饰、额头宝石、身体两侧祥云纹)；5)夸张化表情(圆润大眼睛、张嘴露出尖牙的凶萌风格)；6)类似LING YUN Poster Design系列的潮流插画风格；7)正面对称构图；8)背景添加浅色祥云或如意云头纹样；9)整体风格类似A1海报(福佑宅邸主题)的扁平化插画语言",
+    "style_reference": "A1海报-福佑宅邸风格：深蓝色系、对称装饰、粗黑描边、扁平化大色块、传统纹样",
+    "edit_config": {
+      "style_strength": 0.85,
+      "preserve_character": true,
+      "color_palette": ["#1a4d8f", "#4a9eff", "#87ceeb", "#000000", "#ffffff"],
+      "art_style": "flat design, thick black outline, traditional Chinese ornament, trendy toy style, symmetrical composition"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-image-to-image/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T16:00:00",
+    "created_by": "EE智能体队长",
+    "version": "1.0",
+    "notes": "变体1-深蓝色守护神风格，参考A1海报福佑宅邸主题"
+  }
+}

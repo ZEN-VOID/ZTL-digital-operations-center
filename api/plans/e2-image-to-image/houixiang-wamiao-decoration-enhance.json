@@ -1,0 +1,25 @@
+{
+  "agent_id": "E2",
+  "task_description": "为3D瓦猫模型添加传统装饰元素,保留原有3D风格和渲染质感",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171305_56_171.png",
+    "operation_type": "local_edit",
+    "text_prompt": "保持3D瓦猫的模型风格和深蓝色主色调,为其添加以下传统装饰元素:\n\n1. 头部装饰:\n   - 对称的扇形耳饰(参考A1蓝色扇形耳饰设计)\n   - 耳朵上添加宝石或爪印纹饰点缀\n   \n2. 额头装饰:\n   - 中央添加彩色宝石(橙红色或蓝色水滴形)\n   - 额头两侧添加对称的火焰纹或祥云纹\n   \n3. 颈部装饰:\n   - 添加V字形领巾或项圈\n   - 项圈上可有几何纹饰或传统图案\n   \n4. 整体风格要求:\n   - 保持3D建模的立体感和渲染质感\n   - 装饰元素要融入3D模型,不是平面贴图\n   - 色彩保持深蓝主色调,装饰用橙红、金黄、翠绿等辅助色\n   - 保持凶萌的表情特征(大眼睛、张嘴露牙)\n   \n5. 参考风格:\n   - A1海报的对称式耳饰和宝石装饰\n   - A2海报的祥云纹和火焰元素\n   - A3海报的颈部装饰和腰带纹饰\n   \n关键要求: 这不是扁平化改造,而是在保持3D风格的基础上,添加中国传统吉祥纹饰装饰",
+    "edit_config": {
+      "strength": 0.6,
+      "preserve_structure": true,
+      "focus_areas": ["头部耳朵区域", "额头中央", "颈部区域"],
+      "style_reference": "中国传统瑞兽装饰+现代3D潮玩"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-houixiang-wamiao/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T10:45:00",
+    "created_by": "Claude",
+    "version": "1.0",
+    "notes": "为吼巷瓦猫IP添加传统装饰元素,保持3D风格但增强文化符号感"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "agent_id": "E3",
+  "task_description": "吼巷品牌IP形象深度分析 - 图片1（微信图片_20251011163706）：进行餐饮专业级图片识别，包括IP角色造型设计、色彩方案、设计风格、特殊元素识别、技术质量评估等6大分类24个子分类的结构化分析",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20251011163706_34_639.jpg",
+    "analysis_type": "comprehensive",
+    "analysis_dimensions": [
+      "IP角色造型设计（形态、表情、姿态、动作、特殊元素）",
+      "色彩运用和配色方案",
+      "设计风格和质感表现",
+      "餐饮元素融入情况",
+      "3D渲染技术质量",
+      "品牌商业应用潜力"
+    ],
+    "special_focus": [
+      "是否有三只耳朵（改版需求）",
+      "是否有云南少数民族纹身（改版需求）",
+      "深蓝色主调保留情况",
+      "吼叫核心识别点强化"
+    ]
+  },
+  "output_settings": {
+    "save_path": "output/analysis/e3-image-recognition/",
+    "format": "json"
+  },
+  "metadata": {
+    "created_at": "2025-10-11T16:50:00",
+    "created_by": "E3-餐饮图片识别AIGC智能体",
+    "version": "1.0",
+    "notes": "吼巷IP形象改版后分析 - 第一张图片"
+  }
+}

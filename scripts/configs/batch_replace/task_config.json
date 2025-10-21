@@ -1,0 +1,136 @@
+{
+  "task_name": "批量替换three-day-tour图片 (random_01 ~ random_50)",
+  "task_id": "batch_replace_three_day_tour_20251006_140200",
+  "created_at": "2025-10-06T14:02:00Z",
+  "page_config": {
+    "page_path": "three-day-tour",
+    "page_url": "http://localhost:3000/three-day-tour",
+    "page_width": 1440,
+    "page_height": 1920,
+    "replace_mapping": [
+      {
+        "json_key": "DAY1.1太古里",
+        "css_selector": ".spot-image[data-figma-id='164:61']",
+        "description": "DAY1第1个景点-太古里"
+      },
+      {
+        "json_key": "DAY1.2IFS",
+        "css_selector": ".spot-image[data-figma-id='165:21']",
+        "description": "DAY1第2个景点-IFS"
+      },
+      {
+        "json_key": "DAY1.3大慈寺",
+        "css_selector": ".spot-image[data-figma-id='165:28']",
+        "description": "DAY1第3个景点-大慈寺"
+      },
+      {
+        "json_key": "DAY1.4望平街",
+        "css_selector": ".spot-image[data-figma-id='165:35']",
+        "description": "DAY1第4个景点-望平街"
+      },
+      {
+        "json_key": "DAY2.1大熊猫基地",
+        "css_selector": ".spot-image[data-figma-id='179:32']",
+        "description": "DAY2第1个景点-大熊猫基地"
+      },
+      {
+        "json_key": "DAY2.2武侯祠",
+        "css_selector": ".spot-image[data-figma-id='179:33']",
+        "description": "DAY2第2个景点-武侯祠"
+      },
+      {
+        "json_key": "DAY2.3锦里",
+        "css_selector": ".spot-image[data-figma-id='179:34']",
+        "description": "DAY2第3个景点-锦里"
+      },
+      {
+        "json_key": "DAY2.4杜甫草堂",
+        "css_selector": ".spot-image[data-figma-id='179:35']",
+        "description": "DAY2第4个景点-杜甫草堂"
+      },
+      {
+        "json_key": "DAY3.1自然博物馆",
+        "css_selector": ".spot-image[data-figma-id='179:51']",
+        "description": "DAY3第1个景点-自然博物馆"
+      },
+      {
+        "json_key": "DAY3.2东郊记忆",
+        "css_selector": ".spot-image[data-figma-id='179:52']",
+        "description": "DAY3第2个景点-东郊记忆"
+      },
+      {
+        "json_key": "DAY3.3建设路",
+        "css_selector": ".spot-image[data-figma-id='179:53']",
+        "description": "DAY3第3个景点-建设路"
+      },
+      {
+        "json_key": "DAY3.4玉林路",
+        "css_selector": ".spot-image[data-figma-id='179:54']",
+        "description": "DAY3第4个景点-玉林路"
+      }
+    ]
+  },
+  "input_files": [
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_01_20251005_162426.json", "output_name": "three-day-tour-random01"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_02_20251005_162426.json", "output_name": "three-day-tour-random02"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_03_20251005_162426.json", "output_name": "three-day-tour-random03"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_04_20251005_162426.json", "output_name": "three-day-tour-random04"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_05_20251005_162426.json", "output_name": "three-day-tour-random05"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_06_20251005_162426.json", "output_name": "three-day-tour-random06"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_07_20251005_162426.json", "output_name": "three-day-tour-random07"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_08_20251005_162426.json", "output_name": "three-day-tour-random08"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_09_20251005_162426.json", "output_name": "three-day-tour-random09"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_10_20251005_162426.json", "output_name": "three-day-tour-random10"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_11_20251005_162426.json", "output_name": "three-day-tour-random11"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_12_20251005_162426.json", "output_name": "three-day-tour-random12"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_13_20251005_162426.json", "output_name": "three-day-tour-random13"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_14_20251005_162426.json", "output_name": "three-day-tour-random14"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_15_20251005_162426.json", "output_name": "three-day-tour-random15"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_16_20251005_162426.json", "output_name": "three-day-tour-random16"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_17_20251005_162426.json", "output_name": "three-day-tour-random17"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_18_20251005_162426.json", "output_name": "three-day-tour-random18"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_19_20251005_162426.json", "output_name": "three-day-tour-random19"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_20_20251005_162426.json", "output_name": "three-day-tour-random20"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_21_20251005_162426.json", "output_name": "three-day-tour-random21"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_22_20251005_162426.json", "output_name": "three-day-tour-random22"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_23_20251005_162426.json", "output_name": "three-day-tour-random23"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_24_20251005_162426.json", "output_name": "three-day-tour-random24"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_25_20251005_162426.json", "output_name": "three-day-tour-random25"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_26_20251005_162426.json", "output_name": "three-day-tour-random26"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_27_20251005_162426.json", "output_name": "three-day-tour-random27"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_28_20251005_162426.json", "output_name": "three-day-tour-random28"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_29_20251005_162426.json", "output_name": "three-day-tour-random29"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_30_20251005_162426.json", "output_name": "three-day-tour-random30"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_31_20251005_162426.json", "output_name": "three-day-tour-random31"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_32_20251005_162426.json", "output_name": "three-day-tour-random32"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_33_20251005_162426.json", "output_name": "three-day-tour-random33"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_34_20251005_162426.json", "output_name": "three-day-tour-random34"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_35_20251005_162426.json", "output_name": "three-day-tour-random35"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_36_20251005_162426.json", "output_name": "three-day-tour-random36"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_37_20251005_162426.json", "output_name": "three-day-tour-random37"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_38_20251005_162426.json", "output_name": "three-day-tour-random38"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_39_20251005_162426.json", "output_name": "three-day-tour-random39"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_40_20251005_162426.json", "output_name": "three-day-tour-random40"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_41_20251005_162426.json", "output_name": "three-day-tour-random41"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_42_20251005_162426.json", "output_name": "three-day-tour-random42"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_43_20251005_162426.json", "output_name": "three-day-tour-random43"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_44_20251005_162426.json", "output_name": "three-day-tour-random44"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_45_20251005_162426.json", "output_name": "three-day-tour-random45"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_46_20251005_162426.json", "output_name": "three-day-tour-random46"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_47_20251005_162426.json", "output_name": "three-day-tour-random47"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_48_20251005_162426.json", "output_name": "three-day-tour-random48"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_49_20251005_162426.json", "output_name": "three-day-tour-random49"},
+    {"json_file": "input/明红/图片URL/随机组合/模板6/random_50_20251005_162426.json", "output_name": "three-day-tour-random50"}
+  ],
+  "output_config": {
+    "output_dir": "output/model",
+    "screenshot_format": "png",
+    "auto_dimensions": true,
+    "clip_to_viewport": true
+  },
+  "execution_config": {
+    "headless": true,
+    "wait_after_replace": 3,
+    "timeout": 60000
+  }
+}

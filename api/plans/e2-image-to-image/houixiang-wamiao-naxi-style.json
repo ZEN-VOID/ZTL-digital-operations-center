@@ -1,0 +1,25 @@
+{
+  "agent_id": "E2",
+  "task_description": "瓦猫IP纳西东巴风格改造-深度融合纳西族文化元素",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171305_56_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将3D瓦猫改造为纳西东巴文化风格:\n\n【整体色调调整】\n- 主色调: 深黑色(东巴文化神秘色)\n- 次要色: 纯白色(东巴经文色)\n- 点缀色: 朱红色(东巴仪式色)、青铜色(古朴感)\n\n【纳西文化装饰元素】\n1. 头部装饰:\n   - 东巴祭司头冠(黑白红配色)\n   - 羊皮书卷装饰\n   - 东巴象形文字符号\n   \n2. 身体纹饰:\n   - 胸前: 东巴象形文字图腾\n   - 四肢: 自然崇拜图腾(日月星辰)\n   - 身体: 几何纹、螺旋纹(东巴绘画)\n   \n3. 配饰元素:\n   - 颈部: 羊皮卷项饰\n   - 腰部: 黑白红编织腰带\n   - 手持: 东巴法器(铃铛/法杖)\n   \n【风格特征】\n- 保持3D立体感\n- 色彩神秘古朴\n- 东巴文字装饰\n- 图腾纹饰原始感\n- 整体神秘庄重\n\n参考: 纳西东巴文化、东巴象形文字、自然崇拜、黑白红配色",
+    "edit_config": {
+      "strength": 0.75,
+      "preserve_structure": true,
+      "color_adjustment": true,
+      "style_reference": "纳西东巴文化+3D潮玩"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-houixiang-wamiao/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T10:53:00",
+    "created_by": "Claude",
+    "version": "1.0",
+    "notes": "纳西东巴风格-黑白红配色体系"
+  }
+}

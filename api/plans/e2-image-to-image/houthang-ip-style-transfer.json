@@ -1,0 +1,35 @@
+{
+  "agent_id": "E2",
+  "task_description": "吼巷猫IP形象风格迁移：将陶瓷质感版本转换为原有的3D卡通风格，保留所有造型特征，转换材质质感从硬质陶瓷到柔软Q弹的卡通材质",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20251011163706_34_639.jpg",
+    "operation_type": "style_transfer",
+    "operation_params": {
+      "style_reference": "input/吼巷/设计/IP/微信图片_20250923171305_56_171.png",
+      "style_description": "3D cartoon rendering style with smooth plastic/rubber material, soft matte or slight glossy finish, Q-version cute texture, gentle lighting and shading, warm and friendly visual feeling. Remove ceramic/porcelain texture completely.",
+      "preserve_structure": true,
+      "preserve_color_scheme": true,
+      "strength": 0.85,
+      "material_transformation": {
+        "from": "ceramic/porcelain with glossy glaze surface, hard and artistic texture",
+        "to": "soft 3D cartoon plastic/rubber material, smooth and Q-bouncy texture, toy-like finish"
+      },
+      "lighting_adjustment": {
+        "from": "sharp ceramic highlights and reflections",
+        "to": "soft cartoon-style lighting with gentle transitions"
+      },
+      "additional_prompt": "Transform the ceramic texture cat IP character into smooth 3D cartoon style. Keep all design details, pose, expression and deep blue color. Change material from hard ceramic to soft cartoon plastic/rubber texture. Apply gentle cartoon lighting instead of sharp ceramic reflections. Final result should look like cute 3D cartoon toy with friendly and approachable feeling, not artistic ceramic sculpture. Maintain character structure 100%, transform material quality 100%."
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-image-to-image/houthang-ip-style-transfer/",
+    "format": "png",
+    "quality": 95
+  },
+  "metadata": {
+    "created_at": "2025-10-11T16:45:00",
+    "created_by": "E2-Agent",
+    "version": "1.0",
+    "notes": "IP形象材质质感转换：陶瓷→3D卡通，保留造型100%，转换材质100%"
+  }
+}

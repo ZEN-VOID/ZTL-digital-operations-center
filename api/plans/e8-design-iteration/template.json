@@ -1,0 +1,28 @@
+{
+  "agent_id": "E8",
+  "task_description": "设计迭代任务描述：基于用户反馈对现有设计进行优化迭代",
+  "input_data": {
+    "current_version": "当前设计版本的图片路径或URL",
+    "feedback": "用户反馈或修改要求，例如：在锅里面加一条鱼",
+    "iteration_type": "迭代类型：feedback_response（反馈响应）、version_refinement（版本精炼）、style_adjustment（风格调整）",
+    "iteration_goals": [
+      "迭代目标1：例如：在火锅中自然地添加一条新鲜的鱼",
+      "迭代目标2：例如：保持原有设计风格和喜庆氛围",
+      "迭代目标3：例如：确保新添加的元素与现有内容协调",
+      "迭代目标4：例如：增强整体视觉吸引力"
+    ]
+  },
+  "output_settings": {
+    "save_path": "output/images/e8-design-iteration/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "YYYY-MM-DDTHH:MM:SS",
+    "created_by": "智能体名称或用户名",
+    "version": "1.0",
+    "iteration_number": 1,
+    "previous_versions": [
+      "上一版本的路径（可选）"
+    ]
+  }
+}

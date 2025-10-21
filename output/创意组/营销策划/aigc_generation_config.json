@@ -1,0 +1,58 @@
+{
+  "task_type": "marketing_campaign",
+  "brand": "云南过桥米线",
+  "campaign_theme": "一碗过桥,三餐云南",
+
+  "visuals": [
+    {
+      "id": 1,
+      "type": "1-poster",
+      "title": "活动主海报 - 一碗过桥三餐云南",
+      "prompt": "A stunning Chinese food marketing poster featuring Yunnan Cross-Bridge Rice Noodles (过桥米线). Central composition shows a large traditional ceramic bowl filled with steaming golden bone broth, surrounded by 20+ small colorful dishes containing fresh ingredients: thinly sliced beef, quail eggs, vegetables, mushrooms. Top-down 45-degree angle shot. Background features Yi ethnic minority flame-red geometric patterns and modern minimalist design. Color palette: Yi ethnic flame red (#D32F2F), golden broth (#FFB300), milk-white noodles (#FAFAFA), fresh green vegetables. Warm natural lighting with steam rising from the hot broth. Typography space at top for Chinese text '一碗过桥,三餐云南'. Professional food photography style, appetizing, cultural heritage meets modern aesthetics, 8K quality, Nikon Z9 camera",
+      "style": "professional food photography, cultural fusion, modern Chinese design",
+      "aspect_ratio": "9:16",
+      "design_elements": [
+        "Yi ethnic patterns",
+        "Steam visual effect",
+        "Multiple ingredient dishes layout",
+        "Typography space reserved"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "8-main-image",
+      "title": "产品主图 - 过桥米线美食摄影",
+      "prompt": "Ultra-high quality food photography of Yunnan Cross-Bridge Rice Noodles. 45-degree side angle shot capturing the ceremony of the dish. Main focus: oversized traditional Chinese ceramic bowl (diameter 30cm) with crystal-clear golden bone broth at exactly 100°C, visible steam rising artistically. In front of the bowl: 15-20 small porcelain dishes arranged in an arc, each containing different fresh ingredients - paper-thin raw beef slices, bright yellow quail eggs, emerald green vegetables, white rice noodles, brown shiitake mushrooms, red tomatoes. Background: wooden table with soft bokeh, warm Yi ethnic red fabric as accent. Lighting: soft natural window light from left creating gentle shadows, subtle rim lighting highlighting steam. Composition shows the ritual and abundance of 'one-person feast'. Shot with Canon EOS R5, 50mm f/1.2 lens, depth of field focusing on soup and nearest ingredients. Mood: appetizing, ceremonial, cultural heritage, peaceful moment in busy urban life",
+      "style": "commercial food photography, shallow depth of field, natural warm lighting",
+      "aspect_ratio": "4:3",
+      "design_elements": [
+        "Multiple ingredient dishes",
+        "Steam effect",
+        "Ceremonial presentation",
+        "Warm color temperature"
+      ]
+    }
+  ],
+
+  "brand_guidelines": {
+    "primary_colors": ["#D32F2F (Yi flame red)", "#FFB300 (Golden broth)", "#FAFAFA (Milk white)"],
+    "cultural_elements": ["Yi ethnic geometric patterns", "Traditional ceramic bowls", "Steam rising effect"],
+    "mood": "Cultural heritage meets modern urban lifestyle, appetizing, ceremonial, warm",
+    "photography_style": "Professional food photography, natural lighting, shallow depth of field"
+  },
+
+  "output_requirements": {
+    "format": "PNG",
+    "resolution": "High resolution (8K quality)",
+    "color_space": "sRGB",
+    "use_cases": ["Marketing poster", "Social media", "In-store display", "PPT presentation"]
+  },
+
+  "notes": [
+    "Emphasize the ceremonial aspect of Cross-Bridge Rice Noodles (一人食的盛宴)",
+    "Steam is crucial visual element showing the 100°C hot broth",
+    "Multiple small dishes create visual abundance and cultural authenticity",
+    "Yi ethnic red should be prominent but not overwhelming",
+    "Leave space for Chinese typography in poster version"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "agent_id": "E2",
+  "task_description": "苗族银饰风格-黑底银饰华丽版本",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171142_53_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将3D瓦猫改造为苗族银饰风格:\n\n【色调配置】\n- 主色调: 深黑色(#1A1A1A)\n- 次要色: 纯银色(#E8E8E8)\n- 高光色: 亮银(#FFFFFF)、银蓝(#C0D0E0)\n- 金属感: 银饰光泽明显，层次丰富\n\n【银饰装饰-苗族特色】\n1. 头部银饰:\n   - 苗族银冠(多层塔状造型)\n   - 额前: 大型银花(立体浮雕)\n   - 头顶: 银角(向上延伸)\n   - 两侧: 银流苏(长垂坠)\n   \n2. 身体银饰:\n   - 颈部: 多层银项圈(3-5层)\n   - 胸前: 银锁、银牌(雕刻花纹)\n   - 四肢: 银手镯、银脚环\n   - 腰部: 银腰带(链式)\n   \n3. 银饰纹样:\n   - 花卉纹: 银花瓣、银叶子\n   - 几何纹: 菱形、三角形\n   - 吉祥纹: 蝴蝶、鸟类\n   - 镂空工艺: 精致通透\n   \n4. 金属质感:\n   - 高光反射强烈\n   - 银饰层叠有序\n   - 立体浮雕效果\n   - 整体富贵华丽\n\n【整体风格】\n- 保持3D立体感和高级质感\n- 黑底银饰对比强烈\n- 银饰数量丰富但不杂乱\n- 整体端庄大气\n\n参考: 苗族盛装银饰、贵州苗族传统服饰、银饰工艺",
+    "edit_config": {
+      "strength": 0.8,
+      "preserve_structure": true,
+      "color_adjustment": true,
+      "style_reference": "苗族银饰+黑色底色+3D潮玩"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-houixiang-wamiao/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T16:45:00",
+    "created_by": "Claude",
+    "version": "2.0",
+    "notes": "苗族银饰版本-黑底银饰配色，使用四视角底图"
+  }
+}

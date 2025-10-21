@@ -1,0 +1,49 @@
+# Environment variables
+.env
+*.env
+
+# API Keys and Secrets
+api/projects/figma-rest-api/selected_urls.json
+api/projects/figma-rest-api/.env.example
+api/projects/figma-rest-api/README.md
+scripts/archived/deprecated/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Output directories
+output/*/
+!output/.gitkeep
+.playwright-mcp/
+
+# Temporary files
+tmp/
+temp/
+*.tmp

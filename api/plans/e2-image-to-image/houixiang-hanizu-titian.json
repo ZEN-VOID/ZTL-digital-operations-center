@@ -1,0 +1,25 @@
+{
+  "agent_id": "E2",
+  "task_description": "哈尼族梯田风格-金黄层次配色",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171142_53_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将3D瓦猫改造为哈尼族梯田风格:\n\n【色调配置】\n- 主色调: 金黄色(#FFD700→#FFA500) - 成熟稻田的金黄渐变\n- 次要色: 翠绿色(#90EE90) - 幼苗的嫩绿\n- 点缀色: 土褐色(#8B4513)、天蓝(#87CEEB)\n- 水光: 银白色波光(#E0E0E0)\n\n【梯田装饰元素】\n1. 头部装饰:\n   - 层叠梯田造型头冠\n   - 额前: 太阳图案(象征丰收)\n   - 两侧: 稻穗飘带\n   - 头顶: 蘑菇房造型(哈尼族特色建筑)\n   \n2. 身体纹饰:\n   - 胸前: 层层梯田纹样(等高线效果)\n   - 四肢: 稻穗、水纹\n   - 背部: 梯田全景(俯瞰视角)\n   - 腰部: 水渠纹理\n   \n3. 梯田元素:\n   - 层次: 金黄梯田层层叠叠\n   - 水面: 银白色水光反射\n   - 稻穗: 饱满的稻穗垂坠\n   - 云雾: 山间云雾缭绕\n   - 农耕: 简化的劳作场景\n   \n4. 渐变效果:\n   - 从上至下: 嫩绿→浅黄→金黄\n   - 梯田边缘: 土褐色田埂\n   - 整体: 丰收喜悦、层次分明\n\n【整体风格】\n- 保持3D立体感\n- 金黄色为主调\n- 层次感强烈\n- 自然农耕美学\n- 哈尼族文化特色\n\n参考: 元阳梯田、哈尼族蘑菇房、稻作文化、丰收景象",
+    "edit_config": {
+      "strength": 0.75,
+      "preserve_structure": true,
+      "color_adjustment": true,
+      "style_reference": "哈尼梯田+金黄丰收+3D潮玩"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-houixiang-wamiao/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T18:00:00",
+    "created_by": "Claude",
+    "version": "3.0",
+    "notes": "哈尼族梯田版本-金黄层次配色"
+  }
+}

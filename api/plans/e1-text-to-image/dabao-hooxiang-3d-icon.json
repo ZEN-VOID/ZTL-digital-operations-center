@@ -1,0 +1,40 @@
+{
+  "agent_id": "E1",
+  "task_description": "生成HOO XIANG品牌的中餐米线店外卖打包3D ICON，包含品牌贴纸、打包盒、筷子、调料包等元素，Pixar卡通风格",
+  "input_data": {
+    "text_prompt": "A cute 3D cartoon icon of Chinese restaurant takeout packaging in Pixar style. Main subject: Q-version adorable takeout scene. Core elements: white or transparent plastic takeout box (round or square with lid slightly open), disposable chopsticks or chopstick wrapper, small seasoning packets (chili oil, vinegar, soy sauce), optional white takeout bag. BRAND IDENTITY - 'HOO XIANG' (IMPORTANT): a circular or square brand sticker/label on the front of the takeout box, clearly displaying 'HOO XIANG' in English, sticker design with deep blue (#2B4A7C) background + white (#FFFFFF) text OR white background + deep blue text, badge-style circular or label-style square shape, position at center-upper area of box front, highly visible, size occupies about 20-25% of box surface area for strong brand recognition. Scene composition: takeout box as main subject with lid slightly open, visible golden rice noodle soup, disposable chopsticks placed horizontally on box or inserted in bag, seasoning packets scattered nearby, steam rising from the box. Colors: white takeout box (#FFFAF0, #F5F5DC), transparent lid with highlights (#FFFFFF), golden soup (#FFD700) showing from box, wooden chopstick wrapper (#D2B48C), red chili oil packet (#DC143C), brand sticker with deep blue (#2B4A7C) background + white text OR white background + deep blue text. Textures: plastic box with glossy highlights, soft paper bag texture, plastic film on seasoning packets, matte or glossy brand sticker finish. Design details: steaming hot effect, typical disposable chopstick packaging, small seasoning packets, 'HOO XIANG' brand sticker clearly readable with modern clean font, round and cute takeout box. Viewing angle: 3/4 front view, slightly top-down, fully displaying the takeout scene and brand identity. Background: pure white or transparent. Size: 1024x1024px. Lighting: dual light source from top and 45-degree front. Design concept: brand sticker like real takeout box brand identity, maintaining Chinese rice noodle restaurant takeout culture characteristics, convenient, fresh, strong brand presence, unified style with dine-in icons, Pixar 3D cartoon aesthetics. Technical parameters: 3D rendering style, Pixar cartoon aesthetics, high-resolution details, commercial-grade quality, vector-level quality for icon design, 1:1 square ratio",
+    "design_type": "icon",
+    "style_keywords": ["3D icon", "Pixar style", "cartoon", "brand identity", "takeout packaging", "Chinese restaurant"],
+    "design_requirements": [
+      "清晰的'HOO XIANG'品牌贴纸，占打包盒表面20-25%",
+      "深蓝色(#2B4A7C)与白色(#FFFFFF)的品牌配色",
+      "Pixar 3D卡通美学，Q版可爱风格",
+      "1024x1024px 1:1正方形比例",
+      "矢量级质量，支持无限缩放",
+      "商业级质量标准",
+      "参考input\\吼巷\\设计\\IP\\微信图片_20250923171141_52_171.png的3D风格"
+    ]
+  },
+  "model_config": {
+    "model": "google/gemini-2.5-flash-image-preview",
+    "provider": {
+      "order": ["Google AI Studio"]
+    },
+    "generation_params": {
+      "temperature": 0.7,
+      "max_tokens": 4096
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/6-icon/",
+    "filename": "dabao-hooxiang-3d-icon.png",
+    "format": "png",
+    "resolution": "1:1"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T10:30:00",
+    "created_by": "E1-餐饮文生图AIGC智能体",
+    "version": "1.0",
+    "notes": "HOO XIANG品牌打包3D ICON，包含清晰品牌贴纸标识，Pixar卡通风格，矢量级图标质量"
+  }
+}

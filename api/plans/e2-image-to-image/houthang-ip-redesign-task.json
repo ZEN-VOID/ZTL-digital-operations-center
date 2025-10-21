@@ -1,0 +1,31 @@
+{
+  "agent_id": "E2",
+  "task_description": "吼巷IP形象改版设计：在保留原有深蓝色3D卡通猫咪风格的基础上，将耳朵从2只改为3只，并添加云南少数民族风情的白色纹身装饰。保持吼叫表情和Q版比例，自然融入民族文化元素。",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171141_52_171.png",
+    "operation_type": "local_edit",
+    "text_prompt": "深蓝色3D卡通猫咪IP改版设计，关键改动：1) 从头部长出第三只耳朵，三只耳朵均为尖三角形猫耳，和谐分布在头顶；2) 身体表面添加云南少数民族风格的白色装饰纹身，包含几何图案（三角形、菱形、波浪纹）、自然元素（太阳、月亮、山峰）、吉祥符号（火把、铜鼓、孔雀羽毛）和植物纹样（茶花、藤蔓），纹身精细流畅，分布在手臂、胸部和背部。保持原有：深蓝色光滑质感、夸张的张嘴吼叫表情、粉红色口腔、白色牙齿和眼睛、Q版卡通比例、3D立体渲染。整体风格现代可爱，民族元素自然融入，不破坏IP识别度。",
+    "edit_config": {
+      "preserve_structure": true,
+      "edit_strength": 0.7,
+      "style_guidance": "保留原有3D卡通风格和色彩，精确添加第三只耳朵和白色民族纹身",
+      "quality_level": "high",
+      "negative_prompt": "模糊、低质量、变形、破坏原有风格、不协调、纹身颜色错误、耳朵数量错误、失去可爱感"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-image-to-image/houthang-ip-redesign/",
+    "format": "png",
+    "quality": 95
+  },
+  "metadata": {
+    "created_at": "2025-10-11T15:30:00",
+    "created_by": "E2餐饮图生图AIGC智能体",
+    "version": "1.0",
+    "notes": "吼巷IP形象改版：三只耳朵 + 云南少数民族白色纹身。保留原有深蓝色3D卡通猫咪的核心识别元素和吼叫表情。",
+    "project": "吼巷品牌IP升级",
+    "reference_images": [
+      "input/吼巷/设计/IP/微信图片_20250923171141_52_171.png"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "agent_id": "E7",
+  "task_description": "角色一致性任务描述：保持品牌IP或吉祥物在不同场景中的一致性",
+  "input_data": {
+    "character_reference": "角色参考图片路径或URL，用于提取角色特征",
+    "scene_description": "新场景描述，例如：让品牌吉祥物出现在火锅店门口迎宾的场景中",
+    "consistency_level": "一致性等级：high（高度一致）、medium（中等）、flexible（灵活）"
+  },
+  "output_settings": {
+    "save_path": "output/images/e7-character-consistency/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "YYYY-MM-DDTHH:MM:SS",
+    "created_by": "智能体名称或用户名",
+    "version": "1.0",
+    "notes": "consistency_level说明：high保持角色完全一致，medium允许小幅调整，flexible允许风格化处理"
+  }
+}

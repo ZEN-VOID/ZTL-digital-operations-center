@@ -1,0 +1,44 @@
+{
+  "agent_id": "E2",
+  "task_description": "吼巷IP三视图设计 - 精确面部特征替换任务：保持当前满意的身体姿态和配色，将面部特征精确替换为目标图片（33_639.jpg）的特征，包括夸张的吼叫表情、眼睛形状、嘴巴张开程度、牙齿舌头展示、耳朵形状等核心识别点，达到90%+的面部相似度",
+  "input_data": {
+    "image_url": "output/images/e6-creative-combination/houthang-ip-fusion-three-views/houthang-ip-fusion-three-views-v1.png",
+    "operation_type": "local_edit",
+    "text_prompt": "Precise facial feature replacement for the restaurant IP character three-view design. Replace ONLY the facial features with exact characteristics from reference image (input/吼巷/设计/IP/微信图片_20251011163705_33_639.jpg).\n\nKEY FACIAL FEATURES TO MATCH (in order of importance):\n\n1. ROARING MOUTH EXPRESSION (CORE IDENTIFIER - 95% precision required):\n   - Exact mouth opening shape and degree (wide, exaggerated roaring)\n   - Precise teeth display pattern and arrangement\n   - Tongue position and shape (visible pink tongue)\n   - Inner mouth color (bright pink/red)\n   - Mouth corners and lip formation\n   - Overall roaring expression quality (joyful, exaggerated, characteristic)\n\n2. EYES (90% precision required):\n   - Exact eye shape (round/oval/elongated)\n   - Eye size and proportions\n   - Eye spacing and position on face\n   - Pupil and iris details\n   - Eye expression and emotion\n   - Surrounding eye area details\n\n3. EARS (if visible - 90% precision):\n   - Number of ears (note if THREE ears present in reference)\n   - Ear shape (triangular cat-like or other)\n   - Ear position and angle\n   - Ear size relative to head\n\n4. NOSE (85% precision):\n   - Nose shape and structure\n   - Nose size and position\n   - Nostril representation\n\n5. HEAD SHAPE AND PROPORTIONS (85% precision):\n   - Overall head shape and contour\n   - Head size relative to body (maintain coordination)\n   - Head-to-neck connection (natural transition)\n   - Facial feature layout (upper/middle/lower face proportions)\n\n6. FACIAL DETAILS (80% precision):\n   - Any whiskers or facial hair\n   - Facial patterns or decorative elements\n   - Facial texture and shading\n   - Light and shadow treatment on face\n\nPRESERVE 100% (absolutely no changes):\n- Body posture and stance\n- Limbs position and gesture\n- Body color scheme and patterns\n- Three-view layout format (front/side/back)\n- Background and environment\n- Overall character proportions (body only)\n\nEDIT STRATEGY:\n- Edit area: Face/head region ONLY\n- Edit strength: VERY HIGH (0.95) for facial similarity\n- Blend mode: Natural transition at neck connection\n- Quality goal: 90%+ facial similarity to reference image\n- Style consistency: Maintain cohesive cartoon/IP design style\n\nCRITICAL SUCCESS FACTORS:\n1. The roaring mouth expression must be EXTREMELY accurate - this is the character's signature feature\n2. Facial features must match reference at 90%+ similarity\n3. Body must remain 100% unchanged from current satisfactory version\n4. Head-to-body connection must look completely natural\n5. Overall design must feel unified, not like a face swap\n\nReference the exact facial characteristics from: input/吼巷/设计/IP/微信图片_20251011163705_33_639.jpg",
+    "edit_config": {
+      "edit_area": "face_head_region_only",
+      "edit_strength": 0.95,
+      "preserve_body": true,
+      "preserve_limbs": true,
+      "preserve_colors": true,
+      "preserve_layout": true,
+      "blend_mode": "natural_transition",
+      "reference_image": "input/吼巷/设计/IP/微信图片_20251011163705_33_639.jpg",
+      "similarity_target": 0.9,
+      "focus_areas": [
+        "roaring_mouth_expression",
+        "eyes_shape_position",
+        "ears_structure",
+        "nose_features",
+        "head_shape",
+        "facial_details"
+      ]
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-image-to-image/houthang-ip-face-precise-replacement/",
+    "format": "png",
+    "quality": 100
+  },
+  "metadata": {
+    "created_at": "2025-10-11T17:00:00",
+    "created_by": "E2-餐饮图生图AIGC智能体",
+    "version": "1.0",
+    "notes": "吼巷IP三视图设计 - 面部精确替换任务。核心目标：保持当前满意的身体姿态（v1版本），将面部特征精确替换为33_639.jpg的特征，特别是标志性的夸张吼叫表情。编辑强度设置为0.95以确保面部高相似度（90%+目标），同时100%保持身体、四肢、配色和三视图布局。重点关注吼叫嘴型、眼睛、耳朵等核心识别特征的精确匹配。",
+    "task_type": "precise_facial_replacement",
+    "base_image_version": "houthang-ip-fusion-three-views-v1",
+    "reference_image_id": "33_639",
+    "edit_scope": "face_only",
+    "preservation_scope": "body_limbs_colors_layout_100_percent"
+  }
+}

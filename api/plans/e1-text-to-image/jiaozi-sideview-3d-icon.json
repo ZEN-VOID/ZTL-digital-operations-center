@@ -1,0 +1,26 @@
+{
+  "agent_id": "E1",
+  "task_description": "生成饺子3D ICON - 侧视图版本，展示饺子褶皱层次和立体感",
+  "input_data": {
+    "text_prompt": "一个饺子的3D ICON，完美的侧视角度，Pixar风格Q版可爱造型。饺子呈半月形立起，洁白的面皮光滑有细腻的光泽，顶部的褶皱层层叠叠清晰可见，每道褶皱的立体感强烈，褶皱边缘有精致的捏痕纹理。饺子底部微微金黄，展现蒸煮后的焦香感。饺子周围环绕淡淡的热蒸汽。温暖的双光源系统（顶部+45度侧光），突出褶皱的立体层次和面皮的柔软质感。纯白色背景，无其他元素。超高细节度，商业级品质，1024x1024px",
+    "design_type": "icon",
+    "design_requirements": [
+      "Pixar 3D卡通风格，Q版可爱造型",
+      "完美的侧视角度，展示褶皱立体层次",
+      "品牌色系：白色陶瓷质感#F5F5DC，微金黄底部",
+      "双光源系统：顶部光+45度侧光",
+      "热蒸汽特效，营造新鲜感",
+      "纯白色背景，1024x1024px，PNG格式"
+    ]
+  },
+  "output_settings": {
+    "save_path": "output/images/icon-variations/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T17:00:00",
+    "created_by": "E1智能体",
+    "version": "2.0",
+    "notes": "HOO XIANG品牌饺子ICON侧视图变化版本，展示褶皱立体感"
+  }
+}

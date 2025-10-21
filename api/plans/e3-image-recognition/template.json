@@ -1,0 +1,23 @@
+{
+  "agent_id": "E3",
+  "task_description": "图片识别任务描述：分析图片内容、场景、质量等维度",
+  "input_data": {
+    "image_url": "图片路径或URL，例如：output/images/e1-text-to-image/sample.png",
+    "analysis_type": "分析类型：content（内容分析）、quality（质量评估）、scene（场景识别）、comprehensive（综合分析）",
+    "analysis_dimensions": [
+      "分析维度1：例如：食材识别",
+      "分析维度2：例如：色彩分析",
+      "分析维度3：例如：构图评估",
+      "分析维度4：例如：商业适用性"
+    ]
+  },
+  "output_settings": {
+    "save_path": "output/analysis/e3-image-recognition/",
+    "format": "json"
+  },
+  "metadata": {
+    "created_at": "YYYY-MM-DDTHH:MM:SS",
+    "created_by": "智能体名称或用户名",
+    "version": "1.0"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "agent_id": "E2",
+  "task_description": "京剧脸谱风格-多彩脸谱配色",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171142_53_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将3D瓦猫改造为京剧脸谱风格:\n\n【色调配置】\n- 主色调: 多彩混合(红#DC143C、黑#000000、白#FFFFFF、金#FFD700)\n- 脸谱: 对称彩绘图案\n- 点缀色: 蓝色(#0000FF)、绿色(#00FF00)\n- 金光: 金色描边\n\n【京剧脸谱元素】\n1. 头部装饰:\n   - 京剧帽翅(两侧竖立)\n   - 脸谱彩绘(对称图案)\n   - 额前: 太极/寿字图案\n   - 眉眼: 夸张脸谱眉眼\n   \n2. 脸谱图案:\n   - 红脸: 忠勇(关公风格)\n   - 黑脸: 正直(包公风格)\n   - 白脸: 奸诈(曹操风格)\n   - 金脸: 神圣(佛像风格)\n   - 对称: 完美左右对称\n   \n3. 京剧元素:\n   - 彩绘: 精细脸谱纹样\n   - 服饰: 京剧戏服纹理\n   - 云肩: 肩部装饰\n   - 水袖: 飘逸袖口\n   \n4. 戏曲美学:\n   - 色彩鲜艳\n   - 对称夸张\n   - 装饰华丽\n   - 戏曲韵味\n\n【整体风格】\n- 保持3D立体感\n- 多彩脸谱配色\n- 对称图案精美\n- 京剧艺术美\n- 国粹风范\n\n参考: 京剧脸谱、戏曲服饰、关公红脸、包公黑脸",
+    "edit_config": {
+      "strength": 0.85,
+      "preserve_structure": true,
+      "color_adjustment": true,
+      "style_reference": "京剧脸谱+多彩对称+3D潮玩"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-houixiang-wamiao/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T18:06:00",
+    "created_by": "Claude",
+    "version": "3.0",
+    "notes": "京剧脸谱版本-多彩对称配色"
+  }
+}

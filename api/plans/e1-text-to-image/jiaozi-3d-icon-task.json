@@ -1,0 +1,43 @@
+{
+  "agent_id": "E1",
+  "task_description": "生成Q版3D卡通饺子图标，3-5个叠放，Pixar风格，白色饺皮带高光，1024x1024px商业级质量",
+  "input_data": {
+    "text_prompt": "3D rendered icon of cute dumpling characters, 3-5 Chinese dumplings stacked together in playful arrangement, Pixar style 3D cartoon aesthetic, crescent moon shaped with clear pleated texture, white dough skin color (#F5F5DC) with ceramic glossy highlights, light gray shadow (#E8E8E8) in pleats, optional golden brown base (#FFD700), plump rounded Q-version proportions, smooth surface with warm luminous quality, clear visible pleated patterns, 3/4 front view angle, dual light source from top and 45-degree front, soft gradient shadows, commercial quality high-resolution rendering, pure white background, professional food icon design, appetizing presentation",
+    "design_type": "icon",
+    "style_keywords": [
+      "3D rendering",
+      "Pixar cartoon aesthetic",
+      "cute Q-version",
+      "ceramic glossy texture",
+      "food icon design",
+      "commercial quality",
+      "high-resolution detail",
+      "soft shadows",
+      "warm lighting"
+    ],
+    "negative_prompt": "flat design, 2D illustration, realistic photography, dark colors, dirty appearance, broken dumplings, messy arrangement, complex background, low quality, blurry, grainy"
+  },
+  "model_config": {
+    "model": "google/gemini-2.0-flash-exp:free",
+    "provider": {
+      "order": ["Google AI Studio"]
+    },
+    "generation_params": {
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_tokens": 4096
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/6-icon/",
+    "filename": "jiaozi-3d-icon.png",
+    "format": "png",
+    "resolution": "1024x1024"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T10:30:00",
+    "created_by": "E1-餐饮文生图AIGC智能体",
+    "version": "1.0",
+    "notes": "参考input/吼巷/设计/IP/微信图片_20250923171141_52_171.png的3D卡通风格，生成Q版可爱饺子图标"
+  }
+}

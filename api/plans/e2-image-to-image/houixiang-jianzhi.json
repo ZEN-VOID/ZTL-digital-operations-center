@@ -1,0 +1,25 @@
+{
+  "agent_id": "E2",
+  "task_description": "剪纸艺术风格-红色剪纸配色",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171141_52_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将3D瓦猫改造为剪纸艺术风格:\n\n【色调配置】\n- 主色调: 剪纸红(#E31C23) - 经典中国红\n- 次要色: 纸白色(#FFFAF0) - 镂空底色\n- 点缀色: 金色(#FFD700) - 金边装饰\n- 阴影: 浅灰色层次\n\n【剪纸装饰元素】\n1. 头部装饰:\n   - 镂空花纹头冠\n   - 对称剪纸图案\n   - 福字剪纸\n   - 蝴蝶剪纸耳饰\n   \n2. 身体纹饰:\n   - 全身: 精细镂空图案\n   - 花卉: 牡丹、莲花剪纸\n   - 动物: 蝴蝶、鸟类剪纸\n   - 吉祥: 福禄寿喜图案\n   \n3. 剪纸工艺:\n   - 镂空: 细腻镂空效果\n   - 对称: 完美对称图案\n   - 层次: 多层剪纸叠加\n   - 阴影: 剪纸投影效果\n   \n4. 民间艺术:\n   - 手工质感\n   - 喜庆吉祥\n   - 民俗风格\n   - 红色热烈\n\n【整体风格】\n- 保持3D立体感\n- 剪纸镂空效果\n- 红白对比强烈\n- 民间艺术美\n- 喜庆吉祥\n\n参考: 陕北剪纸、窗花、福字剪纸、民间艺术",
+    "edit_config": {
+      "strength": 0.8,
+      "preserve_structure": true,
+      "color_adjustment": true,
+      "style_reference": "剪纸艺术+镂空红纸+3D潮玩"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-houixiang-wamiao/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T18:05:00",
+    "created_by": "Claude",
+    "version": "3.0",
+    "notes": "剪纸艺术版本-红色剪纸配色"
+  }
+}

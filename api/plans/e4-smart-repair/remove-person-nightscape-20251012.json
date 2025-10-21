@@ -1,0 +1,30 @@
+{
+  "agent_id": "E4",
+  "task_description": "移除夜景照片中的人物，保留纯背景空镜",
+  "input_data": {
+    "image_url": "input/其他/微信图片_20251012022227_919_288.png",
+    "repair_type": "fill_content",
+    "repair_config": {
+      "target_area": "left_side_person",
+      "repair_method": "intelligent_fill",
+      "description": "移除画面左侧穿红色旗袍的女性人物，使用背景环境（沙发、墙面、灯光氛围）智能填充，保持夜晚城市霓虹灯光和窗外景色的氛围一致性",
+      "preserve_elements": [
+        "背景窗户和城市夜景",
+        "室内灯光氛围",
+        "沙发和家具",
+        "整体色调和氛围"
+      ],
+      "fill_quality": "high"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e4-fill_content/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-12T02:30:00",
+    "created_by": "EE智能体队长",
+    "version": "1.0",
+    "notes": "移除人物保留纯背景空镜，保持夜景氛围和灯光效果"
+  }
+}

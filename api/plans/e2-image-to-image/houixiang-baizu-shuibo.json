@@ -1,0 +1,25 @@
+{
+  "agent_id": "E2",
+  "task_description": "白族扎染风格-水波纹流动版本",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171305_56_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将3D瓦猫改造为白族扎染水波纹风格:\n\n【色调配置】\n- 主色调: 靛蓝渐变(深靛蓝#1E40AF→浅靛蓝#93C5FD)\n- 次要色: 纯白色(#FFFFFF)\n- 点缀色: 湖水蓝(#67E8F9)、冰川白(#F0F9FF)\n- 渐变: 蓝白交织,呈现水波流动感\n\n【扎染图案-水波主题】\n1. 头部装饰:\n   - 白族包头巾(同心圆水波纹)\n   - 额前: 涟漪纹银饰\n   - 头顶: 水滴造型装饰\n   - 两侧: 波浪形流苏\n   \n2. 身体扎染纹饰:\n   - 胸前: 大型同心圆水波纹\n   - 四肢: 流动的波浪线条\n   - 身体: 层层叠叠的水波纹理\n   - 背部: 洱海波纹图案\n   \n3. 扎染技法细节:\n   - 水波纹从中心向外辐射\n   - 蓝白色阶自然过渡\n   - 波纹线条流畅动感\n   - 整体呈现水墨晕染感\n   \n4. 银饰配件:\n   - 颈部: 波浪形银项链\n   - 耳部: 水滴形银耳坠\n   - 腰部: 水波纹腰带\n   \n【整体风格】\n- 保持3D立体感\n- 色彩流动有韵律\n- 水波纹理层次丰富\n- 扎染效果自然渐变\n- 整体宁静优雅\n\n参考: 洱海水波、白族扎染同心圆工艺、水墨美学",
+    "edit_config": {
+      "strength": 0.8,
+      "preserve_structure": true,
+      "color_adjustment": true,
+      "style_reference": "白族扎染水波纹+3D潮玩"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-houixiang-wamiao/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T11:02:00",
+    "created_by": "Claude",
+    "version": "2.0",
+    "notes": "白族扎染水波纹版本-蓝白渐变+流动感"
+  }
+}

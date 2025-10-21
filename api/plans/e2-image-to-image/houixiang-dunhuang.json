@@ -1,0 +1,25 @@
+{
+  "agent_id": "E2",
+  "task_description": "敦煌壁画风格-土黄金配色",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171141_52_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将3D瓦猫改造为敦煌壁画风格:\n\n【色调配置】\n- 主色调: 土黄色(#D2691E) - 壁画古旧色\n- 次要色: 赭石色(#8B4513) - 石窟岩壁\n- 点缀色: 金色(#FFD700)、朱砂(#DC143C)、石绿(#2E8B57)\n- 古旧: 斑驳质感效果\n\n【敦煌壁画元素】\n1. 头部装饰:\n   - 飞天宝冠\n   - 额前: 白毫相(佛像标志)\n   - 两侧: 飘带飞舞\n   - 头光: 金色圆光\n   \n2. 身体纹饰:\n   - 飞天: 飘逸飞舞姿态\n   - 莲花: 菩萨座莲\n   - 璎珞: 佛教饰物\n   - 藻井: 敦煌藻井图案\n   \n3. 壁画元素:\n   - 飞天: 优美飞舞线条\n   - 菩萨: 慈悲庄严\n   - 莲花: 圣洁莲花\n   - 祥云: 佛光祥云\n   - 古旧: 壁画斑驳感\n   \n4. 佛教美学:\n   - 庄严神圣\n   - 古朴雅致\n   - 壁画质感\n   - 千年沧桑\n\n【整体风格】\n- 保持3D立体感\n- 土黄古旧配色\n- 壁画斑驳质感\n- 佛教艺术美\n- 敦煌韵味\n\n参考: 敦煌莫高窟、飞天壁画、藻井图案、佛教艺术",
+    "edit_config": {
+      "strength": 0.8,
+      "preserve_structure": true,
+      "color_adjustment": true,
+      "style_reference": "敦煌壁画+土黄古旧+3D潮玩"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-houixiang-wamiao/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T18:07:00",
+    "created_by": "Claude",
+    "version": "3.0",
+    "notes": "敦煌壁画版本-土黄古旧配色"
+  }
+}

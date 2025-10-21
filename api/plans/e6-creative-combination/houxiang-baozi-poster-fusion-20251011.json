@@ -1,0 +1,42 @@
+{
+  "agent_id": "E6",
+  "task_description": "融合吼巷包子两张海报风格创作新海报",
+  "input_data": {
+    "source_images": [
+      "input/吼巷/设计/海报/A1.jpg",
+      "input/吼巷/设计/海报/1.jpg"
+    ],
+    "fusion_type": "style_blend",
+    "fusion_config": {
+      "target_content": "吼巷包子品牌海报",
+      "brand_elements": {
+        "logo_text": "HOUXIANG BAOZI",
+        "brand_name": "吼巷包子"
+      },
+      "style_guidance": "融合两张参考海报的视觉风格、色彩方案和设计元素,创作全新的吼巷包子主题海报",
+      "fusion_strategy": {
+        "color_scheme": "提取两张海报的配色方案并融合",
+        "design_elements": "结合两张海报的设计元素(排版、装饰、图案等)",
+        "visual_hierarchy": "保持清晰的视觉层次,突出品牌名称和Logo",
+        "mood": "传达包子美食的诱人感和品牌的独特个性"
+      },
+      "quality_requirements": [
+        "保持两张参考海报的优秀设计特质",
+        "创作具有新意的独特视觉效果",
+        "确保Logo文字'HOUXIANG BAOZI'清晰可读",
+        "营造强烈的食欲诱导力和品牌辨识度"
+      ]
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e6-creative-combination/",
+    "format": "png",
+    "quality": 95
+  },
+  "metadata": {
+    "created_at": "2025-10-11T11:30:00",
+    "created_by": "EE智能体队长",
+    "version": "1.0",
+    "notes": "基于用户提供的两张吼巷海报(A1.jpg和1.jpg)进行风格融合创作"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "agent_id": "E2",
+  "task_description": "中国龙纹风格-金红龙纹配色",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171141_52_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将3D瓦猫改造为中国龙纹风格:\n\n【色调配置】\n- 主色调: 帝王金(#FFD700) - 皇家金色\n- 次要色: 朱砂红(#DC143C) - 龙袍红\n- 点缀色: 黑色(#000000)、橙色(#FF8C00)\n- 金光: 强烈金属光泽\n\n【龙纹装饰元素】\n1. 头部装饰:\n   - 龙角头冠(威严造型)\n   - 额前: 龙珠图案(火焰环绕)\n   - 两侧: 龙须飘带\n   - 头顶: 龙鳞纹理\n   \n2. 身体纹饰:\n   - 全身: 盘龙缠绕图案\n   - 胸前: 双龙戏珠\n   - 四肢: 龙爪纹样\n   - 背部: 九龙腾云\n   \n3. 龙纹元素:\n   - 龙身: 金色盘旋龙身\n   - 龙鳞: 层层鳞片\n   - 龙爪: 五爪金龙\n   - 祥云: 龙腾云间\n   - 火焰: 龙珠火焰\n   \n4. 皇家气质:\n   - 威严霸气\n   - 金光闪耀\n   - 帝王尊贵\n   - 龙纹精细\n\n【整体风格】\n- 保持3D立体感\n- 金红皇家配色\n- 龙纹精细复杂\n- 威严霸气\n- 中国皇家美学\n\n参考: 故宫龙袍、九龙壁、皇家纹样、帝王气象",
+    "edit_config": {
+      "strength": 0.85,
+      "preserve_structure": true,
+      "color_adjustment": true,
+      "style_reference": "中国龙纹+金红皇家+3D潮玩"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-houixiang-wamiao/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T18:03:00",
+    "created_by": "Claude",
+    "version": "3.0",
+    "notes": "中国龙纹版本-金红皇家配色"
+  }
+}

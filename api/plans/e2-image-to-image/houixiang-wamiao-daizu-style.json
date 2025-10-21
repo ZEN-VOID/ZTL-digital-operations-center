@@ -1,0 +1,25 @@
+{
+  "agent_id": "E2",
+  "task_description": "瓦猫IP傣族孔雀风格改造-深度融合傣族文化元素",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171305_56_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将3D瓦猫改造为傣族孔雀文化风格:\n\n【整体色调调整】\n- 主色调: 翠绿色/孔雀绿(傣族标志色)\n- 次要色: 金黄色(佛教元素/金色孔雀羽)\n- 点缀色: 宝石蓝、紫红色(孔雀羽毛色)\n\n【傣族文化装饰元素】\n1. 头部装饰:\n   - 孔雀羽冠(扇形展开)\n   - 金色佛塔尖顶装饰\n   - 绿宝石额饰\n   \n2. 身体纹饰:\n   - 胸前: 孔雀开屏图案\n   - 四肢: 孔雀羽毛纹、象纹\n   - 背部: 金色佛教纹饰\n   \n3. 配饰元素:\n   - 颈部: 金色佛教项链\n   - 腰部: 孔雀羽毛编织腰带\n   - 尾部: 孔雀尾羽装饰\n   \n【风格特征】\n- 保持3D立体感\n- 色彩华丽富贵\n- 孔雀元素优雅灵动\n- 金色点缀奢华\n- 整体端庄典雅\n\n参考: 傣族孔雀舞、泼水节、佛教文化、金色佛塔",
+    "edit_config": {
+      "strength": 0.75,
+      "preserve_structure": true,
+      "color_adjustment": true,
+      "style_reference": "傣族孔雀文化+3D潮玩"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-houixiang-wamiao/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T10:52:00",
+    "created_by": "Claude",
+    "version": "1.0",
+    "notes": "傣族孔雀风格-翠绿金配色体系"
+  }
+}

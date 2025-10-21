@@ -1,0 +1,25 @@
+{
+  "agent_id": "E2",
+  "task_description": "青花瓷风格-蓝白瓷器配色",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171142_53_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将3D瓦猫改造为青花瓷风格:\n\n【色调配置】\n- 主色调: 青花蓝(#1E3A8A) - 经典钴蓝色\n- 次要色: 瓷白色(#F8F8FF) - 白瓷底色\n- 点缀色: 深蓝(#000080)、灰蓝(#6495ED)\n- 釉光: 瓷器光泽质感\n\n【青花瓷装饰元素】\n1. 头部装饰:\n   - 缠枝牡丹头冠\n   - 额前: 回纹边框\n   - 两侧: 如意云纹\n   - 头顶: 宝相花\n   \n2. 身体纹饰:\n   - 胸前: 龙凤呈祥图案\n   - 四肢: 缠枝莲花\n   - 颈部: 回纹项圈\n   - 背部: 山水留白\n   \n3. 青花图案:\n   - 牡丹: 层层花瓣\n   - 莲花: 优雅莲瓣\n   - 云纹: 卷曲祥云\n   - 回纹: 几何边框\n   - 留白: 中国画意境\n   \n4. 瓷器质感:\n   - 釉面光泽\n   - 青花浓淡晕染\n   - 白瓷底色纯净\n   - 古典雅致\n\n【整体风格】\n- 保持3D立体感\n- 瓷器质感强烈\n- 青花蓝白对比\n- 中国传统美学\n- 典雅高贵\n\n参考: 景德镇青花瓷、明代瓷器、缠枝纹样、留白美学",
+    "edit_config": {
+      "strength": 0.8,
+      "preserve_structure": true,
+      "color_adjustment": true,
+      "style_reference": "青花瓷+蓝白瓷器+3D潮玩"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-houixiang-wamiao/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T18:02:00",
+    "created_by": "Claude",
+    "version": "3.0",
+    "notes": "青花瓷版本-蓝白瓷器配色"
+  }
+}

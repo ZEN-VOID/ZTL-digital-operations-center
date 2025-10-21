@@ -1,0 +1,31 @@
+{
+  "agent_id": "E1",
+  "task_description": "生成带有'HOO XIANG'品牌标识的堂食3D ICON图 - 中餐米线店就餐场景，Pixar卡通风格",
+  "input_data": {
+    "text_prompt": "A cute 3D Pixar-style cartoon icon of a Chinese noodle restaurant dining scene. Main elements: A white ceramic bowl filled with steaming golden rice noodles in rich broth (color #FFD700), chopsticks (bamboo texture #D2B48C) placed across the bowl edge, miniature condiment bottles set (red chili oil bottle #DC143C, dark brown vinegar bottle #654321, soy sauce bottle) arranged beside the bowl, all placed on a rich red-wood dining table (colors #8B4513, #A0522D) with visible wood grain texture. BRAND IDENTITY: A small elegant table sign at the table corner prominently displaying 'HOO XIANG' in clear blue text (#2B4A7C) on white/cream background (#FFFFFF), designed as a refined standing sign or round identification plate, occupying 10-15% of the icon area, positioned at front or side of table without blocking main elements. Scene captured from 3/4 overhead view showing complete dining setup and brand sign. Steam wisps rising from hot noodles. Textures: glossy ceramic bowl with highlights, natural bamboo chopsticks, smooth wood table grain, plastic/acrylic brand sign material. Lighting: dual light sources from top and 45-degree front creating soft shadows. Pure white or transparent background. Pixar 3D cartoon aesthetic with warm, authentic, brand-focused atmosphere. Commercial quality rendering. 1024x1024px square format.",
+    "style_keywords": ["3D icon design", "Pixar cartoon style", "Chinese restaurant branding", "dining scene", "brand identity"],
+    "negative_prompt": "blurry brand name, unreadable text, 2D flat design, realistic photography, dark atmosphere, cluttered composition, unclear brand sign, messy background"
+  },
+  "model_config": {
+    "model": "google/gemini-2.5-flash-image-preview",
+    "provider": {
+      "order": ["Google AI Studio"]
+    },
+    "generation_params": {
+      "aspect_ratio": "1:1",
+      "quality": "high",
+      "style": "3d_cartoon"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/6-icon/",
+    "filename": "tangshi-hooxiang-3d-icon.png",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T10:30:00",
+    "created_by": "E1-餐饮文生图AIGC智能体",
+    "version": "1.0",
+    "notes": "带有HOO XIANG品牌标识的堂食场景3D图标，Pixar卡通风格，品牌桌牌清晰可见"
+  }
+}

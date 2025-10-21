@@ -1,0 +1,51 @@
+{
+  "agent_id": "E2",
+  "task_description": "修改吼巷海报:更换Logo+蓝底配色+白色粉笔质感",
+  "input_data": {
+    "image_url": "input/吼巷/设计/海报/1.jpg",
+    "operation_type": "local_edit",
+    "text_prompt": "修改这张海报设计,保持整体构图和版式不变,进行以下调整:\n1. 将Logo文字替换为'HOUXIANG BAOZI'\n2. 将背景色改为深蓝色调\n3. 将包子部分改为白色粉笔手绘质感效果\n4. 保持海报的整体风格和设计感\n5. 确保文字清晰可读,视觉层次分明",
+    "edit_config": {
+      "edit_areas": [
+        {
+          "target": "Logo文字",
+          "modification": "替换为'HOUXIANG BAOZI'",
+          "requirement": "保持Logo的位置、大小和风格,仅更换文字内容"
+        },
+        {
+          "target": "背景色",
+          "modification": "改为深蓝色调",
+          "requirement": "整体背景采用蓝色系,营造专业稳重的氛围"
+        },
+        {
+          "target": "包子元素",
+          "modification": "白色粉笔手绘质感",
+          "requirement": "包子部分采用白色,呈现粉笔在黑板上手绘的质感效果,保持包子的形态和细节"
+        }
+      ],
+      "preservation_requirements": [
+        "保持原海报的整体构图和版式设计",
+        "保持设计元素的位置关系",
+        "保持视觉层次和排版结构",
+        "确保修改后的海报依然具有专业设计感"
+      ],
+      "style_guidance": {
+        "color_scheme": "深蓝色背景 + 白色粉笔质感包子 + 其他装饰元素适配",
+        "texture": "粉笔手绘质感(chalk drawing texture)",
+        "mood": "专业、温馨、手工感",
+        "visual_balance": "保持色彩对比度和视觉平衡"
+      }
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-local_edit/",
+    "format": "png",
+    "quality": 95
+  },
+  "metadata": {
+    "created_at": "2025-10-11T11:40:00",
+    "created_by": "EE智能体队长",
+    "version": "1.0",
+    "notes": "基于1.jpg进行精确修改:Logo、配色、质感三项调整"
+  }
+}

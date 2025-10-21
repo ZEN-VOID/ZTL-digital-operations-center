@@ -1,0 +1,19 @@
+{
+  "agent_id": "E9",
+  "task_description": "超分增强任务描述：将图片提升到印刷级质量，增强分辨率和细节",
+  "input_data": {
+    "image_url": "原始图片路径或URL，例如：output/images/e1-text-to-image/sample.png",
+    "target_resolution": "目标分辨率，例如：4096x4096、8K、print_quality（可选，不填则自动计算）",
+    "enhancement_level": "增强等级：low（低）、medium（中）、high（高）、ultra（超高）"
+  },
+  "output_settings": {
+    "save_path": "output/images/e9-super-resolution/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "YYYY-MM-DDTHH:MM:SS",
+    "created_by": "智能体名称或用户名",
+    "version": "1.0",
+    "notes": "enhancement_level说明：low适合网页展示，medium适合高清屏幕，high适合大幅打印，ultra适合专业印刷"
+  }
+}

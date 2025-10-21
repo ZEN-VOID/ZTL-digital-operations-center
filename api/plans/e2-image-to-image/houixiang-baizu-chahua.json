@@ -1,0 +1,25 @@
+{
+  "agent_id": "E2",
+  "task_description": "白族扎染风格-茶花纹华丽版本",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171305_56_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将3D瓦猫改造为白族扎染茶花纹风格:\n\n【色调配置】\n- 主色调: 经典靛蓝色(#2563EB)\n- 次要色: 纯白色(#FFFFFF)\n- 点缀色: 高光银(#D1D5DB)、珠光白(#F9FAFB)\n- 金属感: 银饰高光明显\n\n【扎染图案-茶花主题】\n1. 头部装饰:\n   - 白族茶花头冠(立体花瓣)\n   - 额前: 大理茶花银饰(精致雕刻)\n   - 头顶: 多层银饰钗(茶花造型)\n   - 两侧: 华丽银流苏(珠串+铃铛)\n   \n2. 身体扎染纹饰:\n   - 胸前: 盛开茶花(多瓣重叠晕染)\n   - 四肢: 茶花枝叶纹\n   - 身体: 茶花花瓣散落图案\n   - 背部: 茶花满枝纹\n   \n3. 扎染技法细节:\n   - 茶花花瓣层次分明\n   - 花蕊部分深色,花瓣渐变至白\n   - 叶片纹理清晰\n   - 整体呈现富贵典雅感\n   \n4. 银饰配件强化:\n   - 颈部: 多层银项链(茶花锁骨链)\n   - 耳部: 大型茶花银耳环\n   - 手腕: 宽版银手镯(茶花雕刻)\n   - 胸针: 茶花造型银胸针\n   - 腰带: 银质茶花腰链\n   \n【整体风格】\n- 保持3D立体感和高级质感\n- 银饰数量丰富,金属光泽明显\n- 茶花图案精致华丽\n- 扎染与银饰完美结合\n- 整体端庄富贵\n\n参考: 大理茶花(山茶花之乡)、白族银饰文化、富贵典雅美学",
+    "edit_config": {
+      "strength": 0.8,
+      "preserve_structure": true,
+      "color_adjustment": true,
+      "style_reference": "白族扎染茶花纹+白族银饰+3D潮玩"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-houixiang-wamiao/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T11:03:00",
+    "created_by": "Claude",
+    "version": "2.0",
+    "notes": "白族扎染茶花纹版本-靛蓝配色+银饰华丽化"
+  }
+}

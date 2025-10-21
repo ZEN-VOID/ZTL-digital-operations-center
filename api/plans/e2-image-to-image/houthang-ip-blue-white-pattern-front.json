@@ -1,0 +1,46 @@
+{
+  "agent_id": "E2",
+  "task_description": "吼巷IP蓝白配色花纹优化-正面视图：保持精确造型，改变配色为蓝白相间，添加装饰花纹，增强层次感",
+  "input_data": {
+    "image_url": "output/images/e5-structure-control/houthang-ip-shape-replacement/houthang-ip-shape-replacement-v1.png",
+    "reference_image": "input/吼巷/设计/IP/微信图片_20251011163706_34_639.jpg",
+    "operation_type": "style_transfer",
+    "operation_params": {
+      "style_description": "蓝白配色+装饰花纹",
+      "color_scheme": {
+        "primary": "深蓝色（保持主调）",
+        "secondary": "白色或米白色",
+        "accent": "浅蓝色装饰",
+        "distribution": "身体主体深蓝，腹部/胸部白色，四肢蓝白相间，脸部白色+粉红口腔"
+      },
+      "pattern_design": {
+        "style": "几何图案+云南民族图腾+抽象纹样",
+        "color": "白色或浅蓝色",
+        "position": "手臂、腿部、背部、头部",
+        "texture": "精细流畅，手绘感"
+      },
+      "texture_optimization": {
+        "reference": "陶瓷版纹理细节",
+        "maintain": "3D卡通质感（非陶瓷）",
+        "surface": "细微纹理+光滑效果",
+        "lighting": "增强光影层次感"
+      },
+      "structure_preservation": "100%",
+      "view_angle": "正面视图（Front View）",
+      "preserve_structure": true,
+      "strength": 0.65,
+      "additional_prompt": "3D cartoon character, blue and white color scheme, decorative patterns on body, geometric and ethnic totem designs, smooth texture with subtle details, enhanced lighting and shading, maintain exact original pose and body shape, front view, high quality render"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-image-to-image/houthang-ip-blue-white-pattern/",
+    "format": "png",
+    "filename_prefix": "houthang-ip-blue-white-front"
+  },
+  "metadata": {
+    "created_at": "2025-10-11T17:30:00",
+    "created_by": "E2-餐饮图生图AIGC智能体",
+    "version": "1.0",
+    "notes": "方案A第一步：正面视图，保持造型100%，改变配色为蓝白+花纹"
+  }
+}

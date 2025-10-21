@@ -1,0 +1,23 @@
+{
+  "agent_id": "E2",
+  "task_description": "图生图任务描述：对现有图片进行风格转换、优化或修改",
+  "input_data": {
+    "image_url": "图片路径或URL，例如：output/images/e1-text-to-image/sample.png",
+    "operation_type": "操作类型：style_transfer（风格迁移）、optimization（优化）、variation（变体生成）",
+    "operation_params": {
+      "style_reference": "风格参考描述或图片路径（可选）",
+      "strength": 0.8,
+      "preserve_structure": true,
+      "additional_prompt": "额外的文字指导（可选）"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-image-to-image/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "YYYY-MM-DDTHH:MM:SS",
+    "created_by": "智能体名称或用户名",
+    "version": "1.0"
+  }
+}

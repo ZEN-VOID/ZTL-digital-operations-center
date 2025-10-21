@@ -1,0 +1,26 @@
+{
+  "agent_id": "E2",
+  "task_description": "将3D瓦猫IP转换为扁平化潮玩风格-变体2深绿色招福风格",
+  "input_data": {
+    "image_url": "D:\\@ZEN-VOID\\ZTL\\ZTL-AI-Powered-Digital-Design\\input\\吼巷\\设计\\IP\\微信图片_20250923171305_56_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将深蓝色3D瓦猫IP形象转换为深绿色扁平化2D潮玩风格设计。要求：1)将主色调改为深绿色系(深绿#2d6e4e、翠绿#5cb85c、橙色#ff8c42点缀)；2)粗黑色描边(3-5px)；3)大色块扁平化填充，无渐变；4)添加对称式梅花或星星装饰(耳朵梅花纹、额头火焰宝石、身体祥云纹)；5)星星眼表情，大嘴巴张开露牙，手持祥云或如意；6)类似LING YUN Poster Design系列NO.02瑞猫呈祥的潮流风格；7)正面对称构图，坐姿或站姿；8)背景添加深绿色祥云纹样；9)整体风格类似A2海报(瑞猫呈祥主题)的扁平化插画语言",
+    "style_reference": "A2海报-瑞猫呈祥风格：深绿色系、星星眼、大嘴巴、祥云纹、橙色点缀",
+    "edit_config": {
+      "style_strength": 0.85,
+      "preserve_character": true,
+      "color_palette": ["#2d6e4e", "#5cb85c", "#ff8c42", "#ffd700", "#000000"],
+      "art_style": "flat design, thick black outline, Chinese auspicious pattern, star eyes, trendy toy style, symmetrical"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-image-to-image/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T16:05:00",
+    "created_by": "EE智能体队长",
+    "version": "1.0",
+    "notes": "变体2-深绿色招福风格，参考A2海报瑞猫呈祥主题"
+  }
+}

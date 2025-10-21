@@ -1,0 +1,24 @@
+{
+  "agent_id": "E2",
+  "task_description": "将美国国庆主题海报转换为Pixar 3D视觉风格",
+  "input_data": {
+    "image_url": "../../../output/images/advanced-style-transfer/style-transfer_poster_image_20250926_161539_1_ref_poster_image_20250926_161539_1_20250926_165701_1.png",
+    "operation_type": "style_transfer",
+    "operation_params": {
+      "style_reference": "Pixar 3D style with depth and dimensionality, enhance visual elements while preserving text readability",
+      "strength": 0.65,
+      "preserve_structure": true,
+      "additional_prompt": "Transform this American patriotic poster into Pixar 3D style. Add depth and 3D effects to decorative elements (American flags, ribbons, borders, liberty bell icon), while keeping all text elements clear and readable (\"我夫向花\", \"国试寿糕\", \"Taste American\", etc.). Enhance the vintage parchment background with subtle 3D texture. Maintain the overall patriotic color scheme (red, blue, gold). Keep promotional text and phone number clear. 1024x1024px, commercial quality."
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/3d-icon-converted/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T18:10:00",
+    "created_by": "E2智能体",
+    "version": "1.0",
+    "notes": "HOO XIANG品牌美国国庆主题海报3D转换"
+  }
+}

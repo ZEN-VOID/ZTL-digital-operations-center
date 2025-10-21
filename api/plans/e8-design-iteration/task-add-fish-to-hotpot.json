@@ -1,0 +1,47 @@
+{
+  "plan_version": "1.0",
+  "agent_id": "E8",
+  "operation_type": "design_iteration",
+  "task_description": "在火锅海报的锅里面添加一条鱼，保持原有设计风格和食欲感",
+
+  "input_data": {
+    "base_image": "output/images/e6-creative_combination/e6_creative_combination_20251011_003014_1.png",
+    "iteration_instructions": "在火锅的汤里面加入一条鱼，要求：1）鱼的大小和位置要自然，与锅内现有食材（豆腐、金针菇、肉片）协调；2）鱼要有食欲感，色泽鲜美；3）保持原有的红油火锅风格；4）鱼可以部分浸在汤里，露出部分身体增加层次感",
+    "focus_areas": [
+      "火锅锅内区域",
+      "食材层次感",
+      "整体食欲诱导力",
+      "色彩协调性"
+    ],
+    "iteration_config": {
+      "iteration_type": "content_addition",
+      "intensity": "moderate",
+      "preserve_style": true,
+      "user_feedback": "在锅里面加一条鱼"
+    }
+  },
+
+  "model_config": {
+    "model": "google/gemini-2.5-flash-image-preview",
+    "provider": {
+      "order": ["Google AI Studio"]
+    },
+    "generation_params": {
+      "temperature": 0.7,
+      "top_p": 0.95
+    }
+  },
+
+  "output_settings": {
+    "format": "png",
+    "save_path": "output/images/8-design-iteration/content-addition/",
+    "naming_pattern": "add_fish_to_hotpot_{timestamp}.png"
+  },
+
+  "metadata": {
+    "created_at": "2025-10-11T00:45:00Z",
+    "created_by": "EE",
+    "original_task": "用户反馈：在锅里面加一条鱼",
+    "tags": ["设计迭代", "内容添加", "火锅海报", "食材优化"]
+  }
+}

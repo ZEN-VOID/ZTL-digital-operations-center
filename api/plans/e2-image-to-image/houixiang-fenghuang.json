@@ -1,0 +1,25 @@
+{
+  "agent_id": "E2",
+  "task_description": "凤凰图腾风格-红橙金凤凰配色",
+  "input_data": {
+    "image_url": "input/吼巷/设计/IP/微信图片_20250923171142_53_171.png",
+    "operation_type": "style_transfer",
+    "text_prompt": "将3D瓦猫改造为凤凰图腾风格:\n\n【色调配置】\n- 主色调: 凤凰红(#FF4500) - 火焰红橙\n- 次要色: 金黄色(#FFD700) - 金色羽毛\n- 点缀色: 橙色(#FF8C00)、朱红(#DC143C)\n- 火焰: 渐变火焰效果\n\n【凤凰装饰元素】\n1. 头部装饰:\n   - 凤冠(华丽羽冠)\n   - 额前: 凤眼图案\n   - 两侧: 长尾羽飘带\n   - 头顶: 火焰纹样\n   \n2. 身体纹饰:\n   - 全身: 凤凰羽毛纹理\n   - 翅膀: 层层羽毛渐变\n   - 尾羽: 华丽长尾\n   - 火焰: 涅槃重生火焰\n   \n3. 凤凰元素:\n   - 羽毛: 红橙金渐变\n   - 尾翼: 优美曲线\n   - 火焰: 环绕身体\n   - 祥云: 凤舞九天\n   \n4. 神鸟气质:\n   - 优雅高贵\n   - 火焰生机\n   - 华丽绚烂\n   - 吉祥瑞气\n\n【整体风格】\n- 保持3D立体感\n- 红橙金火焰配色\n- 羽毛层次丰富\n- 优雅神圣\n- 中国神鸟美学\n\n参考: 凤凰传说、涅槃重生、皇后凤冠、吉祥神鸟",
+    "edit_config": {
+      "strength": 0.8,
+      "preserve_structure": true,
+      "color_adjustment": true,
+      "style_reference": "凤凰图腾+火焰羽毛+3D潮玩"
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/e2-houixiang-wamiao/",
+    "format": "png"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T18:04:00",
+    "created_by": "Claude",
+    "version": "3.0",
+    "notes": "凤凰图腾版本-红橙金火焰配色"
+  }
+}

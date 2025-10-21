@@ -1,0 +1,54 @@
+{
+  "agent_id": "E1",
+  "task_description": "生成Q版3D卡通风格的烤鸡腿ICON，金黄诱人，圆润可爱，具有Pixar卡通美学和商业级质量",
+  "input_data": {
+    "text_prompt": "A cute 3D rendered chicken drumstick icon in Pixar cartoon style, Q-version adorable design. Golden-brown crispy skin with glossy shine (#FFB347, #FFA500), caramel-colored grill marks (#8B4513), white highlights (#FFFFFF), beige bone part at bottom (#F5F5DC). Round and plump shape, slightly tapered from top to bottom. High-gloss plastic/ceramic texture with appetizing sheen. Clear visible bone part. 3/4 front view angle, slightly tilted. Pure white or transparent background. Top and 45-degree front dual lighting. Professional 3D rendering, ultra-high resolution, commercial food photography quality, appetizing and delicious appearance.",
+    "design_type": "icon",
+    "design_requirements": [
+      "3D渲染风格，Pixar卡通美学",
+      "Q版可爱，圆润饱满的鸡腿造型",
+      "金黄色外皮，焦糖色烤痕，高光质感",
+      "表面油亮光泽，略带烤制纹理",
+      "骨头部分清晰可见",
+      "3/4正面视角，略微倾斜",
+      "纯白色或透明背景",
+      "1024x1024px正方形比例",
+      "双光源照明（顶部+前方45度）",
+      "商业级高分辨率质量"
+    ],
+    "style_keywords": [
+      "3D rendering",
+      "Pixar style",
+      "cute Q-version",
+      "food icon",
+      "glossy texture",
+      "cartoon aesthetic",
+      "commercial quality"
+    ],
+    "negative_prompt": "flat, 2D, realistic photo, blurry, low quality, distorted shape, dull colors, no highlights, messy background, poor lighting"
+  },
+  "model_config": {
+    "model": "google/gemini-2.0-flash-exp:free",
+    "provider": {
+      "order": ["Google AI Studio"]
+    },
+    "generation_params": {
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "max_tokens": 4096
+    }
+  },
+  "output_settings": {
+    "save_path": "output/images/1-poster/",
+    "filename": "jitui-3d-icon.png",
+    "format": "png",
+    "resolution": "1024x1024"
+  },
+  "metadata": {
+    "created_at": "2025-10-15T10:30:00",
+    "created_by": "E1-餐饮文生图AIGC智能体",
+    "version": "1.0",
+    "notes": "3D卡通风格鸡腿ICON，参考input/吼巷/设计/IP/微信图片_20250923171141_52_171.png风格",
+    "reference_image": "input/吼巷/设计/IP/微信图片_20250923171141_52_171.png"
+  }
+}
