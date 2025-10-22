@@ -1,8 +1,10 @@
 ---
 name: "跨工作区项目内容同步"
 description: "实现多工作区项目间的文件/文件夹智能同步，基于配置文件进行目标识别和批量操作"
-version: "2.0.1"
-last_updated: "2025-10-10"
+allowed-tools: Read, Write, Edit, Bash, Grep, Glob
+argument-hint: "<路径1> [路径2] [...] [--参数]"
+version: "2.0.2"
+last_updated: "2025-10-22"
 category: "system"
 type: "transitive"
 usage: "/P <路径1> [路径2] [...] [--参数]"
@@ -2273,6 +2275,6 @@ def verify_logs(log_dir: Path) -> bool:
 
 ---
 
-**指令版本**: v2.0.0
-**最后更新**: 2025-09-30
-**维护原则**: 安全第一、智能识别、用户友好
+**指令版本**: v2.0.2
+**最后更新**: 2025-10-22
+**维护原则**: 安全第一、智能识别、用户友好、规范化

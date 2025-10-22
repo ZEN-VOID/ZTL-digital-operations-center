@@ -1,8 +1,10 @@
 ---
 name: GitHub仓库创建与同步
 description: 自动化GitHub仓库创建、初始化和首次推送流程，支持公开/私有仓库配置
-version: 2.0.0
-last_updated: 2025-09-30
+allowed-tools: Bash, Read, Write
+argument-hint: ""
+version: 3.1.0
+last_updated: 2025-10-22
 ---
 
 # GitHub仓库创建与同步
@@ -591,7 +593,7 @@ git status
 
 ---
 
-**配置版本**: v3.0.0
-**更新时间**: 2025-10-21
-**维护原则**: 自动化、一致性、准确性
-**主要变更**: 从GitHub MCP迁移到GitHub CLI (gh)
+**配置版本**: v3.1.0
+**更新时间**: 2025-10-22
+**维护原则**: 自动化、一致性、准确性、规范化
+**主要变更**: 规范化front matter配置，新增allowed-tools和argument-hint字段

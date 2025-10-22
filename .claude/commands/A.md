@@ -1,8 +1,10 @@
 ---
 name: ASDW学习系统 - What (是什么)
 description: ASDW学习系统第一步，通过现状考察和目标识别建立项目认知基础
-version: 2.0.0
-last_updated: 2025-09-30
+allowed-tools: Read, Glob, Grep, Write
+argument-hint: ""
+version: 2.1.0
+last_updated: 2025-10-22
 ---
 
 # ASDW学习系统 - What (是什么)
@@ -594,7 +596,7 @@ F系列 (系统工程):
 
 ---
 
-**配置版本**: v2.0.0
-**更新时间**: 2025-09-30
-**目标文档**: LEARNING.md
-**维护原则**: 全面感知、深度分析、系统评估
+**配置版本**: v2.1.0
+**更新时间**: 2025-10-22
+**目标文档**: learning/{今日日期}/A_WHAT.md
+**维护原则**: 全面感知、深度分析、系统评估、规范化

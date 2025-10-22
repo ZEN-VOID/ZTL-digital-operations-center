@@ -1,7 +1,9 @@
 ---
 name: GitHub同步推送
 description: 将本地项目完整同步推送到GitHub仓库，确保远程与本地完全一致。包含智能目录结构变更检测和文档引用自动同步功能。
-version: 5.0.0
+allowed-tools: Bash, Read, Write, Edit, Grep, Glob
+argument-hint: ""
+version: 5.1.0
 last_updated: 2025-10-22
 ---
 
@@ -680,8 +682,8 @@ git push --force-with-lease
 
 ---
 
-**配置版本**: v5.0.0
+**配置版本**: v5.1.0
 **更新时间**: 2025-10-22
-**核心升级**: 增加目录结构变更检测和文档引用自动同步
-**维护原则**: 智能检测、自动同步、快速推送
+**核心升级**: 规范化front matter配置，新增allowed-tools和argument-hint字段
+**维护原则**: 智能检测、自动同步、快速推送、规范化
 **兼容性**: 使用标准Git命令，无需GitHub CLI

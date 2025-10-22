@@ -1,8 +1,10 @@
 ---
 name: 项目级CLAUDE.md更新指令
-description: 自动扫描项目专属智能体、命令和目录结构，同步更新项目级CLAUDE.md中的项目快捷键系统、意图分析图谱和开发物料管理规范
-version: 3.1.0
-last_updated: 2025-10-07
+description: 自动扫描项目专属智能体、命令、目录结构和plugins配置，同步更新项目级CLAUDE.md中的项目快捷键系统、意图分析图谱、开发物料管理规范和plugins配置
+allowed-tools: Read, Write, Edit, Grep, Glob
+argument-hint: ""
+version: 3.3.0
+last_updated: 2025-10-22
 ---
 
 # 项目级CLAUDE.md更新指令 (/M)
@@ -14,6 +16,7 @@ last_updated: 2025-10-07
 ### 核心特性
 - **智能配置扫描**: 自动扫描.claude/agents/和.claude/commands/目录
 - **目录结构扫描**: 自动扫描项目目录结构（PRPs/, api/, scripts/, output/, input/等）
+- **Plugins信息同步**: 自动扫描项目级plugins配置（如果存在）并同步到项目级CLAUDE.md
 - **动态内容生成**: 基于实际配置动态生成快捷键表格、意图映射和物料管理规范
 - **精准章节更新**: 更新项目级CLAUDE.md的三个目标章节
 - **备份保护机制**: 更新前自动创建备份，确保数据安全
@@ -752,6 +755,159 @@ class IntentMapGenerator:
 8. **详细使用示例**: 4个不同置信度场景的完整示例"""
 ```
 
+### 功能6: Plugins信息同步
+**目标**: 自动扫描项目级plugins配置（如果存在）并同步到项目级CLAUDE.md
+
+**扫描范围**:
+```yaml
+项目级Plugins配置:
+  位置: 项目根目录/.claude/settings.json (如果存在)
+  配置字段: enabledPlugins
+  扫描内容:
+    - 项目专属插件名称
+    - 插件启用状态
+    - 插件功能说明
+
+项目级MCP服务器:
+  位置: 项目根目录/.claude/settings.json
+  扫描内容:
+    - 项目专属MCP服务器
+    - 服务器功能描述
+    - 可用工具列表
+
+同步规则:
+  - 如果项目有专属plugins配置，则同步到项目级CLAUDE.md
+  - 如果项目没有专属plugins配置，则跳过此步骤
+  - 目标章节: 项目级CLAUDE.md中的"工具和插件配置"章节
+```
+
+**扫描实现**:
+```python
+from pathlib import Path
+from typing import Dict, List
+import json
+
+class ProjectPluginsScanner:
+    """项目级Plugins配置扫描器"""
+
+    def __init__(self, project_root: Path):
+        self.project_root = project_root
+        self.settings_path = project_root / ".claude" / "settings.json"
+
+    def scan_plugins(self) -> Dict[str, any]:
+        """
+        扫描项目级plugins配置。
+
+        Returns:
+            Dict: 包含插件和MCP服务器信息的字典
+        """
+        if not self.settings_path.exists():
+            return {
+                "has_config": False,
+                "anthropic_skills": [],
+                "mcp_servers": []
+            }
+
+        try:
+            with open(self.settings_path, 'r', encoding='utf-8') as f:
+                settings = json.load(f)
+
+            # 提取Anthropic Agent Skills
+            enabled_plugins = settings.get('enabledPlugins', {})
+            anthropic_skills = [
+                {
+                    "name": plugin_name,
+                    "enabled": is_enabled,
+                    "type": "Anthropic Agent Skills"
+                }
+                for plugin_name, is_enabled in enabled_plugins.items()
+                if is_enabled
+            ]
+
+            # 提取项目专属MCP服务器信息（如果配置）
+            mcp_servers = self._detect_project_mcp_servers()
+
+            return {
+                "has_config": True,
+                "anthropic_skills": anthropic_skills,
+                "mcp_servers": mcp_servers
+            }
+
+        except Exception as e:
+            print(f"扫描项目plugins配置失败: {e}")
+            return {
+                "has_config": False,
+                "anthropic_skills": [],
+                "mcp_servers": []
+            }
+
+    def _detect_project_mcp_servers(self) -> List[Dict]:
+        """
+        检测项目专属的MCP服务器。
+
+        Returns:
+            List[Dict]: MCP服务器信息列表
+        """
+        # 检测项目是否有专属MCP配置
+        project_mcp_servers = []
+
+        # 示例：检测api/目录下的MCP服务器
+        api_dir = self.project_root / "api" / "mcp-servers"
+        if api_dir.exists():
+            for server_dir in api_dir.iterdir():
+                if server_dir.is_dir():
+                    project_mcp_servers.append({
+                        "name": server_dir.name,
+                        "description": f"项目专属MCP服务器",
+                        "type": "project-specific"
+                    })
+
+        return project_mcp_servers
+
+    def generate_plugins_section(self, plugins_data: Dict) -> str:
+        """
+        生成插件配置章节内容。
+
+        Args:
+            plugins_data: 插件数据字典
+
+        Returns:
+            str: 格式化的插件配置章节Markdown内容
+        """
+        if not plugins_data["has_config"]:
+            return ""
+
+        sections = []
+        sections.append("## 项目级Plugins配置")
+        sections.append("")
+
+        # Anthropic Agent Skills
+        if plugins_data["anthropic_skills"]:
+            sections.append("### Anthropic Agent Skills")
+            sections.append("")
+            sections.append("```yaml")
+            sections.append("项目专属插件:")
+            for skill in plugins_data["anthropic_skills"]:
+                sections.append(f"  - {skill['name']}: {skill['enabled']}")
+            sections.append("```")
+            sections.append("")
+
+        # 项目专属MCP服务器
+        if plugins_data["mcp_servers"]:
+            sections.append("### 项目专属MCP服务器")
+            sections.append("")
+            sections.append("```yaml")
+            sections.append("项目MCP服务器:")
+            for server in plugins_data["mcp_servers"]:
+                sections.append(f"  - {server['name']}:")
+                sections.append(f"      描述: {server['description']}")
+                sections.append(f"      类型: {server['type']}")
+            sections.append("```")
+            sections.append("")
+
+        return '\n'.join(sections)
+```
+
 ## 🔧 使用方法
 
 ### 不及物动词型指令
@@ -770,6 +926,7 @@ class IntentMapGenerator:
 步骤2 - 配置扫描:
   - 扫描所有智能体文件（.claude/agents/*.md）
   - 扫描所有命令文件（.claude/commands/**/*.md）
+  - 扫描项目级plugins配置（.claude/settings.json，如果存在）
   - 解析文件内容提取关键信息
   - 构建配置数据结构
 
@@ -777,6 +934,7 @@ class IntentMapGenerator:
   - 生成开发物料管理规范章节
   - 生成快捷键系统章节
   - 生成意图分析图谱章节
+  - 生成项目级Plugins配置章节（如果有配置）
   - 格式化Markdown内容
   - 验证生成内容的正确性
 
@@ -1843,7 +2001,7 @@ class ParallelScanner:
 
 ---
 
-**配置版本**: v3.0.0
-**更新时间**: 2025-10-06
-**更新内容**: 明确项目级范围，聚焦项目专属智能体（E/R系列）和项目命令（数字命名）
-**维护原则**: 配置与文档的自动化同步，确保项目文档的时效性和准确性
+**配置版本**: v3.3.0
+**更新时间**: 2025-10-22
+**更新内容**: 新增功能6-项目级Plugins信息同步，支持自动扫描项目专属plugins配置并同步到项目级CLAUDE.md
+**维护原则**: 配置与文档的自动化同步，确保项目文档的时效性和准确性、规范化

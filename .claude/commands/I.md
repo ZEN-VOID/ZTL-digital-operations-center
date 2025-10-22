@@ -1,8 +1,10 @@
 ---
 name: 根目录README更新指令
 description: 自动生成GitHub专业主页级别的项目README文档，包含徽章系统、技术栈说明、功能特性、使用指南和数据可视化。执行前自动更新trees目录快照，确保目录结构信息最新。
-version: 3.0.0
-last_updated: 2025-10-20
+allowed-tools: Read, Write, Glob, Grep, Bash
+argument-hint: ""
+version: 3.1.0
+last_updated: 2025-10-22
 architecture: 智能理解层 + 增强分析引擎
 ---
 
@@ -559,13 +561,13 @@ class READMEGenerator:
 
 ---
 
-**配置版本**: v3.0.0
-**更新时间**: 2025-10-20
-**维护原则**: 深度分析、智能生成、数据驱动
+**配置版本**: v3.1.0
+**更新时间**: 2025-10-22
+**维护原则**: 深度分析、智能生成、数据驱动、规范化
 **更新内容**:
+- 规范化front matter配置，新增allowed-tools和argument-hint字段
 - 全新ProjectAnalyzer类，7维度项目分析
 - 改进README模板结构
 - 增强技术栈检测（新增数据库、云服务）
 - 优化数据可视化（5种图表）
 - 自动集成trees/最新快照
-- 提升内容质量和准确度

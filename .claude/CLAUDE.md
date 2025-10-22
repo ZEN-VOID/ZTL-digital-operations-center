@@ -58,14 +58,9 @@ F系列智能体是Claude Code框架的基础设施建设者，负责开发工�
 | F7 | Python开发专家 | 现代Python生态系统开发，遵循KISS和YAGNI原则 | `.claude/agents/system/F7-Python开发专家.md` |
 | F8 | FastMCP开发专家 | 符合MCP协议规范的高性能服务器开发 | `.claude/agents/system/F8-FastMCP开发专家.md` |
 | F9 | OpenAI-Agent-SDK开发专家 | 基于OpenAI Agent框架和Swarm多智能体系统开发 | `.claude/agents/system/F9-OpenAI-Agent-SDK开发专家.md` |
-| F11 | 上下文管理员 | 智能决策者，将经验、决策、错误分配到机器级/系统级/项目级知识库 | `.claude/agents/system/F11-上下文管理员.md` |
-| F13 | 学习工程师 | 践行"知行合一"，通过ASDW学习闭环(What-Why-How-Wield)转化为系统改进 | `.claude/agents/system/F13-学习工程师.md` |
-| F14 | Claude-code寻路者 | 技术资源探路者，使用GitHub搜索发现和推荐高质量项目、库和学习资源 | `.claude/agents/system/F14-Claude-code寻路者.md` |
-| FF | 系统总指挥官 | F系列总指挥，负责智能体工程、开发工具和系统能力的战略规划和智能调度 | `.claude/agents/system/FF-系统总指挥官.md` |
 
 **使用说明**：
 - **调用方式**: 通过Task工具指定`subagent_type`参数调用对应智能体
-- **编排协作**: FF作为总指挥可智能编排F1-F14协同完成复杂工程任务
 - **独立上下文**: 每个F系列智能体拥有独立上下文窗口，保护主对话上下文
 
 ---

@@ -1,8 +1,10 @@
 ---
 name: PRP生成与执行引擎
 description: 端到端PRP工作流程：研究 → 生成 → 执行，实现一次性成功的功能开发
-version: 2.0.0
-last_updated: 2025-09-30
+allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, Task
+argument-hint: "[功能描述或需求说明]"
+version: 2.1.0
+last_updated: 2025-10-22
 ---
 
 # PRP生成与执行引擎
@@ -614,6 +616,6 @@ PRP质量要求:
 
 ---
 
-**配置版本**: v2.0.0
-**更新时间**: 2025-09-30
-**维护原则**: 质量、效率、自动化
+**配置版本**: v2.1.0
+**更新时间**: 2025-10-22
+**维护原则**: 质量、效率、自动化、规范化

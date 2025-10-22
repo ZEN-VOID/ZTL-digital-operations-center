@@ -1,8 +1,10 @@
 ---
 name: 并行任务准备与执行
 description: 完整的并行执行工作流：环境准备 → 并行执行，实现多方案探索
-version: 2.1.0
-last_updated: 2025-09-30
+allowed-tools: Bash, Task, Read, Write, Edit
+argument-hint: "<功能名称> <并行数量> <执行计划的详细描述>"
+version: 2.1.1
+last_updated: 2025-10-22
 ---
 
 # 并行任务准备与执行
@@ -711,6 +713,6 @@ git worktree move <source> <destination>
 
 ---
 
-**配置版本**: v2.1.0
-**更新时间**: 2025-09-30
-**维护原则**: 隔离、并行、多样化
+**配置版本**: v2.1.1
+**更新时间**: 2025-10-22
+**维护原则**: 隔离、并行、多样化、规范化

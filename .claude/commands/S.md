@@ -1,8 +1,10 @@
 ---
 name: ASDW学习系统 - Why (为什么)
 description: ASDW学习系统第二步，通过内外因深度分析定位问题根源和优化机会
-version: 2.0.0
-last_updated: 2025-09-30
+allowed-tools: Read, Write, Bash, Grep, Glob
+argument-hint: ""
+version: 2.0.1
+last_updated: 2025-10-22
 ---
 
 # ASDW学习系统 - Why (为什么)
@@ -770,7 +772,7 @@ graph TD
 
 ---
 
-**配置版本**: v2.0.0
-**更新时间**: 2025-09-30
+**配置版本**: v2.0.1
+**更新时间**: 2025-10-22
 **目标文档**: LEARNING.md (WHY部分)
-**维护原则**: 深度分析、系统思考、客观评估
+**维护原则**: 深度分析、系统思考、客观评估、规范化

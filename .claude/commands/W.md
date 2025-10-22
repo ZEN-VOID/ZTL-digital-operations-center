@@ -1,8 +1,10 @@
 ---
 name: ASDW学习系统 - 融会贯通
 description: ASDW学习系统第四步,将ASD三阶段的学习成果整合并转化为实际的系统改进和配置优化
-version: 2.0.0
-last_updated: 2025-09-30
+allowed-tools: Read, Write, Edit, Bash, Task
+argument-hint: ""
+version: 2.0.1
+last_updated: 2025-10-22
 ---
 
 # ASDW学习系统 - 融会贯通
@@ -1410,6 +1412,7 @@ class OptimizationExecutor:
 
 ---
 
-**配置版本**: v2.0.0
-**更新时间**: 2025-09-30
+**配置版本**: v2.0.1
+**更新时间**: 2025-10-22
 **核心定位**: ASDW学习系统的知识整合和方案落地阶段,实现从理论到实践的转化
+**维护原则**: 知行合一、系统整合、持续改进、规范化

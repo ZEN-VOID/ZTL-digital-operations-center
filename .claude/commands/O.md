@@ -1,8 +1,10 @@
 ---
 name: 项目概览文档生成
 description: 自动生成项目OVERVIEW.md,提供全面的项目架构、智能体系统、命令系统、技术栈和开发指南的深度文档
-version: 4.0.0
-last_updated: 2025-10-20
+allowed-tools: Read, Write, Glob, Grep
+argument-hint: ""
+version: 4.1.0
+last_updated: 2025-10-22
 architecture: 智能分析引擎
 category: Documentation
 ---
@@ -389,7 +391,8 @@ graph TD
 
 ## 配置信息
 
-**版本**: v4.0.0
-**更新时间**: 2025-10-20
-**维护原则**: 实用、简洁、准确
+**版本**: v4.1.0
+**更新时间**: 2025-10-22
+**更新内容**: 规范化front matter配置，新增allowed-tools和argument-hint字段
+**维护原则**: 实用、简洁、准确、规范化
 **文档类型**: 技术深度文档

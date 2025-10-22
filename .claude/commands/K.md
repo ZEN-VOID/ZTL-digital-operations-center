@@ -1,8 +1,10 @@
 ---
 name: 网页自动化执行指令
 description: 基于chrome-mcp的浏览器自动化操作,支持页面导航、元素交互、数据采集和测试验证
-version: 2.0.0
-last_updated: 2025-10-11
+allowed-tools: Read, Write, mcp__chrome-mcp__*
+argument-hint: "[目标网址或自动化任务描述]"
+version: 2.1.0
+last_updated: 2025-10-22
 architecture: 三层架构 - 智能理解层 + 参数配置层 + 脚本执行层
 mcp_integration: chrome-mcp
 output_directory: output/automation/web/
@@ -789,7 +791,8 @@ output/automation/web/
 
 ---
 
-**版本**: 2.0.0
-**更新日期**: 2025-10-11
+**版本**: 2.1.0
+**更新日期**: 2025-10-22
+**维护原则**: 浏览器自动化、数据采集、规范化
 **维护者**: Claude Code Framework
 **协议**: MIT License

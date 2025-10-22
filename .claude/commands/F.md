@@ -1,9 +1,10 @@
 ---
 name: PRP快速创建
 description: 快速生成功能规划文档，专注研究和规划阶段，不执行实现
+allowed-tools: Read, Write, Glob, Grep, WebSearch, WebFetch
 argument-hint: <功能需求描述或功能文件路径>
-version: 2.0.0
-last_updated: 2025-09-30
+version: 2.1.0
+last_updated: 2025-10-22
 ---
 
 # PRP快速创建
@@ -718,6 +719,6 @@ PRP质量要求:
 
 ---
 
-**配置版本**: v2.0.0
-**更新时间**: 2025-09-30
-**维护原则**: 研究驱动、质量优先、可执行性
+**配置版本**: v2.1.0
+**更新时间**: 2025-10-22
+**维护原则**: 研究驱动、质量优先、可执行性、规范化

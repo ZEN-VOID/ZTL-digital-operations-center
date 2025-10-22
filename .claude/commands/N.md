@@ -1,8 +1,10 @@
 ---
 name: 系统级CLAUDE.md更新指令
 description: 自动扫描框架通用智能体和命令，同步更新系统级CLAUDE.md的系统AGENTS说明和COMMANDS说明
-version: 3.2.0
-last_updated: 2025-10-07
+allowed-tools: Read, Write, Edit, Grep, Glob
+argument-hint: ""
+version: 3.3.0
+last_updated: 2025-10-22
 ---
 # 系统级CLAUDE.md更新指令 (/N)
 
@@ -1621,7 +1623,7 @@ class ParallelScanner:
 
 ---
 
-**配置版本**: v3.2.0
-**更新时间**: 2025-10-07
-**更新内容**: 参考B.md和M.md的详细程度标准,补充完整的实现细节、代码示例、执行流程、错误处理和性能优化
-**维护原则**: 自动化、准确性、一致性
+**配置版本**: v3.3.0
+**更新时间**: 2025-10-22
+**更新内容**: 规范化front matter配置，新增allowed-tools和argument-hint字段
+**维护原则**: 自动化、准确性、一致性、规范化

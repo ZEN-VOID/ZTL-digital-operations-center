@@ -1,8 +1,10 @@
 ---
 name: 电脑自动化执行指令
 description: 基于windows-mcp的Windows系统自动化操作,支持应用控制、UI交互、文件管理和PowerShell执行
-version: 2.0.0
-last_updated: 2025-10-11
+allowed-tools: Read, Write, mcp__windows-mcp__*
+argument-hint: "[自动化任务描述或应用名称]"
+version: 2.1.0
+last_updated: 2025-10-22
 architecture: 三层架构 - 智能理解层 + 参数配置层 + 脚本执行层
 mcp_integration: windows-mcp
 output_directory: output/automation/system/
@@ -796,7 +798,8 @@ Get-ChildItem D:\photos -Filter *.jpg | Copy-Item -Destination D:\backup
 
 ---
 
-**版本**: 2.0.0
-**更新日期**: 2025-10-11
+**版本**: 2.1.0
+**更新日期**: 2025-10-22
+**维护原则**: 系统自动化、应用控制、规范化
 **维护者**: Claude Code Framework
 **协议**: MIT License

@@ -1,8 +1,10 @@
 ---
 name: ASDW学习系统 - How (如何做)
 description: ASDW学习系统第三步,通过方法论研究和实践策略制定,将理论理解转化为可执行的行动方案
-version: 2.0.0
-last_updated: 2025-09-30
+allowed-tools: Read, Glob, Write, WebSearch, WebFetch
+argument-hint: ""
+version: 2.1.0
+last_updated: 2025-10-22
 ---
 
 # ASDW学习系统 - How (如何做)
@@ -1421,6 +1423,7 @@ GitHub:
 
 ---
 
-**配置版本**: v2.0.0
-**更新时间**: 2025-09-30
+**配置版本**: v2.1.0
+**更新时间**: 2025-10-22
 **核心定位**: ASDW学习系统的方法论研究和实践方案制定阶段,将理论理解转化为可执行的优化策略
+**维护原则**: 系统化研究、可执行方案、规范化

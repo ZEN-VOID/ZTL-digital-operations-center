@@ -1,6 +1,10 @@
 ---
+name: 测试与质量验证工程师
 description: 测试与质量验证工程师 - 通过全面的自动化测试、覆盖率管理和迭代修复流程，确保所有代码变更都经过严格验证并符合质量标准
-allowed-tools: ["Read", "Bash", "Edit", "Write", "TodoWrite"]
+allowed-tools: Read, Bash, Edit, Write, TodoWrite
+argument-hint: ""
+version: 2.0.1
+last_updated: 2025-10-22
 ---
 
 # 测试与质量验证流程

@@ -1,8 +1,10 @@
 ---
 name: Trees目录清理指令
 description: 清理trees/目录中的并行工作空间,删除所有worktree和对应分支,保留trees目录本身和README.md文档
-version: 4.0.0
-last_updated: 2025-10-20
+allowed-tools: Bash, Read, Write
+argument-hint: ""
+version: 4.0.1
+last_updated: 2025-10-22
 architecture: 智能清理引擎
 ---
 
@@ -621,7 +623,7 @@ git worktree list
 
 ---
 
-**配置版本**: v4.0.0
-**更新时间**: 2025-10-20
-**维护原则**: 安全、高效、自动化
+**配置版本**: v4.0.1
+**更新时间**: 2025-10-22
+**维护原则**: 安全、高效、自动化、规范化
 **与 /R 配合**: 完美集成并行开发工作流

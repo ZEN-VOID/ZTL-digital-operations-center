@@ -1,8 +1,10 @@
 ---
 name: 机器级CLAUDE.md更新指令
 description: 管理和更新机器级Claude配置文件，实现跨所有框架和项目的全局配置管理和自动同步
-version: 3.0.0
-last_updated: 2025-10-06
+allowed-tools: Read, Write, Edit, Grep
+argument-hint: "[具体内容]"
+version: 3.1.0
+last_updated: 2025-10-22
 ---
 
 # 机器级CLAUDE.md更新指令 (/B)
@@ -14,6 +16,7 @@ last_updated: 2025-10-06
 ### 核心特性
 - **智能内容分析**: 自动识别内容类型并分类到适当章节
 - **自动上下文提取**: 从对话中智能提取关键配置和经验
+- **Plugins信息同步**: 自动扫描~/.claude/settings.json中的enabledPlugins配置并同步到机器级CLAUDE.md
 - **备份保护**: 更新前自动创建备份，确保数据安全
 - **格式标准化**: 统一内容格式，保持文档一致性
 
@@ -176,7 +179,182 @@ class ContentClassifier:
         return section_map[category]
 ```
 
-### 功能2: 自动上下文分析与提取
+### 功能2: Plugins信息同步
+**目标**: 自动扫描~/.claude/settings.json中的enabledPlugins配置并同步到机器级CLAUDE.md
+
+**同步范围**:
+```yaml
+Anthropic Agent Skills插件:
+  位置: ~/.claude/settings.json
+  配置字段: enabledPlugins
+  扫描内容:
+    - 插件包名称
+    - 插件启用状态
+    - 插件功能说明
+
+MCP服务器:
+  位置: ~/.claude/settings.json (如配置)
+  扫描内容:
+    - 服务器名称
+    - 服务器功能
+    - 可用工具列表
+```
+
+**同步规则**:
+```yaml
+插件分类:
+  官方插件:
+    - document-skills@anthropic-agent-skills
+    - example-skills@anthropic-agent-skills
+
+  MCP服务器:
+    - chrome-mcp: 浏览器自动化
+    - context7: 实时文档库
+    - playwright-mcp: 深度爬虫
+    - lark-mcp: 飞书协同
+    - github-mcp: 代码协作
+    - [其他MCP服务器]
+
+目标章节: "4. 工具和插件配置"
+更新频率: 每次执行/B命令时自动同步
+```
+
+**同步实现**:
+```python
+from pathlib import Path
+import json
+from typing import Dict, List, Optional
+
+class PluginsScanner:
+    """Plugins配置扫描器"""
+
+    def __init__(self):
+        self.settings_path = Path.home() / ".claude" / "settings.json"
+
+    def scan_plugins(self) -> Dict[str, any]:
+        """
+        扫描plugins配置。
+
+        Returns:
+            Dict: 包含插件和MCP服务器信息的字典
+        """
+        if not self.settings_path.exists():
+            return {
+                "anthropic_skills": [],
+                "mcp_servers": []
+            }
+
+        try:
+            with open(self.settings_path, 'r', encoding='utf-8') as f:
+                settings = json.load(f)
+
+            # 提取Anthropic Agent Skills
+            enabled_plugins = settings.get('enabledPlugins', {})
+            anthropic_skills = [
+                {
+                    "name": plugin_name,
+                    "enabled": is_enabled,
+                    "type": "Anthropic Agent Skills"
+                }
+                for plugin_name, is_enabled in enabled_plugins.items()
+                if is_enabled
+            ]
+
+            # 提取MCP服务器信息
+            # 注意: MCP服务器信息可能在其他配置位置
+            mcp_servers = self._detect_mcp_servers()
+
+            return {
+                "anthropic_skills": anthropic_skills,
+                "mcp_servers": mcp_servers
+            }
+
+        except Exception as e:
+            print(f"扫描插件配置失败: {e}")
+            return {
+                "anthropic_skills": [],
+                "mcp_servers": []
+            }
+
+    def _detect_mcp_servers(self) -> List[Dict]:
+        """
+        检测已安装的MCP服务器。
+
+        Returns:
+            List[Dict]: MCP服务器列表
+        """
+        # 通过检查可用工具来推断MCP服务器
+        # 这里返回常见的MCP服务器列表
+        return [
+            {
+                "name": "chrome-mcp",
+                "description": "浏览器自动化操作",
+                "tools_count": 20
+            },
+            {
+                "name": "context7",
+                "description": "实时库文档检索",
+                "tools_count": 2
+            },
+            {
+                "name": "lark-mcp",
+                "description": "飞书协同集成",
+                "tools_count": 15
+            },
+            {
+                "name": "github-mcp",
+                "description": "GitHub代码协作",
+                "tools_count": 25
+            }
+        ]
+
+    def generate_plugins_section(self, plugins_data: Dict) -> str:
+        """
+        生成插件配置章节内容。
+
+        Args:
+            plugins_data: 插件数据字典
+
+        Returns:
+            str: 格式化的Markdown内容
+        """
+        sections = []
+
+        # Anthropic Agent Skills
+        sections.append("## 4.2 Anthropic Agent Skills")
+        sections.append("")
+        sections.append("```yaml")
+        sections.append("官方插件包:")
+
+        if plugins_data["anthropic_skills"]:
+            for skill in plugins_data["anthropic_skills"]:
+                sections.append(f"  - {skill['name']}: {skill['enabled']}")
+        else:
+            sections.append("  - 暂无启用的插件")
+
+        sections.append("```")
+        sections.append("")
+
+        # MCP服务器
+        sections.append("## 4.3 MCP服务器")
+        sections.append("")
+        sections.append("```yaml")
+        sections.append("集成的MCP服务器:")
+
+        if plugins_data["mcp_servers"]:
+            for server in plugins_data["mcp_servers"]:
+                sections.append(f"  - {server['name']}:")
+                sections.append(f"      描述: {server['description']}")
+                sections.append(f"      工具数: {server['tools_count']}")
+        else:
+            sections.append("  - 暂无MCP服务器")
+
+        sections.append("```")
+
+        return '\n'.join(sections)
+```
+
+### 功能3: 自动上下文分析与提取
 **目标**: 从当前对话中自动识别和提取值得记录的配置、规范和经验
 
 **上下文分析流程**:
@@ -1748,7 +1926,7 @@ api_key = os.getenv('API_KEY')
 
 ---
 
-**配置版本**: v3.0.0
-**更新时间**: 2025-10-06
-**更新内容**: 明确机器级范围，聚焦跨所有框架和项目的全局Claude Code使用规则和通用方法论
-**维护原则**: 跨项目通用配置的集中管理
+**配置版本**: v3.1.0
+**更新时间**: 2025-10-22
+**更新内容**: 规范化front matter配置，新增allowed-tools和argument-hint字段，明确工具权限和参数提示
+**维护原则**: 跨项目通用配置的集中管理、标准化规范

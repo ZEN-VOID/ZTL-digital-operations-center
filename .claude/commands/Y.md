@@ -1,8 +1,10 @@
 ---
 name: GitHub Issue修复流程
 description: 系统化的Issue分析、修复和关闭流程，确保问题解决的完整性和可追溯性
-version: 2.0.0
-last_updated: 2025-09-30
+allowed-tools: Read, Write, Edit, Bash, Grep, Glob
+argument-hint: "<Issue的URL或号码>"
+version: 2.0.1
+last_updated: 2025-10-22
 ---
 
 # GitHub Issue修复流程
@@ -572,6 +574,6 @@ git push origin [分支名]
 
 ---
 
-**配置版本**: v2.0.0
-**更新时间**: 2025-09-30
-**维护原则**: 准确、高效、规范
+**配置版本**: v2.0.1
+**更新时间**: 2025-10-22
+**维护原则**: 准确、高效、规范、规范化
