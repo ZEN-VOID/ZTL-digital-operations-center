@@ -58,9 +58,7 @@ F系列智能体是Claude Code框架的基础设施建设者，负责开发工�
 | F7 | Python开发专家 | 现代Python生态系统开发，遵循KISS和YAGNI原则 | `.claude/agents/system/F7-Python开发专家.md` |
 | F8 | FastMCP开发专家 | 符合MCP协议规范的高性能服务器开发 | `.claude/agents/system/F8-FastMCP开发专家.md` |
 | F9 | OpenAI-Agent-SDK开发专家 | 基于OpenAI Agent框架和Swarm多智能体系统开发 | `.claude/agents/system/F9-OpenAI-Agent-SDK开发专家.md` |
-| F10 | 文档管理员 | 确保项目文档与代码同步，智能归类README vs CLAUDE.md | `.claude/agents/system/F10-文档管理员.md` |
 | F11 | 上下文管理员 | 智能决策者，将经验、决策、错误分配到机器级/系统级/项目级知识库 | `.claude/agents/system/F11-上下文管理员.md` |
-| F12 | 测试工程师 | 质量守门员，通过自动化测试、覆盖率管理确保代码质量 | `.claude/agents/system/F12-测试工程师.md` |
 | F13 | 学习工程师 | 践行"知行合一"，通过ASDW学习闭环(What-Why-How-Wield)转化为系统改进 | `.claude/agents/system/F13-学习工程师.md` |
 | F14 | Claude-code寻路者 | 技术资源探路者，使用GitHub搜索发现和推荐高质量项目、库和学习资源 | `.claude/agents/system/F14-Claude-code寻路者.md` |
 | FF | 系统总指挥官 | F系列总指挥，负责智能体工程、开发工具和系统能力的战略规划和智能调度 | `.claude/agents/system/FF-系统总指挥官.md` |
@@ -115,7 +113,7 @@ F系列智能体是Claude Code框架的基础设施建设者，负责开发工�
 | /G | 完整同步推送到GitHub | 将本地项目完整同步推送到GitHub仓库，确保远程与本地完全一致 | v2.0.0 |
 | /H | GitHub仓库创建与初始化 | 自动化GitHub仓库创建、初始化和首次推送流程，支持公开/私有仓库配置 | v2.0.0 |
 | /P | 多工作区文件智能同步 | 实现多工作区项目间的文件/文件夹智能同步，基于配置文件进行目标识别和批量操作 | v2.0.0 |
-| /T | TodoWrite任务拆解与执行 | 对指定内容启用TodoWrite工具进行任务拆解和执行，配合日志监控和Hooks自动化 | v2.0.0 |
+| /T | 测试与质量验证工程师 | 通过全面的自动化测试、覆盖率管理和迭代修复流程，确保所有代码变更都经过严格验证并符合质量标准 | v2.0.0 |
 | /U | 清理并行工作空间 | 清理trees/目录中的并行工作空间，删除所有worktree和对应分支，保留trees目录本身和README.md文档 | v2.0.0 |
 | /J | HTML数据可视化生成器 | 将数据内容转化为专业的HTML可视化页面，支持15+图表类型和4种设计风格 | v2.0.0 |
 | /K | 基于chrome-mcp的浏览器自动化 | 浏览器自动化操作，支持页面导航、元素交互、数据采集和测试验证 | v2.0.0 |

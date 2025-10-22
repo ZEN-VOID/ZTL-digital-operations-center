@@ -1,289 +1,221 @@
 ---
-name: 任务拆解与执行系统
-description: 对指定内容启用TodoWrite工具进行任务拆解和执行,配合日志监控和Hooks自动化,确保每一步都细致完成
-version: 1.0.0
-last_updated: 2025-10-01
+description: 测试与质量验证工程师 - 通过全面的自动化测试、覆盖率管理和迭代修复流程，确保所有代码变更都经过严格验证并符合质量标准
+allowed-tools: ["Read", "Bash", "Edit", "Write", "TodoWrite"]
 ---
 
-# 任务拆解与执行监控系统
+# 测试与质量验证流程
 
-> 基于TodoWrite工具的智能任务拆解和执行监控系统,配合日志监控和Hooks自动化,确保复杂任务的高质量完成
+你现在作为**测试工程师**角色，负责执行完整的质量验证流程。
 
-## 系统概述
+## 执行流程
 
-### 核心能力
-- **智能任务拆解**: 将复杂任务分解为可执行的细粒度步骤
-- **TodoWrite集成**: 使用Claude Code内置的TodoWrite工具进行任务跟踪
-- **日志监控**: 基于.claude/logs的任务进度实时监控
-- **Hooks自动化**: 对话结束时自动检查并继续未完成任务
-- **防偷懒机制**: 确保每个步骤都细致完成,避免快速敷衍
+### 1. 项目环境检测
 
-### 设计原则
-
-SMART原则:
-- Specific (具体): 每个任务步骤明确具体
-- Measurable (可衡量): 有明确的完成标准
-- Achievable (可实现): 步骤难度适中,可在单轮对话完成
-- Relevant (相关): 步骤与总体目标直接相关
-- Time-bound (有时限): 每个步骤有预期执行时间
-
-质量保证:
-- 任务粒度: 单个步骤不超过5分钟,复杂任务进一步拆解
-- 执行标准: 每个步骤必须满足验证标准才能标记完成
-- 进度跟踪: 实时记录执行状态和遇到的问题
-- 自动继续: 未完成任务在下次对话自动恢复
-
-## 五步工作流
-
-### 步骤1: 任务意图解析与拆解
-
-**目标**: 理解用户任务需求,拆解为结构化的执行步骤
-
-**执行示例**:
-
-用户输入: "帮我创建一个Figma批量替换的API端点"
-
-拆解结果:
-1. 分析需求与设计API接口 (3-5分钟)
-2. 创建Pydantic数据模型 (5-8分钟)
-3. 实现API端点逻辑 (10-15分钟)
-4. 编写单元测试 (8-10分钟)
-5. 更新API文档 (3-5分钟)
-
-### 步骤2: TodoWrite任务创建与管理
-
-**目标**: 使用TodoWrite工具创建任务列表并实时更新状态
-
-**TodoWrite调用示例**:
-
-初始任务列表创建:
-```python
-TodoWrite(todos=[
-    {
-        "content": "分析需求与设计API接口",
-        "activeForm": "正在分析需求与设计API接口",
-        "status": "pending"
-    },
-    {
-        "content": "创建Pydantic数据模型",
-        "activeForm": "正在创建Pydantic数据模型",
-        "status": "pending"
-    }
-])
-```
-
-开始执行第一步:
-```python
-TodoWrite(todos=[
-    {
-        "content": "分析需求与设计API接口",
-        "activeForm": "正在分析需求与设计API接口",
-        "status": "in_progress"
-    },
-    {
-        "content": "创建Pydantic数据模型",
-        "activeForm": "正在创建Pydantic数据模型",
-        "status": "pending"
-    }
-])
-```
-
-**状态管理规范**:
-
-状态转换规则:
-- pending → in_progress: 开始执行步骤时立即更新,只能有一个任务为in_progress
-- in_progress → completed: 步骤完成并通过验证后更新,检查是否满足最小执行时间要求
-- in_progress → failed: 遇到无法解决的错误时标记,记录失败原因和恢复建议
-
-### 步骤3: 日志监控机制设计
-
-**目标**: 在.claude/logs目录下建立任务执行日志,实时监控进度
-
-**日志结构**:
-- 日志目录: .claude/logs/tasks/
-- 日志格式: JSON Lines
-- 文件命名: task_{task_id}_{timestamp}.jsonl
-
-日志内容示例:
-```json
-{
-  "timestamp": "2025-10-01T10:30:45.123Z",
-  "task_id": "task_20251001_103045",
-  "event_type": "step_start|step_complete|step_failed",
-  "step_id": 1,
-  "step_description": "分析需求与设计API接口",
-  "status": "in_progress",
-  "complexity": "medium",
-  "estimated_time": 300,
-  "actual_time": null
-}
-```
-
-### 步骤4: Hooks自动化执行机制
-
-**目标**: 配合.claude/hooks系统,实现对话结束时的任务检查和自动继续
-
-**Hooks脚本: conversation-end.sh**
+首先识别项目技术栈和测试框架：
 
 ```bash
-#!/bin/bash
-# .claude/hooks/conversation-end.sh
-# 对话结束时检查任务完成情况
-
-LATEST_TASK_LOG=$(ls -t .claude/logs/tasks/task_*.jsonl 2>/dev/null | head -1)
-
-if [ -z "$LATEST_TASK_LOG" ]; then
-    exit 0
+# 检测项目类型
+if [ -f "package.json" ]; then
+  echo "检测到 JavaScript/TypeScript 项目"
+  cat package.json | grep -E '"(test|lint|typecheck)"'
+elif [ -f "pyproject.toml" ] || [ -f "setup.py" ]; then
+  echo "检测到 Python 项目"
+  cat pyproject.toml 2>/dev/null || cat setup.py
 fi
-
-# 检查是否有未完成的任务
-INCOMPLETE_COUNT=$(grep -c '"status":"pending\|in_progress"' "$LATEST_TASK_LOG" 2>/dev/null || echo "0")
-
-if [ "$INCOMPLETE_COUNT" -gt 0 ]; then
-    cat > ".claude/logs/tasks/continue_prompt.txt" << EOF
-检测到未完成的任务 ($INCOMPLETE_COUNT 个步骤待完成)
-
-任务日志: $LATEST_TASK_LOG
-
-请在下次对话开始时自动执行:
-1. 读取任务日志
-2. 识别未完成的步骤
-3. 从断点继续执行
-4. 使用TodoWrite更新任务状态
-
-继续执行命令: /T continue
-EOF
-
-    cat ".claude/logs/tasks/continue_prompt.txt"
-fi
-
-exit 0
 ```
 
-### 步骤5: 质量保证与防偷懒机制
+### 2. 使用TodoWrite创建测试任务清单
 
-**目标**: 确保每个步骤都细致完成,避免快速敷衍了事
+基于项目类型，创建完整的测试验证任务：
 
-**防偷懒规则**:
+**JavaScript/TypeScript 项目：**
+```yaml
+测试任务:
+  - content: "运行 linting 检查"
+    activeForm: "正在运行 linting 检查"
+    status: "pending"
 
-最小执行时间要求(秒):
-- trivial: 30秒 (简单任务至少30秒)
-- simple: 60秒 (普通任务至少1分钟)
-- medium: 180秒 (中等任务至少3分钟)
-- complex: 300秒 (复杂任务至少5分钟)
+  - content: "运行类型检查"
+    activeForm: "正在运行类型检查"
+    status: "pending"
 
-质量检查逻辑:
-```python
-def validate_step_quality(step, execution_time):
-    required_time = MIN_EXECUTION_TIME.get(step.complexity, 60)
+  - content: "运行单元测试"
+    activeForm: "正在运行单元测试"
+    status: "pending"
 
-    if execution_time < required_time:
-        return False, f"执行时间过短,可能偷懒"
+  - content: "检查测试覆盖率"
+    activeForm: "正在检查测试覆盖率"
+    status: "pending"
 
-    return True, "质量检查通过"
+  - content: "分析测试结果并修复失败"
+    activeForm: "正在分析测试结果并修复失败"
+    status: "pending"
 ```
 
-**细致完成检查清单**:
+**Python 项目：**
+```yaml
+测试任务:
+  - content: "运行 ruff 代码检查"
+    activeForm: "正在运行 ruff 代码检查"
+    status: "pending"
 
-每个步骤完成前必须确认:
-- [ ] 执行时间 >= 最小要求时间
-- [ ] 所有工具调用都有明确目的和结果
-- [ ] 文件修改符合任务要求
-- [ ] 代码更改包含必要的注释和文档
-- [ ] 测试已执行并通过
-- [ ] 错误处理已添加
-- [ ] 满足所有验证标准
+  - content: "运行 mypy 类型检查"
+    activeForm: "正在运行 mypy 类型检查"
+    status: "pending"
 
-如果以上任一项未满足,步骤不应标记为completed
+  - content: "运行 pytest 测试"
+    activeForm: "正在运行 pytest 测试"
+    status: "pending"
 
-## 使用流程
+  - content: "检查测试覆盖率"
+    activeForm: "正在检查测试覆盖率"
+    status: "pending"
 
-### 1. 启动任务拆解
+  - content: "分析测试结果并修复失败"
+    activeForm: "正在分析测试结果并修复失败"
+    status: "pending"
+```
 
-用户: /T <任务描述>
+### 3. 执行测试验证
 
-示例:
-- /T 创建一个新的Figma API端点,用于批量替换图片
-- /T 优化云存储模块的上传性能,支持并发上传
-- /T 为E系列智能体添加缓存机制,减少API调用
+按照任务清单依次执行，每完成一项立即标记状态：
 
-### 2. 系统自动执行
-
-步骤1: 解析任务意图
-- 分析用户输入
-- 评估任务复杂度
-- 拆解为具体步骤
-
-步骤2: 创建任务列表
-- 调用TodoWrite创建todos
-- 展示完整任务列表
-- 等待用户确认
-
-步骤3: 逐步执行
-- 标记当前步骤为in_progress
-- 执行具体操作
-- 记录执行日志
-- 验证步骤质量
-- 标记为completed或failed
-
-步骤4: 质量检查
-- 检查执行时间
-- 验证工具调用
-- 确认文件修改
-- 通过则继续,否则重做
-
-步骤5: 完成或继续
-- 所有步骤完成: 输出任务总结
-- 对话中断: conversation-end hook触发
-- 下次对话: 自动提示继续未完成任务
-
-### 3. 继续未完成任务
-
-场景1: 对话自然结束
-- conversation-end.sh自动检查任务状态
-- 发现未完成任务,生成continue_prompt.txt
-- 下次对话开始时自动提示
-
-场景2: 手动继续
-- 用户: /T continue
-- 系统读取最新任务日志
-- 识别未完成步骤
-- 从断点继续执行
-- 更新TodoWrite状态
-
-## 日志查看与分析
-
-### 查看任务日志
-
-查看最新任务日志:
+#### JavaScript/TypeScript 标准命令：
 ```bash
-cat $(ls -t .claude/logs/tasks/task_*.jsonl | head -1)
+# 1. Linting
+npm run lint || echo "Linting 失败，需要修复"
+
+# 2. 类型检查
+npm run typecheck || echo "类型检查失败，需要修复"
+
+# 3. 单元测试
+npm run test || echo "测试失败，需要修复"
+
+# 4. 覆盖率检查（如果配置）
+npm run test:coverage || echo "未配置覆盖率检查"
 ```
 
-统计任务完成情况:
+#### Python 标准命令：
 ```bash
-grep -c '"status":"completed"' .claude/logs/tasks/task_*.jsonl
+# 1. 代码检查
+ruff check . || echo "Ruff 检查失败，需要修复"
+
+# 2. 类型检查
+mypy . || echo "类型检查失败，需要修复"
+
+# 3. 单元测试
+pytest || echo "测试失败，需要修复"
+
+# 4. 覆盖率检查
+pytest --cov=. --cov-report=term-missing || echo "覆盖率检查失败"
 ```
 
-## 相关文档
+### 4. 迭代修复流程
 
-- **TodoWrite工具文档**: Claude Code内置工具说明
-- **Hooks系统文档**: `.claude/hooks/README.md`
-- **日志规范**: `.claude/logs/README.md`
+当测试失败时，执行以下迭代流程：
 
-## 总结
+1. **分析失败原因**
+   - 仔细阅读错误信息
+   - 识别失败的具体测试用例或检查项
+   - 定位相关代码文件
 
-`/T` 命令提供了一套完整的任务拆解与执行监控系统,通过:
+2. **识别根本原因**
+   - 确定是代码问题还是测试问题
+   - 检查是否是依赖或配置问题
+   - 评估影响范围
 
-1. **智能拆解**: 将复杂任务分解为可管理的步骤
-2. **TodoWrite集成**: 实时跟踪任务状态
-3. **日志监控**: 详细记录执行过程
-4. **Hooks自动化**: 自动检查和继续未完成任务
-5. **质量保证**: 防止快速敷衍,确保细致完成
+3. **实现修复**
+   - 修改代码或测试
+   - 确保修复不引入新问题
+   - 遵循项目编码规范
 
-确保每个任务都能高质量地完成,同时支持跨对话的任务持续性
+4. **重新验证**
+   - 重新运行失败的测试
+   - 确认修复有效
+   - 更新TodoWrite任务状态
+
+5. **继续迭代**
+   - 重复以上步骤直到所有测试通过
+   - 每次迭代都要标记TodoWrite任务状态
+
+### 5. 验证门控检查清单
+
+所有测试必须满足以下标准才能通过：
+
+- [ ] **所有单元测试通过** - 0个失败
+- [ ] **集成测试通过** - 如适用
+- [ ] **Linting无错误** - 代码风格符合规范
+- [ ] **类型检查通过** - 无类型错误
+- [ ] **测试覆盖率达标** - 新代码覆盖率 ≥ 80%
+
+## 重要原则
+
+遵循以下核心原则确保测试质量：
+
+1. **永不跳过验证**
+   - 即使是"简单"的更改也要运行完整测试
+   - 不要因为时间压力而跳过测试步骤
+
+2. **修复而非禁用**
+   - 修复失败的测试，而不是禁用或跳过它们
+   - 如果测试不再适用，删除而不是注释掉
+
+3. **测试行为而非实现**
+   - 关注代码**做什么**，而不是**怎么做**
+   - 避免测试内部实现细节
+   - 确保测试在重构后仍然有效
+
+4. **及时更新TodoWrite**
+   - 每完成一项测试立即标记状态
+   - 不要批量更新，保持实时性
+   - 失败时详细记录错误信息
+
+## 输出格式
+
+测试完成后，提供以下总结：
+
+```
+## 测试验证报告
+
+### 执行概要
+- 项目类型: [JavaScript/TypeScript/Python]
+- 测试框架: [Jest/Vitest/Pytest等]
+- 执行时间: [HH:MM:SS]
+
+### 测试结果
+✅ Linting检查: [通过/失败]
+✅ 类型检查: [通过/失败]
+✅ 单元测试: [通过数/总数]
+✅ 测试覆盖率: [百分比]
+
+### 问题修复记录
+[如果有失败，列出每次迭代的修复过程]
+- 迭代1: [问题描述] → [修复方案] → [结果]
+- 迭代2: [问题描述] → [修复方案] → [结果]
+
+### 最终状态
+[所有测试通过 / 仍有N项失败需要修复]
+```
+
+## 使用示例
+
+```bash
+# 场景1: 快速验证当前代码
+/T
+
+# 场景2: 在提交前验证
+/T
+# (如果所有测试通过，再执行 git commit)
+
+# 场景3: PR合并前验证
+/T
+# (确保所有门控检查通过)
+```
 
 ---
-**版本**: 1.0.0
-**最后更新**: 2025-10-01
-**作者**: Claude Code Framework Team
+
+**注意事项**:
+- 测试失败时不要气馁，这是发现问题的好机会
+- 每次修复后都要重新运行完整测试，避免修复一个问题引入另一个问题
+- 保持测试套件的健康和快速，移除过时或无效的测试
+- 为新功能编写测试应该与编写功能代码同等重要
