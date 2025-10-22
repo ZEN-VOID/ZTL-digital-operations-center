@@ -38,9 +38,9 @@ Thumbs.db
 # Logs
 *.log
 
-# Output directories
-output/*/
-!output/.gitkeep
+# Output and Input directories
+input/
+output/
 .playwright-mcp/
 
 # Temporary files
