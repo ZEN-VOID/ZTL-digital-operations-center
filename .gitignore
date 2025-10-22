@@ -43,6 +43,9 @@ input/
 output/
 .playwright-mcp/
 
+# Git worktrees and parallel workspaces
+trees/
+
 # Temporary files
 tmp/
 temp/
