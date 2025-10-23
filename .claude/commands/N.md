@@ -56,6 +56,180 @@ last_updated: 2025-10-22
 from pathlib import Path
 from typing import List, Dict, Optional
 import re
+import json
+
+class FrameworkDescriptionGenerator:
+    """系统级框架描述生成器"""
+
+    def __init__(self, project_root: Path):
+        self.project_root = project_root
+        self.project_claude = project_root / "CLAUDE.md"
+        self.agents_dir = project_root / ".claude" / "agents"
+        self.skills_dir = project_root / ".claude" / "skills"
+        self.settings_file = project_root / ".claude" / "settings.json"
+
+    def generate_framework_description(self) -> str:
+        """
+        生成系统级框架描述章节。
+
+        Returns:
+            str: 框架描述章节Markdown内容
+        """
+        sections = []
+        sections.append("## 系统级框架描述")
+        sections.append("")
+
+        # 1. 框架定位与核心价值
+        framework_positioning = self._extract_framework_positioning()
+        if framework_positioning:
+            sections.append("### 框架定位")
+            sections.append(framework_positioning)
+            sections.append("")
+
+        # 2. 智能体生态概览
+        agent_ecosystem = self._analyze_agent_ecosystem()
+        if agent_ecosystem:
+            sections.append("### 智能体生态")
+            sections.append(agent_ecosystem)
+            sections.append("")
+
+        # 3. 技能包体系
+        skills_overview = self._analyze_skills_system()
+        if skills_overview:
+            sections.append("### 技能包体系")
+            sections.append(skills_overview)
+            sections.append("")
+
+        # 4. MCP服务集成
+        mcp_integration = self._analyze_mcp_integration()
+        if mcp_integration:
+            sections.append("### MCP服务集成")
+            sections.append(mcp_integration)
+            sections.append("")
+
+        return '\n'.join(sections)
+
+    def _extract_framework_positioning(self) -> str:
+        """从项目CLAUDE.md提取框架定位信息"""
+        if not self.project_claude.exists():
+            return ""
+
+        try:
+            content = self.project_claude.read_text(encoding='utf-8')
+
+            # 提取"核心定位"章节
+            pattern = r'###\s+核心定位\s*\n(.*?)(?=\n###|\n##|$)'
+            match = re.search(pattern, content, re.DOTALL)
+
+            if match:
+                return match.group(1).strip()
+
+            return ""
+        except Exception:
+            return ""
+
+    def _analyze_agent_ecosystem(self) -> str:
+        """分析F系列智能体生态"""
+        if not self.agents_dir.exists():
+            return ""
+
+        # 统计F系列智能体数量和类型
+        f_agents = list(self.agents_dir.glob("system/F*.md"))
+
+        if not f_agents:
+            return ""
+
+        ecosystem_desc = []
+        ecosystem_desc.append(f"本框架提供 **{len(f_agents)}个系统级智能体**，构成完整的智能体工程体系：")
+        ecosystem_desc.append("")
+
+        # 分析智能体类型分布
+        agent_categories = {
+            '智能体开发工具': [],
+            'Skills与Hooks': [],
+            '开发支持': []
+        }
+
+        for agent_file in sorted(f_agents):
+            stem = agent_file.stem
+            try:
+                content = agent_file.read_text(encoding='utf-8')
+                # 提取标题
+                title_match = re.search(r'^#\s+(.+?)$', content, re.MULTILINE)
+                title = title_match.group(1) if title_match else stem
+
+                # 简单分类
+                if 'Agent' in title or '智能体' in title:
+                    agent_categories['智能体开发工具'].append(f"- `{stem}`: {title}")
+                elif 'Skill' in title or 'Hook' in title:
+                    agent_categories['Skills与Hooks'].append(f"- `{stem}`: {title}")
+                else:
+                    agent_categories['开发支持'].append(f"- `{stem}`: {title}")
+            except Exception:
+                continue
+
+        for category, agents in agent_categories.items():
+            if agents:
+                ecosystem_desc.append(f"**{category}**:")
+                ecosystem_desc.extend(agents)
+                ecosystem_desc.append("")
+
+        return '\n'.join(ecosystem_desc)
+
+    def _analyze_skills_system(self) -> str:
+        """分析Skills技能包体系"""
+        if not self.skills_dir.exists():
+            return ""
+
+        # 扫描skills目录
+        skill_dirs = [d for d in self.skills_dir.iterdir() if d.is_dir() and not d.name.startswith('.')]
+
+        if not skill_dirs:
+            return ""
+
+        skills_desc = []
+        skills_desc.append(f"本框架集成 **{len(skill_dirs)}个技能包**，提供可复用的能力模块：")
+        skills_desc.append("")
+
+        for skill_dir in sorted(skill_dirs):
+            skill_md = skill_dir / "SKILL.md"
+            if skill_md.exists():
+                try:
+                    content = skill_md.read_text(encoding='utf-8')
+                    # 提取description
+                    desc_match = re.search(r'description:\s*(.+)', content)
+                    desc = desc_match.group(1).strip() if desc_match else skill_dir.name
+                    skills_desc.append(f"- **{skill_dir.name}**: {desc}")
+                except Exception:
+                    skills_desc.append(f"- **{skill_dir.name}**")
+            else:
+                skills_desc.append(f"- **{skill_dir.name}**")
+
+        return '\n'.join(skills_desc)
+
+    def _analyze_mcp_integration(self) -> str:
+        """分析MCP服务集成"""
+        if not self.settings_file.exists():
+            return ""
+
+        try:
+            settings = json.loads(self.settings_file.read_text(encoding='utf-8'))
+            mcp_servers = settings.get('mcpServers', {})
+
+            if not mcp_servers:
+                return ""
+
+            mcp_desc = []
+            mcp_desc.append(f"本框架集成 **{len(mcp_servers)}个MCP服务器**：")
+            mcp_desc.append("")
+
+            for server_name in sorted(mcp_servers.keys()):
+                mcp_desc.append(f"- `{server_name}`: MCP协议服务")
+
+            return '\n'.join(mcp_desc)
+        except Exception:
+            return ""
+
 
 class FSeriesScanner:
     """F系列智能体扫描器"""
@@ -384,16 +558,19 @@ class AgentsDocGenerator:
             str: 系统AGENTS说明Markdown内容
         """
         if not self.f_agents:
-            return "# 2. 系统AGENTS说明\n\n暂无F系列智能体配置。\n"
+            return "## 系统AGENTS说明\n\n暂无F系列智能体配置。\n"
 
         sections = []
-        sections.append("# 2. 系统AGENTS说明")
+        sections.append("## 系统AGENTS说明")
         sections.append("")
-        sections.append("## 智能体工程与上下文管理 (F系列)")
-        sections.append("> 专注于智能体创建、上下文管理和系统级配置的专家智能体,提供元能力支持和开发工具链。")
+        sections.append("> **管理说明**: 本章节内容由 `/N` 命令自动维护。系统级Agents作为框架基础设施,由框架维护者统一管理。")
         sections.append("")
-        sections.append("| 快捷键 | 功能描述 | 调用文档 |")
-        sections.append("|---|---|---|")
+        sections.append("### F系列通用框架智能体")
+        sections.append("")
+        sections.append("F系列智能体是Claude Code框架的基础设施建设者，负责开发工具、系统能力和智能体工程的全生命周期管理。")
+        sections.append("")
+        sections.append("| 快捷键 | 智能体名称 | 功能定位 | 文件路径 |")
+        sections.append("|-------|-----------|---------|----------|")
 
         # 排序：F0-F9, FF
         sorted_agents = sorted(
@@ -402,13 +579,17 @@ class AgentsDocGenerator:
         )
 
         for agent in sorted_agents:
-            # 限制描述长度
+            # 提取智能体名称(从文件名或标题)
+            agent_name = agent.get('title', agent['shortcut'])
+            if agent_name.startswith(agent['shortcut']):
+                # 去除快捷键前缀,例如 "F1-Agents智能体创建工程师" -> "Agents智能体创建工程师"
+                agent_name = agent_name.split('-', 1)[1] if '-' in agent_name else agent_name
+
+            # 功能描述
             desc = agent['description']
-            if len(desc) > 50:
-                desc = desc[:47] + "..."
 
             sections.append(
-                f"| `{agent['shortcut']}`  | {desc} | `{agent['path']}` |"
+                f"| {agent['shortcut']} | {agent_name} | {desc} | `{agent['path']}` |"
             )
 
         sections.append("")
@@ -464,6 +645,8 @@ class CommandsDocGenerator:
 
         sections = []
         sections.append("# 3. 系统COMMANDS说明")
+        sections.append("")
+        sections.append("> **管理说明**: 本章节内容由 `/N` 命令自动维护。系统级Commands作为框架通用能力接口,由框架维护者统一管理。")
         sections.append("")
         sections.append("## 通用命令与智能体")
         sections.append("")

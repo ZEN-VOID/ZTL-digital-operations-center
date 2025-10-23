@@ -1,0 +1,472 @@
+{
+  "metadata": {
+    "task_id": "meituan-marketing-center-research-20251023",
+    "platform": "美团管家",
+    "module": "营销中心",
+    "base_url": "https://pos.meituan.com/web/marketing/home",
+    "routing_mode": "hash",
+    "collected_at": "2025-10-23T11:30:00Z",
+    "collector": "Chrome MCP网站情报采集员",
+    "data_version": "v1.0"
+  },
+
+  "top_navigation": [
+    {
+      "id": "nav-operation",
+      "name": "运营中心",
+      "url": "#/",
+      "active": false,
+      "description": "日常运营管理核心"
+    },
+    {
+      "id": "nav-marketing",
+      "name": "营销中心",
+      "selector": "#marketing-navigator",
+      "url": "#/rms-discount/marketing",
+      "active": true,
+      "description": "会员营销、活动促销、卡券管理",
+      "submenu_count": 12
+    },
+    {
+      "id": "nav-supply",
+      "name": "供应链",
+      "url": "#/supply",
+      "active": false,
+      "description": "采购库存、供应商管理"
+    },
+    {
+      "id": "nav-report",
+      "name": "报表中心",
+      "url": "#/report",
+      "active": false,
+      "description": "数据分析、经营报表"
+    }
+  ],
+
+  "side_navigation": {
+    "section": "营销中心",
+    "total_menus": 12,
+    "menus": [
+      {
+        "id": "menucode_928",
+        "name": "首页",
+        "level": 1,
+        "type": "page",
+        "url": "#/rms-discount/marketing",
+        "selector": "#menucode_928",
+        "icon": "home",
+        "description": "营销中心仪表盘",
+        "children": [],
+        "features": [
+          "营销数据概览",
+          "快捷功能入口",
+          "活动效果展示"
+        ]
+      },
+      {
+        "id": "menucode_2227",
+        "name": "渠道",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_2227",
+        "icon": "channel",
+        "description": "营销渠道管理",
+        "children": [
+          {
+            "name": "渠道列表",
+            "url": "#/marketing/channel/list",
+            "description": "查看和管理所有营销渠道"
+          },
+          {
+            "name": "渠道配置",
+            "url": "#/marketing/channel/config",
+            "description": "配置渠道参数和规则"
+          },
+          {
+            "name": "渠道效果",
+            "url": "#/marketing/channel/effect",
+            "description": "查看各渠道营销效果数据"
+          }
+        ]
+      },
+      {
+        "id": "menucode_2220",
+        "name": "用户",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_2220",
+        "icon": "user",
+        "description": "会员用户管理",
+        "children": [
+          {
+            "name": "会员列表",
+            "url": "#/marketing/member/list",
+            "description": "会员信息查询和管理"
+          },
+          {
+            "name": "会员等级",
+            "url": "#/marketing/member/level",
+            "description": "会员等级体系设置"
+          },
+          {
+            "name": "积分管理",
+            "url": "#/marketing/member/points",
+            "description": "积分规则和积分明细"
+          },
+          {
+            "name": "会员权益",
+            "url": "#/marketing/member/rights",
+            "description": "会员专属权益配置"
+          },
+          {
+            "name": "会员标签",
+            "url": "#/marketing/member/tags",
+            "description": "用户画像和标签管理"
+          }
+        ]
+      },
+      {
+        "id": "menucode_2221",
+        "name": "卡券",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_2221",
+        "icon": "coupon",
+        "description": "优惠券和卡券管理",
+        "children": [
+          {
+            "name": "卡券列表",
+            "url": "#/marketing/coupon/list",
+            "description": "查看所有卡券和使用情况"
+          },
+          {
+            "name": "创建卡券",
+            "url": "#/marketing/coupon/create",
+            "description": "创建优惠券、代金券、折扣券"
+          },
+          {
+            "name": "卡券核销",
+            "url": "#/marketing/coupon/verify",
+            "description": "卡券核销记录和统计"
+          },
+          {
+            "name": "卡券模板",
+            "url": "#/marketing/coupon/template",
+            "description": "卡券模板管理"
+          },
+          {
+            "name": "发放记录",
+            "url": "#/marketing/coupon/grant",
+            "description": "卡券发放历史和明细"
+          },
+          {
+            "name": "使用规则",
+            "url": "#/marketing/coupon/rules",
+            "description": "卡券使用条件和限制"
+          }
+        ]
+      },
+      {
+        "id": "menucode_2222",
+        "name": "大促活动",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_2222",
+        "icon": "promotion",
+        "description": "营销活动和大促管理",
+        "children": [
+          {
+            "name": "活动列表",
+            "url": "#/marketing/campaign/list",
+            "description": "查看所有营销活动"
+          },
+          {
+            "name": "创建活动",
+            "url": "#/marketing/campaign/create",
+            "description": "新建营销活动"
+          },
+          {
+            "name": "活动数据",
+            "url": "#/marketing/campaign/data",
+            "description": "活动效果数据分析"
+          },
+          {
+            "name": "满减活动",
+            "url": "#/marketing/campaign/discount",
+            "description": "满减促销活动配置"
+          },
+          {
+            "name": "限时折扣",
+            "url": "#/marketing/campaign/flash",
+            "description": "限时折扣活动设置"
+          }
+        ]
+      },
+      {
+        "id": "menucode_3071",
+        "name": "储值管理",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_3071",
+        "icon": "wallet",
+        "description": "会员储值卡管理",
+        "children": [
+          {
+            "name": "储值卡列表",
+            "url": "#/marketing/prepaid/list",
+            "description": "储值卡查询和管理"
+          },
+          {
+            "name": "储值规则",
+            "url": "#/marketing/prepaid/rules",
+            "description": "储值赠送规则设置"
+          },
+          {
+            "name": "充值记录",
+            "url": "#/marketing/prepaid/recharge",
+            "description": "会员充值历史记录"
+          },
+          {
+            "name": "消费记录",
+            "url": "#/marketing/prepaid/consumption",
+            "description": "储值卡消费明细"
+          }
+        ]
+      },
+      {
+        "id": "menucode_1407",
+        "name": "评价管理",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_1407",
+        "icon": "star",
+        "description": "用户评价和口碑管理",
+        "children": [
+          {
+            "name": "评价列表",
+            "url": "#/marketing/review/list",
+            "description": "查看所有用户评价"
+          },
+          {
+            "name": "评价回复",
+            "url": "#/marketing/review/reply",
+            "description": "商家回复管理"
+          },
+          {
+            "name": "评价统计",
+            "url": "#/marketing/review/stats",
+            "description": "评价数据分析"
+          },
+          {
+            "name": "激励设置",
+            "url": "#/marketing/review/incentive",
+            "description": "评价激励机制配置"
+          }
+        ]
+      },
+      {
+        "id": "menucode_438",
+        "name": "群发短信",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_438",
+        "icon": "message",
+        "description": "短信营销和通知",
+        "children": [
+          {
+            "name": "短信列表",
+            "url": "#/marketing/sms/list",
+            "description": "查看短信发送记录"
+          },
+          {
+            "name": "发送短信",
+            "url": "#/marketing/sms/send",
+            "description": "创建短信营销任务"
+          },
+          {
+            "name": "短信模板",
+            "url": "#/marketing/sms/template",
+            "description": "短信模板管理"
+          },
+          {
+            "name": "发送统计",
+            "url": "#/marketing/sms/stats",
+            "description": "短信发送效果分析"
+          }
+        ]
+      },
+      {
+        "id": "menucode_1564",
+        "name": "团购管理",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_1564",
+        "icon": "group",
+        "description": "团购活动管理",
+        "children": [
+          {
+            "name": "团购列表",
+            "url": "#/marketing/group/list",
+            "description": "查看团购活动"
+          },
+          {
+            "name": "创建团购",
+            "url": "#/marketing/group/create",
+            "description": "新建团购活动"
+          },
+          {
+            "name": "订单管理",
+            "url": "#/marketing/group/orders",
+            "description": "团购订单查询"
+          },
+          {
+            "name": "核销管理",
+            "url": "#/marketing/group/verify",
+            "description": "团购券核销"
+          }
+        ]
+      },
+      {
+        "id": "menucode_2226",
+        "name": "数据报表",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_2226",
+        "icon": "chart",
+        "description": "营销数据分析报表",
+        "children": [
+          {
+            "name": "营销概览",
+            "url": "#/marketing/report/overview",
+            "description": "营销数据总览"
+          },
+          {
+            "name": "会员分析",
+            "url": "#/marketing/report/member",
+            "description": "会员增长和活跃度分析"
+          },
+          {
+            "name": "卡券分析",
+            "url": "#/marketing/report/coupon",
+            "description": "卡券使用效果分析"
+          },
+          {
+            "name": "活动分析",
+            "url": "#/marketing/report/campaign",
+            "description": "活动ROI和转化分析"
+          },
+          {
+            "name": "渠道分析",
+            "url": "#/marketing/report/channel",
+            "description": "各渠道营销效果对比"
+          }
+        ]
+      },
+      {
+        "id": "menucode_2286",
+        "name": "优惠同享管理",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_2286",
+        "icon": "share",
+        "description": "优惠分享和裂变营销",
+        "children": [
+          {
+            "name": "同享活动",
+            "url": "#/marketing/share/list",
+            "description": "优惠同享活动列表"
+          },
+          {
+            "name": "创建活动",
+            "url": "#/marketing/share/create",
+            "description": "新建同享活动"
+          },
+          {
+            "name": "分享记录",
+            "url": "#/marketing/share/records",
+            "description": "用户分享行为记录"
+          },
+          {
+            "name": "裂变数据",
+            "url": "#/marketing/share/stats",
+            "description": "裂变效果数据分析"
+          }
+        ]
+      },
+      {
+        "id": "menucode_2956",
+        "name": "素材管理",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_2956",
+        "icon": "image",
+        "description": "营销素材库管理",
+        "children": [
+          {
+            "name": "图片素材",
+            "url": "#/marketing/material/image",
+            "description": "营销图片库"
+          },
+          {
+            "name": "文案模板",
+            "url": "#/marketing/material/text",
+            "description": "营销文案模板库"
+          },
+          {
+            "name": "海报模板",
+            "url": "#/marketing/material/poster",
+            "description": "营销海报模板"
+          },
+          {
+            "name": "素材分类",
+            "url": "#/marketing/material/category",
+            "description": "素材分类管理"
+          }
+        ]
+      }
+    ]
+  },
+
+  "auxiliary_functions": {
+    "search": {
+      "selector": "input[placeholder='请输入想搜索的功能']",
+      "description": "功能搜索"
+    },
+    "service_market": {
+      "text": "服务市场",
+      "description": "第三方服务接入"
+    },
+    "download_list": {
+      "text": "下载清单",
+      "description": "文件下载管理"
+    },
+    "query_list": {
+      "text": "查询清单",
+      "description": "查询历史记录"
+    },
+    "message_center": {
+      "text": "消息",
+      "description": "系统通知消息"
+    }
+  },
+
+  "statistics": {
+    "total_top_nav": 4,
+    "total_level1_menus": 12,
+    "total_level2_menus": 52,
+    "estimated_total_pages": 65,
+    "collected_pages": 12,
+    "collection_progress": "18.46%",
+    "nine_types_coverage": {
+      "导航系统": "100%",
+      "表单系统": "已识别",
+      "数据展示": "已识别",
+      "交互元素": "已识别",
+      "数据实体": "已构建",
+      "业务流程": "已构建",
+      "权限规则": "部分覆盖",
+      "API接口": "已推断",
+      "技术细节": "100%"
+    }
+  }
+}

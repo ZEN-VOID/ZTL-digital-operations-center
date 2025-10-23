@@ -1,0 +1,339 @@
+{
+  "metadata": {
+    "platform": "美团管家",
+    "module": "报表中心",
+    "base_url": "https://pos.meituan.com/web/report/main",
+    "collected_at": "2025-10-23",
+    "status": "结构化框架（待实际采集填充）",
+    "note": "此文档提供标准报表中心的预期结构，需要实际登录后验证和补充"
+  },
+
+  "side_navigation": {
+    "section": "报表中心",
+    "description": "美团管家报表中心提供经营分析、财务管理、数据洞察等全方位报表服务",
+
+    "menus": [
+      {
+        "id": "report-home",
+        "name": "报表首页",
+        "url": "#/rms-report/home",
+        "description": "报表中心总览，展示核心经营指标和快捷入口",
+        "expected_features": [
+          "核心经营指标卡片（营业额、订单量、客单价）",
+          "趋势图表（日/周/月对比）",
+          "快捷报表入口",
+          "异常数据告警"
+        ]
+      },
+
+      {
+        "id": "operating-analysis",
+        "name": "经营分析",
+        "url": "#/rms-report/operating-analysis",
+        "description": "门店整体经营状况深度分析",
+        "sub_menus": [
+          {
+            "id": "daily-report",
+            "name": "日报表",
+            "description": "每日经营数据汇总"
+          },
+          {
+            "id": "monthly-report",
+            "name": "月报表",
+            "description": "月度经营数据分析"
+          },
+          {
+            "id": "trend-analysis",
+            "name": "趋势分析",
+            "description": "时间序列数据趋势分析"
+          },
+          {
+            "id": "peer-comparison",
+            "name": "同行对比",
+            "description": "与同商圈/同品类门店对比"
+          }
+        ]
+      },
+
+      {
+        "id": "financial-report",
+        "name": "财务报表",
+        "url": "#/rms-report/financial",
+        "description": "财务收支、成本核算、利润分析",
+        "sub_menus": [
+          {
+            "id": "revenue-report",
+            "name": "收入报表",
+            "description": "营业收入明细、支付方式占比"
+          },
+          {
+            "id": "cost-report",
+            "name": "成本报表",
+            "description": "原材料成本、人工成本、其他成本"
+          },
+          {
+            "id": "profit-report",
+            "name": "利润报表",
+            "description": "毛利、净利润分析"
+          },
+          {
+            "id": "cashflow-report",
+            "name": "资金流水",
+            "description": "现金流入流出记录"
+          }
+        ]
+      },
+
+      {
+        "id": "sales-report",
+        "name": "销售报表",
+        "url": "#/rms-report/sales",
+        "description": "菜品销售、时段分析、渠道分析",
+        "sub_menus": [
+          {
+            "id": "dish-sales",
+            "name": "菜品销售",
+            "description": "单品销量、销售额排行"
+          },
+          {
+            "id": "category-sales",
+            "name": "品类销售",
+            "description": "菜品分类销售统计"
+          },
+          {
+            "id": "time-slot-analysis",
+            "name": "时段分析",
+            "description": "不同时段营业数据分析"
+          },
+          {
+            "id": "channel-analysis",
+            "name": "渠道分析",
+            "description": "堂食、外卖、自提等渠道占比"
+          }
+        ]
+      },
+
+      {
+        "id": "inventory-report",
+        "name": "库存报表",
+        "url": "#/rms-report/inventory",
+        "description": "库存现状、出入库记录、库存预警",
+        "sub_menus": [
+          {
+            "id": "stock-status",
+            "name": "库存现状",
+            "description": "当前库存量、库存金额"
+          },
+          {
+            "id": "inout-record",
+            "name": "出入库记录",
+            "description": "采购入库、销售出库明细"
+          },
+          {
+            "id": "stock-warning",
+            "name": "库存预警",
+            "description": "低库存、积压库存告警"
+          },
+          {
+            "id": "loss-report",
+            "name": "损耗报表",
+            "description": "原材料损耗、报废统计"
+          }
+        ]
+      },
+
+      {
+        "id": "member-report",
+        "name": "会员分析",
+        "url": "#/rms-report/member",
+        "description": "会员增长、消费分析、会员画像",
+        "sub_menus": [
+          {
+            "id": "member-growth",
+            "name": "会员增长",
+            "description": "新增会员、活跃会员趋势"
+          },
+          {
+            "id": "member-consumption",
+            "name": "会员消费",
+            "description": "会员消费金额、频次分析"
+          },
+          {
+            "id": "member-portrait",
+            "name": "会员画像",
+            "description": "会员年龄、性别、地域分布"
+          },
+          {
+            "id": "rfm-analysis",
+            "name": "RFM分析",
+            "description": "最近消费、消费频率、消费金额模型"
+          }
+        ]
+      },
+
+      {
+        "id": "marketing-report",
+        "name": "营销报表",
+        "url": "#/rms-report/marketing",
+        "description": "营销活动效果、优惠券核销、ROI分析",
+        "sub_menus": [
+          {
+            "id": "campaign-effect",
+            "name": "活动效果",
+            "description": "营销活动数据汇总"
+          },
+          {
+            "id": "coupon-analysis",
+            "name": "优惠券分析",
+            "description": "券发放、核销、成本分析"
+          },
+          {
+            "id": "discount-analysis",
+            "name": "折扣分析",
+            "description": "折扣使用情况统计"
+          },
+          {
+            "id": "marketing-roi",
+            "name": "营销ROI",
+            "description": "营销投入产出比分析"
+          }
+        ]
+      },
+
+      {
+        "id": "location-analysis",
+        "name": "商圈选址",
+        "url": "#/rms-report/location",
+        "description": "商圈分析、客流分析、竞品对比",
+        "sub_menus": [
+          {
+            "id": "trade-area",
+            "name": "商圈分析",
+            "description": "商圈人口、消费力、竞争态势"
+          },
+          {
+            "id": "customer-flow",
+            "name": "客流分析",
+            "description": "进店客流、转化率分析"
+          },
+          {
+            "id": "competitor-comparison",
+            "name": "竞品对比",
+            "description": "与竞争对手的对比分析"
+          }
+        ]
+      },
+
+      {
+        "id": "employee-report",
+        "name": "员工报表",
+        "url": "#/rms-report/employee",
+        "description": "员工绩效、排班分析、人效分析",
+        "sub_menus": [
+          {
+            "id": "performance",
+            "name": "员工绩效",
+            "description": "销售业绩、服务评分"
+          },
+          {
+            "id": "attendance",
+            "name": "考勤报表",
+            "description": "出勤、请假、加班统计"
+          },
+          {
+            "id": "labor-efficiency",
+            "name": "人效分析",
+            "description": "人均产值、人工成本占比"
+          }
+        ]
+      },
+
+      {
+        "id": "custom-report",
+        "name": "自定义报表",
+        "url": "#/rms-report/custom",
+        "description": "用户自定义报表配置和生成",
+        "expected_features": [
+          "报表模板库",
+          "自定义字段选择",
+          "自定义时间维度",
+          "报表保存和分享"
+        ]
+      }
+    ]
+  },
+
+  "data_visualization": {
+    "chart_types": [
+      {
+        "type": "line_chart",
+        "name": "折线图",
+        "use_cases": ["趋势分析", "时间序列对比"]
+      },
+      {
+        "type": "bar_chart",
+        "name": "柱状图",
+        "use_cases": ["排行榜", "分类对比"]
+      },
+      {
+        "type": "pie_chart",
+        "name": "饼图",
+        "use_cases": ["占比分析", "结构分析"]
+      },
+      {
+        "type": "table",
+        "name": "数据表格",
+        "use_cases": ["明细数据展示", "多维度数据"]
+      },
+      {
+        "type": "kpi_card",
+        "name": "指标卡片",
+        "use_cases": ["核心指标展示", "同比环比"]
+      },
+      {
+        "type": "heatmap",
+        "name": "热力图",
+        "use_cases": ["时段分析", "地域分析"]
+      }
+    ]
+  },
+
+  "filter_dimensions": {
+    "time_filters": [
+      "今日",
+      "昨日",
+      "近7天",
+      "近30天",
+      "本周",
+      "本月",
+      "上月",
+      "自定义时间段"
+    ],
+    "store_filters": [
+      "单门店",
+      "多门店",
+      "门店组",
+      "全部门店"
+    ],
+    "channel_filters": [
+      "堂食",
+      "外卖",
+      "自提",
+      "全渠道"
+    ]
+  },
+
+  "export_formats": [
+    "Excel (.xlsx)",
+    "PDF",
+    "CSV",
+    "图片 (PNG)"
+  ],
+
+  "implementation_notes": {
+    "authentication_required": true,
+    "data_refresh_frequency": "实时/小时级/天级",
+    "mobile_support": "支持移动端查看",
+    "data_permission": "基于角色的数据权限控制"
+  }
+}

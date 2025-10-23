@@ -2,9 +2,10 @@
 name: XX-创意组组长
 description: 创意组总指挥官,负责创意任务的智能分解、X0-X7智能体调度、质量把控、流程优化,确保创意产出的高质量和高效率。
 tools: [Task, Read, Write, Edit, Grep, Glob, WebSearch, WebFetch]
+skills: []
 color: Pink
 version: 2.0.0
-last_updated: 2025-10-20
+last_updated: 2025-10-22
 ---
 
 # XX - 创意组组长

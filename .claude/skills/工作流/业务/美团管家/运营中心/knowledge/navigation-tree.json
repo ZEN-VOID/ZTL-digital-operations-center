@@ -1,0 +1,476 @@
+{
+  "metadata": {
+    "task_id": "meituan-operation-center-research-20251023",
+    "platform": "美团管家",
+    "module": "运营中心",
+    "base_url": "https://pos.meituan.com/web/operation/main",
+    "routing_mode": "hash",
+    "collected_at": "2025-10-23T07:52:00Z",
+    "collector": "E2-网站情报采集员",
+    "data_version": "v1.0"
+  },
+
+  "top_navigation": [
+    {
+      "id": "nav-operation",
+      "name": "运营中心",
+      "url": "#/",
+      "active": true,
+      "description": "日常运营管理核心",
+      "submenu_count": 12
+    },
+    {
+      "id": "nav-marketing",
+      "name": "营销中心",
+      "selector": "#marketing-navigator",
+      "url": "#/marketing",
+      "active": false,
+      "description": "会员营销、活动促销",
+      "status": "待采集"
+    },
+    {
+      "id": "nav-supply",
+      "name": "供应链",
+      "url": "#/supply",
+      "active": false,
+      "description": "采购库存、供应商管理",
+      "status": "待采集"
+    },
+    {
+      "id": "nav-report",
+      "name": "报表中心",
+      "url": "#/report",
+      "active": false,
+      "description": "数据分析、经营报表",
+      "status": "待采集"
+    }
+  ],
+
+  "side_navigation": {
+    "section": "运营中心",
+    "total_menus": 12,
+    "menus": [
+      {
+        "id": "menucode_927",
+        "name": "首页",
+        "level": 1,
+        "type": "page",
+        "url": "#/",
+        "selector": "#menucode_927",
+        "icon": "home",
+        "description": "运营中心仪表盘",
+        "children": [],
+        "features": [
+          "常用功能快捷入口",
+          "经营推荐卡片",
+          "App下载引导"
+        ]
+      },
+      {
+        "id": "menucode_347",
+        "name": "餐厅管理",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_347",
+        "icon": "restaurant",
+        "description": "门店基础信息和设备配置",
+        "children": [
+          {
+            "name": "餐厅信息",
+            "url": "#/restaurant/info",
+            "description": "门店名称、地址、营业时间"
+          },
+          {
+            "name": "桌台管理",
+            "url": "#/restaurant/table",
+            "description": "桌台号、区域、容纳人数"
+          },
+          {
+            "name": "打印设置",
+            "url": "#/restaurant/printer",
+            "description": "小票打印机、厨房打印机配置"
+          },
+          {
+            "name": "支付配置",
+            "url": "#/restaurant/payment",
+            "description": "支付方式开通、聚合支付设置"
+          },
+          {
+            "name": "设备管理",
+            "url": "#/restaurant/device",
+            "description": "收银设备、扫码枪、打印机"
+          }
+        ]
+      },
+      {
+        "id": "menucode_119",
+        "name": "菜品管理",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_119",
+        "icon": "dish",
+        "description": "菜品库、分类、规格、价格管理",
+        "children": [
+          {
+            "name": "菜品库",
+            "url": "#/dish/list",
+            "description": "菜品新增、编辑、删除、批量导入"
+          },
+          {
+            "name": "菜品分类",
+            "url": "#/dish/category",
+            "description": "分类创建、排序、图标设置"
+          },
+          {
+            "name": "菜品规格",
+            "url": "#/dish/spec",
+            "description": "多规格设置 (大/中/小杯等)"
+          },
+          {
+            "name": "价格管理",
+            "url": "#/dish/price",
+            "description": "堂食价、外卖价、会员价"
+          },
+          {
+            "name": "菜品组合",
+            "url": "#/dish/combo",
+            "description": "套餐配置、组合优惠"
+          },
+          {
+            "name": "菜品部门",
+            "url": "#/dish/department",
+            "description": "厨房部门分配、出品顺序"
+          }
+        ]
+      },
+      {
+        "id": "menucode_1571",
+        "name": "手机点餐",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_1571",
+        "icon": "mobile",
+        "description": "手机端点餐小程序配置和订单管理",
+        "children": [
+          {
+            "name": "小程序设置",
+            "url": "#/mobile-order/settings",
+            "description": "界面配置、轮播图、底部导航"
+          },
+          {
+            "name": "菜品上架",
+            "url": "#/mobile-order/dish",
+            "description": "手机点餐菜品同步与上架"
+          },
+          {
+            "name": "订单管理",
+            "url": "#/mobile-order/orders",
+            "description": "手机点餐订单列表、状态管理"
+          },
+          {
+            "name": "桌台绑定",
+            "url": "#/mobile-order/table",
+            "description": "二维码生成、桌台关联"
+          }
+        ]
+      },
+      {
+        "id": "menucode_1816",
+        "name": "二维码管理",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_1816",
+        "icon": "qrcode",
+        "description": "点餐二维码、收款二维码生成和管理",
+        "children": [
+          {
+            "name": "桌台二维码",
+            "url": "#/qrcode/table",
+            "description": "按桌台批量生成点餐码"
+          },
+          {
+            "name": "收款二维码",
+            "url": "#/qrcode/payment",
+            "description": "美团/微信/支付宝收款码"
+          },
+          {
+            "name": "二维码打印",
+            "url": "#/qrcode/print",
+            "description": "二维码标签打印"
+          },
+          {
+            "name": "扫码记录",
+            "url": "#/qrcode/log",
+            "description": "扫码点餐统计"
+          }
+        ]
+      },
+      {
+        "id": "menucode_164",
+        "name": "外卖管理",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_164",
+        "icon": "delivery",
+        "description": "美团外卖、饿了么等外卖平台对接",
+        "children": [
+          {
+            "name": "外卖订单",
+            "url": "#/takeout/orders",
+            "description": "实时订单接收、处理、配送"
+          },
+          {
+            "name": "菜品同步",
+            "url": "#/takeout/dish-sync",
+            "description": "外卖菜品与堂食菜品关联"
+          },
+          {
+            "name": "营业设置",
+            "url": "#/takeout/business",
+            "description": "外卖营业时间、配送范围"
+          },
+          {
+            "name": "外卖活动",
+            "url": "#/takeout/activity",
+            "description": "满减活动、折扣券设置"
+          }
+        ]
+      },
+      {
+        "id": "menucode_157",
+        "name": "财务管理",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_157",
+        "icon": "finance",
+        "description": "收款对账、支付结算、财务报表",
+        "children": [
+          {
+            "name": "支付明细",
+            "url": "#/finance/payment-detail",
+            "description": "每笔订单的支付方式、支付金额等明细数据"
+          },
+          {
+            "name": "支付结算",
+            "url": "#/finance/settlement",
+            "description": "每日美团金融结算给商家的金额明细"
+          },
+          {
+            "name": "营业概览",
+            "url": "#/finance/overview",
+            "description": "营业额、营业收入等门店营业概况数据"
+          },
+          {
+            "name": "菜品销售统计",
+            "url": "#/finance/dish-sales",
+            "description": "各菜品的销量、原价、收入、优惠等数据"
+          },
+          {
+            "name": "综合营业统计",
+            "url": "#/finance/comprehensive",
+            "description": "每天的营业额、优惠金额、营业收入等数据"
+          },
+          {
+            "name": "对账管理",
+            "url": "#/finance/reconciliation",
+            "description": "线上线下收款对账、异常处理"
+          }
+        ],
+        "key_metrics": {
+          "month_completed_stores": 0,
+          "month_business_days": 23,
+          "month_revenue": 87217.21,
+          "month_payment": 87217.21,
+          "month_anomalies": 0
+        }
+      },
+      {
+        "id": "menucode_2509",
+        "name": "分账管理",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_2509",
+        "icon": "split",
+        "description": "多门店、多股东分账规则配置",
+        "children": [
+          {
+            "name": "分账规则",
+            "url": "#/split/rules",
+            "description": "分账比例设置"
+          },
+          {
+            "name": "分账记录",
+            "url": "#/split/records",
+            "description": "分账明细查询"
+          },
+          {
+            "name": "分账对象",
+            "url": "#/split/partners",
+            "description": "股东、合伙人信息"
+          }
+        ]
+      },
+      {
+        "id": "menucode_2782",
+        "name": "数智督导",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_2782",
+        "icon": "supervision",
+        "description": "智能化运营监督和异常预警",
+        "children": [
+          {
+            "name": "异常监控",
+            "url": "#/supervision/monitor",
+            "description": "退菜异常、折扣异常、库存异常"
+          },
+          {
+            "name": "数据大屏",
+            "url": "#/supervision/dashboard",
+            "description": "实时运营数据可视化"
+          },
+          {
+            "name": "督导报告",
+            "url": "#/supervision/report",
+            "description": "日报、周报、月报"
+          },
+          {
+            "name": "预警提醒",
+            "url": "#/supervision/alert",
+            "description": "短信、微信推送"
+          }
+        ]
+      },
+      {
+        "id": "menucode_2730",
+        "name": "效期管理",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_2730",
+        "icon": "expiration",
+        "description": "食材保质期管理，减少浪费",
+        "children": [
+          {
+            "name": "效期设置",
+            "url": "#/expiration/settings",
+            "description": "食材保质期配置"
+          },
+          {
+            "name": "效期预警",
+            "url": "#/expiration/alert",
+            "description": "临期提醒"
+          },
+          {
+            "name": "效期记录",
+            "url": "#/expiration/records",
+            "description": "过期处理记录"
+          },
+          {
+            "name": "库存周转",
+            "url": "#/expiration/turnover",
+            "description": "先进先出策略"
+          }
+        ]
+      },
+      {
+        "id": "menucode_1758",
+        "name": "组织机构及账号",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_1758",
+        "icon": "organization",
+        "description": "账号权限、组织架构管理",
+        "children": [
+          {
+            "name": "账号管理",
+            "url": "#/org/accounts",
+            "description": "员工账号新增、编辑、禁用"
+          },
+          {
+            "name": "角色管理",
+            "url": "#/org/roles",
+            "description": "角色权限配置"
+          },
+          {
+            "name": "组织架构",
+            "url": "#/org/structure",
+            "description": "部门、岗位设置"
+          },
+          {
+            "name": "操作日志",
+            "url": "#/org/logs",
+            "description": "账号操作审计"
+          }
+        ]
+      },
+      {
+        "id": "menucode_348",
+        "name": "系统设置",
+        "level": 1,
+        "type": "submenu",
+        "selector": "#menucode_348",
+        "icon": "settings",
+        "description": "系统参数、业务规则配置",
+        "children": [
+          {
+            "name": "基础设置",
+            "url": "#/settings/basic",
+            "description": "系统参数配置"
+          },
+          {
+            "name": "业务设置",
+            "url": "#/settings/business",
+            "description": "结账规则、优惠规则"
+          },
+          {
+            "name": "打印设置",
+            "url": "#/settings/print",
+            "description": "小票模板、打印规则"
+          },
+          {
+            "name": "消息设置",
+            "url": "#/settings/message",
+            "description": "通知提醒开关"
+          },
+          {
+            "name": "数据同步",
+            "url": "#/settings/sync",
+            "description": "与美团平台数据同步"
+          }
+        ]
+      }
+    ]
+  },
+
+  "auxiliary_functions": {
+    "search": {
+      "selector": "input[placeholder='请输入想搜索的功能']",
+      "description": "功能搜索"
+    },
+    "service_market": {
+      "text": "服务市场",
+      "description": "第三方服务接入"
+    },
+    "download_list": {
+      "text": "下载清单",
+      "description": "文件下载管理"
+    },
+    "query_list": {
+      "text": "查询清单",
+      "description": "查询历史记录"
+    },
+    "message_center": {
+      "text": "消息",
+      "description": "系统通知消息"
+    }
+  },
+
+  "statistics": {
+    "total_top_nav": 4,
+    "total_level1_menus": 12,
+    "total_level2_menus": 56,
+    "estimated_total_pages": 60,
+    "collected_pages": 1,
+    "collection_progress": "1.67%"
+  }
+}
