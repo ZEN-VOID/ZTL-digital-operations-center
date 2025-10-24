@@ -20,10 +20,28 @@ function initExpandableAgentLists() {
     const expandButtons = document.querySelectorAll('.expand-btn');
 
     expandButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(e) {
+            // Prevent event bubbling
+            e.stopPropagation();
+            e.preventDefault();
+
             const groupName = this.getAttribute('data-group');
             const agentGroup = this.closest('.agent-group');
+
+            // Ensure we found the agent group
+            if (!agentGroup) {
+                console.error('Agent group not found for button:', this);
+                return;
+            }
+
             const agentList = agentGroup.querySelector('.agent-list');
+
+            // Ensure we found the agent list
+            if (!agentList) {
+                console.error('Agent list not found in group:', agentGroup);
+                return;
+            }
+
             const arrow = this.querySelector('.arrow');
             const buttonText = this.querySelector('span:first-child');
 
@@ -31,13 +49,16 @@ function initExpandableAgentLists() {
             const isExpanded = agentList.classList.contains('expanded');
 
             if (isExpanded) {
-                // Collapse
+                // Collapse this group
                 agentList.classList.remove('expanded');
                 arrow.textContent = '▼';
                 buttonText.textContent = '展开查看';
                 this.classList.remove('active');
             } else {
-                // Expand
+                // Collapse all other groups first (optional: comment out if you want multiple groups expanded)
+                // collapseOtherGroups(agentGroup);
+
+                // Expand this group
                 agentList.classList.add('expanded');
                 arrow.textContent = '▲';
                 buttonText.textContent = '收起列表';
@@ -47,6 +68,31 @@ function initExpandableAgentLists() {
                 animateAgentItems(agentList);
             }
         });
+    });
+}
+
+// Helper function to collapse other groups
+function collapseOtherGroups(currentGroup) {
+    const allGroups = document.querySelectorAll('.agent-group');
+
+    allGroups.forEach(group => {
+        if (group !== currentGroup) {
+            const agentList = group.querySelector('.agent-list');
+            const expandBtn = group.querySelector('.expand-btn');
+
+            if (agentList && agentList.classList.contains('expanded')) {
+                agentList.classList.remove('expanded');
+
+                if (expandBtn) {
+                    const arrow = expandBtn.querySelector('.arrow');
+                    const buttonText = expandBtn.querySelector('span:first-child');
+
+                    if (arrow) arrow.textContent = '▼';
+                    if (buttonText) buttonText.textContent = '展开查看';
+                    expandBtn.classList.remove('active');
+                }
+            }
+        }
     });
 }
 

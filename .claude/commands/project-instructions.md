@@ -1,6 +1,6 @@
 ---
 name: 项目介绍文档目录智能管理器
-description: 全面管理project-instructions目录下的完整文档体系，包括多个HTML页面、支持脚本、样式文件和配置，智能同步项目最新状态，保持设计风格一致性
+description: 全面管理project/instructions目录下的完整文档体系，包括多个HTML页面、支持脚本、样式文件和配置，智能同步项目最新状态，保持设计风格一致性
 allowed-tools: ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "WebSearch", "mcp__context7__resolve-library-id", "mcp__context7__get-library-docs"]
 model: claude-sonnet-4.5
 argument-hint: ""
@@ -13,14 +13,14 @@ last_updated: 2025-10-24
 ## 📋 命令概述
 
 **命令名称**: 项目介绍文档目录智能管理器
-**快捷键**: `/project-instructions`
+**快捷键**: `/project/instructions`
 **版本**: v2.0.0
-**使用语法**: `/project-instructions`
+**使用语法**: `/project/instructions`
 
-智能管理整个`project-instructions/`目录，自动更新所有HTML页面、同步项目数据、优化视觉设计、维护一致性风格。
+智能管理整个`project/instructions/`目录，自动更新所有HTML页面、同步项目数据、优化视觉设计、维护一致性风格。
 
 ### 核心特性
-- **完整目录管理**: 管理整个project-instructions目录而非单个HTML文件
+- **完整目录管理**: 管理整个project/instructions目录而非单个HTML文件
 - **多页面协同**: 同步更新所有HTML页面（主页、架构图、命令列表、用例展示等）
 - **智能数据同步**: 自动从项目配置中提取最新数据
 - **风格一致性**: 保持所有页面的设计风格统一
@@ -33,11 +33,11 @@ last_updated: 2025-10-24
 
 ### 功能1: 目录结构智能管理
 
-**目标**: 维护完整的project-instructions目录体系
+**目标**: 维护完整的project/instructions目录体系
 
 **目录结构**:
 ```yaml
-project-instructions/
+project/instructions/
 ├── 主入口文件:
 │   └── ZTL数智化作战中心项目介绍.html  # 项目主页
 │
@@ -242,7 +242,7 @@ styles/responsive.css:
 ### 阶段1: 环境检测与数据扫描 (20%)
 
 ```yaml
-步骤1: 检测project-instructions目录
+步骤1: 检测project/instructions目录
   - 验证目录存在性
   - 扫描所有HTML文件
   - 识别脚本和样式文件
@@ -373,8 +373,8 @@ styles/responsive.css:
   - 列出功能特性
 
 步骤2: 创建备份
-  - 备份整个project-instructions目录
-  - 保存到backups/project-instructions-backup-[时间戳]/
+  - 备份整个project/instructions目录
+  - 保存到backups/project/instructions-backup-[时间戳]/
 
 步骤3: 生成更新报告
   - 列出所有更新的文件
@@ -458,7 +458,7 @@ CSS模块化:
   - Read: 读取所有HTML、JS、CSS文件
   - Write: 写入更新后的文件
   - Edit: 精确更新特定内容
-  - Glob: 扫描project-instructions目录
+  - Glob: 扫描project/instructions目录
   - Grep: 搜索特定内容
 
 项目扫描:
@@ -481,7 +481,7 @@ MCP工具:
 
 ```bash
 # 每周执行一次，保持所有文档页面与项目同步
-/project-instructions
+/project/instructions
 
 # 自动执行:
 # - 扫描所有项目配置
@@ -494,7 +494,7 @@ MCP工具:
 
 ```bash
 # 在v2.0发布前，全面刷新项目介绍文档
-/project-instructions
+/project/instructions
 
 # 执行内容:
 # - 同步v2.0新功能数据
@@ -507,7 +507,7 @@ MCP工具:
 
 ```bash
 # 添加新的功能展示页面后
-/project-instructions
+/project/instructions
 
 # 自动处理:
 # - 检测新增的HTML文件
@@ -522,9 +522,9 @@ MCP工具:
 
 ```yaml
 目录配置:
-  project_instructions_dir: "./project-instructions/"
+  project_instructions_dir: "./project/instructions/"
   backup_dir: "./backups/"
-  data_snapshot_path: "./project-instructions/scripts/project-data.json"
+  data_snapshot_path: "./project/instructions/scripts/project-data.json"
 
 HTML页面:
   main_pages:
@@ -585,7 +585,7 @@ HTML页面:
 ```yaml
 执行环境:
   - 确保在项目根目录执行
-  - 确保project-instructions目录存在
+  - 确保project/instructions目录存在
   - 确保有文件读写权限
 
 依赖检查:
@@ -596,7 +596,7 @@ HTML页面:
 备份管理:
   - 备份会自动创建但不会自动删除
   - 建议定期清理旧备份(保留最近5次)
-  - 备份目录: backups/project-instructions-backup-*/
+  - 备份目录: backups/project/instructions-backup-*/
 
 浏览器兼容:
   - 生成的HTML兼容现代浏览器
@@ -604,7 +604,7 @@ HTML页面:
   - 移动端响应式支持
 
 本地预览:
-  - 执行 bash project-instructions/start-server.sh
+  - 执行 bash project/instructions/start-server.sh
   - 在浏览器访问 http://localhost:8000
   - 实时查看更新效果
 ```
@@ -614,7 +614,7 @@ HTML页面:
 ## 📝 更新报告示例
 
 ```markdown
-# /project-instructions 执行报告
+# /project/instructions 执行报告
 
 **执行时间**: 2025-10-24 15:30:00
 **总耗时**: 90秒
@@ -683,7 +683,7 @@ HTML页面:
 - **更新的HTML页面**: 11个
 - **更新的数据快照**: scripts/project-data.json
 - **更新的使用说明**: OUTPUT页面使用说明.md
-- **备份目录**: backups/project-instructions-backup-20251024-153000/
+- **备份目录**: backups/project/instructions-backup-20251024-153000/
 
 ## 🎨 设计优化
 
@@ -699,11 +699,11 @@ HTML页面:
 
 ---
 
-✨ **更新完成！** 所有project-instructions目录下的文档已同步至最新状态。
+✨ **更新完成！** 所有project/instructions目录下的文档已同步至最新状态。
 
 💡 **本地预览**:
 ```bash
-cd project-instructions
+cd project/instructions
 bash start-server.sh
 # 访问 http://localhost:8000
 ```
@@ -712,7 +712,7 @@ bash start-server.sh
 ---
 
 **命令名称**: 项目介绍文档目录智能管理器
-**快捷键**: `/project-instructions`
+**快捷键**: `/project/instructions`
 **版本**: v2.0.0
 **最后更新**: 2025-10-24
 **作者**: ZTL数智化作战中心

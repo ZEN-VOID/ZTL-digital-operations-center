@@ -117,7 +117,7 @@
 |------|------|
 | **/prp** | **PRP生成与执行引擎** - 端到端功能开发 (Planning→Research→Practice) |
 | **/claude** | **CLAUDE.md配置更新** - 智能识别并更新全局级和项目级配置 |
-| **/project-instructions** | **项目指令管理** - 项目instructions文档管理 |
+| **/project-instructions** | **项目指令管理** - project/instructions目录文档管理 |
 | **/trees** | **并行工作区管理** - trees/目录快照和worktree管理 |
 
 ### 5.3 代码与项目管理类 (6个)
