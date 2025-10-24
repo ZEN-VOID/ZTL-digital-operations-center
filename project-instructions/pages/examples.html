@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXAMPLES - 实战案例 | ZTL数智化作战中心</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Electrolize&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/examples.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ZTL数智化作战中心</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">首页</a></li>
+                <li class="nav-item"><a href="agents.html">Agents</a></li>
+                <li class="nav-item"><a href="skills.html">Skills</a></li>
+                <li class="nav-item"><a href="commands.html">Commands</a></li>
+                <li class="nav-item"><a href="hooks.html">Hooks</a></li>
+                <li class="nav-item"><a href="output.html">OUTPUT</a></li>
+                <li class="nav-item active"><a href="examples.html">EXAMPLES</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title" data-text="EXAMPLES 实战案例">EXAMPLES 实战案例</h1>
+                <p class="hero-subtitle">REAL-WORLD USE CASES & SUCCESS STORIES</p>
+                <div class="hero-badges">
+                    <span class="badge badge-cases">12个案例</span>
+                    <span class="badge badge-efficiency">70%效率提升</span>
+                    <span class="badge badge-roi">5倍ROI</span>
+                </div>
+                <p class="hero-description">
+                    真实业务场景的智能体协作实践<br>
+                    从创意策划到门店筹建，全链路数智化成功案例
+                </p>
+            </div>
+            <div class="hero-visual">
+                <div class="examples-orbit">
+                    <div class="orbit-ring ring-1"></div>
+                    <div class="orbit-ring ring-2"></div>
+                    <div class="orbit-ring ring-3"></div>
+                    <div class="orbit-center">
+                        <span class="center-icon">🎯</span>
+                        <span class="center-label">12</span>
+                        <span class="center-sublabel">CASES</span>
+                    </div>
+                    <div class="case-node node-1">🎨</div>
+                    <div class="case-node node-2">🔍</div>
+                    <div class="case-node node-3">🏗️</div>
+                    <div class="case-node node-4">💻</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Navigation -->
+        <section class="category-nav">
+            <h2 class="section-title">案例分类</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="scrollToCategory('creative')">
+                    <div class="category-icon">🎨</div>
+                    <h3 class="category-name">创意营销</h3>
+                    <p class="category-count">4个案例</p>
+                </div>
+                <div class="category-card" onclick="scrollToCategory('intelligence')">
+                    <div class="category-icon">🔍</div>
+                    <h3 class="category-name">情报分析</h3>
+                    <p class="category-count">2个案例</p>
+                </div>
+                <div class="category-card" onclick="scrollToCategory('construction')">
+                    <div class="category-icon">🏗️</div>
+                    <h3 class="category-name">门店筹建</h3>
+                    <p class="category-count">2个案例</p>
+                </div>
+                <div class="category-card" onclick="scrollToCategory('development')">
+                    <div class="category-icon">💻</div>
+                    <h3 class="category-name">系统开发</h3>
+                    <p class="category-count">2个案例</p>
+                </div>
+                <div class="category-card" onclick="scrollToCategory('operations')">
+                    <div class="category-icon">⚙️</div>
+                    <h3 class="category-name">运营管理</h3>
+                    <p class="category-count">2个案例</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creative & Marketing Cases -->
+        <section class="cases-section" id="creative">
+            <h2 class="section-title">
+                <span class="title-icon">🎨</span>
+                创意营销案例
+            </h2>
+
+            <div class="cases-grid">
+                <!-- Case 1: 新品上市Campaign -->
+                <div class="case-card featured" onclick="openCaseDetail('case-new-product')">
+                    <div class="case-badge">Featured</div>
+                    <div class="case-header">
+                        <div class="case-icon">🎯</div>
+                        <div class="case-meta">
+                            <span class="case-tag">创意组</span>
+                            <span class="case-tag">X系列协作</span>
+                        </div>
+                    </div>
+                    <h3 class="case-title">冰川鲜毛肚新品上市Campaign</h3>
+                    <p class="case-desc">从需求分析到平面设计的完整营销Campaign创建流程</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <span class="stat-label">时间节省</span>
+                            <span class="stat-value">70%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">智能体协作</span>
+                            <span class="stat-value">X0→X2→X3</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">交付周期</span>
+                            <span class="stat-value">2.4小时</span>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-detail-link">查看详情 →</span>
+                    </div>
+                </div>
+
+                <!-- Case 2: AIGC图片生成 -->
+                <div class="case-card" onclick="openCaseDetail('case-aigc-image')">
+                    <div class="case-header">
+                        <div class="case-icon">🖼️</div>
+                        <div class="case-meta">
+                            <span class="case-tag">创意组</span>
+                            <span class="case-tag">AIGC</span>
+                        </div>
+                    </div>
+                    <h3 class="case-title">餐饮AIGC图片批量生成</h3>
+                    <p class="case-desc">使用Nano Banana API批量生成餐饮营销素材</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <span class="stat-label">成本降低</span>
+                            <span class="stat-value">90%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">生成速度</span>
+                            <span class="stat-value">30秒/张</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">设计类型</span>
+                            <span class="stat-value">9种</span>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-detail-link">查看详情 →</span>
+                    </div>
+                </div>
+
+                <!-- Case 3: 优惠券设计 -->
+                <div class="case-card" onclick="openCaseDetail('case-coupon')">
+                    <div class="case-header">
+                        <div class="case-icon">🎫</div>
+                        <div class="case-meta">
+                            <span class="case-tag">创意组</span>
+                            <span class="case-tag">全流程</span>
+                        </div>
+                    </div>
+                    <h3 class="case-title">吼巷优惠券全流程设计</h3>
+                    <p class="case-desc">4阶段协同工作流：需求→文案→设计→成品</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <span class="stat-label">流程阶段</span>
+                            <span class="stat-value">4个</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">智能体数</span>
+                            <span class="stat-value">4个</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">完成时间</span>
+                            <span class="stat-value">3小时</span>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-detail-link">查看详情 →</span>
+                    </div>
+                </div>
+
+                <!-- Case 4: 短视频脚本创作 -->
+                <div class="case-card" onclick="openCaseDetail('case-video-script')">
+                    <div class="case-header">
+                        <div class="case-icon">🎬</div>
+                        <div class="case-meta">
+                            <span class="case-tag">创意组</span>
+                            <span class="case-tag">X5智能体</span>
+                        </div>
+                    </div>
+                    <h3 class="case-title">抖音短视频脚本创作</h3>
+                    <p class="case-desc">基于餐饮行业的短视频脚本智能创作</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <span class="stat-label">脚本类型</span>
+                            <span class="stat-value">4种</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">创作速度</span>
+                            <span class="stat-value">10分钟/个</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">质量评分</span>
+                            <span class="stat-value">9.2/10</span>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-detail-link">查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intelligence Analysis Cases -->
+        <section class="cases-section" id="intelligence">
+            <h2 class="section-title">
+                <span class="title-icon">🔍</span>
+                情报分析案例
+            </h2>
+
+            <div class="cases-grid">
+                <!-- Case 5: 美团管家调研 -->
+                <div class="case-card featured" onclick="openCaseDetail('case-meituan-research')">
+                    <div class="case-badge">Featured</div>
+                    <div class="case-header">
+                        <div class="case-icon">📊</div>
+                        <div class="case-meta">
+                            <span class="case-tag">情报组</span>
+                            <span class="case-tag">E系列协作</span>
+                        </div>
+                    </div>
+                    <h3 class="case-title">美团管家三大中心深度调研</h3>
+                    <p class="case-desc">运营中心、报表中心、营销中心的系统化情报采集与分析</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <span class="stat-label">调研模块</span>
+                            <span class="stat-value">3个中心</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">数据采集</span>
+                            <span class="stat-value">E2+E3</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">完成周期</span>
+                            <span class="stat-value">4小时</span>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-detail-link">查看详情 →</span>
+                    </div>
+                </div>
+
+                <!-- Case 6: 竞品情报分析 -->
+                <div class="case-card" onclick="openCaseDetail('case-competitor')">
+                    <div class="case-header">
+                        <div class="case-icon">🎯</div>
+                        <div class="case-meta">
+                            <span class="case-tag">情报组</span>
+                            <span class="case-tag">并行执行</span>
+                        </div>
+                    </div>
+                    <h3 class="case-title">竞品多维度情报分析</h3>
+                    <p class="case-desc">E1公开调研 + E2/E3网站采集 + E4深度分析的并行工作流</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <span class="stat-label">时间节省</span>
+                            <span class="stat-value">75%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">数据源</span>
+                            <span class="stat-value">5个</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">分析维度</span>
+                            <span class="stat-value">8个</span>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-detail-link">查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Construction Cases -->
+        <section class="cases-section" id="construction">
+            <h2 class="section-title">
+                <span class="title-icon">🏗️</span>
+                门店筹建案例
+            </h2>
+
+            <div class="cases-grid">
+                <!-- Case 7: 新店筹建全流程 -->
+                <div class="case-card featured" onclick="openCaseDetail('case-store-construction')">
+                    <div class="case-badge">Featured</div>
+                    <div class="case-header">
+                        <div class="case-icon">🏢</div>
+                        <div class="case-meta">
+                            <span class="case-tag">筹建组</span>
+                            <span class="case-tag">Z系列协作</span>
+                        </div>
+                    </div>
+                    <h3 class="case-title">300㎡火锅店筹建全流程</h3>
+                    <p class="case-desc">从平面图设计到BIM建模、动画渲染的完整筹建流程</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <span class="stat-label">周期缩短</span>
+                            <span class="stat-value">67%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">智能体协作</span>
+                            <span class="stat-value">Z0→Z1→Z2→Z3→Z4</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">交付周期</span>
+                            <span class="stat-value">5天</span>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-detail-link">查看详情 →</span>
+                    </div>
+                </div>
+
+                <!-- Case 8: BIM建模优化 -->
+                <div class="case-card" onclick="openCaseDetail('case-bim-modeling')">
+                    <div class="case-header">
+                        <div class="case-icon">🎨</div>
+                        <div class="case-meta">
+                            <span class="case-tag">筹建组</span>
+                            <span class="case-tag">Z3智能体</span>
+                        </div>
+                    </div>
+                    <h3 class="case-title">餐厅BIM建模与碰撞检测</h3>
+                    <p class="case-desc">基于CAD图纸的精确BIM建模和机电管线碰撞检测</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <span class="stat-label">精度提升</span>
+                            <span class="stat-value">95%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">冲突发现</span>
+                            <span class="stat-value">12处</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">成本节省</span>
+                            <span class="stat-value">30%</span>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-detail-link">查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Cases -->
+        <section class="cases-section" id="development">
+            <h2 class="section-title">
+                <span class="title-icon">💻</span>
+                系统开发案例
+            </h2>
+
+            <div class="cases-grid">
+                <!-- Case 9: 全栈应用开发 -->
+                <div class="case-card featured" onclick="openCaseDetail('case-fullstack-app')">
+                    <div class="case-badge">Featured</div>
+                    <div class="case-header">
+                        <div class="case-icon">🚀</div>
+                        <div class="case-meta">
+                            <span class="case-tag">开发组</span>
+                            <span class="case-tag">F系列协作</span>
+                        </div>
+                    </div>
+                    <h3 class="case-title">员工排班管理系统开发</h3>
+                    <p class="case-desc">从需求分析到部署上线的全栈应用完整开发流程</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <span class="stat-label">开发周期</span>
+                            <span class="stat-value">10天</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">代码质量</span>
+                            <span class="stat-value">A+</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">测试覆盖</span>
+                            <span class="stat-value">85%</span>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-detail-link">查看详情 →</span>
+                    </div>
+                </div>
+
+                <!-- Case 10: API工具开发 -->
+                <div class="case-card" onclick="openCaseDetail('case-api-tool')">
+                    <div class="case-header">
+                        <div class="case-icon">🔧</div>
+                        <div class="case-meta">
+                            <span class="case-tag">开发组</span>
+                            <span class="case-tag">三层架构</span>
+                        </div>
+                    </div>
+                    <h3 class="case-title">Nano Banana API工具创建</h3>
+                    <p class="case-desc">基于三层架构的专业API工具标准化创建</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <span class="stat-label">架构层次</span>
+                            <span class="stat-value">3层</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">API接口</span>
+                            <span class="stat-value">4个</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">复用性</span>
+                            <span class="stat-value">90%</span>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-detail-link">查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Operations Cases -->
+        <section class="cases-section" id="operations">
+            <h2 class="section-title">
+                <span class="title-icon">⚙️</span>
+                运营管理案例
+            </h2>
+
+            <div class="cases-grid">
+                <!-- Case 11: 美团管家自动化 -->
+                <div class="case-card" onclick="openCaseDetail('case-meituan-automation')">
+                    <div class="case-header">
+                        <div class="case-icon">🤖</div>
+                        <div class="case-meta">
+                            <span class="case-tag">中台组</span>
+                            <span class="case-tag">M4智能体</span>
+                        </div>
+                    </div>
+                    <h3 class="case-title">美团管家网页自动化操作</h3>
+                    <p class="case-desc">基于chrome-mcp的批量菜品管理和配置自动化</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <span class="stat-label">效率提升</span>
+                            <span class="stat-value">80%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">批量操作</span>
+                            <span class="stat-value">100+项</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">错误率</span>
+                            <span class="stat-value"><0.1%</span>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-detail-link">查看详情 →</span>
+                    </div>
+                </div>
+
+                <!-- Case 12: 供应链管理 -->
+                <div class="case-card" onclick="openCaseDetail('case-supply-chain')">
+                    <div class="case-header">
+                        <div class="case-icon">📦</div>
+                        <div class="case-meta">
+                            <span class="case-tag">中台组</span>
+                            <span class="case-tag">M7智能体</span>
+                        </div>
+                    </div>
+                    <h3 class="case-title">餐饮供应链智能管理</h3>
+                    <p class="case-desc">供应商评估、采购优化、库存管理的全流程智能化</p>
+                    <div class="case-stats">
+                        <div class="stat">
+                            <span class="stat-label">成本降低</span>
+                            <span class="stat-value">15%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">库存周转</span>
+                            <span class="stat-value">+40%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">损耗减少</span>
+                            <span class="stat-value">25%</span>
+                        </div>
+                    </div>
+                    <div class="case-footer">
+                        <span class="case-detail-link">查看详情 →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI Section -->
+        <section class="roi-section">
+            <h2 class="section-title">综合价值分析</h2>
+            <div class="roi-grid">
+                <div class="roi-card">
+                    <div class="roi-icon">⚡</div>
+                    <div class="roi-value">70%</div>
+                    <div class="roi-label">平均时间节省</div>
+                    <div class="roi-desc">传统8小时 → AI 2.4小时</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-icon">💰</div>
+                    <div class="roi-value">67%</div>
+                    <div class="roi-label">平均成本降低</div>
+                    <div class="roi-desc">人力成本大幅优化</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-icon">✅</div>
+                    <div class="roi-value">80%</div>
+                    <div class="roi-label">错误率下降</div>
+                    <div class="roi-desc">AI智能质检保障</div>
+                </div>
+                <div class="roi-card">
+                    <div class="roi-icon">🔄</div>
+                    <div class="roi-value">5倍</div>
+                    <div class="roi-label">平均ROI</div>
+                    <div class="roi-desc">投资回报率显著提升</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>ZTL数智化作战中心</h3>
+                <p>Next-Generation AI Agent Orchestration Platform</p>
+                <p>Powered by Claude Sonnet 4.5 | MCP Protocol Ecosystem</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>核心模块</h4>
+                    <a href="agents.html">Agents智能体</a>
+                    <a href="skills.html">Skills技能包</a>
+                    <a href="commands.html">Commands命令</a>
+                    <a href="hooks.html">Hooks钩子</a>
+                </div>
+                <div class="footer-column">
+                    <h4>深入了解</h4>
+                    <a href="output.html">OUTPUT产出</a>
+                    <a href="examples.html">EXAMPLES案例</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Version 2.2.0 | Generated 2025-10-23</p>
+                <p>Project Size: 73M | 60 Agents | 34 Skills | 25 Commands | 8 MCP Servers</p>
+                <p>© 2025 ZTL数智化作战中心 | All Systems Operational</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <span>↑</span>
+    </button>
+
+    <script src="../scripts/common.js"></script>
+    <script src="../scripts/examples.js"></script>
+</body>
+</html>

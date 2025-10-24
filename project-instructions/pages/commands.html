@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commands系统 - ZTL数智化作战中心</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Electrolize&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/commands.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ZTL数智化作战中心</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">首页</a></li>
+                <li class="nav-item"><a href="agents.html">Agents</a></li>
+                <li class="nav-item"><a href="skills.html">Skills</a></li>
+                <li class="nav-item active"><a href="commands.html">Commands</a></li>
+                <li class="nav-item"><a href="hooks.html">Hooks</a></li>
+                <li class="nav-item"><a href="output.html">OUTPUT</a></li>
+                <li class="nav-item"><a href="examples.html">EXAMPLES</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title" data-text="COMMANDS系统">COMMANDS系统</h1>
+                <p class="hero-subtitle">SLASH COMMAND ORCHESTRATION ENGINE</p>
+                <div class="hero-badges">
+                    <span class="badge badge-commands">25个命令</span>
+                    <span class="badge badge-categories">3大类别</span>
+                    <span class="badge badge-execution">快速触发</span>
+                </div>
+                <p class="hero-description">
+                    通过斜杠命令系统，实现快速触发的工作流程和任务编排。<br>
+                    支持参数化、Bash执行、文件引用等高级特性，打造高效的命令式交互体验。
+                </p>
+            </div>
+            <div class="hero-visual">
+                <div class="command-flow-system">
+                    <!-- Command Terminal -->
+                    <div class="command-terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="btn-close"></span>
+                                <span class="btn-minimize"></span>
+                                <span class="btn-maximize"></span>
+                            </div>
+                            <div class="terminal-title">CLAUDE CODE TERMINAL</div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command-text">/E</span>
+                                <span class="cursor"></span>
+                            </div>
+                            <div class="terminal-output">
+                                <span class="output-success">✓ PRP工作流已启动</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Command Flow Nodes -->
+                    <div class="flow-node node-input" data-category="input">
+                        <div class="node-icon">📥</div>
+                        <div class="node-label">输入</div>
+                    </div>
+
+                    <div class="flow-node node-process" data-category="process">
+                        <div class="node-icon">⚙️</div>
+                        <div class="node-label">处理</div>
+                    </div>
+
+                    <div class="flow-node node-output" data-category="output">
+                        <div class="node-icon">📤</div>
+                        <div class="node-label">输出</div>
+                    </div>
+
+                    <!-- Flow Lines -->
+                    <svg class="command-flow-lines" viewBox="0 0 500 500">
+                        <defs>
+                            <linearGradient id="command-flow-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:rgba(0, 245, 255, 0);stop-opacity:0" />
+                                <stop offset="50%" style="stop-color:rgba(0, 245, 255, 1);stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:rgba(0, 245, 255, 0);stop-opacity:0" />
+                            </linearGradient>
+                        </defs>
+                        <path class="command-flow-path" d="M 250 150 L 150 250" stroke="url(#command-flow-gradient)" stroke-width="2" fill="none" />
+                        <path class="command-flow-path" d="M 250 150 L 350 250" stroke="url(#command-flow-gradient)" stroke-width="2" fill="none" />
+                        <path class="command-flow-path" d="M 150 250 L 250 350" stroke="url(#command-flow-gradient)" stroke-width="2" fill="none" />
+                        <path class="command-flow-path" d="M 350 250 L 250 350" stroke="url(#command-flow-gradient)" stroke-width="2" fill="none" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="overview-section">
+            <h2 class="section-title">系统概览</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-number">25</div>
+                    <div class="stat-label">斜杠命令</div>
+                    <div class="stat-desc">快速触发工作流</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">命令类别</div>
+                    <div class="stat-desc">分类管理编排</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔧</div>
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">可扩展性</div>
+                    <div class="stat-desc">自定义命令支持</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commands Categories -->
+        <section class="commands-section">
+            <h2 class="section-title">命令分类系统</h2>
+
+            <!-- Category 1: 上下文与学习管理类 -->
+            <div class="category-block context-category">
+                <div class="category-header">
+                    <div class="category-icon">🧠</div>
+                    <div class="category-info">
+                        <h3 class="category-title">上下文与学习管理类</h3>
+                        <p class="category-desc">项目认知、问题分析、知识积累和智慧沉淀的学习型命令</p>
+                        <span class="category-count">8个命令</span>
+                    </div>
+                </div>
+                <div class="commands-grid">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/A</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">ASDW学习系统 - What</h4>
+                        <p class="command-desc">通过现状考察和目标识别建立项目认知基础</p>
+                        <div class="command-meta">
+                            <span class="meta-item">📍 定位</span>
+                            <span class="meta-item">🎯 目标识别</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/S</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">ASDW学习系统 - Why</h4>
+                        <p class="command-desc">通过内外因深度分析定位问题根源和优化机会</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🔍 根因分析</span>
+                            <span class="meta-item">💡 机会识别</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/D</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">ASDW学习系统 - How</h4>
+                        <p class="command-desc">将理论理解转化为可执行的行动方案</p>
+                        <div class="command-meta">
+                            <span class="meta-item">📋 方法论</span>
+                            <span class="meta-item">🛠️ 实践策略</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/W</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">ASDW学习系统 - Wield</h4>
+                        <p class="command-desc">整合执行，转化为实际的系统改进和配置优化</p>
+                        <div class="command-meta">
+                            <span class="meta-item">⚡ 整合</span>
+                            <span class="meta-item">🎯 执行</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/C</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">注意力管理</h4>
+                        <p class="command-desc">基于文档化结构的有机生长注意力管理系统</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🎯 焦点</span>
+                            <span class="meta-item">📝 持续更新</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/V</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">高级压缩引擎</h4>
+                        <p class="command-desc">信息压缩、编排优化和智能去重</p>
+                        <div class="command-meta">
+                            <span class="meta-item">📦 压缩</span>
+                            <span class="meta-item">🔄 优化</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/X</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">MANUS错误纠正</h4>
+                        <p class="command-desc">基于MANUS技巧的错误纠正、学习与适应优化</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🐛 错误纠正</span>
+                            <span class="meta-item">📚 学习优化</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/Z</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">知识积累系统</h4>
+                        <p class="command-desc">主动学习的知识积累、技术洞察与智慧沉淀</p>
+                        <div class="command-meta">
+                            <span class="meta-item">📖 知识</span>
+                            <span class="meta-item">💎 智慧</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: 执行与状态管理类 -->
+            <div class="category-block execution-category">
+                <div class="category-header">
+                    <div class="category-icon">⚙️</div>
+                    <div class="category-info">
+                        <h3 class="category-title">执行与状态管理类</h3>
+                        <p class="category-desc">任务执行、项目状态同步和系统配置管理的操作型命令</p>
+                        <span class="category-count">7个命令</span>
+                    </div>
+                </div>
+                <div class="commands-grid">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/E</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">PRP生成与执行引擎</h4>
+                        <p class="command-desc">端到端PRP工作流：研究 → 生成 → 执行</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🔄 端到端</span>
+                            <span class="meta-item">✅ 一次成功</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/F</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">PRP快速创建</h4>
+                        <p class="command-desc">快速生成功能规划文档，专注研究和规划阶段</p>
+                        <div class="command-meta">
+                            <span class="meta-item">⚡ 快速</span>
+                            <span class="meta-item">📋 规划</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/R</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">并行执行工作流</h4>
+                        <p class="command-desc">环境准备 → 并行执行，实现多方案探索</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🔀 并行</span>
+                            <span class="meta-item">🚀 高效</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/M</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">项目级配置更新</h4>
+                        <p class="command-desc">自动扫描并同步更新项目级CLAUDE.md</p>
+                        <div class="command-meta">
+                            <span class="meta-item">📄 项目</span>
+                            <span class="meta-item">🔄 同步</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/N</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">系统级配置更新</h4>
+                        <p class="command-desc">自动扫描并同步更新系统级CLAUDE.md</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🏗️ 系统</span>
+                            <span class="meta-item">⚙️ 框架</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/B</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">机器级配置管理</h4>
+                        <p class="command-desc">跨所有框架和项目的全局配置管理</p>
+                        <div class="command-meta">
+                            <span class="meta-item">💻 全局</span>
+                            <span class="meta-item">🔧 配置</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/Q</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">全面分析项目</h4>
+                        <p class="command-desc">全面分析项目结构、目标和关键文件</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🔍 分析</span>
+                            <span class="meta-item">📊 理解</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3: 代码与项目管理类 -->
+            <div class="category-block project-category">
+                <div class="category-header">
+                    <div class="category-icon">💻</div>
+                    <div class="category-info">
+                        <h3 class="category-title">代码与项目管理类</h3>
+                        <p class="category-desc">代码生成、项目构建、版本控制和自动化的工程型命令</p>
+                        <span class="category-count">10个命令</span>
+                    </div>
+                </div>
+                <div class="commands-grid">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/I</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">生成README</h4>
+                        <p class="command-desc">自动生成GitHub专业主页级README文档</p>
+                        <div class="command-meta">
+                            <span class="meta-item">📝 文档</span>
+                            <span class="meta-item">✨ 专业</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/O</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">生成OVERVIEW</h4>
+                        <p class="command-desc">生成全面的项目架构和开发指南文档</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🏗️ 架构</span>
+                            <span class="meta-item">📚 指南</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/Y</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">Issue分析修复</h4>
+                        <p class="command-desc">系统化的Issue分析、修复和关闭流程</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🐛 修复</span>
+                            <span class="meta-item">✅ 关闭</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/G</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">完整同步推送</h4>
+                        <p class="command-desc">将本地项目完整同步推送到GitHub仓库</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🔄 同步</span>
+                            <span class="meta-item">☁️ GitHub</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/H</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">GitHub仓库创建</h4>
+                        <p class="command-desc">自动化GitHub仓库创建、初始化和首次推送</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🆕 创建</span>
+                            <span class="meta-item">🚀 初始化</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/P</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">多工作区同步</h4>
+                        <p class="command-desc">实现多工作区项目间的文件智能同步</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🔀 同步</span>
+                            <span class="meta-item">🎯 智能</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/T</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">测试与质量验证</h4>
+                        <p class="command-desc">全面的自动化测试和质量验证流程</p>
+                        <div class="command-meta">
+                            <span class="meta-item">✅ 测试</span>
+                            <span class="meta-item">📊 质量</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/U</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">清理并行工作空间</h4>
+                        <p class="command-desc">清理trees/目录中的并行工作空间</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🧹 清理</span>
+                            <span class="meta-item">🌳 工作树</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/J</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">HTML数据可视化</h4>
+                        <p class="command-desc">转化为专业的HTML可视化页面</p>
+                        <div class="command-meta">
+                            <span class="meta-item">📊 可视化</span>
+                            <span class="meta-item">🎨 设计</span>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-trigger">/K</div>
+                            <div class="command-badge">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">浏览器自动化</h4>
+                        <p class="command-desc">基于chrome-mcp的浏览器自动化操作</p>
+                        <div class="command-meta">
+                            <span class="meta-item">🌐 浏览器</span>
+                            <span class="meta-item">🤖 自动化</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>ZTL数智化作战中心</h3>
+                <p>Next-Generation AI Agent Orchestration Platform</p>
+                <p>Powered by Claude Sonnet 4.5 | 25 Slash Commands</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>核心模块</h4>
+                    <a href="agents.html">Agents智能体</a>
+                    <a href="skills.html">Skills技能包</a>
+                    <a href="commands.html">Commands命令</a>
+                    <a href="hooks.html">Hooks钩子</a>
+                </div>
+                <div class="footer-column">
+                    <h4>深入了解</h4>
+                    <a href="output.html">OUTPUT中心</a>
+                    <a href="examples.html">实战案例</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Version 2.2.0 | Generated 2025-10-23</p>
+                <p>Commands System: 25 Commands | 3 Categories | Parameter Support</p>
+                <p>© 2025 ZTL数智化作战中心 | All Systems Operational</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <span>↑</span>
+    </button>
+
+    <script src="../scripts/common.js"></script>
+</body>
+</html>

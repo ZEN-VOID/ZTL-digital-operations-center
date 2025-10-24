@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agents协作网络 - ZTL数智化作战中心</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Electrolize&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/agents.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ZTL数智化作战中心</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">首页</a></li>
+                <li class="nav-item active"><a href="agents.html">Agents</a></li>
+                <li class="nav-item"><a href="skills.html">Skills</a></li>
+                <li class="nav-item"><a href="commands.html">Commands</a></li>
+                <li class="nav-item"><a href="hooks.html">Hooks</a></li>
+                <li class="nav-item"><a href="output.html">OUTPUT</a></li>
+                <li class="nav-item"><a href="examples.html">EXAMPLES</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="page-title" data-text="AI AGENTS">AI AGENTS</h1>
+            <p class="page-subtitle">60个专业智能体 • 7大业务组 • 协同编排系统</p>
+            <div class="hero-badges">
+                <span class="badge badge-count">60 Agents</span>
+                <span class="badge badge-groups">7 Groups</span>
+                <span class="badge badge-type">Multi-Agent System</span>
+            </div>
+        </section>
+
+        <!-- Overview Stats -->
+        <section class="overview-section">
+            <h2 class="section-title">智能体生态概览</h2>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="overview-icon">🤖</div>
+                    <div class="overview-value">60</div>
+                    <div class="overview-label">专业智能体</div>
+                    <div class="overview-desc">7大业务组分工明确</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">🎯</div>
+                    <div class="overview-value">7</div>
+                    <div class="overview-label">业务组</div>
+                    <div class="overview-desc">战略/创意/情报/行政/中台/筹建/开发</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">⚡</div>
+                    <div class="overview-value">233%</div>
+                    <div class="overview-label">效率提升</div>
+                    <div class="overview-desc">相比传统人工协作</div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon">🔗</div>
+                    <div class="overview-value">∞</div>
+                    <div class="overview-label">协作模式</div>
+                    <div class="overview-desc">动态编排，灵活组合</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agent Groups Network -->
+        <section class="network-section">
+            <h2 class="section-title">智能体网络拓扑</h2>
+            <p class="section-desc">7大业务组协同工作，60个专业智能体按需调度，实现复杂业务场景的自动化编排</p>
+
+            <div class="agent-network">
+                <!-- Framework Group -->
+                <div class="agent-group framework" data-series="F">
+                    <div class="group-header">
+                        <div class="group-icon">F</div>
+                        <div class="group-info">
+                            <div class="group-name">开发组</div>
+                            <div class="group-count">11个智能体</div>
+                        </div>
+                        <button class="expand-btn" data-group="framework">
+                            <span>展开查看</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                    </div>
+                    <div class="group-desc">
+                        产品设计、前后端开发、API集成、测试部署、版本控制的全栈开发能力
+                    </div>
+                    <div class="group-tools">
+                        <span class="tool-tag">产品管理</span>
+                        <span class="tool-tag">前端开发</span>
+                        <span class="tool-tag">后端开发</span>
+                        <span class="tool-tag">云部署</span>
+                    </div>
+                    <div class="agent-list">
+                        <div class="agent-item">F0 - 产品经理</div>
+                        <div class="agent-item">F1 - 前端开发师</div>
+                        <div class="agent-item">F2 - 组件开发师</div>
+                        <div class="agent-item">F3 - 数据库开发师</div>
+                        <div class="agent-item">F4 - API开发师</div>
+                        <div class="agent-item">F5 - 后端开发师</div>
+                        <div class="agent-item">F6 - 智能集成开发师</div>
+                        <div class="agent-item">F7 - 测试与性能优化师</div>
+                        <div class="agent-item">F8 - 版本管理助手</div>
+                        <div class="agent-item">F9 - 云部署管理员</div>
+                        <div class="agent-item leader">FF - 开发组组长</div>
+                    </div>
+                </div>
+
+                <!-- Strategy Group -->
+                <div class="agent-group strategy" data-series="G">
+                    <div class="group-header">
+                        <div class="group-icon">G</div>
+                        <div class="group-info">
+                            <div class="group-name">战略组</div>
+                            <div class="group-count">9个智能体</div>
+                        </div>
+                        <button class="expand-btn" data-group="strategy">
+                            <span>展开查看</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                    </div>
+                    <div class="group-desc">
+                        战略规划、经营分析、产品力打造、选址评估、竞品分析、精细化管理
+                    </div>
+                    <div class="group-tools">
+                        <span class="tool-tag">经营分析</span>
+                        <span class="tool-tag">产品设计</span>
+                        <span class="tool-tag">SOP流程</span>
+                    </div>
+                    <div class="agent-list">
+                        <div class="agent-item">G0 - 战略需求解析师</div>
+                        <div class="agent-item">G1 - 经营分析优化师</div>
+                        <div class="agent-item">G2 - 产品力打造专家</div>
+                        <div class="agent-item">G3 - 门店选址评估专家</div>
+                        <div class="agent-item">G4 - 竞争情报分析师</div>
+                        <div class="agent-item">G5 - 加盟政策设计师</div>
+                        <div class="agent-item">G6 - 战略数据看板设计师</div>
+                        <div class="agent-item">G7 - 精细化管理专家</div>
+                        <div class="agent-item leader">GG - 战略规划总监</div>
+                    </div>
+                </div>
+
+                <!-- Creative Group -->
+                <div class="agent-group creative" data-series="X">
+                    <div class="group-header">
+                        <div class="group-icon">X</div>
+                        <div class="group-info">
+                            <div class="group-name">创意组</div>
+                            <div class="group-count">9个智能体</div>
+                        </div>
+                        <button class="expand-btn" data-group="creative">
+                            <span>展开查看</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                    </div>
+                    <div class="group-desc">
+                        广告策划、文案创作、平面设计、图文排版、短视频脚本、摄影剪辑
+                    </div>
+                    <div class="group-tools">
+                        <span class="tool-tag">品牌策划</span>
+                        <span class="tool-tag">视觉设计</span>
+                        <span class="tool-tag">视频制作</span>
+                    </div>
+                    <div class="agent-list">
+                        <div class="agent-item">X0 - 内容创意需求分析师</div>
+                        <div class="agent-item">X1 - 广告策划师</div>
+                        <div class="agent-item">X2 - 文案创作师</div>
+                        <div class="agent-item">X3 - 平面设计师</div>
+                        <div class="agent-item">X4 - 图文排版师</div>
+                        <div class="agent-item">X5 - 短视频脚本创作师</div>
+                        <div class="agent-item">X6 - 摄影师</div>
+                        <div class="agent-item">X7 - 剪辑师</div>
+                        <div class="agent-item leader">XX - 创意组组长</div>
+                    </div>
+                </div>
+
+                <!-- Intelligence Group -->
+                <div class="agent-group intelligence" data-series="E">
+                    <div class="group-header">
+                        <div class="group-icon">E</div>
+                        <div class="group-info">
+                            <div class="group-name">情报组</div>
+                            <div class="group-count">8个智能体</div>
+                        </div>
+                        <button class="expand-btn" data-group="intelligence">
+                            <span>展开查看</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                    </div>
+                    <div class="group-desc">
+                        公开资料调研、网站数据采集、深度情报分析、云存储与数据库管理
+                    </div>
+                    <div class="group-tools">
+                        <span class="tool-tag">数据采集</span>
+                        <span class="tool-tag">深度分析</span>
+                        <span class="tool-tag">云端存储</span>
+                    </div>
+                    <div class="agent-list">
+                        <div class="agent-item">E0 - 情报任务需求分析员</div>
+                        <div class="agent-item">E1 - 公开资料调研员</div>
+                        <div class="agent-item">E2 - 网站情报采集员</div>
+                        <div class="agent-item">E3 - 网站深度爬虫员</div>
+                        <div class="agent-item">E4 - 深度情报分析员</div>
+                        <div class="agent-item">E5 - 云数据库管理员</div>
+                        <div class="agent-item">E6 - 云存储管理员</div>
+                        <div class="agent-item leader">EE - 情报组组长</div>
+                    </div>
+                </div>
+
+                <!-- Admin Group -->
+                <div class="agent-group admin" data-series="R">
+                    <div class="group-header">
+                        <div class="group-icon">R</div>
+                        <div class="group-info">
+                            <div class="group-name">行政组</div>
+                            <div class="group-count">8个智能体</div>
+                        </div>
+                        <button class="expand-btn" data-group="admin">
+                            <span>展开查看</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                    </div>
+                    <div class="group-desc">
+                        财务管理、人事管理、法务支持、秘书服务、飞书协同、文件管理
+                    </div>
+                    <div class="group-tools">
+                        <span class="tool-tag">财务管理</span>
+                        <span class="tool-tag">人事管理</span>
+                        <span class="tool-tag">飞书集成</span>
+                    </div>
+                    <div class="agent-list">
+                        <div class="agent-item">R0 - 办公业务需求分析员</div>
+                        <div class="agent-item">R1 - 财务管理员</div>
+                        <div class="agent-item">R2 - 人事管理员</div>
+                        <div class="agent-item">R3 - 法务专家</div>
+                        <div class="agent-item">R4 - 秘书</div>
+                        <div class="agent-item">R5 - 飞书管理员</div>
+                        <div class="agent-item">R6 - 文件管理员</div>
+                        <div class="agent-item leader">RR - 行政组组长</div>
+                    </div>
+                </div>
+
+                <!-- Platform Group -->
+                <div class="agent-group platform" data-series="M">
+                    <div class="group-header">
+                        <div class="group-icon">M</div>
+                        <div class="group-info">
+                            <div class="group-name">中台组</div>
+                            <div class="group-count">9个智能体</div>
+                        </div>
+                        <button class="expand-btn" data-group="platform">
+                            <span>展开查看</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                    </div>
+                    <div class="group-desc">
+                        美团管家运营管理、营销活动、供应链管理、数据报表、网页自动化
+                    </div>
+                    <div class="group-tools">
+                        <span class="tool-tag">运营管理</span>
+                        <span class="tool-tag">营销活动</span>
+                        <span class="tool-tag">自动化</span>
+                    </div>
+                    <div class="agent-list">
+                        <div class="agent-item">M0 - 美团管家系统业务需求分析员</div>
+                        <div class="agent-item">M1 - 美团管家运营管理员</div>
+                        <div class="agent-item">M2 - 美团管家营销管理员</div>
+                        <div class="agent-item">M3 - 美团管家报表管理员</div>
+                        <div class="agent-item">M4 - 美团管家网页自动化操作助手</div>
+                        <div class="agent-item">M5 - 小程序管理员</div>
+                        <div class="agent-item">M6 - 成本卡管理员</div>
+                        <div class="agent-item">M7 - 供应链管理员</div>
+                        <div class="agent-item leader">MM - 中台组组长</div>
+                    </div>
+                </div>
+
+                <!-- Construction Group -->
+                <div class="agent-group construction" data-series="Z">
+                    <div class="group-header">
+                        <div class="group-icon">Z</div>
+                        <div class="group-info">
+                            <div class="group-name">筹建组</div>
+                            <div class="group-count">6个智能体</div>
+                        </div>
+                        <button class="expand-btn" data-group="construction">
+                            <span>展开查看</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                    </div>
+                    <div class="group-desc">
+                        平面图设计、空间设计、BIM建模、建筑动画渲染、门店筹建管理
+                    </div>
+                    <div class="group-tools">
+                        <span class="tool-tag">CAD设计</span>
+                        <span class="tool-tag">BIM建模</span>
+                        <span class="tool-tag">3D渲染</span>
+                    </div>
+                    <div class="agent-list">
+                        <div class="agent-item">Z0 - 筹建项目需求分析师</div>
+                        <div class="agent-item">Z1 - 平面图设计师</div>
+                        <div class="agent-item">Z2 - 空间设计师</div>
+                        <div class="agent-item">Z3 - BIM建模师</div>
+                        <div class="agent-item">Z4 - 建筑动画师</div>
+                        <div class="agent-item leader">ZZ - 筹建组组长</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaboration Flow -->
+        <section class="flow-section">
+            <h2 class="section-title">协作流程示例</h2>
+            <div class="flow-examples">
+                <div class="flow-card">
+                    <div class="flow-title">
+                        <span class="flow-icon">🎨</span>
+                        <span>场景1: 新品上市Campaign</span>
+                    </div>
+                    <div class="flow-content">
+                        <div class="flow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-text">用户提出需求："策划新品上市完整campaign"</div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-text">XX组长 → X0需求分析 → X1策划方案</div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step parallel">
+                            <div class="step-number">3</div>
+                            <div class="step-text">
+                                <div class="parallel-label">并行执行</div>
+                                X2(文案) + X3(设计) + X5(短视频)
+                            </div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-text">X4(排版) + X6(摄影) + X7(剪辑)</div>
+                        </div>
+                        <div class="flow-result">
+                            <strong>效率提升:</strong> 传统8小时 → AI 2.4小时<br>
+                            <strong>产出质量:</strong> 7类物料一次性交付
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-title">
+                        <span class="flow-icon">🔍</span>
+                        <span>场景2: 竞品情报分析</span>
+                    </div>
+                    <div class="flow-content">
+                        <div class="flow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-text">用户提出需求："全面分析竞品"</div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-text">EE组长 → E0任务拆解 → /R并行编排</div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step parallel">
+                            <div class="step-number">3</div>
+                            <div class="step-text">
+                                <div class="parallel-label">并行采集</div>
+                                E1(公开调研) + E2(网站采集) + E3(深度爬虫)
+                            </div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-text">E4深度分析 → E5数据库存储 → E6云端归档</div>
+                        </div>
+                        <div class="flow-result">
+                            <strong>效率提升:</strong> 传统16小时 → AI 4小时<br>
+                            <strong>数据质量:</strong> 多源验证，深度分析
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-title">
+                        <span class="flow-icon">🏗️</span>
+                        <span>场景3: 新店筹建全流程</span>
+                    </div>
+                    <div class="flow-content">
+                        <div class="flow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-text">用户提出需求："筹建新门店"</div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-text">G3选址评估 → Z0需求分析</div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-text">Z1平面图 → Z2空间设计 → Z3 BIM建模</div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">
+                            <div class="step-number">4</div>
+                            <div class="step-text">Z4动画渲染 → M1系统配置</div>
+                        </div>
+                        <div class="flow-result">
+                            <strong>效率提升:</strong> 传统15天 → AI 5天<br>
+                            <strong>交付物:</strong> CAD图纸+BIM模型+效果图+VR漫游
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="benefits-section">
+            <h2 class="section-title">核心优势</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-title">高效协同</div>
+                    <div class="benefit-desc">
+                        60个智能体分工明确，并行执行，效率提升233%，传统8小时任务缩短至2.4小时
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-title">精准执行</div>
+                    <div class="benefit-desc">
+                        每个智能体专注特定领域，错误率从15%降至3%，质量显著提升
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔗</div>
+                    <div class="benefit-title">灵活编排</div>
+                    <div class="benefit-desc">
+                        动态任务分配，智能路由，根据业务场景自动组合最优智能体团队
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">♻️</div>
+                    <div class="benefit-title">高度复用</div>
+                    <div class="benefit-desc">
+                        标准化智能体配置，可复用性提升233%，一次配置，多场景应用
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <div class="benefit-title">数据驱动</div>
+                    <div class="benefit-desc">
+                        完整的执行日志和数据分析，持续优化智能体性能和协作效率
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <div class="benefit-title">持续进化</div>
+                    <div class="benefit-desc">
+                        基于反馈不断学习优化，智能体能力持续提升，适应更复杂场景
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>ZTL数智化作战中心</h3>
+                <p>Next-Generation AI Agent Orchestration Platform</p>
+                <p>Powered by Claude Sonnet 4.5 | MCP Protocol Ecosystem</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>核心模块</h4>
+                    <a href="agents.html">Agents智能体</a>
+                    <a href="skills.html">Skills技能包</a>
+                    <a href="commands.html">Commands命令</a>
+                    <a href="hooks.html">MCP服务</a>
+                </div>
+                <div class="footer-column">
+                    <h4>深入了解</h4>
+                    <a href="output.html">系统架构</a>
+                    <a href="examples.html">实战案例</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Version 2.2.0 | Generated 2025-10-23</p>
+                <p>Project Size: 73M | 60 Agents | 34 Skills | 25 Commands | 8 MCP Servers</p>
+                <p>© 2025 ZTL数智化作战中心 | All Systems Operational</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <span>↑</span>
+    </button>
+
+    <script src="../scripts/common.js"></script>
+    <script src="../scripts/agents.js"></script>
+</body>
+</html>
