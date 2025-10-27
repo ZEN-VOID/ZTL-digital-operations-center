@@ -6,7 +6,7 @@ class AIGCConfig:
     """统一配置管理"""
 
     # OpenRouter配置
-    API_KEY = "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"
+    API_KEY = os.getenv("OPENROUTER_API_KEY", "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")
     BASE_URL = "https://openrouter.ai/api/v1/chat/completions"
     MODEL = "google/gemini-2.5-flash-image-preview"
 
