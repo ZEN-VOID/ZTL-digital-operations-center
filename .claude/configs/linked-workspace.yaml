@@ -3,15 +3,17 @@
 # 用途: /P命令通过此配置文件自动识别所有关联工作区，实现跨工作区文件同步
 
 version: 1.0.0
-last_updated: 2025-10-20
+last_updated: 2025-01-27
 
 # 工作区列表
 workspace-0: /Users/vincentlee/Desktop/AIGC数字游牧派影视文化公司
 workspace-1: /Users/vincentlee/Desktop/ZTL数智化作战中心
+workspace-2: /Users/vincentlee/Desktop/ZTL数智化情报组
 
 # 说明:
-# - workspace-0: 当前工作区（AIGC数字游牧派影视文化公司）
-# - workspace-1: 目标工作区（ZTL数智化作战中心）
+# - workspace-0: AIGC数字游牧派影视文化公司（影视文化公司项目）
+# - workspace-1: ZTL数智化作战中心（综合作战中心系统）
+# - workspace-2: ZTL数智化情报组（情报组专项系统，E-series agents）
 # - 所有路径必须使用绝对路径
 # - 路径必须指向有效的目录
 # - /P命令会自动识别当前工作区，并将内容同步到其他工作区

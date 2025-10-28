@@ -1,0 +1,25 @@
+{
+  "name": "intelligence-team",
+  "version": "1.0.0",
+  "description": "Market intelligence and data collection plugin with capabilities in requirement analysis, deep research, web scraping, data analysis, and cloud storage management. Includes E0 intelligence analyst, E1 deep researcher, E2 Chrome web scraper, E3 advanced crawler, E4 intelligence analyst, E5 COS storage manager, E6 Supabase database manager, and EE intelligence team leader.",
+  "author": {
+    "name": "ZTL Digital Intelligence Operations Center",
+    "email": "intelligence-team@ztl.com",
+    "url": "https://github.com/ztl-digital/intelligence-team-plugin"
+  },
+  "homepage": "https://github.com/ztl-digital/intelligence-team-plugin",
+  "repository": "https://github.com/ztl-digital/intelligence-team-plugin",
+  "license": "MIT",
+  "keywords": [
+    "intelligence",
+    "research",
+    "data",
+    "scraping",
+    "analysis",
+    "storage"
+  ],
+  "commands": "./commands",
+  "agents": "./agents",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json"
+}

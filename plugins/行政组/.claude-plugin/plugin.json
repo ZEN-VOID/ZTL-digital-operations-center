@@ -1,0 +1,26 @@
+{
+  "name": "admin-team",
+  "version": "1.0.0",
+  "description": "Administrative operations plugin covering finance, HR, legal, secretarial work, Feishu collaboration, and file management. Includes R0 business analyst, R1 finance manager, R2 HR manager, R3 legal expert, R4 secretary, R5 Feishu manager, R6 file manager, R7 Tencent COS storage manager, and RR admin team leader.",
+  "author": {
+    "name": "ZTL Digital Intelligence Operations Center",
+    "email": "admin-team@ztl.com",
+    "url": "https://github.com/ztl-digital/admin-team-plugin"
+  },
+  "homepage": "https://github.com/ztl-digital/admin-team-plugin",
+  "repository": "https://github.com/ztl-digital/admin-team-plugin",
+  "license": "MIT",
+  "keywords": [
+    "admin",
+    "finance",
+    "hr",
+    "legal",
+    "office",
+    "collaboration",
+    "management"
+  ],
+  "commands": "./commands",
+  "agents": "./agents",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json"
+}

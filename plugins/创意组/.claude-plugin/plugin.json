@@ -1,0 +1,26 @@
+{
+  "name": "creative-team",
+  "version": "1.0.0",
+  "description": "Creative content production plugin with specialists in advertising, copywriting, design, photography, and video editing. Includes X0 content analyst, X1 advertising strategist, X2 copywriter, X3 graphic designer, X4 layout designer, X5 short video scriptwriter, X6 photographer, X7 video editor, and XX creative team leader.",
+  "author": {
+    "name": "ZTL Digital Intelligence Operations Center",
+    "email": "creative-team@ztl.com",
+    "url": "https://github.com/ztl-digital/creative-team-plugin"
+  },
+  "homepage": "https://github.com/ztl-digital/creative-team-plugin",
+  "repository": "https://github.com/ztl-digital/creative-team-plugin",
+  "license": "MIT",
+  "keywords": [
+    "creative",
+    "content",
+    "advertising",
+    "design",
+    "video",
+    "photography",
+    "marketing"
+  ],
+  "commands": "./commands",
+  "agents": "./agents",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json"
+}

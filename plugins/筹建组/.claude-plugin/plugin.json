@@ -1,0 +1,28 @@
+{
+  "name": "construction-team",
+  "version": "1.0.0",
+  "description": "Restaurant construction project management plugin with comprehensive capabilities from requirement analysis to 3D visualization. Includes Z0 requirement analyst, Z1 floor plan designer, Z2 space designer, Z3 BIM modeler, Z4 architectural animator, and ZZ construction team leader.",
+  "author": {
+    "name": "ZTL Digital Intelligence Operations Center",
+    "email": "construction@ztl.com",
+    "url": "https://github.com/ztl-digital/construction-team-plugin"
+  },
+  "homepage": "https://github.com/ztl-digital/construction-team-plugin",
+  "repository": "https://github.com/ztl-digital/construction-team-plugin",
+  "license": "MIT",
+  "keywords": [
+    "construction",
+    "restaurant",
+    "architecture",
+    "bim",
+    "space-design",
+    "floor-plan",
+    "3d-modeling",
+    "animation",
+    "project-management"
+  ],
+  "commands": "./commands",
+  "agents": "./agents",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json"
+}

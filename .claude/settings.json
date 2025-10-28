@@ -1,29 +1,6 @@
 {
   "defaultMode": "bypassPermissions",
-  "permissionPolicy": {
+  "permissions": {
     "allow": ["*"]
-  },
-  "hooks": {
-    "Stop": [
-      {
-        "type": "command",
-        "command": "python3 .claude/hooks/stop_handler.py",
-        "description": "智能任务延续 - 基于类型安全的任务状态检测（fish895623/claude-hook）"
-      }
-    ],
-    "PreCompact": [
-      {
-        "type": "command",
-        "command": "python3 ~/.claude/memory-hooks/precompact_memory_extractor.py",
-        "description": "智能记忆系统 - 自动提取、评分和保存上下文（rhowardstone/memory-system）"
-      }
-    ],
-    "SessionStart": [
-      {
-        "type": "command",
-        "command": "python3 ~/.claude/memory-hooks/sessionstart_memory_injector.py",
-        "description": "智能记忆注入 - 自动加载相关历史上下文（memory-system）"
-      }
-    ]
   }
 }

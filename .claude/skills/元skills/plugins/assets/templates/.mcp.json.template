@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "example-server": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/example-mcp-server.js"],
+      "env": {
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}

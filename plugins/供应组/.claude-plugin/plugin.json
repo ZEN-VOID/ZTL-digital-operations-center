@@ -1,0 +1,25 @@
+{
+  "name": "supply-chain-team",
+  "version": "1.0.0",
+  "description": "Supply chain and procurement management plugin with capabilities in requirement analysis, purchasing execution, inventory management, cost control, supplier management, and ledger reconciliation. Includes S0 requirement analyst, S1 procurement manager, S2 inventory manager, S3 cost controller, S4 supplier manager, S5 ledger manager, and SS supply chain leader.",
+  "author": {
+    "name": "ZTL Digital Intelligence Operations Center",
+    "email": "supply-chain-team@ztl.com",
+    "url": "https://github.com/ztl-digital/supply-chain-team-plugin"
+  },
+  "homepage": "https://github.com/ztl-digital/supply-chain-team-plugin",
+  "repository": "https://github.com/ztl-digital/supply-chain-team-plugin",
+  "license": "MIT",
+  "keywords": [
+    "supply-chain",
+    "procurement",
+    "inventory",
+    "cost-control",
+    "supplier",
+    "logistics"
+  ],
+  "commands": "./commands",
+  "agents": "./agents",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json"
+}

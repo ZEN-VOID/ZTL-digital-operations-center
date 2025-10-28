@@ -1,0 +1,25 @@
+{
+  "name": "meituan-ops-team",
+  "version": "1.0.0",
+  "description": "Meituan platform operations plugin for restaurant business management, including operations management, marketing campaigns, reporting, and web automation. Includes M0 business analyst, M1 operations manager, M2 marketing manager, M4 reporting manager, M5 web automation specialist, and MM platform ops leader.",
+  "author": {
+    "name": "ZTL Digital Intelligence Operations Center",
+    "email": "meituan-ops-team@ztl.com",
+    "url": "https://github.com/ztl-digital/meituan-ops-team-plugin"
+  },
+  "homepage": "https://github.com/ztl-digital/meituan-ops-team-plugin",
+  "repository": "https://github.com/ztl-digital/meituan-ops-team-plugin",
+  "license": "MIT",
+  "keywords": [
+    "meituan",
+    "operations",
+    "marketing",
+    "reporting",
+    "automation",
+    "restaurant"
+  ],
+  "commands": "./commands",
+  "agents": "./agents",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json"
+}

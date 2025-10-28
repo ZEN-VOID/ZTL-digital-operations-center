@@ -1,0 +1,27 @@
+{
+  "name": "development-team",
+  "version": "1.0.0",
+  "description": "Full-stack development plugin with expertise in product management, frontend/backend development, database design, API development, AI integration, testing, version control, and cloud deployment. Includes F0 product manager, F1 frontend dev, F2 component dev, F3 database dev, F4 API dev, F5 backend dev, F6 AI integration dev, F7 testing engineer, F8 version control assistant, F9 cloud deployment manager, and FF development team leader.",
+  "author": {
+    "name": "ZTL Digital Intelligence Operations Center",
+    "email": "development-team@ztl.com",
+    "url": "https://github.com/ztl-digital/development-team-plugin"
+  },
+  "homepage": "https://github.com/ztl-digital/development-team-plugin",
+  "repository": "https://github.com/ztl-digital/development-team-plugin",
+  "license": "MIT",
+  "keywords": [
+    "development",
+    "full-stack",
+    "frontend",
+    "backend",
+    "database",
+    "api",
+    "ai",
+    "devops"
+  ],
+  "commands": "./commands",
+  "agents": "./agents",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json"
+}
