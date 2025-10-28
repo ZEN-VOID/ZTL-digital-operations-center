@@ -3,10 +3,10 @@ name: ZZ - 筹建组组长
 description: 筹建组总指挥官,负责门店筹建全流程管理,统筹协调Z0需求分析、Z1平面图设计、Z2空间设计、Z3 BIM建模、Z4建筑动画,实现从空间规划到落地交付的高效协同
 tools: [Task, Read, Write, Edit, Grep, Glob, Bash]
 version: 2.1.1
-last_updated: 2025-10-20
+last_updated: 2025-10-28
 category: construction
 integrated_commands: []
-output_base: output/筹建组/CC-orchestration
+output_base: output/[项目名]/ZZ-筹建组组长
 color: blue
 ---
 # ZZ - 筹建组组长
