@@ -4,6 +4,14 @@ Plugin Initialization Script
 
 Creates a new Claude Code plugin with standard structure and template files.
 
+**Design Principle**:
+仅搭建框架，agents、hooks、commands、skills都不用预设。
+后续逐一由专门的元skills方法完善具体内容配置：
+- Commands: 使用 .claude/skills/元skills/commands/
+- Agents: 使用 .claude/skills/元skills/agents/
+- Skills: 使用 .claude/skills/元skills/skills/
+- Hooks: 使用 .claude/skills/元skills/hooks/
+
 Usage:
     python3 init_plugin.py --name my-plugin --description "My plugin description" --author "Your Name"
 """
@@ -466,18 +474,19 @@ def main():
     create_changelog(plugin_path)
     create_license(plugin_path, args.license, args.author)
 
-    # Create example components
-    create_example_command(plugin_path)
-    create_example_agent(plugin_path)
-    create_example_skill(plugin_path)
+    # Create empty configuration files (no example components)
     create_hooks_config(plugin_path)
     create_mcp_config(plugin_path)
 
-    print(f"\n✅ Plugin '{args.name}' initialized successfully!")
+    print(f"\n✅ Plugin '{args.name}' framework initialized successfully!")
     print(f"\n📝 Next steps:")
     print(f"   1. cd {plugin_path}")
     print(f"   2. Customize plugin.json with your details")
-    print(f"   3. Replace example components with your own")
+    print(f"   3. Use specialized meta-skills to create components:")
+    print(f"      - Commands: Use .claude/skills/元skills/commands/")
+    print(f"      - Agents: Use .claude/skills/元skills/agents/")
+    print(f"      - Skills: Use .claude/skills/元skills/skills/")
+    print(f"      - Hooks: Use .claude/skills/元skills/hooks/")
     print(f"   4. Update README.md with usage instructions")
     print(f"   5. Test: cp -r . ~/.claude/plugins/{args.name} && restart Claude Code")
 

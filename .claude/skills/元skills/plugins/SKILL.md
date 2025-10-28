@@ -119,6 +119,14 @@ Layer 6 - MCP Servers:
 
 ## Quick Start
 
+> **重要设计原则** 🎯
+> 创建plugin时遵循"框架优先"原则：
+> 1. 先初始化**空框架结构**（仅目录和配置文件）
+> 2. 后使用**专门的元skills**逐一创建组件
+> 3. 不在初始化时预设示例内容
+>
+> 这种方式确保每个组件都经过深思熟虑，避免盲目复制模板。
+
 ### 1. Plan Plugin Scope
 
 Answer these core questions:
@@ -157,7 +165,9 @@ Component Checklist:
 
 ### 2. Initialize Plugin Structure
 
-Use the provided initialization script:
+**Design Principle**: 仅搭建框架，不预设组件内容。
+
+Use the provided initialization script to create **empty framework only**:
 
 ```bash
 # Run plugin initialization script
@@ -167,18 +177,21 @@ python3 .claude/skills/元skills/plugins/scripts/init_plugin.py \
   --author "Your Team" \
   --output "./my-plugins"
 
-# This creates:
+# This creates FRAMEWORK ONLY (no example components):
 # my-plugins/enterprise-plugin/
-#   ├── .claude-plugin/plugin.json
-#   ├── commands/
-#   ├── agents/
-#   ├── skills/
-#   ├── hooks/
-#   ├── scripts/
-#   ├── LICENSE
-#   ├── CHANGELOG.md
-#   └── README.md
+#   ├── .claude-plugin/plugin.json    # Plugin manifest
+#   ├── commands/                      # Empty directory
+#   ├── agents/                        # Empty directory
+#   ├── skills/                        # Empty directory
+#   ├── hooks/                         # Empty hooks.json
+#   ├── scripts/                       # Empty directory
+#   ├── .mcp.json                      # Empty MCP config
+#   ├── LICENSE                        # License file
+#   ├── CHANGELOG.md                   # Changelog template
+#   └── README.md                      # README template
 ```
+
+**Important**: Components (agents, commands, skills, hooks) should be created later using specialized meta-skills, not during framework initialization.
 
 ### 3. Create plugin.json Manifest
 
@@ -221,15 +234,21 @@ The manifest defines plugin metadata and configuration:
 
 ### 4. Build Plugin Components
 
+**Workflow**: After initializing the framework, use specialized meta-skills to create components.
+
 #### Create Commands
 
-**Leverage existing commands skill**:
-
+**Step 1**: Navigate to your plugin directory
 ```bash
-# Use the commands meta-skill to create slash commands
-# Reference: .claude/skills/元skills/commands/
+cd my-plugins/enterprise-plugin/
+```
 
-Example command structure:
+**Step 2**: Use the commands meta-skill to create each command
+```bash
+# Reference: .claude/skills/元skills/commands/
+# This skill will guide you through creating properly formatted commands
+
+Target structure:
   commands/
     ├── security-scan.md
     ├── performance-test.md
@@ -246,17 +265,16 @@ Each command follows standard format:
   [Your prompt content here]
 ```
 
-**Refer to commands meta-skill** for detailed command creation guidance.
+**Refer to `.claude/skills/元skills/commands/`** for detailed command creation guidance.
 
 #### Create Agents
 
-**Leverage existing agents skill**:
-
+**Step 1**: Use the agents meta-skill to create each agent
 ```bash
-# Use the agents meta-skill to create subagents
 # Reference: .claude/skills/元skills/agents/
+# This skill will guide you through the 10-element prompt system
 
-Example agent structure:
+Target structure:
   agents/
     ├── security-reviewer.md
     ├── performance-tester.md
@@ -274,7 +292,7 @@ Each agent follows standard format:
   [Role definition, capabilities, examples]
 ```
 
-**Refer to agents meta-skill** for detailed agent creation guidance including:
+**Refer to `.claude/skills/元skills/agents/`** for detailed agent creation guidance including:
 - 10-element prompt system
 - Context engineering principles
 - Skills integration patterns
@@ -282,13 +300,12 @@ Each agent follows standard format:
 
 #### Create Skills
 
-**Leverage existing skill-creator skill**:
-
+**Step 1**: Use the skill-creator meta-skill to create each skill
 ```bash
-# Use the skill-creator meta-skill to create skills
 # Reference: .claude/skills/元skills/skills/
+# This skill will guide you through progressive disclosure design
 
-Example skill structure:
+Target structure:
   skills/
     ├── code-reviewer/
     │   ├── SKILL.md
@@ -311,23 +328,22 @@ Each skill follows standard format:
   [Usage instructions, API reference, examples]
 ```
 
-**Refer to skill-creator meta-skill** for detailed skill creation guidance including:
+**Refer to `.claude/skills/元skills/skills/`** for detailed skill creation guidance including:
 - Progressive disclosure design
 - Bundled resources organization
 - Step-by-step creation process
 
 #### Create Hooks
 
-**Leverage existing hooks skill**:
-
+**Step 1**: Use the hooks meta-skill to configure event hooks
 ```bash
-# Use the hooks meta-skill to create event hooks
 # Reference: .claude/skills/元skills/hooks/
+# This skill will guide you through lifecycle event configuration
 
-Example hook structure:
+Target structure:
   hooks/
-    ├── hooks.json
-    └── security-hooks.json
+    ├── hooks.json           # Created by init script (empty)
+    └── security-hooks.json  # Additional hooks (optional)
 
   scripts/
     ├── block-dangerous-commands.sh
@@ -357,7 +373,7 @@ hooks.json format:
   }
 ```
 
-**Refer to hooks meta-skill** for detailed hook creation guidance including:
+**Refer to `.claude/skills/元skills/hooks/`** for detailed hook creation guidance including:
 - 8 lifecycle event types
 - Cross-platform script development
 - Testing and debugging strategies

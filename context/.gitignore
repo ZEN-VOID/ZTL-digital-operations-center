@@ -1,0 +1,44 @@
+# Context Directory Git Ignore
+# Version: 1.0.0
+# Purpose: 控制context/目录下的版本追踪策略
+
+## ✅ 追踪的文件（显式包含）
+
+# 文档
+!README.md
+!context-engineering-optimization-plan.md
+
+# 错误模式和统计（聚合数据，重要）
+!errors/PATTERNS.json
+!errors/STATS.json
+
+# 研究计划（配置文件，重要）
+!research/**/PLUGIN-EVOLUTION.json
+!research/**/METADATA.json
+
+## ❌ 忽略的文件（不追踪）
+
+# 错误记录（JSONL文件可能很大）
+errors/ERRORS.jsonl
+
+# 长期记忆（包含敏感项目信息）
+memory/*.json
+
+# 快照（大文件，按需备份）
+snapshots/*.md
+snapshots/*.json
+
+# 分析报告（临时生成）
+analytics/*.json
+
+# 归档数据（旧数据）
+archives/**/*
+
+# 研究输出（Markdown报告太大）
+research/**/*.md
+
+# 临时文件
+*.tmp
+*.bak
+*.swp
+.DS_Store

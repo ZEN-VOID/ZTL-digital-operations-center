@@ -1,9 +1,9 @@
 ---
-description: "基于MANUS上下文工程的统一上下文管理系统，整合注意力管理、错误学习和知识沉淀，支持智能类型识别和全局/项目双层级分类机制"
-allowed-tools: ["Read", "Write", "Edit", "Grep"]
-version: "2.1.0"
+description: "基于MANUS上下文工程的统一上下文管理系统，整合注意力管理、错误学习和知识沉淀，支持智能类型识别和全局/项目双层级分类机制。v3.0新增：上下文监控、长期记忆、快照管理"
+allowed-tools: ["Read", "Write", "Edit", "Grep", "Bash"]
+version: "3.0.0"
 argument-hint: "[type] [multi-line parameters] 或 [content] (智能识别)"
-last-updated: "2025-10-23"
+last-updated: "2025-10-28"
 ---
 # manus - 统一上下文管理系统
 
@@ -43,13 +43,19 @@ MANUS上下文工程原则:
 /manus [CONTENT]
 
 类型 (Types):
-  focus    - 🎯 记录当前注意力焦点
-  todo     - 📋 任务管理和注意力锚点
-  process  - ⚙️ 流程执行记录
-  error    - ❌ 错误保存和恢复学习
-  success  - ✅ 成功经验和解决方案
-  insights - 🧠 技术洞察和实践技巧
-  patterns - 🔍 模式识别和最佳实践
+  原有类型（保持）:
+    focus    - 🎯 记录当前注意力焦点
+    todo     - 📋 任务管理和注意力锚点
+    process  - ⚙️ 流程执行记录
+    error    - ❌ 错误保存和恢复学习
+    success  - ✅ 成功经验和解决方案
+    insights - 🧠 技术洞察和实践技巧
+    patterns - 🔍 模式识别和最佳实践
+
+  新增类型（v3.0）:
+    context  - 📊 上下文监控和优化
+    memory   - 🧠 长期记忆管理
+    snapshot - 📸 快照和版本管理
 ```
 
 ### 🤖 智能类型识别
@@ -136,6 +142,39 @@ MANUS上下文工程原则:
       - 包含用时记录
       - 包含结果状态
     判断: → process
+
+  CONTEXT类型识别（v3.0新增）:
+    关键词:
+      - "上下文" "context" "token"
+      - "监控" "优化" "压缩"
+      - "溢出" "容量" "使用率"
+    结构特征:
+      - 提及token统计
+      - 提及section占用
+      - 包含优化建议
+    判断: → context
+
+  MEMORY类型识别（v3.0新增）:
+    关键词:
+      - "记忆" "memory" "记住"
+      - "长期" "持久化" "保存"
+      - "重要" "关键决策"
+    结构特征:
+      - 明确表示"需要记住"
+      - 包含架构决策
+      - 跨会话相关信息
+    判断: → memory
+
+  SNAPSHOT类型识别（v3.0新增）:
+    关键词:
+      - "快照" "snapshot" "备份"
+      - "版本" "恢复" "回退"
+      - "checkpoint" "保存点"
+    结构特征:
+      - 提及创建快照
+      - 提及版本管理
+      - 提及恢复操作
+    判断: → snapshot
 
 默认策略:
   如果无法明确判断类型:
@@ -331,7 +370,7 @@ MANUS上下文工程原则:
 ### ❌ ERROR (错误记录)
 
 > **MANUS技巧**: M-istake, A-cknowledgment, N-ew Understanding, U-pdated Approach, S-ystematic Prevention
-> **存储**: 记录到 `learning/errors/ERRORS.jsonl` (结构化JSON)
+> **存储**: 记录到 `context/errors/ERRORS.jsonl` (结构化JSON)
 > **闭环**: /manus error写入 → /learn读取 → 系统优化
 
 ```
@@ -545,6 +584,131 @@ Entry: "本项目使用通用的React最佳实践"
 
 ---
 
+### 📊 CONTEXT (上下文监控) - v3.0新增
+
+```
+/manus context
+🎯 Action: CHECK/OPTIMIZE/ANALYZE
+📊 Focus: TOKEN_USAGE/SECTION_STATS/HEALTH_CHECK
+
+分析内容:
+[需要分析的具体内容，如某个section或整体]
+```
+
+**功能**:
+- 检查当前CLAUDE.md的token使用量
+- 分析各section的占用比例
+- 生成优化建议（压缩、归档）
+
+**输出位置**: `context/analytics/context-health-{timestamp}.json`
+
+**示例**:
+
+```
+/manus context
+🎯 Action: CHECK
+📊 Focus: HEALTH_CHECK
+
+检查当前CLAUDE.md的整体健康度
+```
+
+---
+
+### 🧠 MEMORY (长期记忆) - v3.0新增
+
+```
+/manus memory
+🏷️ Type: PROJECT_DECISION/ARCHITECTURE/BUSINESS_RULE/TECHNICAL_INSIGHT
+📊 Priority: CRITICAL/HIGH/MEDIUM/LOW
+🔍 Searchable: [关键词列表，用于检索]
+⏰ Retention: PERMANENT/1Y/6M/3M
+
+记忆内容:
+[需要长期记住的重要信息]
+
+为什么重要:
+[记忆的价值和应用场景]
+
+相关上下文:
+[关联的文件、决策、时间点]
+```
+
+**功能**:
+- 标记需要长期记忆的关键信息
+- 支持跨会话检索
+- 自动提取到专门的memory section
+
+**输出位置**: `context/memory/project-memory.json`
+
+**示例**:
+
+```
+/manus memory
+🏷️ Type: ARCHITECTURE
+📊 Priority: CRITICAL
+🔍 Searchable: [Plugins, 架构决策, 业务单元]
+⏰ Retention: PERMANENT
+
+记忆内容:
+项目采用 Plugins 作为核心架构单元:
+- 8个业务组（战略/创意/情报/行政/美团/供应/开发/筹建）
+- 65个专业智能体
+- 基于Claude Code v1.0.124+ Plugins规范
+- Plugin作为First-Class Citizens
+
+为什么重要:
+这是项目的核心架构决策，影响所有后续开发和学习迭代策略
+
+相关上下文:
+- plugins/README.md
+- context/context-engineering-optimization-plan.md
+- 决策时间: 2025-10-28
+```
+
+---
+
+### 📸 SNAPSHOT (快照管理) - v3.0新增
+
+```
+/manus snapshot
+🎯 Action: CREATE/RESTORE/LIST
+📝 Description: [快照描述]
+🏷️ Tags: [标签列表，用于分类]
+```
+
+**功能**:
+- 创建CLAUDE.md的版本快照
+- 恢复到历史版本
+- 列出所有快照
+
+**输出位置**: `context/snapshots/CLAUDE-{timestamp}.md`
+
+**示例 - 创建快照**:
+
+```
+/manus snapshot
+🎯 Action: CREATE
+📝 Description: 完成manus.md v3.0优化前的快照
+🏷️ Tags: [before-v3-upgrade, milestone]
+```
+
+**示例 - 恢复快照**:
+
+```
+/manus snapshot
+🎯 Action: RESTORE
+📝 Description: CLAUDE-20251028-120000
+```
+
+**示例 - 列出快照**:
+
+```
+/manus snapshot
+🎯 Action: LIST
+```
+
+---
+
 ## ⚙️ 执行逻辑
 
 当你执行 `/manus [type] [parameters]` 或 `/manus [content]` 时，本命令将:
@@ -702,10 +866,10 @@ def get_detection_reason(type, content):
 # ERROR类型写入结构化JSON而非CLAUDE.md
 
 1. 确保目录存在:
-   !mkdir -p learning/errors/
+   !mkdir -p context/errors/
 
 2. 生成错误ID:
-   error_count=$(grep -c "^{" learning/errors/ERRORS.jsonl 2>/dev/null || echo "0")
+   error_count=$(grep -c "^{" context/errors/ERRORS.jsonl 2>/dev/null || echo "0")
    error_id="ERR-$(date +%Y%m%d)-$(printf "%03d" $((error_count + 1)))"
 
 3. 解析MANUS五步法参数:
@@ -734,7 +898,7 @@ def get_detection_reason(type, content):
    }
 
 5. 追加到ERRORS.jsonl:
-   echo '{json}' >> learning/errors/ERRORS.jsonl
+   echo '{json}' >> context/errors/ERRORS.jsonl
 
 6. 更新CLAUDE.md第10章统计:
    - 错误总计 +1
@@ -769,7 +933,7 @@ def get_detection_reason(type, content):
 
 ```bash
 操作步骤:
-  1. 写入 learning/errors/ERRORS.jsonl (行分隔JSON)
+  1. 写入 context/errors/ERRORS.jsonl (行分隔JSON)
   2. 更新 CLAUDE.md 第10章统计摘要
   3. 不在 CLAUDE.md 中存储完整错误详情
 
@@ -821,11 +985,11 @@ def get_detection_reason(type, content):
       - 严重级别: HIGH
       - 时间戳: 2025-10-23T14:30:45Z
   - 📁 存储位置:
-      - 主日志: learning/errors/ERRORS.jsonl
+      - 主日志: context/errors/ERRORS.jsonl
       - 行号: #N
   - 🔗 查看方式:
-      - 查看最新: !tail -1 learning/errors/ERRORS.jsonl | jq '.'
-      - 查看全部: !cat learning/errors/ERRORS.jsonl | jq '.'
+      - 查看最新: !tail -1 context/errors/ERRORS.jsonl | jq '.'
+      - 查看全部: !cat context/errors/ERRORS.jsonl | jq '.'
       - 分析建议: 执行 /learn 进行深度分析
   - 📈 当前统计:
       - 总错误数: N
@@ -982,14 +1146,14 @@ URL引用:
 
 ### Section 4: ❌ ERROR
 
-> **重要**: ERROR类型不再写入CLAUDE.md，而是记录到 `learning/errors/ERRORS.jsonl`
+> **重要**: ERROR类型不再写入CLAUDE.md，而是记录到 `context/errors/ERRORS.jsonl`
 
 ```markdown
 ## ❌ ERROR
 
 ### 结构化错误数据系统
 
-**数据存储位置**: `learning/errors/`
+**数据存储位置**: `context/errors/`
 
 ```yaml
 核心文件:
@@ -1025,16 +1189,16 @@ URL引用:
 
 ```bash
 # 查看最新错误
-!tail -1 learning/errors/ERRORS.jsonl | jq '.'
+!tail -1 context/errors/ERRORS.jsonl | jq '.'
 
 # 查看所有错误
-!cat learning/errors/ERRORS.jsonl | jq '.'
+!cat context/errors/ERRORS.jsonl | jq '.'
 
 # 按类型筛选
-!grep '"type":\["LOGIC"' learning/errors/ERRORS.jsonl | jq '.'
+!grep '"type":\["LOGIC"' context/errors/ERRORS.jsonl | jq '.'
 
 # 统计错误数量
-!wc -l < learning/errors/ERRORS.jsonl
+!wc -l < context/errors/ERRORS.jsonl
 
 # 深度分析
 执行 /learn 命令进行趋势分析和优化建议生成
@@ -1402,4 +1566,39 @@ MANUS命令提供了统一的上下文管理接口,整合了:
 
 **设计参考**: `PRPs/in-progress/MANUS-command-restructuring-design-v1.0.md`
 
-**版本**: v2.1.0 | **日期**: 2025-10-23 | **更新**: 新增智能类型识别功能
+---
+
+## 🔄 版本历史
+
+**v3.0.0** (2025-10-28) - 🔥 重大更新
+
+**新增功能（整合 Claude Code 官方上下文管理特性）**:
+- ✅ `/manus context` - 上下文监控和优化（Token统计、Section分析、健康报告）
+- ✅ `/manus memory` - 长期记忆管理（跨会话持久化、语义检索）
+- ✅ `/manus snapshot` - 快照版本管理（创建、恢复、列表）
+
+**路径标准化**:
+- ✅ 输出路径统一为 `context/` 目录
+- ✅ `learning/errors/` → `context/errors/`
+- ✅ 新增 `context/memory/`, `context/snapshots/`, `context/analytics/`
+
+**文档改进**:
+- ✅ 新增3个类型的智能识别逻辑
+- ✅ 新增3个类型的详细参数模板
+- ✅ 更新所有输出路径引用
+- ✅ 更新执行流程说明
+
+**向后兼容**:
+- ✅ 保持原有7个类型不变
+- ✅ 保持智能识别机制兼容
+- ✅ 保持MANUS五步法标准
+
+**参考**:
+- 优化方案: `context/context-engineering-optimization-plan.md`
+- 快速参考: `context/README.md`
+
+---
+
+**v2.1.0** (2025-10-23) - 新增智能类型识别功能
+**v2.0.0** (2025-10-23) - 整合C/X/Z命令为统一MANUS系统
+**v1.0.0** (2025-10-20) - 初始版本
