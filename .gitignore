@@ -46,9 +46,6 @@ output/
 # Reports (may contain sensitive data)
 reports/
 
-# Scripts (may contain credentials)
-scripts/
-
 # Git worktrees and parallel workspaces
 trees/
 
@@ -62,3 +59,24 @@ plugins/*/.env
 
 # Plugin configuration templates (safe to commit)
 !plugins/*/.env.example
+
+# ============================================
+# Claude Code Plugin System Privacy Protection
+# ============================================
+
+# Local marketplace configuration (private development setup)
+# This file contains local plugin registration and should not be shared
+# Team members should create their own marketplace.json for their environment
+.claude-plugin/marketplace.json
+
+# Personal plugin activation settings (machine-specific)
+# Each developer can have different enabled plugins based on their needs
+.claude/settings.local.json
+
+# Keep project-level settings (team-shared plugin configurations)
+# This file defines which plugins are available but not necessarily enabled
+!.claude/settings.json
+
+# Note: If you want to keep marketplace.json completely private,
+# uncomment the line above. If your team wants to share the plugin
+# structure, you can commit marketplace.json by removing it from gitignore.

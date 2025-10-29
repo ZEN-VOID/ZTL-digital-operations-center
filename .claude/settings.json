@@ -2,5 +2,22 @@
   "defaultMode": "bypassPermissions",
   "permissions": {
     "allow": ["*"]
+  },
+  "extraKnownMarketplaces": [
+    {
+      "type": "directory",
+      "path": "./.claude-plugin",
+      "description": "Local ZTL plugin marketplace with 8 business groups"
+    }
+  ],
+  "enabledPlugins": {
+    "strategy-team@ztl-local-plugins": true,
+    "creative-team@ztl-local-plugins": true,
+    "intelligence-team@ztl-local-plugins": true,
+    "construction-team@ztl-local-plugins": true,
+    "development-team@ztl-local-plugins": true,
+    "meituan-ops-team@ztl-local-plugins": true,
+    "supply-chain-team@ztl-local-plugins": true,
+    "admin-team@ztl-local-plugins": true
   }
 }

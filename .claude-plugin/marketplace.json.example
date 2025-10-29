@@ -1,0 +1,47 @@
+{
+  "name": "ztl-local-plugins",
+  "owner": "ZTL Digital Intelligence Operations Center - Local Development",
+  "description": "Local plugin marketplace for ZTL's 8 business groups with 60+ specialized agents",
+  "plugins": [
+    {
+      "name": "strategy-team",
+      "description": "Strategic planning and business development (9 agents: G0-G7, GG)",
+      "source": "../plugins/战略组"
+    },
+    {
+      "name": "creative-team",
+      "description": "Creative content production (9 agents: X0-X7, XX)",
+      "source": "../plugins/创意组"
+    },
+    {
+      "name": "intelligence-team",
+      "description": "Research and data intelligence (8 agents: E0-E7, EE)",
+      "source": "../plugins/情报组"
+    },
+    {
+      "name": "construction-team",
+      "description": "Store construction and space design (6 agents: C0-C5, CC)",
+      "source": "../plugins/筹建组"
+    },
+    {
+      "name": "development-team",
+      "description": "Full-stack software development (11 agents: D0-D9, DD)",
+      "source": "../plugins/开发组"
+    },
+    {
+      "name": "meituan-ops-team",
+      "description": "Meituan platform operations (6 agents: M0-M5, MM)",
+      "source": "../plugins/美团组"
+    },
+    {
+      "name": "supply-chain-team",
+      "description": "Supply chain and procurement (7 agents: S0-S6, SS)",
+      "source": "../plugins/供应组"
+    },
+    {
+      "name": "admin-team",
+      "description": "Administrative and HR management (9 agents: A0-A8, AA)",
+      "source": "../plugins/行政组"
+    }
+  ]
+}
