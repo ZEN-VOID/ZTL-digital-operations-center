@@ -36,6 +36,12 @@ try:
 except ImportError:
     ImageUploader = None  # 可选依赖
 
+# 导入提示词优化器（2025最佳实践）
+try:
+    from .prompt_optimizer import PromptOptimizer
+except ImportError:
+    PromptOptimizer = None  # 可选依赖
+
 
 # ========== 内置 API Key 管理器 ==========
 class WanAPIManager:
@@ -148,6 +154,14 @@ class WanAPIClient:
             print(f"⚠️  图片上传器初始化失败: {e}")
             print(f"   将需要手动上传图片或使用Base64模式（设置use_base64=true）")
             self.cos_uploader = None
+
+        # 初始化提示词优化器（2025最佳实践）
+        if PromptOptimizer:
+            self.prompt_optimizer = PromptOptimizer()
+            print(f"✅ 提示词优化器已启用（2025最佳实践）")
+        else:
+            self.prompt_optimizer = None
+            print(f"⚠️  提示词优化器未加载，将使用原始提示词")
 
         # E8默认参数（通义万相）
         self.default_video_duration = 5  # 5秒或10秒
@@ -275,6 +289,56 @@ class WanAPIClient:
         """
         input_data = task_data.get("input_data", {})
         params = task_data.get("parameters", {})
+
+        # ========== 2025最佳实践: 提示词优化 ==========
+        original_prompt = params.get("prompt", "")
+
+        if self.prompt_optimizer and original_prompt:
+            print(f"\n🔍 应用2025最佳实践: 提示词优化")
+            print(f"   原始提示词长度: {len(original_prompt)}字符")
+
+            # 准备优化参数
+            style = params.get("style", "")
+            use_composer = params.get("use_composer", False)
+            composer_config = params.get("composer", None) if use_composer else None
+            use_qwen_image = params.get("use_qwen_image", False)
+
+            # 执行优化
+            optimization_result = self.prompt_optimizer.optimize_prompt(
+                raw_prompt=original_prompt,
+                style=style,
+                use_composer=use_composer,
+                composer_config=composer_config,
+                use_qwen_image=use_qwen_image
+            )
+
+            # 使用优化后的提示词
+            optimized_prompt = optimization_result["optimized_prompt"]
+            char_count_bash = optimization_result["char_count_bash"]
+            checks = optimization_result["checks"]
+            warnings = optimization_result["warnings"]
+
+            print(f"   优化后提示词长度: {char_count_bash}字符 (Bash验证)")
+
+            # 显示检查结果
+            print(f"   ✅ 质量检查:")
+            print(f"      - 字符范围 (1500-2000): {'✓' if checks['char_range_valid'] else '✗'}")
+            if style:
+                print(f"      - 风格关键词前置 (前20字符): {'✓' if checks['style_keyword_positioned'] else '✗'}")
+            if use_composer:
+                print(f"      - Composer配置完整: {'✓' if checks['composer_complete'] else '✗'}")
+            if use_qwen_image:
+                print(f"      - Qwen-Image优化: {'✓' if checks['qwen_image_optimized'] else '✗'}")
+
+            # 显示警告信息
+            if warnings:
+                print(f"   ⚠️  警告:")
+                for warning in warnings:
+                    print(f"      - {warning}")
+
+            # 更新params中的提示词
+            params["prompt"] = optimized_prompt
+            print(f"   ✅ 提示词优化完成\n")
 
         # 基础载荷
         payload = {

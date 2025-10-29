@@ -202,6 +202,47 @@ class E8ExecutionEngine:
 
         print(f"   🎬 任务 {task_id}: {task_name}...")
 
+        # ========== 2025最佳实践: 提示词优化验证 ==========
+        parameters = task.get("parameters", {})
+        prompt = parameters.get("prompt", "")
+
+        if prompt and self.api.prompt_optimizer:
+            # 使用Bash工具验证字符数
+            import subprocess
+            try:
+                result = subprocess.run(
+                    ['bash', '-c', f'echo -n "{prompt}" | wc -m'],
+                    capture_output=True,
+                    text=True,
+                    check=True,
+                    timeout=5
+                )
+                char_count = int(result.stdout.strip())
+
+                # 检查字符范围
+                if char_count < 1500:
+                    print(f"      ⚠️  警告: 提示词字符数 {char_count} < 1500 (建议1500-2000)")
+                    print(f"         建议: 扩充提示词以充分利用MoE架构优势")
+                elif char_count > 2000:
+                    print(f"      ⚠️  警告: 提示词字符数 {char_count} > 2000 (建议1500-2000)")
+                    print(f"         建议: 精简提示词以避免冗余和模型混淆")
+                else:
+                    print(f"      ✅ 提示词字符数验证通过: {char_count} (Bash验证)")
+
+                # 检查风格关键词位置（如果有style参数）
+                style = parameters.get("style", "")
+                if style and self.api.prompt_optimizer.style_keywords.get(style):
+                    style_cn = self.api.prompt_optimizer.style_keywords[style]
+                    position = prompt.find(style_cn)
+                    if position >= 20:
+                        print(f"      ⚠️  警告: 风格关键词'{style_cn}'在第{position}字符位置")
+                        print(f"         建议: 风格关键词应在前20字符内以优化MoE路由")
+
+            except subprocess.TimeoutExpired:
+                print(f"      ⚠️  警告: 字符数验证超时")
+            except Exception as e:
+                print(f"      ⚠️  警告: 字符数验证失败 - {e}")
+
         for attempt in range(retry_attempts):
             try:
                 # 构建任务数据

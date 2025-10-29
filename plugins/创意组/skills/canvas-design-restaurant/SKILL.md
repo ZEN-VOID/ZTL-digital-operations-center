@@ -164,7 +164,25 @@ Aspect Ratios: Platform-specific optimization
 
 ## Quick Start Workflows
 
-### Workflow 1: Promotional Poster
+### Workflow 1: Promotional Poster (Automated)
+
+**Using the Execution Engine**:
+
+```python
+from scripts.canvas_engine import create_poster
+
+result = create_poster(
+    content="火锅店开业庆典,全场8折优惠,2025年1月28日盛大开业",
+    cuisine_type="hotpot",
+    style="modern",
+    project_name="火锅店开业海报"
+)
+
+# Engine generates design brief → Manual canvas design step
+# Follow output instructions to complete the design
+```
+
+**Manual Workflow**:
 
 1. **Define Objective**: What's being promoted? Target audience?
 2. **Gather Assets**: Food photos, logo files, brand colors, copy

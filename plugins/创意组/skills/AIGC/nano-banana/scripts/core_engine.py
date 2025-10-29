@@ -134,7 +134,12 @@ class PromptOptimizer:
 
     # 设计风格库
     DESIGN_STYLES = {
-        "photorealistic": "ultra-realistic, photographic quality, 8K resolution, high dynamic range",
+        "photorealistic": (
+            "ultra-realistic commercial photography, 8K resolution, shot on medium format digital camera, "
+            "professional studio lighting, high dynamic range, physical material textures, "
+            "editorial magazine quality, NOT illustration, NOT vector graphics, NOT CGI rendering, "
+            "authentic photographic grain, real-world lighting physics"
+        ),
         "kawaii": "cute kawaii style, bold outlines, pastel colors, chibi proportions",
         "minimalist": "clean minimalist design, simple composition, negative space, modern aesthetic",
         "vintage": "vintage aesthetic, film grain, retro color grading, nostalgic mood",
@@ -145,16 +150,30 @@ class PromptOptimizer:
     # 餐饮行业专用优化模板
     RESTAURANT_TEMPLATES = {
         "poster": {
-            "prefix": "Professional restaurant promotional poster design,",
-            "suffix": "high-quality print resolution, attention-grabbing composition, clear hierarchy"
+            "prefix": "Commercial restaurant promotional poster shot on Hasselblad medium format camera,",
+            "suffix": (
+                "CRITICAL: photorealistic poster (NOT vector graphics, NOT SVG, NOT web design), "
+                "professional studio lighting setup, editorial photography quality, "
+                "physical material textures, billboard advertising style, "
+                "shot with 85mm portrait lens, f/2.8 aperture, shallow depth of field, "
+                "magazine cover aesthetics, high-end commercial photography"
+            )
         },
         "menu": {
-            "prefix": "Elegant restaurant menu photography,",
-            "suffix": "appetizing food styling, studio lighting, clean background"
+            "prefix": "Professional restaurant menu photography shot in commercial food studio,",
+            "suffix": (
+                "appetizing food styling, three-point studio lighting, "
+                "medium format camera quality, 100mm macro lens, "
+                "Michelin-star presentation, editorial food photography"
+            )
         },
         "social_media": {
-            "prefix": "Eye-catching social media post for restaurant,",
-            "suffix": "mobile-optimized composition, vibrant colors, shareable aesthetic"
+            "prefix": "Eye-catching social media restaurant photography,",
+            "suffix": (
+                "natural lighting, smartphone-native aesthetic, "
+                "Instagram-worthy composition, authentic candid style, "
+                "mobile-optimized, vibrant colors, shareable visual storytelling"
+            )
         }
     }
 
