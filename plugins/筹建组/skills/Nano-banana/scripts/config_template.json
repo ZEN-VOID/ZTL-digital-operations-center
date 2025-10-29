@@ -1,0 +1,78 @@
+{
+  "plan_id": "nano-banana-batch-YYYYMMDD",
+  "agent_id": "Nano-banana",
+  "project_name": "项目名称",
+  "execution_config": {
+    "batch_size": 2,
+    "max_concurrent_requests": 2,
+    "retry_attempts": 3,
+    "retry_delay_seconds": [2, 4, 8],
+    "checkpoint_interval": 10
+  },
+  "api_config": {
+    "model": "google/gemini-2.5-flash-image-preview",
+    "timeout_seconds": 60
+  },
+  "output_config": {
+    "base_path": "output/nano-banana",
+    "subdirs": {
+      "raw": "raw",
+      "final": "final",
+      "alternatives": "alternatives"
+    },
+    "metadata_files": {
+      "execution_log": "execution_log.json",
+      "batch_report": "batch_report.json"
+    }
+  },
+  "batches": [
+    {
+      "batch_id": 1,
+      "tasks": [
+        {
+          "task_id": "task-001",
+          "reference_image": "path/to/reference-image.png",
+          "variation_instruction": {
+            "description": "角色转身动作",
+            "keep_consistent": [
+              "赛博朋克风格",
+              "角色服装",
+              "发型特征",
+              "面部特征"
+            ],
+            "change_elements": [
+              "身体姿态: 从正面转为侧面",
+              "头部角度: 微微转向右侧"
+            ],
+            "nano_banana_parameters": {
+              "strength": 0.65,
+              "prompt_weight": "turning around, natural motion"
+            }
+          }
+        },
+        {
+          "task_id": "task-002",
+          "reference_image": "path/to/reference-image.png",
+          "variation_instruction": {
+            "description": "表情变化-微笑",
+            "keep_consistent": [
+              "姿态",
+              "背景",
+              "光线",
+              "服装"
+            ],
+            "change_elements": [
+              "面部表情: 从平静变为微笑",
+              "眼神: 更加温和",
+              "嘴角: 微微上扬"
+            ],
+            "nano_banana_parameters": {
+              "strength": 0.50,
+              "prompt_weight": "bright smile, warm expression"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

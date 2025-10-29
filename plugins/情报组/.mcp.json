@@ -1,3 +1,70 @@
 {
-  "mcpServers": {}
+  "mcpServers": {
+    "playwright-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"],
+      "env": {}
+    },
+    "lark-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@larksuiteoapi/lark-mcp",
+        "mcp",
+        "-a",
+        "${LARK_APP_ID}",
+        "-s",
+        "${LARK_SECRET}"
+      ],
+      "env": {}
+    },
+    "cos-mcp": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/Users/vincentlee/.local/lib/node_modules/cos-mcp/dist/index.js",
+        "--Region=${COS_REGION}",
+        "--Bucket=${COS_BUCKET}",
+        "--SecretId=${COS_SECRET_ID}",
+        "--SecretKey=${COS_SECRET_KEY}"
+      ],
+      "env": {}
+    },
+    "supabase-mcp": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/Users/vincentlee/.mcp-servers/selfhosted-supabase-mcp/dist/index.js",
+        "--url",
+        "${SUPABASE_URL}",
+        "--anon-key",
+        "${SUPABASE_ANON_KEY}",
+        "--service-key",
+        "${SUPABASE_SERVICE_KEY}",
+        "--db-url",
+        "${SUPABASE_DB_URL}",
+        "--jwt-secret",
+        "${SUPABASE_JWT_SECRET}",
+        "--tools-config",
+        "${SUPABASE_TOOLS_CONFIG}"
+      ],
+      "env": {}
+    },
+    "chart-generator": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/Users/vincentlee/.local/lib/node_modules/@antv/mcp-server-chart/build/index.js"
+      ],
+      "env": {}
+    },
+    "deep-research": {
+      "type": "stdio",
+      "command": "/Users/vincentlee/.mcp-servers/mcp-server-deep-research/venv/bin/mcp-server-deep-research",
+      "args": [],
+      "env": {}
+    }
+  }
 }

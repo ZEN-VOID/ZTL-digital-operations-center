@@ -1,0 +1,141 @@
+{
+  "scan_time": "2025-10-28T21:17:53.985908",
+  "total_plugins": 2,
+  "enabled_plugins": 2,
+  "total_skills": 12,
+  "total_agents": 0,
+  "plugins": {
+    "example-skills@anthropic-agent-skills": {
+      "plugin_id": "example-skills@anthropic-agent-skills",
+      "enabled": true,
+      "version": "unknown",
+      "install_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/",
+      "installed_at": "2025-10-24T02:15:49.458Z",
+      "last_updated": "2025-10-24T02:15:49.458Z",
+      "git_commit_sha": "c74d647e56e6daa12029b6acb11a821348ad044b",
+      "is_local": true,
+      "source": "anthropic-agent-skills",
+      "skills": [
+        {
+          "skill_id": "template-skill",
+          "display_name": "Insert instructions below",
+          "description": "Replace with description of the skill and when Claude should use it.",
+          "allowed_tools": "",
+          "file_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/template-skill/SKILL.md",
+          "skill_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/template-skill"
+        },
+        {
+          "skill_id": "theme-factory",
+          "display_name": "Theme Factory Skill",
+          "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
+          "allowed_tools": "",
+          "file_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/theme-factory/SKILL.md",
+          "skill_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/theme-factory"
+        },
+        {
+          "skill_id": "algorithmic-art",
+          "display_name": "algorithmic-art",
+          "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.",
+          "allowed_tools": "",
+          "file_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/algorithmic-art/SKILL.md",
+          "skill_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/algorithmic-art"
+        },
+        {
+          "skill_id": "internal-comms",
+          "display_name": "internal-comms",
+          "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).",
+          "allowed_tools": "",
+          "file_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/internal-comms/SKILL.md",
+          "skill_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/internal-comms"
+        },
+        {
+          "skill_id": "skill-creator",
+          "display_name": "Skill Creator",
+          "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations.",
+          "allowed_tools": "",
+          "file_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/skill-creator/SKILL.md",
+          "skill_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/skill-creator"
+        },
+        {
+          "skill_id": "canvas-design",
+          "display_name": "canvas-design",
+          "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.",
+          "allowed_tools": "",
+          "file_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/canvas-design/SKILL.md",
+          "skill_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/canvas-design"
+        },
+        {
+          "skill_id": "slack-gif-creator",
+          "display_name": "Slack GIF Creator - Flexible Toolkit",
+          "description": "Toolkit for creating animated GIFs optimized for Slack, with validators for size constraints and composable animation primitives. This skill applies when users request animated GIFs or emoji animations for Slack from descriptions like \"make me a GIF for Slack of X doing Y\".",
+          "allowed_tools": "",
+          "file_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/slack-gif-creator/SKILL.md",
+          "skill_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/slack-gif-creator"
+        },
+        {
+          "skill_id": "artifacts-builder",
+          "display_name": "Artifacts Builder",
+          "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
+          "allowed_tools": "",
+          "file_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/artifacts-builder/SKILL.md",
+          "skill_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/artifacts-builder"
+        },
+        {
+          "skill_id": "webapp-testing",
+          "display_name": "Web Application Testing",
+          "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+          "allowed_tools": "",
+          "file_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/webapp-testing/SKILL.md",
+          "skill_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/webapp-testing"
+        },
+        {
+          "skill_id": "mcp-builder",
+          "display_name": "MCP Server Development Guide",
+          "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
+          "allowed_tools": "",
+          "file_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/mcp-builder/SKILL.md",
+          "skill_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/mcp-builder"
+        },
+        {
+          "skill_id": "brand-guidelines",
+          "display_name": "Anthropic Brand Styling",
+          "description": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.",
+          "allowed_tools": "",
+          "file_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/brand-guidelines/SKILL.md",
+          "skill_path": "/Users/vincentlee/.claude/plugins/marketplaces/anthropic-agent-skills/brand-guidelines"
+        }
+      ],
+      "agents": [],
+      "commands": [],
+      "metadata": {
+        "readme_excerpt": "# Skills\nSkills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks. Skills teach Claude how to complete specific tasks in a repeatable way, whether that's creating documents with your company's brand guidelines, analyzing data using your organization's specific workflows, or automating personal tasks.\nFor more information, check out:\n- [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)\n- [Using skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude)\n- [How to create custom skills](https://support.claude.com/en/articles/12512198-creating-custom-skills)\n- [Equipping agents for the real world with Agent Skills](https://anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)\n# About This Repository\nThis repository contains example skills that demonstrate what's possible with Claude's skills system. These examples range from creative applications (art, music, design) to technical tasks (testing web apps, MCP server generation) to enterprise workflows (communications, branding, etc.).\nEach skill is self-contained in its own directory with a `SKILL.md` file containing the instructions and metadata that Claude uses. Browse through these examples to get inspiration for your own skills or to understand different patterns and approaches."
+      }
+    },
+    "superpowers-chrome@superpowers-marketplace": {
+      "plugin_id": "superpowers-chrome@superpowers-marketplace",
+      "enabled": true,
+      "version": "1.3.0",
+      "install_path": "/Users/vincentlee/.claude/plugins/cache/superpowers-chrome",
+      "installed_at": "2025-10-29T03:52:46.488Z",
+      "last_updated": "2025-10-29T03:52:46.488Z",
+      "git_commit_sha": "5ba8f8b5031b76bbb6feec7a6714938618a9669c",
+      "is_local": false,
+      "source": "superpowers-marketplace",
+      "skills": [
+        {
+          "skill_id": "browsing",
+          "display_name": "Browsing with Chrome Direct",
+          "description": "Use when you need direct browser control - teaches Chrome DevTools Protocol for controlling existing browser sessions, multi-tab management, form automation, and content extraction via use_browser MCP tool",
+          "allowed_tools": "mcp__chrome__use_browser",
+          "file_path": "/Users/vincentlee/.claude/plugins/cache/superpowers-chrome/skills/browsing/SKILL.md",
+          "skill_path": "/Users/vincentlee/.claude/plugins/cache/superpowers-chrome/skills/browsing"
+        }
+      ],
+      "agents": [],
+      "commands": [],
+      "metadata": {
+        "readme_excerpt": "# Superpowers Chrome - Claude Code Plugin\nDirect browser control via Chrome DevTools Protocol. Two modes available:\n1. **Skill Mode** - CLI tool for Claude Code agents (`browsing` skill)\n2. **MCP Mode** - Ultra-lightweight MCP server for any MCP client\n## Features\n- **Zero dependencies** - Built-in WebSocket, no npm install needed\n- **Idiotproof API** - Tab index syntax (`0`, `1`, `2`) instead of WebSocket URLs\n- **Platform-agnostic** - `chrome-ws start` works on macOS, Linux, Windows\n- **17 commands** covering all browser automation needs\n- **Complete documentation** with real-world examples"
+      }
+    }
+  }
+}

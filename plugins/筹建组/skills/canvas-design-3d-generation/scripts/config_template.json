@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_name": "火锅店开业筹备",
+    "z3_task_id": "Z3-3D-20251028-001",
+    "input_source": "Z2-空间设计AIGC助手"
+  },
+  "generation_config": {
+    "model": "triposr",
+    "api_endpoint": "replicate.com/stability-ai/triposr",
+    "version": "latest"
+  },
+  "scenes_to_generate": [
+    {
+      "scene_id": "scene-01",
+      "scene_name": "入口迎宾区",
+      "input_image": "output/火锅店开业筹备/Z2-空间设计AIGC助手/results/入口迎宾区-新中式-20251028.png",
+      "parameters": {
+        "format": "glb",
+        "resolution": 1024,
+        "enable_texture": true,
+        "optimize_mesh": true
+      },
+      "output_path": "output/火锅店开业筹备/Z3-3D生成AIGC助手/results/entrance-3d.glb"
+    },
+    {
+      "scene_id": "scene-02",
+      "scene_name": "主用餐区",
+      "input_image": "output/火锅店开业筹备/Z2-空间设计AIGC助手/results/主用餐区-新中式-20251028.png",
+      "parameters": {
+        "format": "glb",
+        "resolution": 1024,
+        "enable_texture": true
+      },
+      "output_path": "output/火锅店开业筹备/Z3-3D生成AIGC助手/results/dining-area-3d.glb"
+    },
+    {
+      "scene_id": "scene-03",
+      "scene_name": "VIP包间",
+      "input_image": "output/火锅店开业筹备/Z2-空间设计AIGC助手/results/VIP包间-新中式-20251028.png",
+      "parameters": {
+        "format": "glb",
+        "resolution": 1024,
+        "enable_texture": true
+      },
+      "output_path": "output/火锅店开业筹备/Z3-3D生成AIGC助手/results/vip-room-3d.glb"
+    }
+  ],
+  "batch_config": {
+    "max_concurrent": 2,
+    "retry_attempts": 3,
+    "retry_delay_seconds": 5
+  },
+  "api_config": {
+    "timeout_seconds": 120,
+    "api_token_env_var": "REPLICATE_API_TOKEN"
+  },
+  "output_config": {
+    "base_dir": "output/火锅店开业筹备/Z3-3D生成AIGC助手",
+    "formats": ["glb"],
+    "save_metadata": true
+  }
+}

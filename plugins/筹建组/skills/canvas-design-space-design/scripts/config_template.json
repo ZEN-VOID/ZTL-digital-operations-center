@@ -1,0 +1,103 @@
+{
+  "project_info": {
+    "project_name": "火锅店开业筹备",
+    "location": "北京望京",
+    "total_area": "300㎡",
+    "cuisine_type": "火锅",
+    "target_customer": "25-40岁中高收入白领",
+    "budget": "60万元"
+  },
+  "design_positioning": {
+    "style": "新中式",
+    "keywords": ["雅致", "温馨", "现代", "文化感"],
+    "color_scheme": {
+      "primary": "#F5F5DC (米白)",
+      "secondary": "#8B4513 (胡桃木)",
+      "accent": "#DC143C (中国红)"
+    }
+  },
+  "space_scenes": [
+    {
+      "scene_name": "入口迎宾区",
+      "area": "30㎡",
+      "function": "顾客接待、品牌展示",
+      "prompt": "New Chinese style hotpot restaurant entrance, beige walls with walnut wood panels, classical lattice screens, warm yellow ambient lighting, brand logo wall, green plants decoration, warm and elegant, photographic quality, 8K, interior design rendering, 45-degree perspective, three-point perspective, sense of depth",
+      "negative_prompt": "blurry, low quality, distorted, unrealistic, amateur, oversaturated, cartoon",
+      "generation_params": {
+        "style_preset": "photographic",
+        "aspect_ratio": "16:9",
+        "cfg_scale": 7.5,
+        "steps": 50
+      }
+    },
+    {
+      "scene_name": "主用餐区",
+      "area": "150㎡",
+      "function": "顾客用餐、社交",
+      "prompt": "New Chinese style hotpot restaurant main dining area, spacious open layout, round hotpot tables with walnut wood frames, Chinese lattice partitions, warm yellow downlights, cultural decorative paintings, elegant and comfortable, photographic quality, 8K, interior design rendering, wide-angle view, atmospheric lighting",
+      "negative_prompt": "blurry, low quality, distorted, unrealistic, amateur, cluttered, chaotic",
+      "generation_params": {
+        "style_preset": "photographic",
+        "aspect_ratio": "16:9",
+        "cfg_scale": 7.5,
+        "steps": 50
+      }
+    },
+    {
+      "scene_name": "包间区",
+      "area": "80㎡",
+      "function": "私密用餐、商务宴请",
+      "prompt": "New Chinese style hotpot restaurant private dining room, cozy enclosed space, dark walnut wood panels, Chinese calligraphy artwork, soft indirect lighting, elegant furniture, cultural atmosphere, photographic quality, 8K, interior design rendering, intimate perspective, warm ambiance",
+      "negative_prompt": "blurry, low quality, distorted, unrealistic, amateur, too bright, cold tones",
+      "generation_params": {
+        "style_preset": "photographic",
+        "aspect_ratio": "16:9",
+        "cfg_scale": 7.5,
+        "steps": 50
+      }
+    },
+    {
+      "scene_name": "洗手间区域",
+      "area": "20㎡",
+      "function": "洗手、补妆",
+      "prompt": "New Chinese style hotpot restaurant washroom area, clean white walls with wood accents, modern fixtures with Chinese elements, soft ambient lighting, mirrors with decorative frames, fresh and hygienic, photographic quality, 8K, interior design rendering, clean aesthetic, well-lit",
+      "negative_prompt": "blurry, low quality, distorted, unrealistic, amateur, dirty, cluttered, dark",
+      "generation_params": {
+        "style_preset": "photographic",
+        "aspect_ratio": "16:9",
+        "cfg_scale": 7.5,
+        "steps": 50
+      }
+    },
+    {
+      "scene_name": "收银区",
+      "area": "20㎡",
+      "function": "结账、商品展示",
+      "prompt": "New Chinese style hotpot restaurant cashier area, elegant reception desk with walnut wood finish, Chinese decorative elements, product display shelves, warm lighting, brand identity, clean and organized, photographic quality, 8K, interior design rendering, frontal view, professional",
+      "negative_prompt": "blurry, low quality, distorted, unrealistic, amateur, messy, unprofessional",
+      "generation_params": {
+        "style_preset": "photographic",
+        "aspect_ratio": "16:9",
+        "cfg_scale": 7.5,
+        "steps": 50
+      }
+    }
+  ],
+  "execution_config": {
+    "batch_size": 2,
+    "max_concurrent_requests": 2,
+    "retry_attempts": 3,
+    "retry_delay_seconds": 5
+  },
+  "api_config": {
+    "model": "stable-diffusion-xl",
+    "endpoint": "https://openrouter.ai/api/v1/images/generations",
+    "timeout_seconds": 120
+  },
+  "output_config": {
+    "format": "png",
+    "quality": "high",
+    "naming_pattern": "{scene_name}-{style}-{timestamp}",
+    "save_metadata": true
+  }
+}

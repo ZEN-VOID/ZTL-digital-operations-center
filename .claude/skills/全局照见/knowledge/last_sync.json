@@ -1,0 +1,12 @@
+{
+  "sync_time": "2025-10-28T21:17:53.986457",
+  "scan_duration_seconds": 0.004722,
+  "trigger_reason": "用户强制同步",
+  "total_plugins": 2,
+  "total_skills": 12,
+  "total_agents": 0,
+  "git_commits": {
+    "example-skills@anthropic-agent-skills": "c74d647e56e6daa12029b6acb11a821348ad044b",
+    "superpowers-chrome@superpowers-marketplace": "5ba8f8b5031b76bbb6feec7a6714938618a9669c"
+  }
+}
