@@ -43,6 +43,12 @@ input/
 output/
 .playwright-mcp/
 
+# Reports (may contain sensitive data)
+reports/
+
+# Scripts (may contain credentials)
+scripts/
+
 # Git worktrees and parallel workspaces
 trees/
 
