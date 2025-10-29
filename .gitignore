@@ -51,9 +51,8 @@ tmp/
 temp/
 *.tmp
 
-# Plugin-level configurations (contain credentials)
+# Plugin-level environment variables (contain credentials)
 plugins/*/.env
-plugins/*/.mcp.json
 
 # Plugin configuration templates (safe to commit)
 !plugins/*/.env.example
