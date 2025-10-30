@@ -123,6 +123,53 @@ skill-name/
 
 Skills use **progressive disclosure**: Claude loads SKILL.md first (~500-2000 tokens), then scripts/reference as needed.
 
+## Hooks System
+
+**Hooks** are executable scripts that automatically run in response to Claude Code lifecycle events, enabling automated workflows.
+
+### Available Hooks
+
+**PreCompact Hook**: `.claude/hooks/parallel-claude-after-compact.sh`
+- **Event**: Triggered before context compact
+- **Purpose**: Launch parallel Claude instance to continue work
+- **Features**:
+  - Saves context snapshot to `context/snapshots/`
+  - Creates new iTerm window with Claude
+  - Injects context summary to new instance
+  - Uses lock mechanism to prevent duplicates
+  - Integrates with 深渊凝视 skill for terminal control
+
+**Workflow**:
+```
+Context → PreCompact → Save Snapshot → Launch Parallel Claude → Continue Original Compact
+  |                                            |
+  └─────────── Two Claude instances work in parallel ────────────┘
+```
+
+### Using Hooks
+
+Hooks are automatically enabled when present in `.claude/hooks/` with executable permissions:
+
+```bash
+# Verify hook is enabled
+ls -la .claude/hooks/
+
+# View hook logs
+tail -f .claude/logs/parallel-claude-after-compact.log
+
+# Test hook manually
+echo '{"context": "test", "reason": "debug"}' | \
+  .claude/hooks/parallel-claude-after-compact.sh
+```
+
+**Benefits**:
+- ✅ Zero context loss during compact
+- ✅ Automatic task continuity
+- ✅ Parallel processing capability
+- ✅ No manual intervention needed
+
+**Documentation**: See `.claude/hooks/README.md` for full guide
+
 ## PRP (Plan-Research-Plan) System
 
 **Critical for complex features**: Before implementing non-trivial features, generate a PRP document.

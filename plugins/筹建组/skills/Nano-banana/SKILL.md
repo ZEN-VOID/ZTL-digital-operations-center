@@ -163,10 +163,10 @@ API客户端基础模板,提供底层API调用能力。
 
 **调用方式**:
 ```bash
-python scripts/nano-banana-execute.py --plan api/plans/nano-banana/my-plan.json
+python scripts/nano-banana-execute.py --plan api/nano-banana/my-plan.json
 ```
 
-**配合文件**: `api/plans/nano-banana/`目录下的执行计划JSON
+**配合文件**: `api/nano-banana/`目录下的执行计划JSON
 
 ### scripts/config_template.json
 

@@ -34,7 +34,7 @@
 
 输入:
   - Z2输出的PNG图像 (≥1024×1024推荐)
-  - 存储路径: output/[项目名]/Z2-空间概念设计师/results/
+  - 存储路径: output/[项目名]/Z2-空间概念设计师/
 
 技能包:
   - Wan技能包: plugins/筹建组/skills/Wan/
@@ -61,7 +61,7 @@ source ~/.zshrc
 
 ```bash
 # 假设Z2已经生成了图像
-ls output/火锅店开业筹备/Z2-空间概念设计师/results/
+ls output/火锅店开业筹备/Z2-空间概念设计师/
 
 # 输出示例:
 # 餐厅-主用餐区-全景.png
@@ -81,7 +81,7 @@ import os
 client = WanAPIClient()
 
 # 2. 准备输入
-image_path = "output/火锅店开业筹备/Z2-空间概念设计师/results/餐厅-主用餐区-全景.png"
+image_path = "output/火锅店开业筹备/Z2-空间概念设计师/餐厅-主用餐区-全景.png"
 prompt = """
 镜头缓慢向前推进，穿过主用餐区，两侧摆放精致圆桌和舒适座椅，
 暖黄灯光从吊灯洒下，营造温馨用餐氛围，背景文化墙装饰若隐若现，
@@ -119,7 +119,7 @@ while True:
         time.sleep(10)
 
 # 5. 下载视频
-output_path = "output/火锅店开业筹备/Z4-建筑动画AIGC助手/results/test-video.mp4"
+output_path = "output/火锅店开业筹备/Z4-建筑动画AIGC助手/test-video.mp4"
 os.makedirs(os.path.dirname(output_path), exist_ok=True)
 client.download_video(task_id, output_path)
 
@@ -138,7 +138,7 @@ python quick_test_z4.py
 # ⏳ 生成中... (PROCESSING)
 # ⏳ 生成中... (PROCESSING)
 # ✅ 视频生成成功!
-# ✅ 视频已保存: output/火锅店开业筹备/Z4-建筑动画AIGC助手/results/test-video.mp4
+# ✅ 视频已保存: output/火锅店开业筹备/Z4-建筑动画AIGC助手/test-video.mp4
 # 💰 本次成本: ¥0.35
 ```
 
@@ -146,10 +146,10 @@ python quick_test_z4.py
 
 ```bash
 # macOS
-open "output/火锅店开业筹备/Z4-建筑动画AIGC助手/results/test-video.mp4"
+open "output/火锅店开业筹备/Z4-建筑动画AIGC助手/test-video.mp4"
 
 # Linux
-xdg-open "output/火锅店开业筹备/Z4-建筑动画AIGC助手/results/test-video.mp4"
+xdg-open "output/火锅店开业筹备/Z4-建筑动画AIGC助手/test-video.mp4"
 ```
 
 ✅ **如果能看到平滑的推进镜头视频,说明环境配置正确!**
@@ -218,7 +218,7 @@ def scan_z2_output(project_name: str) -> list:
     Returns:
         PNG文件路径列表
     """
-    z2_path = f"output/{project_name}/Z2-空间概念设计师/results/"
+    z2_path = f"output/{project_name}/Z2-空间概念设计师/"
 
     # 查找所有PNG文件
     images = glob.glob(f"{z2_path}/*.png")
@@ -601,7 +601,7 @@ def generate_video_list(videos: List[Dict], output_path: str):
 ## 输出路径
 
 ```
-output/{project_name}/Z4-建筑动画AIGC助手/results/
+output/{project_name}/Z4-建筑动画AIGC助手/
 ├── 01-entrance/
 ├── 02-waiting-area/
 ├── 03-main-dining/
@@ -746,7 +746,7 @@ config["project_info"]["client_name"] = "客户名称"
 # (参考模板中的12个示例任务)
 
 # 4. 保存执行计划
-output_plan_path = f"output/{config['project_info']['project_name']}/Z4-建筑动画AIGC助手/plans/execution-plan.json"
+output_plan_path = f"output/{config['project_info']['project_name']}/Z4-建筑动画AIGC助手/execution-plan.json"
 os.makedirs(os.path.dirname(output_plan_path), exist_ok=True)
 
 with open(output_plan_path, "w", encoding="utf-8") as f:
@@ -1101,7 +1101,7 @@ cost_report = {
 }
 
 import json
-with open("output/.../metadata/cost-report.json", "w") as f:
+with open("output/.../cost-report.json", "w") as f:
     json.dump(cost_report, f, indent=2)
 ```
 
@@ -1315,7 +1315,7 @@ def main(project_name: str, design_style: str):
 
     # ===== Phase 1: 接收与分析 =====
     print("\n[Phase 1] 📥 接收Z2输出...")
-    z2_path = f"output/{project_name}/Z2-空间概念设计师/results/"
+    z2_path = f"output/{project_name}/Z2-空间概念设计师/"
     images = glob.glob(f"{z2_path}/*.png")
 
     if not images:
@@ -1340,7 +1340,7 @@ def main(project_name: str, design_style: str):
 
         # 输出路径
         output_filename = filename.replace(".png", ".mp4")
-        output_path = f"output/{project_name}/Z4-建筑动画AIGC助手/results/{output_filename}"
+        output_path = f"output/{project_name}/Z4-建筑动画AIGC助手/{output_filename}"
 
         task = {
             "task_id": f"T{i:03d}",
@@ -1431,10 +1431,10 @@ def main(project_name: str, design_style: str):
     print(f"\n[Phase 5] 📦 交付打包...")
 
     # 生成清单
-    generate_video_list(tasks, f"output/{project_name}/Z4-建筑动画AIGC助手/results/video-list.md")
+    generate_video_list(tasks, f"output/{project_name}/Z4-建筑动画AIGC助手/video-list.md")
 
     # 保存Prompt记录
-    with open(f"output/{project_name}/Z4-建筑动画AIGC助手/metadata/prompts-used.json", "w", encoding="utf-8") as f:
+    with open(f"output/{project_name}/Z4-建筑动画AIGC助手/prompts-used.json", "w", encoding="utf-8") as f:
         json.dump([{"task_id": t["task_id"], "image": os.path.basename(t["image_path"]),
                     "prompt": t["prompt"], "negative_prompt": t["negative_prompt"]}
                    for t in tasks], f, ensure_ascii=False, indent=2)
@@ -1449,7 +1449,7 @@ def main(project_name: str, design_style: str):
         "total_cost": succeeded * 0.35
     }
 
-    with open(f"output/{project_name}/Z4-建筑动画AIGC助手/metadata/cost-report.json", "w") as f:
+    with open(f"output/{project_name}/Z4-建筑动画AIGC助手/cost-report.json", "w") as f:
         json.dump(cost_report, f, indent=2)
 
     print(f"""

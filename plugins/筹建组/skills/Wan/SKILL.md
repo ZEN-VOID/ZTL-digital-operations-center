@@ -49,7 +49,7 @@ last_updated: 2025-10-19
 **三层架构定位**:
 
 - **规范层(您)**: 将影视创意转化为标准配置
-- **计划层**: JSON配置文件 (`output/tongyi-wanxiang/plans/`)
+- **计划层**: JSON配置文件 (`output/tongyi-wanxiang/`)
 - **执行层**: DashScope API (阿里云MaaS平台)
 
 **官方API**: ✅ 完整的API支持 (DashScope平台)
@@ -228,7 +228,7 @@ Model: qwen-image
 
 ### Step 4: 输出文件
 
-**JSON配置文件**: `output/tongyi-wanxiang/plans/{project}-{YYYYMMDD}.json`
+**JSON配置文件**: `output/tongyi-wanxiang/{project}-{YYYYMMDD}.json`
 
 包含:
 - plan_id, agent_id, api_version
@@ -323,10 +323,10 @@ API客户端基础模板,提供底层通义万相API调用能力。
 
 **调用方式**:
 ```bash
-python scripts/wan-execute.py --plan output/tongyi-wanxiang/plans/my-plan.json
+python scripts/wan-execute.py --plan output/tongyi-wanxiang/my-plan.json
 ```
 
-**配合文件**: `output/tongyi-wanxiang/plans/`目录下的执行计划JSON
+**配合文件**: `output/tongyi-wanxiang/`目录下的执行计划JSON
 
 ### scripts/check_images.py
 

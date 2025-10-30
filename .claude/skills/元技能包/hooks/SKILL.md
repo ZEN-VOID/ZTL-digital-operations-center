@@ -405,11 +405,11 @@ cat test_input.json | .claude/hooks/your-hook.sh | jq .
 
 ```bash
 # View hook logs
-tail -f .claude/logs/your-hook.log
+tail -f .claude/your-hook.log
 
 # Analyze log patterns
-grep "ERROR" .claude/logs/*.log
-grep "executed successfully" .claude/logs/*.log | wc -l
+grep "ERROR" .claude/*.log
+grep "executed successfully" .claude/*.log | wc -l
 
 # Clean old logs (keep 7 days)
 find .claude/logs -name "*.log" -mtime +7 -delete
@@ -423,7 +423,7 @@ find .claude/logs -name "*.log" -mtime +7 -delete
 Pre-deployment checks:
   - [ ] All scripts tested and passing
   - [ ] settings.json configured correctly
-  - [ ] Log directory created: .claude/logs/
+  - [ ] Log directory created: .claude/
   - [ ] Scripts have execute permission: chmod +x .claude/hooks/*.sh
   - [ ] Line endings correct: LF not CRLF
   - [ ] Documentation updated (README or CLAUDE.md)
@@ -565,7 +565,7 @@ echo "{}"
 #!/bin/bash
 # .claude/hooks/prompt-enhancement.sh
 
-LOG_FILE=".claude/logs/prompt-enhancement.log"
+LOG_FILE=".claude/prompt-enhancement.log"
 mkdir -p "$(dirname "$LOG_FILE")"
 
 input=$(cat)
@@ -662,7 +662,7 @@ Diagnostic Checklist:
      bash -x .claude/hooks/script.sh <<< '{"prompt":"test"}'
 
   4. Check log files:
-     tail -f .claude/logs/hook-name.log
+     tail -f .claude/hook-name.log
 
   5. Validate config syntax:
      cat .claude/settings.json | jq .

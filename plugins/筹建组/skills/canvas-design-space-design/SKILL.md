@@ -162,10 +162,10 @@ Stable Diffusion XL API客户端基础模板,提供底层API调用能力。
 
 **调用方式**:
 ```bash
-python scripts/space-design-execute.py --plan output/plans/my-plan.json
+python scripts/space-design-execute.py --plan output/my-plan.json
 ```
 
-**配合文件**: `output/[项目名]/Z2-空间设计AIGC助手/plans/`目录下的执行计划JSON
+**配合文件**: `output/[项目名]/Z2-空间设计AIGC助手/`目录下的执行计划JSON
 
 ### scripts/config_template.json
 

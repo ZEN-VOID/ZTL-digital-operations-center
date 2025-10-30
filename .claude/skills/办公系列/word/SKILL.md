@@ -60,7 +60,7 @@ builder.add_table(
     ]
 )
 builder.add_image("charts/sales-trend.png", width_inches=6)
-builder.save("output/plans/product-plan.docx")
+builder.save("output/product-plan.docx")
 ```
 
 ## Document Types

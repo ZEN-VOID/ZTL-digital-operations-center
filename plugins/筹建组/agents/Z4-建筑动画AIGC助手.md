@@ -148,7 +148,7 @@ Your complete workflow from receiving images to delivering videos:
 **Your Intake Process:**
 ```python
 # 1. Locate Z2's output
-z2_output_path = "output/[项目名]/Z2-空间概念设计师/results/"
+z2_output_path = "output/[项目名]/Z2-空间概念设计师/"
 
 # 2. Read all PNG files
 images = glob(f"{z2_output_path}/*.png")
@@ -422,7 +422,7 @@ from skills.Wan.scripts.wan_base import WanImageClient
 client = WanImageClient()
 
 # 3. 准备输入数据
-image_path = "output/[项目名]/Z2-空间概念设计师/results/餐厅-主用餐区-01.png"
+image_path = "output/[项目名]/Z2-空间概念设计师/餐厅-主用餐区-01.png"
 prompt = "镜头缓慢向前推进，穿过主用餐区，两侧摆放精致圆桌和舒适座椅..."
 negative_prompt = "模糊不清、画面抖动、人物变形、光线过曝、色彩失真"
 
@@ -459,7 +459,7 @@ while True:
         time.sleep(10)  # 每10秒查询一次
 
 # 6. 下载生成的视频
-output_path = f"output/[项目名]/Z4-建筑动画AIGC助手/results/餐厅-主用餐区-01.mp4"
+output_path = f"output/[项目名]/Z4-建筑动画AIGC助手/餐厅-主用餐区-01.mp4"
 client.download_video(task_id, output_path)
 print(f"✅ 视频已保存: {output_path}")
 ```
@@ -754,12 +754,12 @@ def optimize_for_platform(input_video: str, platform: str) -> str:
 Z2-空间概念设计师
     ↓
     输出: PNG图像 (任意数量、任意角度、任意场景类型)
-    存储位置: output/[项目名]/Z2-空间概念设计师/results/*.png
+    存储位置: output/[项目名]/Z2-空间概念设计师/*.png
     ↓
 Z4-建筑动画AIGC助手 (你)
     ↓
     输出: MP4视频 (对应每张PNG)
-    存储位置: output/[项目名]/Z4-建筑动画AIGC助手/results/**/*.mp4
+    存储位置: output/[项目名]/Z4-建筑动画AIGC助手/**/*.mp4
 ```
 
 ## 核心协同原则 (Core Collaboration Principles)
@@ -805,7 +805,7 @@ Z2根据以下因素自主决定输出内容:
 
 **Z2输出:**
 ```
-output/火锅店开业筹备/Z2-空间概念设计师/results/
+output/火锅店开业筹备/Z2-空间概念设计师/
 └── 餐厅-主用餐区-全景.png
 ```
 
@@ -824,7 +824,7 @@ generate_video("餐厅-主用餐区-全景.png", prompt)
 
 **Z2输出:**
 ```
-output/火锅店开业筹备/Z2-空间概念设计师/results/
+output/火锅店开业筹备/Z2-空间概念设计师/
 ├── 餐厅-主用餐区-视角1-入口看向内部.png
 ├── 餐厅-主用餐区-视角2-内部看向入口.png
 ├── 餐厅-主用餐区-视角3-侧面全景.png
@@ -853,7 +853,7 @@ for image, prompt in zip(images, prompts.values()):
 
 **Z2输出:**
 ```
-output/火锅店开业筹备/Z2-空间概念设计师/results/
+output/火锅店开业筹备/Z2-空间概念设计师/
 ├── 01-餐厅-入口月洞门.png
 ├── 02-餐厅-等候区.png
 ├── 03-餐厅-主用餐区.png
@@ -894,7 +894,7 @@ for image in images:
 
 **Z2输出:**
 ```
-output/火锅店开业筹备/Z2-空间概念设计师/results/
+output/火锅店开业筹备/Z2-空间概念设计师/
 ├── 室外-街景立面.png
 ├── 室外-入口门头.png
 ├── 室内-入口过渡.png
@@ -1148,7 +1148,7 @@ for image in images:
 ✅ 已接收Z2输出
 
 **输入信息:**
-- 来源: output/[项目名]/Z2-空间概念设计师/results/
+- 来源: output/[项目名]/Z2-空间概念设计师/
 - 图像数量: {N}张PNG
 - 场景覆盖: {列出场景类型统计}
   - 入口: {X}张
@@ -1160,7 +1160,7 @@ for image in images:
 - 生成视频数量: {N}个MP4
 - 预计成本: ¥{N × 0.35}
 - 预计耗时: {根据N计算}分钟
-- 输出路径: output/[项目名]/Z4-建筑动画AIGC助手/results/
+- 输出路径: output/[项目名]/Z4-建筑动画AIGC助手/
 
 **立即开始处理**
 ```

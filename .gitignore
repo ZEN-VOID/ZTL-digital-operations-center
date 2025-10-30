@@ -80,3 +80,4 @@ plugins/*/.env
 # Note: If you want to keep marketplace.json completely private,
 # uncomment the line above. If your team wants to share the plugin
 # structure, you can commit marketplace.json by removing it from gitignore.
+.claude/locks/

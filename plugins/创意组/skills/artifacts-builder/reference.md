@@ -92,8 +92,8 @@ result = builder.create_artifact(
     "status": "initialized",
     "message": "...",
     "workspace": Path("output/.../workspace/hotpot-menu-app"),
-    "spec_file": Path("output/.../plans/...json"),
-    "metadata_file": Path("output/.../metadata/...json"),
+    "spec_file": Path("output/.../...json"),
+    "metadata_file": Path("output/.../...json"),
     "phase": "development_ready"
 }
 ```
@@ -114,7 +114,7 @@ bundle_result = builder.bundle_artifact(
 {
     "status": "success",
     "message": "✅ Artifact bundled: ...",
-    "bundle_file": Path("output/.../results/hotpot-menu-app_20251029_103000.html"),
+    "bundle_file": Path("output/.../hotpot-menu-app_20251029_103000.html"),
     "workspace": Path("output/.../workspace/hotpot-menu-app"),
     "phase": "completed"
 }
@@ -371,7 +371,7 @@ ls src/components/ui/  # Should list 40+ components
 
 **Solution**:
 1. Ensure `index.html` exists in project root
-2. Check build logs in `output/**/logs/`
+2. Check build logs in `output/**/`
 3. Verify all imports are valid:
    ```tsx
    // Good
@@ -515,12 +515,12 @@ Following global CLAUDE.md conventions:
 **Track in Git**:
 - ✅ `SKILL.md`, `README.md`, `reference.md`
 - ✅ `scripts/*.sh`, `scripts/*.py`
-- ✅ `output/**/plans/*.json` (execution plans)
+- ✅ `output/**/*.json` (execution plans)
 
 **Ignore in Git**:
-- ❌ `output/**/results/*` (bundle.html files)
-- ❌ `output/**/logs/*` (build logs)
-- ❌ `output/**/metadata/*` (runtime metadata)
+- ❌ `output/**/*` (bundle.html files)
+- ❌ `output/**/*` (build logs)
+- ❌ `output/**/*` (runtime metadata)
 - ❌ `output/**/workspace/*` (development files)
 
 ---

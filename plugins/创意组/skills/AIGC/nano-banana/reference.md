@@ -35,7 +35,7 @@
 │  Layer 2: 计划层 (Configuration Layer)   │
 ├─────────────────────────────────────────┤
 │  JSON 执行计划     批量任务配置          │
-│  output/.../plans/ 持久化计划文件        │
+│  output/.../ 持久化计划文件        │
 └─────────────────────────────────────────┘
               ↓
 ┌─────────────────────────────────────────┐
@@ -615,7 +615,7 @@ class BatchProcessor:
             "results": results
         }
 
-        # 保存到 output/[项目名]/nano-banana/logs/
+        # 保存到 output/[项目名]/nano-banana/
         output_dir = Path("output") / self.plan["project_name"] / "nano-banana" / "logs"
         output_dir.mkdir(parents=True, exist_ok=True)
 

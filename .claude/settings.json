@@ -19,5 +19,18 @@
     "meituan-ops-team@ztl-local-plugins": true,
     "supply-chain-team@ztl-local-plugins": true,
     "admin-team@ztl-local-plugins": true
+  },
+  "hooks": {
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/parallel-claude-after-compact.sh",
+            "description": "Launch parallel Claude instance with compact context for continued task execution"
+          }
+        ]
+      }
+    ]
   }
 }

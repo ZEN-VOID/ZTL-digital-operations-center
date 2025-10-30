@@ -36,7 +36,7 @@ result = builder.create_artifact(
 bundle_result = builder.bundle_artifact("hotpot-menu-app")
 
 print(bundle_result["bundle_file"])
-# → output/餐饮网站原型/X4-平面设计师/artifacts-builder/hotpot-menu-app/results/...html
+# → output/餐饮网站原型/X4-平面设计师/artifacts-builder/hotpot-menu-app/...html
 ```
 
 ### For Users
@@ -173,7 +173,7 @@ This skill is designed to work with:
 Follows the three-layer architecture:
 
 1. **Layer 1 (Knowledge)**: Development guidelines in SKILL.md
-2. **Layer 2 (Configuration)**: JSON specs in `output/**/plans/`
+2. **Layer 2 (Configuration)**: JSON specs in `output/**/`
 3. **Layer 3 (Execution)**: Shell scripts + Python orchestration
 
 ## Best Practices
@@ -193,7 +193,7 @@ Follows the three-layer architecture:
 **Bundle script fails?**
 - Check that `index.html` exists in project root
 - Ensure all imports are valid
-- Review logs in `output/**/logs/`
+- Review logs in `output/**/`
 
 **shadcn/ui component missing?**
 - All components are pre-installed via `shadcn-components.tar.gz`

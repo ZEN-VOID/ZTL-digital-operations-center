@@ -86,6 +86,56 @@ Use this skill to:
 - Design tool sets and guardrails for agents
 - Build multi-agent collaboration systems
 
+### Batch Processing with Concurrent Execution
+
+When handling **batch agent creation tasks**, this skill supports intelligent concurrency:
+
+```yaml
+Execution Strategy:
+  Sequential Tasks (有上下游依赖):
+    - Tasks with dependencies execute in order
+    - Output from Task A feeds into Task B
+    - Example: Base agent → Specialized variants
+
+  Concurrent Tasks (无上下游依赖):
+    - Independent tasks execute in parallel
+    - Each agent creation is self-contained
+    - Significantly faster for large batches
+    - Example: Creating 5 different domain experts simultaneously
+
+Dependency Detection:
+  Automatic Analysis:
+    - Analyze task descriptions for dependency keywords
+    - Identify shared resources or sequential requirements
+    - Default to concurrent if no dependencies detected
+
+  Manual Override:
+    - User can specify execution mode explicitly
+    - Use sequential when output review is critical
+    - Use concurrent for independent agent creation
+
+Concurrency Benefits:
+  - ⚡ Faster batch processing (3-5x speedup)
+  - 🔄 Parallel file writing (no conflicts)
+  - 📊 Real-time progress tracking
+  - ✅ Independent validation per agent
+```
+
+**Example - Concurrent Agent Creation**:
+```
+User Request: "创建5个业务组的智能体：战略分析、数据分析、内容创作、代码审查、测试工程"
+
+Skill Analysis:
+  ✅ No dependencies detected
+  ✅ Each agent is independent
+  → Execute concurrently
+
+Result:
+  - 5 agents created in parallel
+  - Total time: ~30s (vs ~150s sequential)
+  - All agents validated independently
+```
+
 ## Quick Start
 
 ### 1. Define Agent Value
@@ -605,6 +655,21 @@ Element 7 - Skills & Mcp Dependencies (When Applicable):
          - 不允许只做中间处理而无实际产出
          - 输出产物应符合智能体任务目标
 
+         输出内容规范:
+           - 根据任务需求动态设定输出内容
+           - 可以是文件(图片、文档、数据)、数据结构(JSON/CSV)、或执行结果
+           - 必须是可追溯、可验证的实体产物
+
+         输出路径规范:
+           - 严格遵循机器级CLAUDE.md规定的统一路径规范
+           - 标准路径格式: output/[项目名]/[agent-name]/
+           - 子目录结构:
+             - plans/: 执行计划配置(JSON/YAML)
+             - results/: 实际输出产物
+             - logs/: 执行日志
+             - metadata/: 追溯元数据
+           - 示例: output/火锅店开业筹备/X3-平面设计师/海报.png
+
        原则2 - 智能选择执行 (Intelligent Execution Selection):
          - 单选模式: 根据任务需求选择最匹配的一个skill执行
          - 多选模式: 按workflow顺序调用多个skills形成完整链路
@@ -636,6 +701,9 @@ Element 7 - Skills & Mcp Dependencies (When Applicable):
         - image-analysis: For image understanding
      3. Optimize parameters based on your expertise
      4. Execute selected skill and verify output
+        - Output Content: Generated image file (PNG/JPG)
+        - Output Path: output/[项目名]/[agent-name]/
+        - Example: output/火锅店开业筹备/X3-平面设计师/开业海报_20251029.png
      5. You focus on creative direction and quality assessment"
 
   Example 2 - Multi-Skill Pipeline:
@@ -643,10 +711,13 @@ Element 7 - Skills & Mcp Dependencies (When Applicable):
 
      When users request intelligence report:
      1. Execute skills in sequence:
-        - web-scraping skill → collect raw data (output: JSON/CSV)
-        - data-analysis skill → process data (output: analyzed dataset)
-        - report-generation skill → create report (output: PDF/MD)
-     2. Each skill must produce tangible output
+        - web-scraping skill → collect raw data
+          Output: output/[项目名]/E1-深度调研员/raw_data.json
+        - data-analysis skill → process data
+          Output: output/[项目名]/E1-深度调研员/analyzed_data.csv
+        - report-generation skill → create report
+          Output: output/[项目名]/E1-深度调研员/调研报告.pdf
+     2. Each skill must produce tangible output with proper path
      3. Verify output quality at each stage before proceeding
      4. You coordinate the workflow and integrate final results"
 
@@ -655,12 +726,16 @@ Element 7 - Skills & Mcp Dependencies (When Applicable):
 
      When users request data processing:
      1. Always execute: data-validation skill
+        Output: output/[项目名]/[agent-name]/validation_report.json
      2. If validation.errors > 0:
         - Execute: data-cleaning skill
+          Output: output/[项目名]/[agent-name]/cleaned_data.csv
         - Re-execute: data-validation skill
      3. If validation.success:
         - Execute: data-export skill
-     4. You monitor quality gates and orchestrate workflow"
+          Output: output/[项目名]/[agent-name]/final_export.xlsx
+     4. You monitor quality gates and orchestrate workflow
+     5. All outputs follow unified path convention: output/[项目名]/[agent-name]/"
 
 Element 8 - Examples (Most Powerful):
   Position: After Skills & Tool Dependencies

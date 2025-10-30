@@ -321,7 +321,7 @@ from video_converter import convert_video_to_gif
 
 # Convert architectural walkthrough to GIF
 result = convert_video_to_gif(
-    video_path="output/视频生成测试/Z4-建筑动画AIGC助手/results/walkthrough.mp4",
+    video_path="output/视频生成测试/Z4-建筑动画AIGC助手/walkthrough.mp4",
     output_path="output/gifs/walkthrough.gif",
     fps=12,
     scale=0.6

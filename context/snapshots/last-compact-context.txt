@@ -1,0 +1,14 @@
+=== Context Snapshot ===
+Time: 2025-10-30 08:31:49
+Reason: User manually triggered compact
+=== Context Content ===
+当前正在开发ZTL数智化作战中心项目。
+
+已完成工作：
+1. 创建了深渊凝视skill，实现iTerm终端控制与输出捕获
+2. 测试了基础命令执行和窗口管理功能
+
+待办任务：
+1. 完成hook系统的测试
+2. 编写hook使用文档
+3. 集成到项目工作流中
