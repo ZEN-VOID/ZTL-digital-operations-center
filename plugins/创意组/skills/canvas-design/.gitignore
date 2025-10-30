@@ -1,0 +1,34 @@
+# Ignore output files (following global CLAUDE.md convention)
+output/**/results/*
+output/**/logs/*
+output/**/metadata/*
+
+# Keep plans directory for traceability
+!output/**/plans/
+!output/**/plans/*.json
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test outputs
+test_output/
