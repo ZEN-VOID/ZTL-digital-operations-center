@@ -19,6 +19,43 @@ This skill optimizes prompts for MiniMax Image Generation API (`mcp__minimax-mcp
 
 ## 🎯 Quick Start
 
+### ⚡ 并发执行模式 (推荐)
+
+**v2.0 升级**: 迁移至通用并发执行器,支持所有技能包,自动依赖分析,智能调度,3-5倍提速!
+
+```python
+from .claude.skills.幻影之舞.universal_concurrent_executor.scripts.core import execute_plan
+from .claude.skills.幻影之舞.universal_concurrent_executor.adapters import MinimaxAdapter
+
+# 创建适配器
+adapter = MinimaxAdapter()
+
+# 一行代码执行计划
+report = execute_plan(
+    plan_path="output/项目名/minimax/plans/execution_plan.json",
+    adapter=adapter,
+    max_workers=4,
+    enable_dependency_analysis=True
+)
+
+print(f"✅ 成功: {report.successful_tasks}/{report.total_tasks}")
+print(f"⏱️  总耗时: {report.total_duration_seconds:.2f}s")
+```
+
+**智能特性**:
+- ✅ **自动依赖分析**: 检测任务间依赖关系 (显式 + 隐式)
+- ✅ **分层并发执行**: 同层任务并发,层间串行
+- ✅ **Prompt Optimizer 集成**: 自动优化图片生成提示词
+- ✅ **进度追踪**: 实时日志 + 详细执行报告 (JSON)
+- ✅ **错误处理**: 单任务失败不影响其他任务
+- ✅ **通用架构**: 图片/音乐/视频/语音/数据处理/网页爬虫统一框架
+
+**详细文档**: `.claude/skills/幻影之舞/universal-concurrent-executor/SKILL.md`
+
+---
+
+### 单任务模式 (传统方式)
+
 ```python
 # Basic T2I usage - Poster
 input = "火锅店开业海报"

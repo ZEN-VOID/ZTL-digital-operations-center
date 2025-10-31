@@ -1,0 +1,87 @@
+{
+  "plan_id": "plan_YYYYMMDD_001",
+  "project_name": "项目名称",
+  "created_at": "2025-10-31T10:00:00",
+  "total_tasks": 0,
+  "total_batches": 0,
+  "config": {
+    "description": "全局配置(可选)",
+    "max_workers": 4,
+    "enable_dependency_analysis": true
+  },
+  "batches": [
+    {
+      "batch_id": "B01",
+      "batch_name": "批次名称",
+      "description": "批次描述(可选)",
+      "tasks": [
+        {
+          "task_id": "01-A-任务名",
+          "task_type": "text-to-image",
+          "user_prompt": "详细的提示词描述...",
+          "context": "业务场景描述",
+          "target_style": "目标风格描述(可选)",
+          "images": null,
+          "config": {
+            "aspect_ratio": "1:1",
+            "temperature": 0.8,
+            "max_tokens": 8192
+          },
+          "output_filename": "输出文件名.png",
+          "depends_on": null,
+          "metadata": {
+            "note": "额外元数据(可选)"
+          }
+        },
+        {
+          "task_id": "01-B-任务名",
+          "task_type": "style-transfer",
+          "user_prompt": "风格转换描述...",
+          "context": "业务场景",
+          "target_style": "目标风格",
+          "images": [
+            {
+              "path": "output/项目名/01-A-任务名.png",
+              "description": "源图片描述"
+            }
+          ],
+          "config": {
+            "aspect_ratio": "1:1",
+            "temperature": 0.8,
+            "max_tokens": 8192
+          },
+          "output_filename": "输出文件名.png",
+          "depends_on": ["01-A-任务名"],
+          "metadata": {
+            "note": "此任务依赖01-A的输出"
+          }
+        }
+      ]
+    },
+    {
+      "batch_id": "B02",
+      "batch_name": "另一个批次",
+      "tasks": [
+        {
+          "task_id": "02-A-任务名",
+          "task_type": "style-reference",
+          "user_prompt": "基于参考风格生成...",
+          "context": "业务场景",
+          "target_style": "参考风格",
+          "images": [
+            {
+              "path": "reference/style_example.png",
+              "description": "风格参考图"
+            }
+          ],
+          "config": {
+            "aspect_ratio": "1:1",
+            "temperature": 0.8
+          },
+          "output_filename": "输出文件名.png",
+          "depends_on": null
+        }
+      ]
+    }
+  ]
+}
