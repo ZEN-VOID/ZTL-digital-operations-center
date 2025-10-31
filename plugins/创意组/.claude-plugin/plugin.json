@@ -1,7 +1,7 @@
 {
   "name": "creative-team",
-  "version": "2.1.0",
-  "description": "Creative content production plugin with specialists in advertising, copywriting, design, algorithmic art, photography, and video editing. Includes X0 content analyst, X1 advertising strategist, X2 copywriter, X3 design deconstructor, X4 graphic designer & layout specialist, X5 AIGC image designer, X6 photographer, X7 video editor, X8 algorithmic artist, and XX creative team leader.",
+  "version": "3.0.0",
+  "description": "Creative content production plugin with 13 specialized agents organized in strategic workflow layers. Strategy Layer: X0 content analyst, X1 advertising strategist, X2 copywriter, X3 design deconstructor, X4 brand strategist; Design Layer: X5 Canvas layout specialist, X6 React frontend designer; AIGC Core Cluster (集中相邻): X7 animated GIF designer, X8 algorithmic artist, X9 photorealistic image specialist, X10 AI music composer, X11 AI video generator, X12 AI voice synthesizer; plus XX creative team leader for orchestration.",
   "author": {
     "name": "ZTL Digital Intelligence Operations Center",
     "email": "creative-team@ztl.com",
