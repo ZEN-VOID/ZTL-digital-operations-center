@@ -28,7 +28,7 @@ from pathlib import Path
 
 
 class PromptOptimizer:
-    """通义万相提示词优化器 - 2025最佳实践"""
+    """通义万相提示词优化器 - 2025最佳实践 + 建筑视频专项优化"""
 
     def __init__(self):
         """初始化优化器"""
@@ -42,6 +42,25 @@ class PromptOptimizer:
             "composer": 0.30,   # Composer设计层 ~500字符
             "refinement": 0.23, # 细化增强层 ~400字符
             "negative": 0.12    # 负向控制层 ~200字符
+        }
+
+        # 建筑摄影运镜技巧库
+        self.camera_movements = {
+            "slow_push_in": "镜头从入口缓慢推进(Slow Push In),展示空间纵深感和层次关系",
+            "pull_out": "镜头缓慢拉出(Pull Out),逐渐揭示空间的整体布局和周边环境",
+            "dolly_slide": "镜头沿横向滑轨移动(Dolly Slide),展示空间的横向延伸和开放式布局",
+            "tilt_up": "镜头从地面倾斜向上(Tilt Up),强调空间的挑高和垂直纵深",
+            "tilt_down": "镜头从天花倾斜向下(Tilt Down),聚焦地面材质和细节纹理",
+            "crane_shot": "镜头升降运动(Crane Shot),展示多层空间的垂直关系和层次美感",
+            "locked_off": "固定机位静态拍摄(Locked-Off Shot),强调建筑的静态构图美学"
+        }
+
+        # 建筑空间美学关键词
+        self.architectural_aesthetics = {
+            "depth": ["空间纵深感", "三维透视", "视觉引导线", "空间层次", "前中后景分明"],
+            "lighting": ["柔和自然光线", "戏剧性照明效果", "丁达尔光效", "材质反光", "光影层次"],
+            "texture": ["木质纹理清晰", "石材质感突出", "玻璃通透感", "金属光泽", "材质细节丰富"],
+            "composition": ["三分法构图", "对称构图平衡", "黄金比例分割", "景深控制精准", "视角选择专业"]
         }
 
         # 17种预设风格关键词
@@ -332,14 +351,77 @@ class PromptOptimizer:
 
         return compressed
 
+    def optimize_for_architectural_video(self,
+                                        raw_prompt: str,
+                                        video_type: str = "T2V",
+                                        camera_movement: str = "slow_push_in",
+                                        design_style: str = "现代简约") -> str:
+        """
+        建筑视频专项优化
+
+        Args:
+            raw_prompt: 原始提示词
+            video_type: 视频类型 ("T2V" 或 "I2V")
+            camera_movement: 运镜技巧 (slow_push_in, pull_out, dolly_slide等)
+            design_style: 设计风格 (现代简约、新中式、工业风等)
+
+        Returns:
+            优化后的建筑视频提示词
+        """
+        expanded_parts = []
+
+        # 步骤1: 添加空间类型前缀
+        if not any(kw in raw_prompt for kw in ["空间", "大厅", "入口", "大堂", "房间", "办公室", "店铺"]):
+            expanded_parts.append("建筑空间场景,")
+
+        # 步骤2: 添加设计风格
+        if design_style and design_style not in raw_prompt:
+            expanded_parts.append(f"{design_style}设计风格,")
+
+        expanded_parts.append(raw_prompt)
+
+        # 步骤3: 添加运镜技巧
+        if camera_movement in self.camera_movements:
+            expanded_parts.append(f"。{self.camera_movements[camera_movement]}")
+
+        # 步骤4: 添加建筑空间美学关键词
+        # 空间纵深
+        expanded_parts.append(f",{self.architectural_aesthetics['depth'][0]},")
+        expanded_parts.append(f"{self.architectural_aesthetics['depth'][1]},")
+        expanded_parts.append(f"{self.architectural_aesthetics['depth'][2]}。")
+
+        # 光影效果
+        expanded_parts.append(f"{self.architectural_aesthetics['lighting'][0]}从顶部投射,")
+        expanded_parts.append(f"形成{self.architectural_aesthetics['lighting'][1]},")
+        expanded_parts.append(f"营造温馨氛围。")
+
+        # 质感细节
+        expanded_parts.append(f"{self.architectural_aesthetics['texture'][0]},")
+        expanded_parts.append(f"{self.architectural_aesthetics['texture'][1]},")
+        expanded_parts.append(f"表面{self.architectural_aesthetics['texture'][4]}。")
+
+        # 构图和摄影美学
+        expanded_parts.append(f"采用{self.architectural_aesthetics['composition'][0]},")
+        expanded_parts.append(f"{self.architectural_aesthetics['composition'][3]},")
+        expanded_parts.append(f"{self.architectural_aesthetics['composition'][4]}。")
+
+        # 步骤5: 添加技术质量关键词(建筑专用)
+        tech_keywords = "高清写实渲染,专业建筑摄影美学,8K超高清分辨率,10秒流畅视频。"
+        expanded_parts.append(tech_keywords)
+
+        return "".join(expanded_parts)
+
     def optimize_prompt(self,
                        raw_prompt: str,
                        style: str = "",
                        use_composer: bool = False,
                        composer_config: Optional[Dict] = None,
-                       use_qwen_image: bool = False) -> Dict[str, Any]:
+                       use_qwen_image: bool = False,
+                       use_architectural_video: bool = False,
+                       video_type: str = "T2V",
+                       camera_movement: str = "slow_push_in") -> Dict[str, Any]:
         """
-        优化提示词 - 应用2025最佳实践
+        优化提示词 - 应用2025最佳实践 + 建筑视频专项优化
 
         Args:
             raw_prompt: 原始提示词
@@ -347,6 +429,9 @@ class PromptOptimizer:
             use_composer: 是否使用Composer框架
             composer_config: Composer配置(color_palette, layout, material, semantic)
             use_qwen_image: 是否为Qwen-Image模型优化
+            use_architectural_video: 是否为建筑视频专项优化 (NEW)
+            video_type: 视频类型 ("T2V" 或 "I2V") (NEW)
+            camera_movement: 运镜技巧 (slow_push_in, pull_out等) (NEW)
 
         Returns:
             {
@@ -362,13 +447,22 @@ class PromptOptimizer:
                     "char_range_valid": bool,
                     "style_keyword_positioned": bool,
                     "composer_complete": bool,
-                    "qwen_image_optimized": bool
+                    "qwen_image_optimized": bool,
+                    "architectural_video_optimized": bool  # NEW
                 },
                 "warnings": List[str]
             }
         """
         warnings = []
         current_length = len(raw_prompt)
+
+        # 步骤0: 建筑视频专项优化 (优先执行)
+        if use_architectural_video:
+            raw_prompt = self.optimize_for_architectural_video(
+                raw_prompt, video_type, camera_movement
+            )
+            warnings.append(f"已应用建筑视频专项优化(运镜: {camera_movement})")
+            current_length = len(raw_prompt)
 
         # 步骤1: 字符数调整
         if current_length < self.target_min:
@@ -421,7 +515,8 @@ class PromptOptimizer:
             "char_range_valid": self.target_min <= char_count <= self.target_max,
             "style_keyword_positioned": style_positioned,
             "composer_complete": composer_complete if use_composer else True,
-            "qwen_image_optimized": use_qwen_image
+            "qwen_image_optimized": use_qwen_image,
+            "architectural_video_optimized": use_architectural_video
         }
 
         return {

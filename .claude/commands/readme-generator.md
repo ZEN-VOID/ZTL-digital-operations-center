@@ -38,15 +38,31 @@ architecture: 智能理解层 + 增强分析引擎 + 比对验证机制
 
 #### 0.1 检测目录结构变更
 
+**优先级策略**:
+1. 优先使用 `.claude/logs/changes.log` (实时变更日志)
+2. 如果日志不存在或为空,回退到 git diff 检测
+
 ```bash
-# 检测文件移动和重命名
-git diff --name-status HEAD --diff-filter=R
+# 方法1: 从 changes.log 读取最近变更(推荐)
+if [ -f .claude/logs/changes.log ]; then
+  echo "=== 基于 changes.log 的变更检测 ==="
+  # 获取今天的所有变更
+  grep "$(date '+%Y-%m-%d')" .claude/logs/changes.log || \
+  # 如果今天没有变更,获取最近50条
+  tail -50 .claude/logs/changes.log
+else
+  echo "⚠️ changes.log 不存在,回退到 git diff 检测"
 
-# 检测新增和删除的文件
-git diff --name-status HEAD --diff-filter=AD
+  # 方法2: git diff 检测(回退方案)
+  # 检测文件移动和重命名
+  git diff --name-status HEAD --diff-filter=R
 
-# 检测暂存区中的重命名
-git diff --cached --name-status --diff-filter=R
+  # 检测新增和删除的文件
+  git diff --name-status HEAD --diff-filter=AD
+
+  # 检测暂存区中的重命名
+  git diff --cached --name-status --diff-filter=R
+fi
 ```
 
 **检测内容**:

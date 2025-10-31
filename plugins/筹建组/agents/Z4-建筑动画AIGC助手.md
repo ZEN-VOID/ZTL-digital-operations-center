@@ -133,6 +133,23 @@ For projects with multiple images (common scenario):
 Total: 10-15 videos, cost: ¥3.5-5.25
 ```
 
+# Skills & Dependencies (技能与依赖)
+
+**Project Skill**:
+- `Wan` (Project Skill: `plugins/筹建组/skills/Wan`): AIGC image-to-video engine
+  - Technology: Alibaba Cloud DashScope Wan 2.5 i2v
+  - Input: Static PNG images from Z2 + video script
+  - Output: Animated MP4 videos (720P/1080P, 4-6s, 16fps)
+  - Cost: ¥0.35 per video
+  - Capabilities: Camera movement control, atmosphere preservation, batch processing
+
+**MCP Tools**: None required (uses standard Claude Code tools)
+
+**Execution Linkage**:
+```
+Z4 creates script → analyzes Z2 images → generates prompts → Wan i2v generates videos → quality validation → package deliverables
+```
+
 # 6-Step AIGC工作流 (6-Step AIGC Workflow)
 
 Your complete workflow from receiving images to delivering videos:
@@ -595,40 +612,38 @@ def validate_video(video_path: str) -> dict:
 
 Organize and deliver final video outputs:
 
-### 输出目录结构 (Output Directory Structure)
+### 输出规范 (Output Specification)
 
+**Output Content**:
+- 视频脚本.md - Video script for space tour or project introduction (combining existing space design images for different scene planning)
+- 视频1.mp4, 视频2.mp4, ... 视频N.mp4 - Multi-scene videos generated from script and space design images
+
+**Output Path**:
 ```
 output/[项目名]/Z4-建筑动画AIGC助手/
-├── plans/
-│   └── video-generation-plan-YYYYMMDD-HHMMSS.json  # 执行计划
-│
-├── results/
-│   ├── 01-entrance/
-│   │   ├── 餐厅-入口-推进镜头.mp4
-│   │   └── 餐厅-入口-环绕镜头.mp4
-│   ├── 02-waiting-area/
-│   │   └── 餐厅-等候区-横移镜头.mp4
-│   ├── 03-main-dining/
-│   │   ├── 餐厅-主用餐区-全景推进.mp4
-│   │   ├── 餐厅-主用餐区-横移.mp4
-│   │   └── 餐厅-主用餐区-俯瞰.mp4
-│   ├── 04-private-rooms/
-│   │   ├── 餐厅-包间A-环绕镜头.mp4
-│   │   └── 餐厅-包间B-推进镜头.mp4
-│   ├── 05-details/
-│   │   ├── 餐厅-茶具特写.mp4
-│   │   ├── 餐厅-木纹特写.mp4
-│   │   └── 餐厅-装饰墙特写.mp4
-│   └── 合集-完整版.mp4  # 可选: 合并所有视频
-│
-├── logs/
-│   └── generation-log-YYYYMMDD-HHMMSS.txt
-│
-└── metadata/
-    ├── prompts-used.json          # 所有Prompt记录
-    ├── cost-report.json           # 成本报告
-    └── quality-checklist.json     # 质量验收记录
+├── 视频脚本.md
+├── 视频1.mp4
+├── 视频2.mp4
+├── 视频3.mp4
+└── ...
 ```
+
+**Workflow**:
+1. Analyze existing space design images from Z2
+2. Create video script for space tour → 视频脚本.md
+3. Use Wan skill (image-to-video) to generate multi-scene videos
+4. Each scene in script → one video file
+
+**Skill Integration**:
+- Use project skill: `plugins/筹建组/skills/Wan`
+- Input: Video script + existing space design images from Z2
+- Workflow: Image-to-video (i2v) for each scene
+- Output: Multiple MP4 video files based on script scenes
+
+**Script Types**:
+- Space design tour: Sequential walkthrough of restaurant spaces
+- Project introduction video: Brand story + space showcase
+- Scene planning: Combine different space images for narrative flow
 
 ### 交付清单 (Delivery Checklist)
 
