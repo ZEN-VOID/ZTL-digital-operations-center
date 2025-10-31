@@ -4,7 +4,7 @@
 
 ## Overview
 
-Comprehensive creative content production plugin featuring advertising strategy, copywriting, graphic design, photography, and video production. Includes **9 specialized agents** and **7 professional skills** tailored for restaurant branding and marketing.
+Comprehensive creative content production plugin featuring advertising strategy, copywriting, graphic design, algorithmic art, photography, and video production. Includes **10 specialized agents** and **7 professional skills** tailored for restaurant branding and marketing.
 
 ### Core Capabilities
 
@@ -25,22 +25,26 @@ Comprehensive creative content production plugin featuring advertising strategy,
 
 ## Features
 
-### 🤖 Specialized Agents (9 Total)
+### 🤖 Specialized Agents (10 Total)
 
-This plugin includes **9 specialized agents** covering all aspects of creative operations:
+This plugin includes **10 specialized agents** covering all aspects of creative operations:
 
 | Agent | Role | Key Capabilities |
 |-------|------|------------------|
 | **X0** | 创意内容分析师 | Creative brief analysis, requirement clarification |
 | **X1** | 广告策划师 | Advertising strategy, campaign planning, creative briefs |
 | **X2** | 文案撰稿人 | Copywriting, storytelling, multi-platform content |
-| **X3** | 平面设计与排版师 | **Integrated design + layout** (logo, VI, posters, menus, H5 pages) |
-| **X5** | 短视频脚本创作师 | Short video scripts, storyboards, platform optimization |
+| **X3** | 设计模板解构师 | Design deconstruction, Figma reverse-engineering, template analysis |
+| **X4** | 平面设计与排版师 | **Integrated design + layout** (logo, VI, posters, menus, H5 pages) |
+| **X5** | AIGC图片设计师 | Photorealistic image generation, commercial photography planning |
 | **X6** | 摄影师 | Photography art direction, food photography, brand imagery |
 | **X7** | 剪辑师 | Video editing, post-production, motion graphics |
+| **X8** | Algorithmic算法艺术家 | **Computational art, generative design, algorithmic patterns** |
 | **XX** | 创意总监 | Creative direction, quality control, team coordination |
 
-**⭐ X3 Enhanced**: Now combines graphic design expertise with professional layout skills, providing end-to-end design solutions from brand identity to final production files.
+**⭐ X4 Enhanced**: Now combines graphic design expertise with professional layout skills, providing end-to-end design solutions from brand identity to final production files.
+
+**🆕 X8 Added**: New algorithmic artist specializing in computational art and generative design. Creates original algorithmic philosophies and expresses them through p5.js visualizations. Perfect for unique brand patterns, menu backgrounds, packaging designs, and immersive digital experiences.
 
 See `agents/` directory for complete agent documentation.
 
@@ -415,15 +419,25 @@ MIT License - See [LICENSE](LICENSE) file for details.
 
 ## Version
 
-**Current Version**: 2.0.0 (Major Update)
-**Last Updated**: 2025-10-29
+**Current Version**: 2.1.0 (Feature Update)
+**Last Updated**: 2025-10-30
 **Compatibility**: Claude Code v1.0.124+
+
+### What's New in 2.1
+
+✨ **New Additions**:
+- **X8-Algorithmic算法艺术家**: Computational artist specializing in generative art and algorithmic design
+  - Creates original algorithmic philosophies expressed through p5.js
+  - Integrates with global `algorithmic-art` skill package
+  - Perfect for unique brand patterns, menu backgrounds, packaging designs
+  - Expertise in flow fields, particle systems, noise-driven patterns, emergent beauty
+  - Restaurant industry focus with cuisine-specific aesthetics (Chinese, Japanese, Western)
 
 ### What's New in 2.0
 
 ✨ **Major Updates**:
-- **X3 Enhancement**: Merged X3 (Graphic Designer) and X4 (Layout Designer) into unified X3-平面设计与排版师
-- **5 New Skills**: Added restaurant-specific design skills (algorithmic-art, canvas-design, brand-guidelines, theme-factory, artifacts-builder)
+- **X4 Enhancement**: Merged X3 (Graphic Designer) and X4 (Layout Designer) into unified X4-平面设计与排版师
+- **5 New Skills**: Added restaurant-specific design skills (algorithmic-art-restaurant, canvas-design, brand-guidelines, theme-factory, artifacts-builder)
 - **Integrated Workflow**: Seamless design + layout workflow from concept to production
 - **Theme System**: 10 pre-designed cuisine-specific themes
 - **Interactive Artifacts**: HTML/React artifact building capability
@@ -443,6 +457,6 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed version history and updates.
 
 **Created by**: ZTL Digital Intelligence Operations Center
 **Plugin Type**: Professional Domain Plugin (Creative Team)
-**Agent Count**: 9 specialized agents
-**Skill Count**: 7 specialized skills (5 new restaurant design skills)
-**Status**: Production Ready ⭐ Enhanced
+**Agent Count**: 10 specialized agents (NEW: X8-Algorithmic算法艺术家)
+**Skill Count**: 7 specialized skills (5 restaurant design skills)
+**Status**: Production Ready ⭐ Enhanced with Computational Art
