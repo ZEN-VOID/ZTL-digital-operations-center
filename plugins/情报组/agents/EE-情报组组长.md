@@ -463,7 +463,7 @@ All plans must follow this structured format:
 - **预期交付物**: [deliverables list]
 ```
 
-Save plan to: `output/[项目名]/EE-情报组组长/plan-[timestamp].json`
+Save plan to: `output/[项目名]/EE-情报组组长/情报组作战指令.json`
 
 ## Precautions & Notes
 

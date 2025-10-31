@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commands System - ZTL数智化作战中心</title>
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/commands.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="brand-icon">⚡</span>
+            <span class="brand-text">ZTL数智化作战中心</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">首页</a></li>
+            <li><a href="agents.html" class="nav-link">Agents</a></li>
+            <li><a href="skills.html" class="nav-link">Skills</a></li>
+            <li><a href="commands.html" class="nav-link active">Commands</a></li>
+            <li><a href="mcp-servers.html" class="nav-link">Hooks</a></li>
+        </ul>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="grid-overlay"></div>
+            <div class="glow-orb glow-orb-1"></div>
+            <div class="glow-orb glow-orb-2"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">⌨️</span>
+                <span class="badge-text">Command System</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">智能命令系统</span>
+                <span class="title-highlight">24 Commands · 3 Categories</span>
+            </h1>
+            <p class="hero-description">
+                基于Claude Code斜杠命令规范的智能化工作流系统<br>
+                通过快捷键触发，提供从学习管理、任务执行到项目开发的全流程自动化能力
+            </p>
+
+            <!-- Commands Orbital Visualization -->
+            <div class="commands-orbital-system">
+                <div class="command-center">
+                    <div class="center-icon">⚡</div>
+                    <div class="center-text">24</div>
+                </div>
+
+                <!-- Category Nodes -->
+                <div class="orbit orbit-1">
+                    <div class="command-category-node node-learning" title="上下文与学习管理">
+                        <span class="node-icon">📚</span>
+                        <span class="node-label">学习</span>
+                        <span class="node-count">8</span>
+                    </div>
+                </div>
+
+                <div class="orbit orbit-2">
+                    <div class="command-category-node node-execution" title="执行与状态管理">
+                        <span class="node-icon">⚙️</span>
+                        <span class="node-label">执行</span>
+                        <span class="node-count">7</span>
+                    </div>
+                </div>
+
+                <div class="orbit orbit-3">
+                    <div class="command-category-node node-project" title="代码与项目管理">
+                        <span class="node-icon">💻</span>
+                        <span class="node-label">开发</span>
+                        <span class="node-count">9</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Stats Section -->
+    <section class="overview-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">命令系统概览</h2>
+                <p class="section-subtitle">三大类别，24个智能命令，覆盖全流程自动化需求</p>
+            </div>
+
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="overview-icon">📚</div>
+                    <div class="overview-number" data-count="8">0</div>
+                    <div class="overview-label">学习管理命令</div>
+                    <div class="overview-desc">ASDW学习系统 · 注意力管理 · 知识沉淀</div>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-icon">⚙️</div>
+                    <div class="overview-number" data-count="7">0</div>
+                    <div class="overview-label">执行管理命令</div>
+                    <div class="overview-desc">PRP引擎 · 配置同步 · 并行执行</div>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-icon">💻</div>
+                    <div class="overview-number" data-count="9">0</div>
+                    <div class="overview-label">项目开发命令</div>
+                    <div class="overview-desc">GitHub集成 · 测试验证 · 文档生成</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Command Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">命令分类详解</h2>
+                <p class="section-subtitle">点击展开查看每个类别的详细命令列表</p>
+            </div>
+
+            <!-- Category 1: Learning Management -->
+            <div class="command-category learning-category">
+                <div class="category-header">
+                    <div class="category-info">
+                        <div class="category-icon">📚</div>
+                        <div class="category-content">
+                            <h3 class="category-title">上下文与学习管理</h3>
+                            <p class="category-description">
+                                基于ASDW学习系统的完整学习流程，包含项目认知、问题分析、方法制定和知识沉淀
+                            </p>
+                        </div>
+                    </div>
+                    <div class="category-stats">
+                        <span class="stat-badge">8个命令</span>
+                        <button class="expand-btn" data-category="learning">
+                            <span>展开查看</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="commands-grid">
+                    <!-- /A Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/A</div>
+                            <div class="command-version">v2.1.0</div>
+                        </div>
+                        <h4 class="command-name">ASDW学习系统 - What (是什么)</h4>
+                        <p class="command-desc">
+                            通过现状考察和目标识别建立项目认知基础，全面感知项目全貌和技术栈状况
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">全面感知</span>
+                            <span class="feature-tag">深度分析</span>
+                            <span class="feature-tag">目标识别</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Glob">🔍</span>
+                            <span class="tool-icon" title="Grep">🔎</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                        </div>
+                    </div>
+
+                    <!-- /S Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/S</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">ASDW学习系统 - Why (为什么)</h4>
+                        <p class="command-desc">
+                            通过内外因深度分析定位问题根源和优化机会，识别技术债务和改进空间
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">根因分析</span>
+                            <span class="feature-tag">问题定位</span>
+                            <span class="feature-tag">优化识别</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                            <span class="tool-icon" title="Grep">🔎</span>
+                        </div>
+                    </div>
+
+                    <!-- /D Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/D</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">ASDW学习系统 - How (怎么做)</h4>
+                        <p class="command-desc">
+                            通过方法论研究和实践策略制定，将理论理解转化为可执行的行动方案
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">方法论研究</span>
+                            <span class="feature-tag">策略制定</span>
+                            <span class="feature-tag">实践指南</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                            <span class="tool-icon" title="WebSearch">🌐</span>
+                        </div>
+                    </div>
+
+                    <!-- /W Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/W</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">ASDW学习系统 - Wield (整合执行)</h4>
+                        <p class="command-desc">
+                            将ASD三阶段的学习成果整合并转化为实际的系统改进和配置优化
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">成果整合</span>
+                            <span class="feature-tag">系统改进</span>
+                            <span class="feature-tag">配置优化</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                            <span class="tool-icon" title="Edit">✏️</span>
+                        </div>
+                    </div>
+
+                    <!-- /C Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/C</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">有机生长注意力管理</h4>
+                        <p class="command-desc">
+                            基于文档化结构的注意力管理系统，支持持续更新和自然演进
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">结构化记录</span>
+                            <span class="feature-tag">持续更新</span>
+                            <span class="feature-tag">自然演进</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                        </div>
+                    </div>
+
+                    <!-- /V Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/V</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">高级压缩引擎</h4>
+                        <p class="command-desc">
+                            专注于信息压缩、编排优化和智能去重，提升上下文使用效率
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">信息压缩</span>
+                            <span class="feature-tag">编排优化</span>
+                            <span class="feature-tag">智能去重</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                        </div>
+                    </div>
+
+                    <!-- /X Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/X</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">MANUS错误纠正与学习优化</h4>
+                        <p class="command-desc">
+                            基于MANUS技巧的错误纠正、学习与适应优化系统
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">错误记录</span>
+                            <span class="feature-tag">恢复过程</span>
+                            <span class="feature-tag">持续改进</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                            <span class="tool-icon" title="Edit">✏️</span>
+                        </div>
+                    </div>
+
+                    <!-- /Z Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/Z</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">主动学习的知识积累系统</h4>
+                        <p class="command-desc">
+                            知识积累、技术洞察与智慧沉淀，构建长期学习成长体系
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">知识积累</span>
+                            <span class="feature-tag">技术洞察</span>
+                            <span class="feature-tag">智慧沉淀</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                            <span class="tool-icon" title="WebSearch">🌐</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: Execution Management -->
+            <div class="command-category execution-category">
+                <div class="category-header">
+                    <div class="category-info">
+                        <div class="category-icon">⚙️</div>
+                        <div class="category-content">
+                            <h3 class="category-title">执行与状态管理</h3>
+                            <p class="category-description">
+                                专注于任务执行、项目状态同步和系统配置管理的操作型命令
+                            </p>
+                        </div>
+                    </div>
+                    <div class="category-stats">
+                        <span class="stat-badge">7个命令</span>
+                        <button class="expand-btn" data-category="execution">
+                            <span>展开查看</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="commands-grid">
+                    <!-- /E Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/E</div>
+                            <div class="command-version">v2.1.0</div>
+                        </div>
+                        <h4 class="command-name">PRP生成与执行引擎</h4>
+                        <p class="command-desc">
+                            端到端PRP工作流：研究 → 生成 → 执行，实现一次性成功的功能开发
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">研究驱动</span>
+                            <span class="feature-tag">质量门控</span>
+                            <span class="feature-tag">迭代优化</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                            <span class="tool-icon" title="WebSearch">🌐</span>
+                            <span class="tool-icon" title="Task">🤖</span>
+                        </div>
+                    </div>
+
+                    <!-- /F Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/F</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">PRP快速创建</h4>
+                        <p class="command-desc">
+                            快速生成功能规划文档，专注研究和规划阶段，不执行实现
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">快速规划</span>
+                            <span class="feature-tag">需求分析</span>
+                            <span class="feature-tag">方案设计</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                            <span class="tool-icon" title="WebSearch">🌐</span>
+                        </div>
+                    </div>
+
+                    <!-- /R Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/R</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">完整的并行执行工作流</h4>
+                        <p class="command-desc">
+                            环境准备 → 并行执行，实现多方案探索和Git worktree管理
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">并行执行</span>
+                            <span class="feature-tag">多方案探索</span>
+                            <span class="feature-tag">Worktree管理</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Bash">⚡</span>
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                        </div>
+                    </div>
+
+                    <!-- /M Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/M</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">项目级CLAUDE.md自动更新</h4>
+                        <p class="command-desc">
+                            自动扫描项目专属智能体、命令和目录结构，同步更新项目级CLAUDE.md
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">智能扫描</span>
+                            <span class="feature-tag">自动生成</span>
+                            <span class="feature-tag">配置同步</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                            <span class="tool-icon" title="Glob">🔍</span>
+                        </div>
+                    </div>
+
+                    <!-- /N Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/N</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">系统级CLAUDE.md自动更新</h4>
+                        <p class="command-desc">
+                            自动扫描框架通用智能体和系统命令，同步更新系统级CLAUDE.md
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">系统扫描</span>
+                            <span class="feature-tag">框架同步</span>
+                            <span class="feature-tag">架构文档</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                            <span class="tool-icon" title="Glob">🔍</span>
+                        </div>
+                    </div>
+
+                    <!-- /B Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/B</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">机器级配置管理与同步</h4>
+                        <p class="command-desc">
+                            管理和更新机器级Claude配置文件，实现跨所有框架和项目的全局配置管理
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">全局配置</span>
+                            <span class="feature-tag">跨项目同步</span>
+                            <span class="feature-tag">配置管理</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                            <span class="tool-icon" title="Edit">✏️</span>
+                        </div>
+                    </div>
+
+                    <!-- /Q Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/Q</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">全面分析项目结构</h4>
+                        <p class="command-desc">
+                            全面分析项目结构、目标和关键文件，建立深度项目理解
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">结构分析</span>
+                            <span class="feature-tag">目标识别</span>
+                            <span class="feature-tag">深度理解</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Glob">🔍</span>
+                            <span class="tool-icon" title="Grep">🔎</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3: Project Management -->
+            <div class="command-category project-category">
+                <div class="category-header">
+                    <div class="category-info">
+                        <div class="category-icon">💻</div>
+                        <div class="category-content">
+                            <h3 class="category-title">代码与项目管理</h3>
+                            <p class="category-description">
+                                专注于代码生成、项目构建、版本控制和自动化的工程型命令
+                            </p>
+                        </div>
+                    </div>
+                    <div class="category-stats">
+                        <span class="stat-badge">9个命令</span>
+                        <button class="expand-btn" data-category="project">
+                            <span>展开查看</span>
+                            <span class="arrow">▼</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="commands-grid">
+                    <!-- /I Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/I</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">自动生成GitHub专业主页级README</h4>
+                        <p class="command-desc">
+                            自动生成包含徽章系统、技术栈说明、功能特性的专业README文档
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">徽章系统</span>
+                            <span class="feature-tag">技术栈</span>
+                            <span class="feature-tag">数据可视化</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                            <span class="tool-icon" title="Bash">⚡</span>
+                        </div>
+                    </div>
+
+                    <!-- /O Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/O</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">自动生成项目OVERVIEW.md</h4>
+                        <p class="command-desc">
+                            提供全面的项目架构、智能体系统、命令系统和开发指南的深度文档
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">架构文档</span>
+                            <span class="feature-tag">系统说明</span>
+                            <span class="feature-tag">开发指南</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                            <span class="tool-icon" title="Glob">🔍</span>
+                        </div>
+                    </div>
+
+                    <!-- /Y Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/Y</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">Issue分析、修复和关闭</h4>
+                        <p class="command-desc">
+                            系统化的Issue分析、修复和关闭流程，确保问题解决的完整性和可追溯性
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">问题分析</span>
+                            <span class="feature-tag">修复流程</span>
+                            <span class="feature-tag">可追溯性</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Edit">✏️</span>
+                            <span class="tool-icon" title="Bash">⚡</span>
+                        </div>
+                    </div>
+
+                    <!-- /G Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/G</div>
+                            <div class="command-version">v5.1.0</div>
+                        </div>
+                        <h4 class="command-name">GitHub同步推送</h4>
+                        <p class="command-desc">
+                            将本地项目完整同步推送到GitHub仓库，包含智能目录结构变更检测
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">一键同步</span>
+                            <span class="feature-tag">引用更新</span>
+                            <span class="feature-tag">变更检测</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Bash">⚡</span>
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Grep">🔎</span>
+                        </div>
+                    </div>
+
+                    <!-- /H Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/H</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">GitHub仓库创建与初始化</h4>
+                        <p class="command-desc">
+                            自动化GitHub仓库创建、初始化和首次推送流程，支持公开/私有仓库配置
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">仓库创建</span>
+                            <span class="feature-tag">自动初始化</span>
+                            <span class="feature-tag">首次推送</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Bash">⚡</span>
+                            <span class="tool-icon" title="Read">📖</span>
+                        </div>
+                    </div>
+
+                    <!-- /P Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/P</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">多工作区文件智能同步</h4>
+                        <p class="command-desc">
+                            实现多工作区项目间的文件/文件夹智能同步，基于配置文件进行批量操作
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">智能同步</span>
+                            <span class="feature-tag">配置驱动</span>
+                            <span class="feature-tag">批量操作</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Bash">⚡</span>
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                        </div>
+                    </div>
+
+                    <!-- /T Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/T</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">测试与质量验证工程师</h4>
+                        <p class="command-desc">
+                            通过全面的自动化测试、覆盖率管理和迭代修复流程，确保代码质量标准
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">自动化测试</span>
+                            <span class="feature-tag">覆盖率管理</span>
+                            <span class="feature-tag">迭代修复</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Bash">⚡</span>
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                        </div>
+                    </div>
+
+                    <!-- /U Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/U</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">清理并行工作空间</h4>
+                        <p class="command-desc">
+                            清理trees/目录中的并行工作空间，删除所有worktree和对应分支
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">空间清理</span>
+                            <span class="feature-tag">Worktree管理</span>
+                            <span class="feature-tag">分支删除</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Bash">⚡</span>
+                        </div>
+                    </div>
+
+                    <!-- /J Command -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <div class="command-shortcut">/J</div>
+                            <div class="command-version">v2.0.0</div>
+                        </div>
+                        <h4 class="command-name">HTML数据可视化生成器</h4>
+                        <p class="command-desc">
+                            将数据内容转化为专业的HTML可视化页面，支持15+图表类型和4种设计风格
+                        </p>
+                        <div class="command-features">
+                            <span class="feature-tag">图表生成</span>
+                            <span class="feature-tag">可视化</span>
+                            <span class="feature-tag">设计风格</span>
+                        </div>
+                        <div class="command-tools">
+                            <span class="tool-icon" title="Read">📖</span>
+                            <span class="tool-icon" title="Write">✍️</span>
+                            <span class="tool-icon" title="Bash">⚡</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Command Workflow Section -->
+    <section class="workflow-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">命令执行流程</h2>
+                <p class="section-subtitle">从触发到执行的完整工作流程</p>
+            </div>
+
+            <div class="workflow-flow">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">⌨️</div>
+                    <h4 class="step-title">快捷键触发</h4>
+                    <p class="step-desc">用户输入 /A, /E, /G 等快捷键</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">📖</div>
+                    <h4 class="step-title">命令加载</h4>
+                    <p class="step-desc">读取命令配置和执行逻辑</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">⚙️</div>
+                    <h4 class="step-title">Claude决策</h4>
+                    <p class="step-desc">理解需求并编排执行计划</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">🚀</div>
+                    <h4 class="step-title">工具执行</h4>
+                    <p class="step-desc">调用工具并产生实际输出</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">命令系统优势</h2>
+                <p class="section-subtitle">为什么选择斜杠命令工作流</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h4 class="benefit-title">快速触发</h4>
+                    <p class="benefit-desc">
+                        通过简短的快捷键触发复杂工作流，无需记忆冗长命令
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔄</div>
+                    <h4 class="benefit-title">标准化流程</h4>
+                    <p class="benefit-desc">
+                        将最佳实践固化为命令，确保每次执行的一致性和质量
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧠</div>
+                    <h4 class="benefit-title">智能编排</h4>
+                    <p class="benefit-desc">
+                        Claude自动理解上下文，动态调整执行策略和参数配置
+                    </p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📚</div>
+                    <h4 class="benefit-title">知识沉淀</h4>
+                    <p class="benefit-desc">
+                        ASDW学习系统和知识积累命令帮助持续学习和成长
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-icon">⚡</div>
+                    <div class="brand-text">ZTL数智化作战中心</div>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">首页</a>
+                    <a href="agents.html">Agents</a>
+                    <a href="skills.html">Skills</a>
+                    <a href="commands.html">Commands</a>
+                    <a href="mcp-servers.html">MCP服务</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ZTL数智化作战中心. Powered by Claude Code & Sonnet 4.5</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <span>↑</span>
+    </button>
+
+    <script src="scripts/common.js"></script>
+    <script src="scripts/commands.js"></script>
+</body>
+</html>

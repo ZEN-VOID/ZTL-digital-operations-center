@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OUTPUT - 文件管理中心 | ZTL数智化作战中心</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Electrolize&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/output.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ZTL数智化作战中心</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">首页</a></li>
+                <li class="nav-item"><a href="agents.html">Agents</a></li>
+                <li class="nav-item"><a href="skills.html">Skills</a></li>
+                <li class="nav-item"><a href="commands.html">Commands</a></li>
+                <li class="nav-item"><a href="hooks.html">Hooks</a></li>
+                <li class="nav-item active"><a href="output.html">OUTPUT</a></li>
+                <li class="nav-item"><a href="examples.html">EXAMPLES</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title" data-text="OUTPUT 文件管理中心">OUTPUT 文件管理中心</h1>
+                <p class="hero-subtitle">INTELLIGENT FILE MANAGEMENT SYSTEM</p>
+                <div class="hero-badges">
+                    <span class="badge badge-departments">7大业务组</span>
+                    <span class="badge badge-files">60个文件</span>
+                    <span class="badge badge-sync">实时同步</span>
+                </div>
+                <p class="hero-description">
+                    智能体工作产出的统一存储与展示中心<br>
+                    按业务组分类管理，实时同步项目产出内容
+                </p>
+            </div>
+            <div class="hero-visual">
+                <div class="storage-system">
+                    <div class="storage-core">
+                        <div class="core-ring"></div>
+                        <div class="core-center">
+                            <span class="core-icon">📦</span>
+                            <span class="core-label">OUTPUT</span>
+                        </div>
+                    </div>
+                    <div class="storage-node node-strategy">
+                        <span class="node-icon">📊</span>
+                        <span class="node-label">战略组</span>
+                    </div>
+                    <div class="storage-node node-creative">
+                        <span class="node-icon">🎨</span>
+                        <span class="node-label">创意组</span>
+                    </div>
+                    <div class="storage-node node-intelligence">
+                        <span class="node-icon">🔍</span>
+                        <span class="node-label">情报组</span>
+                    </div>
+                    <div class="storage-node node-admin">
+                        <span class="node-icon">📋</span>
+                        <span class="node-label">行政组</span>
+                    </div>
+                    <div class="storage-node node-middleware">
+                        <span class="node-icon">⚙️</span>
+                        <span class="node-label">中台组</span>
+                    </div>
+                    <div class="storage-node node-construction">
+                        <span class="node-icon">🏗️</span>
+                        <span class="node-label">筹建组</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resource Filter -->
+        <section class="resource-filter">
+            <h2 class="section-title">资源筛选</h2>
+            <div class="filter-controls">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all" onclick="filterResources('all')">
+                        <span class="tab-icon">📦</span>
+                        <span class="tab-label">全部资源</span>
+                        <span class="tab-count">60</span>
+                    </button>
+                    <button class="filter-tab" data-filter="images" onclick="filterResources('images')">
+                        <span class="tab-icon">🖼️</span>
+                        <span class="tab-label">图片</span>
+                        <span class="tab-count">2</span>
+                    </button>
+                    <button class="filter-tab" data-filter="documents" onclick="filterResources('documents')">
+                        <span class="tab-icon">📄</span>
+                        <span class="tab-label">文档</span>
+                        <span class="tab-count">57</span>
+                    </button>
+                    <button class="filter-tab" data-filter="pdf" onclick="filterResources('pdf')">
+                        <span class="tab-icon">📕</span>
+                        <span class="tab-label">PDF</span>
+                        <span class="tab-count">1</span>
+                    </button>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="resourceSearch" placeholder="搜索文件名..." oninput="searchResources(this.value)">
+                    <span class="search-icon">🔍</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Department Navigation -->
+        <section class="department-nav">
+            <h2 class="section-title">业务组导航</h2>
+            <div class="dept-grid">
+                <div class="dept-card" data-dept="strategic" onclick="scrollToDept('strategic')">
+                    <div class="dept-icon">📊</div>
+                    <h3 class="dept-name">战略组</h3>
+                    <p class="dept-desc">G系列输出</p>
+                    <div class="dept-stats">
+                        <span class="stat-item">📁 0个子目录</span>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-dept="creative" onclick="scrollToDept('creative')">
+                    <div class="dept-icon">🎨</div>
+                    <h3 class="dept-name">创意组</h3>
+                    <p class="dept-desc">X系列输出</p>
+                    <div class="dept-stats">
+                        <span class="stat-item">📁 8个子目录</span>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-dept="intelligence" onclick="scrollToDept('intelligence')">
+                    <div class="dept-icon">🔍</div>
+                    <h3 class="dept-name">情报组</h3>
+                    <p class="dept-desc">E系列输出</p>
+                    <div class="dept-stats">
+                        <span class="stat-item">📁 3个子目录</span>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-dept="admin" onclick="scrollToDept('admin')">
+                    <div class="dept-icon">📋</div>
+                    <h3 class="dept-name">行政组</h3>
+                    <p class="dept-desc">R系列输出</p>
+                    <div class="dept-stats">
+                        <span class="stat-item">📁 3个子目录</span>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-dept="middleware" onclick="scrollToDept('middleware')">
+                    <div class="dept-icon">⚙️</div>
+                    <h3 class="dept-name">中台组</h3>
+                    <p class="dept-desc">M系列输出</p>
+                    <div class="dept-stats">
+                        <span class="stat-item">📁 1个子目录</span>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-dept="construction" onclick="scrollToDept('construction')">
+                    <div class="dept-icon">🏗️</div>
+                    <h3 class="dept-name">筹建组</h3>
+                    <p class="dept-desc">Z系列输出</p>
+                    <div class="dept-stats">
+                        <span class="stat-item">📁 0个子目录</span>
+                    </div>
+                </div>
+
+                <div class="dept-card" data-dept="common" onclick="scrollToDept('common')">
+                    <div class="dept-icon">📂</div>
+                    <h3 class="dept-name">通用资源</h3>
+                    <p class="dept-desc">共享文件</p>
+                    <div class="dept-stats">
+                        <span class="stat-item">📁 2个目录</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategic Department Output -->
+        <section class="department-section" id="strategic">
+            <div class="dept-header">
+                <div class="dept-header-icon">📊</div>
+                <div class="dept-header-content">
+                    <h2 class="dept-title">战略组输出</h2>
+                    <p class="dept-subtitle">G系列智能体工作产出 · 战略规划 · 经营分析 · 产品力打造</p>
+                </div>
+            </div>
+            <div class="empty-state">
+                <div class="empty-icon">📦</div>
+                <p class="empty-text">暂无输出文件</p>
+                <p class="empty-hint">战略组智能体产出将显示在这里</p>
+            </div>
+        </section>
+
+        <!-- Creative Department Output -->
+        <section class="department-section" id="creative">
+            <div class="dept-header">
+                <div class="dept-header-icon">🎨</div>
+                <div class="dept-header-content">
+                    <h2 class="dept-title">创意组输出</h2>
+                    <p class="dept-subtitle">X系列智能体工作产出 · 品牌营销 · 内容创作 · 视觉设计</p>
+                </div>
+            </div>
+
+            <div class="file-tree">
+                <!-- AIGC生成 -->
+                <div class="folder-item resource-item" data-resource-type="images">
+                    <div class="folder-header" onclick="toggleFolder(this)">
+                        <span class="folder-icon">📁</span>
+                        <span class="folder-name">AIGC生成</span>
+                        <span class="folder-count">2个子目录 · 2张图片</span>
+                        <span class="folder-toggle">▼</span>
+                    </div>
+                    <div class="folder-content">
+                        <!-- Images Gallery -->
+                        <div class="resource-gallery">
+                            <div class="gallery-item" data-resource-type="images" onclick="previewImage('../../output/创意组/AIGC生成/images/1-poster/1-poster_20251021_040057_1.png', '海报设计 - AIGC生成')">
+                                <div class="gallery-image">
+                                    <img src="../../output/创意组/AIGC生成/images/1-poster/1-poster_20251021_040057_1.png" alt="海报设计" loading="lazy">
+                                    <div class="image-overlay">
+                                        <span class="overlay-icon">🔍</span>
+                                        <span class="overlay-text">点击预览</span>
+                                    </div>
+                                </div>
+                                <div class="gallery-info">
+                                    <div class="gallery-name">海报设计</div>
+                                    <div class="gallery-meta">
+                                        <span class="meta-tag">1-poster</span>
+                                        <span class="meta-date">2025-10-21</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-resource-type="images" onclick="previewImage('../../output/创意组/AIGC生成/images/8-main-image/8-main-image_20251021_040135_1.png', '主图设计 - AIGC生成')">
+                                <div class="gallery-image">
+                                    <img src="../../output/创意组/AIGC生成/images/8-main-image/8-main-image_20251021_040135_1.png" alt="主图设计" loading="lazy">
+                                    <div class="image-overlay">
+                                        <span class="overlay-icon">🔍</span>
+                                        <span class="overlay-text">点击预览</span>
+                                    </div>
+                                </div>
+                                <div class="gallery-info">
+                                    <div class="gallery-name">主图设计</div>
+                                    <div class="gallery-meta">
+                                        <span class="meta-tag">8-main-image</span>
+                                        <span class="meta-date">2025-10-21</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subfolder-item">
+                            <span class="subfolder-icon">📂</span>
+                            <span class="subfolder-name">prompts</span>
+                            <span class="subfolder-desc">提示词记录 · 1-poster, 6-icon, 8-main-image</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 吼巷 -->
+                <div class="folder-item">
+                    <div class="folder-header" onclick="toggleFolder(this)">
+                        <span class="folder-icon">📁</span>
+                        <span class="folder-name">吼巷</span>
+                        <span class="folder-count">1个项目</span>
+                        <span class="folder-toggle">▼</span>
+                    </div>
+                    <div class="folder-content">
+                        <div class="project-item">
+                            <div class="project-header">
+                                <span class="project-icon">🎫</span>
+                                <span class="project-name">优惠券</span>
+                            </div>
+                            <div class="project-stages">
+                                <div class="stage-item">
+                                    <span class="stage-number">1</span>
+                                    <span class="stage-name">需求分析</span>
+                                </div>
+                                <div class="stage-item">
+                                    <span class="stage-number">2</span>
+                                    <span class="stage-name">文案创作</span>
+                                </div>
+                                <div class="stage-item">
+                                    <span class="stage-number">3</span>
+                                    <span class="stage-name">平面设计</span>
+                                </div>
+                                <div class="stage-item">
+                                    <span class="stage-number">4</span>
+                                    <span class="stage-name">最终成品</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 冰川鲜毛肚-新品上市 -->
+                <div class="folder-item">
+                    <div class="folder-header" onclick="toggleFolder(this)">
+                        <span class="folder-icon">📁</span>
+                        <span class="folder-name">冰川鲜毛肚-新品上市</span>
+                        <span class="folder-count">1个项目</span>
+                        <span class="folder-toggle">▼</span>
+                    </div>
+                    <div class="folder-content">
+                        <div class="project-item">
+                            <div class="project-header">
+                                <span class="project-icon">🎯</span>
+                                <span class="project-name">新品上市Campaign</span>
+                            </div>
+                            <div class="project-stages">
+                                <div class="stage-item">
+                                    <span class="stage-number">0</span>
+                                    <span class="stage-name">需求分析</span>
+                                </div>
+                                <div class="stage-item">
+                                    <span class="stage-number">2</span>
+                                    <span class="stage-name">文案创作</span>
+                                </div>
+                                <div class="stage-item">
+                                    <span class="stage-number">3</span>
+                                    <span class="stage-name">平面设计</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Test Folders -->
+                <div class="folder-item">
+                    <div class="folder-header">
+                        <span class="folder-icon">🧪</span>
+                        <span class="folder-name">测试输出</span>
+                        <span class="folder-count">X1, X3, X4, X7 测试</span>
+                    </div>
+                </div>
+
+                <!-- 营销策划 -->
+                <div class="folder-item">
+                    <div class="folder-header">
+                        <span class="folder-icon">📁</span>
+                        <span class="folder-name">营销策划</span>
+                        <span class="folder-count">营销方案输出</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intelligence Department Output -->
+        <section class="department-section" id="intelligence">
+            <div class="dept-header">
+                <div class="dept-header-icon">🔍</div>
+                <div class="dept-header-content">
+                    <h2 class="dept-title">情报组输出</h2>
+                    <p class="dept-subtitle">E系列智能体工作产出 · 公开调研 · 数据采集 · 深度分析</p>
+                </div>
+            </div>
+
+            <div class="file-tree">
+                <!-- 美团运营中心调研 -->
+                <div class="folder-item resource-item" data-resource-type="documents">
+                    <div class="folder-header" onclick="toggleFolder(this)">
+                        <span class="folder-icon">📊</span>
+                        <span class="folder-name">meituan-operation-center-research-20251023</span>
+                        <span class="folder-count">美团管家运营中心调研 · 2个文档</span>
+                        <span class="folder-toggle">▼</span>
+                    </div>
+                    <div class="folder-content">
+                        <div class="document-list">
+                            <div class="doc-item" data-resource-type="documents">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-info">
+                                    <div class="doc-name">knowledge-base-report.md</div>
+                                    <div class="doc-meta">
+                                        <span class="doc-type">Markdown</span>
+                                        <span class="doc-desc">知识库报告</span>
+                                    </div>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="doc-btn" onclick="viewDocument('../../output/情报组/meituan-operation-center-research-20251023/knowledge-base-report.md')">查看</button>
+                                </div>
+                            </div>
+                            <div class="doc-item" data-resource-type="documents">
+                                <div class="doc-icon">📂</div>
+                                <div class="doc-info">
+                                    <div class="doc-name">screenshots/</div>
+                                    <div class="doc-meta">
+                                        <span class="doc-type">目录</span>
+                                        <span class="doc-desc">截图资源</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 美团报表中心调研 -->
+                <div class="folder-item resource-item" data-resource-type="documents">
+                    <div class="folder-header" onclick="toggleFolder(this)">
+                        <span class="folder-icon">📈</span>
+                        <span class="folder-name">meituan-report-center-research-20251023</span>
+                        <span class="folder-count">美团管家报表中心调研 · 5个文档</span>
+                        <span class="folder-toggle">▼</span>
+                    </div>
+                    <div class="folder-content">
+                        <div class="document-list">
+                            <div class="doc-item" data-resource-type="documents">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-info">
+                                    <div class="doc-name">knowledge-base-report.md</div>
+                                    <div class="doc-meta">
+                                        <span class="doc-type">Markdown</span>
+                                        <span class="doc-desc">知识库报告</span>
+                                    </div>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="doc-btn" onclick="viewDocument('../../output/情报组/meituan-report-center-research-20251023/knowledge-base-report.md')">查看</button>
+                                </div>
+                            </div>
+                            <div class="doc-item" data-resource-type="documents">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-info">
+                                    <div class="doc-name">phase2-validation-report.md</div>
+                                    <div class="doc-meta">
+                                        <span class="doc-type">Markdown</span>
+                                        <span class="doc-desc">阶段2验证报告</span>
+                                    </div>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="doc-btn" onclick="viewDocument('../../output/情报组/meituan-report-center-research-20251023/phase2-validation-report.md')">查看</button>
+                                </div>
+                            </div>
+                            <div class="doc-item" data-resource-type="documents">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-info">
+                                    <div class="doc-name">phase3-skills-creation-report.md</div>
+                                    <div class="doc-meta">
+                                        <span class="doc-type">Markdown</span>
+                                        <span class="doc-desc">阶段3技能包创建报告</span>
+                                    </div>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="doc-btn" onclick="viewDocument('../../output/情报组/meituan-report-center-research-20251023/phase3-skills-creation-report.md')">查看</button>
+                                </div>
+                            </div>
+                            <div class="doc-item" data-resource-type="documents">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-info">
+                                    <div class="doc-name">phase4-agent-integration-report.md</div>
+                                    <div class="doc-meta">
+                                        <span class="doc-type">Markdown</span>
+                                        <span class="doc-desc">阶段4智能体集成报告</span>
+                                    </div>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="doc-btn" onclick="viewDocument('../../output/情报组/meituan-report-center-research-20251023/phase4-agent-integration-report.md')">查看</button>
+                                </div>
+                            </div>
+                            <div class="doc-item" data-resource-type="documents">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-info">
+                                    <div class="doc-name">task-execution-report.md</div>
+                                    <div class="doc-meta">
+                                        <span class="doc-type">Markdown</span>
+                                        <span class="doc-desc">任务执行报告</span>
+                                    </div>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="doc-btn" onclick="viewDocument('../../output/情报组/meituan-report-center-research-20251023/task-execution-report.md')">查看</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 美团营销中心调研 -->
+                <div class="folder-item resource-item" data-resource-type="documents">
+                    <div class="folder-header" onclick="toggleFolder(this)">
+                        <span class="folder-icon">🎯</span>
+                        <span class="folder-name">meituan-marketing-center-research-20251023</span>
+                        <span class="folder-count">美团管家营销中心调研 · 2个文档</span>
+                        <span class="folder-toggle">▼</span>
+                    </div>
+                    <div class="folder-content">
+                        <div class="document-list">
+                            <div class="doc-item" data-resource-type="documents">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-info">
+                                    <div class="doc-name">knowledge-base-report.md</div>
+                                    <div class="doc-meta">
+                                        <span class="doc-type">Markdown</span>
+                                        <span class="doc-desc">知识库报告</span>
+                                    </div>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="doc-btn" onclick="viewDocument('../../output/情报组/meituan-marketing-center-research-20251023/knowledge-base-report.md')">查看</button>
+                                </div>
+                            </div>
+                            <div class="doc-item" data-resource-type="documents">
+                                <div class="doc-icon">📄</div>
+                                <div class="doc-info">
+                                    <div class="doc-name">phase2-validation-report.md</div>
+                                    <div class="doc-meta">
+                                        <span class="doc-type">Markdown</span>
+                                        <span class="doc-desc">阶段2验证报告</span>
+                                    </div>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="doc-btn" onclick="viewDocument('../../output/情报组/meituan-marketing-center-research-20251023/phase2-validation-report.md')">查看</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Department Output -->
+        <section class="department-section" id="admin">
+            <div class="dept-header">
+                <div class="dept-header-icon">📋</div>
+                <div class="dept-header-content">
+                    <h2 class="dept-title">行政组输出</h2>
+                    <p class="dept-subtitle">R系列智能体工作产出 · 财务管理 · 人事管理 · 行政协同</p>
+                </div>
+            </div>
+            <div class="file-tree">
+                <div class="folder-item resource-item" data-resource-type="documents">
+                    <div class="folder-header" onclick="toggleFolder(this)">
+                        <span class="folder-icon">📂</span>
+                        <span class="folder-name">行政文档</span>
+                        <span class="folder-count">3个Word文档</span>
+                        <span class="folder-toggle">▼</span>
+                    </div>
+                    <div class="folder-content">
+                        <div class="document-list">
+                            <div class="doc-item" data-resource-type="documents">
+                                <div class="doc-icon">📘</div>
+                                <div class="doc-info">
+                                    <div class="doc-name">test-complex-word.docx</div>
+                                    <div class="doc-meta">
+                                        <span class="doc-type">Word</span>
+                                        <span class="doc-desc">复杂Word文档测试</span>
+                                    </div>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="doc-btn" onclick="downloadFile('../../output/行政组/test-complex-word.docx')">下载</button>
+                                </div>
+                            </div>
+                            <div class="doc-item" data-resource-type="documents">
+                                <div class="doc-icon">📘</div>
+                                <div class="doc-info">
+                                    <div class="doc-name">test-word-skill.docx</div>
+                                    <div class="doc-meta">
+                                        <span class="doc-type">Word</span>
+                                        <span class="doc-desc">Word技能测试</span>
+                                    </div>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="doc-btn" onclick="downloadFile('../../output/行政组/test-word-skill.docx')">下载</button>
+                                </div>
+                            </div>
+                            <div class="doc-item" data-resource-type="documents">
+                                <div class="doc-icon">📘</div>
+                                <div class="doc-info">
+                                    <div class="doc-name">test-template-report.docx</div>
+                                    <div class="doc-meta">
+                                        <span class="doc-type">Word</span>
+                                        <span class="doc-desc">模板报告测试</span>
+                                    </div>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="doc-btn" onclick="downloadFile('../../output/行政组/test-template-report.docx')">下载</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Middleware Department Output -->
+        <section class="department-section" id="middleware">
+            <div class="dept-header">
+                <div class="dept-header-icon">⚙️</div>
+                <div class="dept-header-content">
+                    <h2 class="dept-title">中台组输出</h2>
+                    <p class="dept-subtitle">M系列智能体工作产出 · 运营管理 · 数据分析 · 系统配置</p>
+                </div>
+            </div>
+
+            <div class="file-tree">
+                <!-- 美团管家 -->
+                <div class="folder-item">
+                    <div class="folder-header">
+                        <span class="folder-icon">🍜</span>
+                        <span class="folder-name">美团管家</span>
+                        <span class="folder-count">运营管理输出</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Construction Department Output -->
+        <section class="department-section" id="construction">
+            <div class="dept-header">
+                <div class="dept-header-icon">🏗️</div>
+                <div class="dept-header-content">
+                    <h2 class="dept-title">筹建组输出</h2>
+                    <p class="dept-subtitle">Z系列智能体工作产出 · 平面图设计 · BIM建模 · 动画渲染</p>
+                </div>
+            </div>
+            <div class="empty-state">
+                <div class="empty-icon">📦</div>
+                <p class="empty-text">暂无输出文件</p>
+                <p class="empty-hint">筹建组智能体产出将显示在这里</p>
+            </div>
+        </section>
+
+        <!-- Common Resources -->
+        <section class="department-section" id="common">
+            <div class="dept-header">
+                <div class="dept-header-icon">📂</div>
+                <div class="dept-header-content">
+                    <h2 class="dept-title">通用资源</h2>
+                    <p class="dept-subtitle">共享文件 · 图片 · HTML模板</p>
+                </div>
+            </div>
+
+            <div class="file-tree">
+                <!-- images -->
+                <div class="folder-item">
+                    <div class="folder-header">
+                        <span class="folder-icon">🖼️</span>
+                        <span class="folder-name">images</span>
+                        <span class="folder-count">图片资源</span>
+                    </div>
+                </div>
+
+                <!-- htmls -->
+                <div class="folder-item">
+                    <div class="folder-header" onclick="toggleFolder(this)">
+                        <span class="folder-icon">📄</span>
+                        <span class="folder-name">htmls</span>
+                        <span class="folder-count">HTML模板</span>
+                        <span class="folder-toggle">▼</span>
+                    </div>
+                    <div class="folder-content">
+                        <div class="subfolder-item">
+                            <span class="subfolder-icon">📂</span>
+                            <span class="subfolder-name">templates</span>
+                            <span class="subfolder-desc">HTML模板文件</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="statistics-section">
+            <h2 class="section-title">存储统计</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📁</div>
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">业务组</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📄</div>
+                    <div class="stat-number">60</div>
+                    <div class="stat-label">文件总数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🖼️</div>
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">图片文件</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📘</div>
+                    <div class="stat-number">57</div>
+                    <div class="stat-label">文档文件</div>
+                </div>
+            </div>
+
+            <!-- Department Breakdown -->
+            <div class="dept-breakdown">
+                <h3 class="breakdown-title">各组文件分布</h3>
+                <div class="breakdown-grid">
+                    <div class="breakdown-item">
+                        <div class="breakdown-dept">🎨 创意组</div>
+                        <div class="breakdown-bar">
+                            <div class="breakdown-fill" style="width: 5%;"></div>
+                        </div>
+                        <div class="breakdown-count">3个文件</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-dept">🔍 情报组</div>
+                        <div class="breakdown-bar">
+                            <div class="breakdown-fill" style="width: 90%;"></div>
+                        </div>
+                        <div class="breakdown-count">54个文件</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-dept">📋 行政组</div>
+                        <div class="breakdown-bar">
+                            <div class="breakdown-fill" style="width: 5%;"></div>
+                        </div>
+                        <div class="breakdown-count">3个文件</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>ZTL数智化作战中心</h3>
+                <p>Next-Generation AI Agent Orchestration Platform</p>
+                <p>Powered by Claude Sonnet 4.5 | MCP Protocol Ecosystem</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>核心模块</h4>
+                    <a href="agents.html">Agents智能体</a>
+                    <a href="skills.html">Skills技能包</a>
+                    <a href="commands.html">Commands命令</a>
+                    <a href="hooks.html">Hooks钩子</a>
+                </div>
+                <div class="footer-column">
+                    <h4>深入了解</h4>
+                    <a href="output.html">OUTPUT产出</a>
+                    <a href="examples.html">EXAMPLES案例</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Version 2.2.0 | Generated 2025-10-23</p>
+                <p>Project Size: 73M | 60 Agents | 4 Skills | 13 Commands | 7 MCP Servers</p>
+                <p>© 2025 ZTL数智化作战中心 | All Systems Operational</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <span>↑</span>
+    </button>
+
+    <script src="../scripts/common.js"></script>
+    <script src="../scripts/output.js"></script>
+</body>
+</html>

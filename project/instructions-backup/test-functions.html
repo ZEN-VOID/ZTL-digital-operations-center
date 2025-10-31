@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>功能测试页面</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #00f5ff;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #666;
+            margin-top: 0;
+        }
+        button {
+            background: linear-gradient(135deg, #00f5ff, #ff00ff);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .test-image {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 3px solid #00f5ff;
+            transition: transform 0.2s;
+        }
+        .test-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 OUTPUT页面功能测试</h1>
+
+    <div class="test-section">
+        <h2>📋 系统检查</h2>
+        <div id="systemCheck" class="status info">正在检查系统...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>🖼️ 图片预览功能测试</h2>
+        <p>点击下面的图片，应该会弹出全屏预览：</p>
+        <img
+            src="../output/创意组/AIGC生成/images/1-poster/1-poster_20251021_040057_1.png"
+            alt="测试海报"
+            class="test-image"
+            onclick="previewImage('../output/创意组/AIGC生成/images/1-poster/1-poster_20251021_040057_1.png', '测试海报')"
+        >
+        <div id="imageTestStatus"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>📄 文档查看功能测试</h2>
+        <button onclick="testViewDocument()">
+            测试文档查看（Markdown）
+        </button>
+        <div id="docTestStatus"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>💾 文件下载功能测试</h2>
+        <button onclick="testDownloadFile()">
+            测试文件下载（Word）
+        </button>
+        <div id="downloadTestStatus"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔍 过滤功能测试</h2>
+        <button onclick="testFilter('images')">测试图片过滤</button>
+        <button onclick="testFilter('documents')">测试文档过滤</button>
+        <button onclick="testFilter('all')">测试全部显示</button>
+        <div id="filterTestStatus"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔎 搜索功能测试</h2>
+        <input type="text" id="testSearch" placeholder="输入搜索关键词..."
+               style="padding: 8px; width: 200px; border-radius: 4px; border: 2px solid #00f5ff;">
+        <button onclick="testSearch()">测试搜索</button>
+        <div id="searchTestStatus"></div>
+    </div>
+
+    <!-- 加载output.js -->
+    <script src="scripts/output.js"></script>
+
+    <!-- 测试脚本 -->
+    <script>
+        // 系统检查
+        window.addEventListener('load', function() {
+            const systemCheck = document.getElementById('systemCheck');
+            const checks = [];
+
+            // 检查函数是否存在
+            if (typeof previewImage === 'function') {
+                checks.push('✅ previewImage 函数已加载');
+            } else {
+                checks.push('❌ previewImage 函数未找到');
+            }
+
+            if (typeof viewDocument === 'function') {
+                checks.push('✅ viewDocument 函数已加载');
+            } else {
+                checks.push('❌ viewDocument 函数未找到');
+            }
+
+            if (typeof downloadFile === 'function') {
+                checks.push('✅ downloadFile 函数已加载');
+            } else {
+                checks.push('❌ downloadFile 函数未找到');
+            }
+
+            if (typeof filterResources === 'function') {
+                checks.push('✅ filterResources 函数已加载');
+            } else {
+                checks.push('❌ filterResources 函数未找到');
+            }
+
+            if (typeof searchResources === 'function') {
+                checks.push('✅ searchResources 函数已加载');
+            } else {
+                checks.push('❌ searchResources 函数未找到');
+            }
+
+            systemCheck.className = 'status success';
+            systemCheck.innerHTML = checks.join('<br>');
+
+            console.log('✅ 测试页面加载完成');
+            console.log('当前协议:', window.location.protocol);
+            console.log('当前路径:', window.location.href);
+        });
+
+        function testViewDocument() {
+            const status = document.getElementById('docTestStatus');
+            status.className = 'status info';
+            status.textContent = '正在测试文档查看功能...';
+
+            try {
+                viewDocument('../output/情报组/meituan-report-center-research-20251023/knowledge-base-report.md');
+                status.className = 'status success';
+                status.textContent = '✅ 文档查看功能已触发，请检查是否打开了新标签页';
+            } catch (error) {
+                status.className = 'status error';
+                status.textContent = '❌ 错误: ' + error.message;
+            }
+        }
+
+        function testDownloadFile() {
+            const status = document.getElementById('downloadTestStatus');
+            status.className = 'status info';
+            status.textContent = '正在测试文件下载功能...';
+
+            try {
+                downloadFile('../output/行政组/test-complex-word.docx');
+                status.className = 'status success';
+                status.textContent = '✅ 下载功能已触发，请检查浏览器下载栏';
+            } catch (error) {
+                status.className = 'status error';
+                status.textContent = '❌ 错误: ' + error.message;
+            }
+        }
+
+        function testFilter(type) {
+            const status = document.getElementById('filterTestStatus');
+            status.className = 'status info';
+            status.textContent = `正在测试 ${type} 过滤...`;
+
+            try {
+                filterResources(type);
+                status.className = 'status success';
+                status.textContent = `✅ ${type} 过滤功能已触发`;
+            } catch (error) {
+                status.className = 'status error';
+                status.textContent = '❌ 错误: ' + error.message;
+            }
+        }
+
+        function testSearch() {
+            const keyword = document.getElementById('testSearch').value;
+            const status = document.getElementById('searchTestStatus');
+            status.className = 'status info';
+            status.textContent = `正在搜索: ${keyword}`;
+
+            try {
+                searchResources(keyword);
+                status.className = 'status success';
+                status.textContent = `✅ 搜索功能已触发，关键词: ${keyword}`;
+            } catch (error) {
+                status.className = 'status error';
+                status.textContent = '❌ 错误: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

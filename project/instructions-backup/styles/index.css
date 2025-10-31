@@ -1,0 +1,802 @@
+/* ==========================================
+   ZTL数智化作战中心 - 主页样式
+   Homepage Specific Styles
+   ========================================== */
+
+/* ==========================================
+   Hero Section - 英雄区域
+   ========================================== */
+.hero-section {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+    padding-top: 100px;
+}
+
+.hero-content {
+    flex: 1;
+    animation: slideInLeft 1s ease-out;
+}
+
+.hero-title {
+    font-family: var(--font-primary);
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink), var(--neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.hero-title::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: blur(10px);
+    opacity: 0.5;
+}
+
+.hero-subtitle {
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    letter-spacing: 3px;
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-badges {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+/* Orbital System Visualization - 轨道系统可视化 */
+.hero-visual {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.orbital-system {
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 50%;
+}
+
+.orbit-1 {
+    width: 400px;
+    height: 400px;
+    animation: rotateOrbit 20s linear infinite;
+}
+
+.orbit-2 {
+    width: 320px;
+    height: 320px;
+    animation: rotateOrbit 15s linear infinite reverse;
+}
+
+.orbit-3 {
+    width: 240px;
+    height: 240px;
+    animation: rotateOrbit 12s linear infinite;
+}
+
+.orbit-4 {
+    width: 160px;
+    height: 160px;
+    animation: rotateOrbit 10s linear infinite reverse;
+}
+
+@keyframes rotateOrbit {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.planet {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: all var(--transition-normal);
+    cursor: pointer;
+}
+
+.planet::before {
+    content: attr(data-info);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    font-family: var(--font-primary);
+    white-space: nowrap;
+}
+
+.planet:hover::before {
+    opacity: 1;
+}
+
+.planet-agents {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 0, 110, 0.3);
+    border: 2px solid var(--neon-pink);
+    box-shadow: var(--glow-pink);
+}
+
+.planet-skills {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: rgba(139, 92, 246, 0.3);
+    border: 2px solid var(--neon-purple);
+    box-shadow: var(--glow-purple);
+}
+
+.planet-commands {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 245, 255, 0.3);
+    border: 2px solid var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+.planet-mcp {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background: rgba(57, 255, 20, 0.3);
+    border: 2px solid var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+}
+
+.core-system {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.core-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--neon-cyan);
+    border-radius: 50%;
+    animation: pulseRing 2s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+.core-center {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+    z-index: 1;
+}
+
+/* ==========================================
+   Stats Section - 统计数据
+   ========================================== */
+.stats-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card[data-category="agents"] {
+    border-color: rgba(255, 0, 110, 0.3);
+}
+
+.stat-card[data-category="skills"] {
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+.stat-card[data-category="commands"] {
+    border-color: rgba(0, 245, 255, 0.3);
+}
+
+.stat-card[data-category="mcp"] {
+    border-color: rgba(57, 255, 20, 0.3);
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+}
+
+.stat-card[data-category="agents"]:hover {
+    border-color: var(--neon-pink);
+    box-shadow: var(--glow-pink);
+}
+
+.stat-card[data-category="skills"]:hover {
+    border-color: var(--neon-purple);
+    box-shadow: var(--glow-purple);
+}
+
+.stat-card[data-category="commands"]:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+.stat-card[data-category="mcp"]:hover {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+}
+
+.stat-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.stat-number {
+    font-family: var(--font-primary);
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-card[data-category="agents"] .stat-number {
+    color: var(--neon-pink);
+    text-shadow: var(--glow-pink);
+}
+
+.stat-card[data-category="skills"] .stat-number {
+    color: var(--neon-purple);
+    text-shadow: var(--glow-purple);
+}
+
+.stat-card[data-category="commands"] .stat-number {
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+}
+
+.stat-card[data-category="mcp"] .stat-number {
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+.stat-label {
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-sublabel {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.stat-link {
+    display: inline-block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all var(--transition-fast);
+    margin-top: var(--spacing-sm);
+}
+
+.stat-link:hover {
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+}
+
+/* ==========================================
+   Features Section - 特性展示
+   ========================================== */
+.features-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.feature-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    transition: all var(--transition-normal);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-title {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    color: var(--neon-cyan);
+}
+
+.feature-desc {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-list {
+    list-style: none;
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-list li {
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-md);
+    position: relative;
+    color: var(--text-secondary);
+}
+
+.feature-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--neon-cyan);
+}
+
+.feature-action {
+    display: inline-block;
+    color: var(--neon-cyan);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all var(--transition-fast);
+}
+
+.feature-action:hover {
+    text-shadow: var(--glow-cyan);
+}
+
+/* ==========================================
+   Architecture Preview - 架构预览
+   ========================================== */
+.architecture-preview {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.architecture-visual {
+    max-width: 600px;
+    margin: var(--spacing-lg) auto;
+}
+
+.layer-block {
+    background: var(--bg-card);
+    border: 2px solid;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: all var(--transition-normal);
+}
+
+.layer-block:hover {
+    transform: scale(1.05);
+}
+
+.layer-knowledge {
+    border-color: var(--neon-purple);
+}
+
+.layer-knowledge:hover {
+    box-shadow: var(--glow-purple);
+}
+
+.layer-orchestration {
+    border-color: var(--neon-cyan);
+}
+
+.layer-orchestration:hover {
+    box-shadow: var(--glow-cyan);
+}
+
+.layer-execution {
+    border-color: var(--neon-pink);
+}
+
+.layer-execution:hover {
+    box-shadow: var(--glow-pink);
+}
+
+.layer-number {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    font-weight: 900;
+    opacity: 0.3;
+}
+
+.layer-content {
+    flex: 1;
+    text-align: left;
+}
+
+.layer-content h3 {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.layer-count {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(0, 245, 255, 0.2);
+    border: 1px solid var(--neon-cyan);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    margin-top: var(--spacing-xs);
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 30px solid var(--neon-cyan);
+    margin: 0 auto var(--spacing-md);
+    filter: drop-shadow(var(--glow-cyan));
+}
+
+.architecture-link {
+    display: inline-block;
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 4px;
+    color: var(--neon-cyan);
+    text-decoration: none;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    transition: all var(--transition-normal);
+}
+
+.architecture-link:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-dark);
+    box-shadow: var(--glow-cyan);
+}
+
+/* ==========================================
+   Performance Section - 性能指标
+   ========================================== */
+.performance-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.performance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.performance-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.performance-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+.performance-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.performance-value {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+    margin-bottom: var(--spacing-xs);
+}
+
+.performance-label {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.performance-trend {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.performance-trend.up {
+    color: var(--neon-green);
+}
+
+/* ==========================================
+   Use Cases Preview - 案例预览
+   ========================================== */
+.use-cases-preview {
+    padding: var(--spacing-xl) 0;
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.use-case-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.use-case-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+.use-case-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.use-case-card h3 {
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.use-case-card p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.efficiency-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(57, 255, 20, 0.2);
+    border: 1px solid var(--neon-green);
+    border-radius: 4px;
+    color: var(--neon-green);
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.use-cases-link {
+    display: inline-block;
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 4px;
+    color: var(--neon-cyan);
+    text-decoration: none;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    transition: all var(--transition-normal);
+}
+
+.use-cases-link:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-dark);
+    box-shadow: var(--glow-cyan);
+}
+
+/* ==========================================
+   Responsive Design - 响应式设计
+   ========================================== */
+@media (max-width: 1024px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .orbital-system {
+        width: 400px;
+        height: 400px;
+    }
+
+    .orbit-1 { width: 320px; height: 320px; }
+    .orbit-2 { width: 256px; height: 256px; }
+    .orbit-3 { width: 192px; height: 192px; }
+    .orbit-4 { width: 128px; height: 128px; }
+
+    .core-system {
+        width: 80px;
+        height: 80px;
+    }
+
+    .planet {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-badges {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .orbital-system {
+        width: 320px;
+        height: 320px;
+    }
+
+    .orbit-1 { width: 256px; height: 256px; }
+    .orbit-2 { width: 204px; height: 204px; }
+    .orbit-3 { width: 152px; height: 152px; }
+    .orbit-4 { width: 100px; height: 100px; }
+
+    .core-system {
+        width: 60px;
+        height: 60px;
+    }
+
+    .core-center {
+        font-size: 1.5rem;
+    }
+
+    .planet {
+        width: 40px;
+        height: 40px;
+    }
+
+    .stats-grid,
+    .features-grid,
+    .performance-grid,
+    .use-cases-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .orbital-system {
+        width: 280px;
+        height: 280px;
+    }
+
+    .orbit-1 { width: 224px; height: 224px; }
+    .orbit-2 { width: 179px; height: 179px; }
+    .orbit-3 { width: 134px; height: 134px; }
+    .orbit-4 { width: 89px; height: 89px; }
+
+    .planet {
+        width: 35px;
+        height: 35px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .performance-value {
+        font-size: 2rem;
+    }
+}

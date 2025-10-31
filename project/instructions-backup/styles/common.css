@@ -1,0 +1,675 @@
+/* ==========================================
+   ZTL数智化作战中心 - 共享样式
+   赛博朋克主题 - Cyberpunk Design System
+   ========================================== */
+
+/* ==========================================
+   CSS Custom Properties - 设计系统变量
+   ========================================== */
+:root {
+    /* Neon Colors - 霓虹色系 */
+    --neon-pink: #ff006e;
+    --neon-cyan: #00f5ff;
+    --neon-purple: #8b5cf6;
+    --neon-green: #39ff14;
+    --neon-orange: #ff6b35;
+    --neon-yellow: #ffff00;
+
+    /* Background Colors - 背景色系 */
+    --bg-dark: #0a0a0f;
+    --bg-darker: #050508;
+    --bg-card: rgba(20, 20, 30, 0.8);
+    --bg-card-hover: rgba(30, 30, 45, 0.9);
+
+    /* Text Colors - 文字色系 */
+    --text-primary: #ffffff;
+    --text-secondary: #b4b4b4;
+    --text-muted: #6b6b6b;
+
+    /* Border & Shadow - 边框与阴影 */
+    --border-neon: 1px solid var(--neon-cyan);
+    --glow-cyan: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+    --glow-pink: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+    --glow-purple: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+
+    /* Spacing - 间距系统 */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+
+    /* Typography - 字体系统 */
+    --font-primary: 'Orbitron', sans-serif;
+    --font-secondary: 'Electrolize', sans-serif;
+
+    /* Transitions - 过渡动画 */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ==========================================
+   Global Reset & Base Styles
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-secondary);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Grid Background Animation - 网格背景 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes gridMove {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+/* Scanlines Effect - 扫描线效果 */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        transparent 50%,
+        rgba(0, 245, 255, 0.02) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 1;
+    animation: scanlines 0.5s linear infinite;
+}
+
+@keyframes scanlines {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(4px);
+    }
+}
+
+/* ==========================================
+   Container & Layout
+   ========================================== */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    position: relative;
+    z-index: 2;
+}
+
+section {
+    padding: var(--spacing-xl) 0;
+    position: relative;
+}
+
+.section-title {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+    box-shadow: var(--glow-cyan);
+}
+
+/* ==========================================
+   Navigation Bar - 导航栏
+   ========================================== */
+.cyber-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+}
+
+.logo-icon {
+    font-size: 2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    50% {
+        transform: scale(1.1);
+        filter: brightness(1.5);
+    }
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+}
+
+.nav-item a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid transparent;
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.nav-item a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--neon-cyan);
+    transition: width var(--transition-normal);
+}
+
+.nav-item a:hover::before,
+.nav-item.active a::before {
+    width: 100%;
+}
+
+.nav-item a:hover {
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+}
+
+.nav-item.active a {
+    color: var(--neon-cyan);
+    border-color: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--neon-cyan);
+    transition: all var(--transition-normal);
+}
+
+/* ==========================================
+   Cards - 卡片系统
+   ========================================== */
+.card {
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 245, 255, 0.1),
+        transparent
+    );
+    transition: left var(--transition-slow);
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+.card:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: var(--glow-cyan);
+    transform: translateY(-5px);
+    background: var(--bg-card-hover);
+}
+
+/* ==========================================
+   Buttons - 按钮系统
+   ========================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width var(--transition-slow), height var(--transition-slow);
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: transparent;
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+
+.btn-primary:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-dark);
+    box-shadow: var(--glow-cyan);
+}
+
+.btn-secondary {
+    background: transparent;
+    border-color: var(--neon-pink);
+    color: var(--neon-pink);
+}
+
+.btn-secondary:hover {
+    background: var(--neon-pink);
+    color: var(--bg-dark);
+    box-shadow: var(--glow-pink);
+}
+
+/* ==========================================
+   Badges - 徽章系统
+   ========================================== */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    border: 1px solid;
+}
+
+.badge-version {
+    background: rgba(139, 92, 246, 0.2);
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
+}
+
+.badge-model {
+    background: rgba(0, 245, 255, 0.2);
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+
+.badge-date {
+    background: rgba(255, 0, 110, 0.2);
+    border-color: var(--neon-pink);
+    color: var(--neon-pink);
+}
+
+/* ==========================================
+   Footer - 页脚
+   ========================================== */
+.cyber-footer {
+    background: var(--bg-darker);
+    border-top: 2px solid var(--neon-cyan);
+    box-shadow: 0 -5px 20px rgba(0, 245, 255, 0.2);
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg) 0;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.footer-info {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-info h3 {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-info p {
+    color: var(--text-secondary);
+    margin: var(--spacing-xs) 0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-column h4 {
+    font-family: var(--font-primary);
+    color: var(--neon-pink);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-column a {
+    display: block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin: var(--spacing-xs) 0;
+    transition: all var(--transition-fast);
+}
+
+.footer-column a:hover {
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(0, 245, 255, 0.2);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.footer-bottom p {
+    margin: var(--spacing-xs) 0;
+}
+
+/* ==========================================
+   Back to Top Button - 返回顶部
+   ========================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--bg-card);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 50%;
+    color: var(--neon-cyan);
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-dark);
+    box-shadow: var(--glow-cyan);
+    transform: translateY(-5px);
+}
+
+/* ==========================================
+   Animations - 动画效果
+   ========================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.5);
+    }
+}
+
+/* ==========================================
+   Utility Classes - 工具类
+   ========================================== */
+.text-center {
+    text-align: center;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.glow-cyan {
+    text-shadow: var(--glow-cyan);
+}
+
+.glow-pink {
+    text-shadow: var(--glow-pink);
+}
+
+.glow-purple {
+    text-shadow: var(--glow-purple);
+}
+
+/* ==========================================
+   Responsive Design - 响应式设计
+   ========================================== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 15, 0.98);
+        flex-direction: column;
+        gap: 0;
+        padding: var(--spacing-sm) 0;
+        border-top: 1px solid var(--neon-cyan);
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-item a {
+        display: block;
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-bottom: 1px solid rgba(0, 245, 255, 0.1);
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    section {
+        padding: var(--spacing-md) 0;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --spacing-xl: 2rem;
+        --spacing-lg: 1.5rem;
+    }
+
+    .nav-logo {
+        font-size: 1.25rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+}

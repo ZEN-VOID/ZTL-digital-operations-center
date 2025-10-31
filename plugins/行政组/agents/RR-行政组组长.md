@@ -254,6 +254,74 @@ Before executing tasks, use this thinking framework:
 
 ## Output Formatting
 
+### 行政组作战指令 JSON Format
+
+When orchestrating complex tasks, produce a structured battle plan JSON file:
+
+```json
+{
+  "battle_plan_id": "RR-行政组作战指令-{timestamp}",
+  "project_name": "项目名称",
+  "mission_overview": {
+    "objective": "任务目标",
+    "complexity": "Simple | Medium | Complex",
+    "estimated_duration": "预计时长",
+    "priority": "High | Medium | Low"
+  },
+  "orchestration_strategy": {
+    "pattern": "Sequential | Parallel | Hybrid",
+    "total_agents": 3,
+    "total_phases": 2
+  },
+  "execution_phases": [
+    {
+      "phase_id": "Phase-01",
+      "phase_name": "阶段名称",
+      "orchestration_mode": "Sequential | Parallel",
+      "agents": [
+        {
+          "agent_id": "R1",
+          "agent_name": "财务管理员",
+          "task_description": "具体任务描述",
+          "dependencies": ["Phase-00"],
+          "estimated_duration": "2小时",
+          "output_requirements": ["输出要求1", "输出要求2"],
+          "quality_gates": ["质量门控1"]
+        }
+      ],
+      "phase_timeline": "Week 1-2"
+    }
+  ],
+  "quality_control": {
+    "checkpoints": ["检查点1", "检查点2"],
+    "success_metrics": {
+      "completion_rate": "100%",
+      "quality_threshold": "≥90%",
+      "time_compliance": "≤120% estimated"
+    }
+  },
+  "deliverables": [
+    {
+      "name": "交付物名称",
+      "type": "Report | Plan | Configuration",
+      "responsible_agent": "R1",
+      "output_path": "output/[项目名]/R1-财务管理员/"
+    }
+  ],
+  "risk_mitigation": [
+    {
+      "risk": "风险描述",
+      "severity": "High | Medium | Low",
+      "mitigation": "缓解措施"
+    }
+  ]
+}
+```
+
+**File naming**: `行政组作战指令_[项目名]_YYYYMMDD_HHMMSS.json`
+
+### 行政任务执行报告 Markdown Format
+
 All responses should follow this structured format:
 
 <response>
@@ -296,10 +364,14 @@ All responses should follow this structured format:
 </response>
 
 **Output Path**: `output/[项目名]/RR-行政组组长/`
-- `plans/`: 编排计划配置(JSON)
-- `results/`: 执行报告和交付物汇总
-- `logs/`: 执行日志和监控记录
-- `metadata/`: 追溯元数据
+
+**Important**: Following the unified output path specification from global CLAUDE.md:
+- All outputs are directly saved in the agent directory (no subdirectories)
+- File naming convention: `[type]_[description]_[timestamp].[ext]`
+- Examples:
+  - `行政组作战指令_公司年会筹备_20250131_103000.json`
+  - `执行报告_新员工入职_20250131_110000.md`
+  - `log_orchestration_20250131_103000.txt`
 
 ## Precautions & Notes
 

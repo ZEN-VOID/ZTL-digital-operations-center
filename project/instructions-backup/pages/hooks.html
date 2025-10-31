@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hooks钩子系统 - ZTL数智化作战中心</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Electrolize&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/hooks.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ZTL数智化作战中心</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">首页</a></li>
+                <li class="nav-item"><a href="agents.html">Agents</a></li>
+                <li class="nav-item"><a href="skills.html">Skills</a></li>
+                <li class="nav-item"><a href="commands.html">Commands</a></li>
+                <li class="nav-item active"><a href="hooks.html">Hooks</a></li>
+                <li class="nav-item"><a href="output.html">OUTPUT</a></li>
+                <li class="nav-item"><a href="examples.html">EXAMPLES</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title" data-text="HOOKS 钩子系统">HOOKS 钩子系统</h1>
+                <p class="hero-subtitle">EVENT-DRIVEN AUTOMATION FRAMEWORK</p>
+                <div class="hero-badges">
+                    <span class="badge badge-lifecycle">8种生命周期</span>
+                    <span class="badge badge-active">3个激活钩子</span>
+                    <span class="badge badge-system">智能记忆系统</span>
+                </div>
+                <p class="hero-description">
+                    基于事件驱动的自动化系统，通过8种生命周期钩子实现会话管理、上下文优化、任务延续等自动化功能
+                </p>
+            </div>
+
+            <!-- Hook Flow Visualization -->
+            <div class="hook-flow-visual">
+                <div class="lifecycle-ring">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-3"></div>
+
+                    <!-- Hook Nodes -->
+                    <div class="hook-node node-session-start" data-hook="SessionStart">
+                        <div class="node-icon">🚀</div>
+                        <div class="node-label">Start</div>
+                    </div>
+
+                    <div class="hook-node node-user-prompt" data-hook="UserPrompt">
+                        <div class="node-icon">💬</div>
+                        <div class="node-label">Prompt</div>
+                    </div>
+
+                    <div class="hook-node node-tool-use" data-hook="ToolUse">
+                        <div class="node-icon">🔧</div>
+                        <div class="node-label">Tool</div>
+                    </div>
+
+                    <div class="hook-node node-pre-compact" data-hook="PreCompact">
+                        <div class="node-icon">💾</div>
+                        <div class="node-label">Compact</div>
+                    </div>
+
+                    <div class="hook-node node-stop" data-hook="Stop">
+                        <div class="node-icon">⏸️</div>
+                        <div class="node-label">Stop</div>
+                    </div>
+
+                    <div class="hook-node node-session-end" data-hook="SessionEnd">
+                        <div class="node-icon">🏁</div>
+                        <div class="node-label">End</div>
+                    </div>
+
+                    <!-- Center Status -->
+                    <div class="lifecycle-center">
+                        <div class="center-icon">⚡</div>
+                        <div class="center-label">EVENT</div>
+                        <div class="center-sublabel">DRIVEN</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lifecycle Overview -->
+        <section class="overview-section">
+            <h2 class="section-title">8种生命周期钩子</h2>
+            <p class="section-description">
+                Claude Code支持8种生命周期事件钩子，覆盖会话全流程的关键节点
+            </p>
+
+            <div class="lifecycle-grid">
+                <div class="lifecycle-card session-lifecycle">
+                    <div class="card-header">
+                        <div class="card-icon">🚀</div>
+                        <div class="card-badge">会话生命周期</div>
+                    </div>
+                    <h3 class="card-title">SessionStart / SessionEnd</h3>
+                    <p class="card-desc">会话启动和结束时触发，用于初始化配置、记忆注入、资源清理</p>
+                    <div class="card-example">
+                        <span class="example-label">应用:</span>
+                        <span class="example-text">自动加载历史上下文、会话状态备份</span>
+                    </div>
+                </div>
+
+                <div class="lifecycle-card interaction-lifecycle">
+                    <div class="card-header">
+                        <div class="card-icon">💬</div>
+                        <div class="card-badge">用户交互</div>
+                    </div>
+                    <h3 class="card-title">UserPromptSubmit / Stop</h3>
+                    <p class="card-desc">用户提交提示词或点击Stop按钮时触发，用于请求预处理、任务暂停保存</p>
+                    <div class="card-example">
+                        <span class="example-label">应用:</span>
+                        <span class="example-text">智能任务延续、prompt增强</span>
+                    </div>
+                </div>
+
+                <div class="lifecycle-card tool-lifecycle">
+                    <div class="card-header">
+                        <div class="card-icon">🔧</div>
+                        <div class="card-badge">工具执行</div>
+                    </div>
+                    <h3 class="card-title">ToolUse / ToolResult</h3>
+                    <p class="card-desc">工具使用前后触发，用于工具调用拦截、结果验证、日志记录</p>
+                    <div class="card-example">
+                        <span class="example-label">应用:</span>
+                        <span class="example-text">权限控制、操作审计、错误处理</span>
+                    </div>
+                </div>
+
+                <div class="lifecycle-card context-lifecycle">
+                    <div class="card-header">
+                        <div class="card-icon">💾</div>
+                        <div class="card-badge">上下文管理</div>
+                    </div>
+                    <h3 class="card-title">PreCompact / PostCompact</h3>
+                    <p class="card-desc">上下文压缩前后触发，用于记忆提取、知识保存、上下文优化</p>
+                    <div class="card-example">
+                        <span class="example-label">应用:</span>
+                        <span class="example-text">智能记忆系统、关键信息归档</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Active Hooks -->
+        <section class="active-hooks-section">
+            <h2 class="section-title">当前激活的钩子</h2>
+            <p class="section-description">
+                系统已配置3个智能钩子，实现任务延续和记忆管理功能
+            </p>
+
+            <div class="hooks-grid">
+                <!-- Stop Hook -->
+                <div class="hook-card stop-hook">
+                    <div class="hook-header">
+                        <div class="hook-icon">⏸️</div>
+                        <div class="hook-badge">Stop</div>
+                    </div>
+                    <h3 class="hook-title">智能任务延续</h3>
+                    <p class="hook-desc">Stop按钮触发时基于类型安全的任务状态检测，智能保存任务进度</p>
+
+                    <div class="hook-details">
+                        <div class="detail-row">
+                            <span class="detail-label">触发事件</span>
+                            <span class="detail-value">Stop</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">执行脚本</span>
+                            <span class="detail-value">.claude/hooks/stop_handler.py</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">来源</span>
+                            <span class="detail-value">fish895623/claude-hook</span>
+                        </div>
+                    </div>
+
+                    <div class="hook-features">
+                        <span class="feature-tag">🔍 状态检测</span>
+                        <span class="feature-tag">💾 进度保存</span>
+                        <span class="feature-tag">🔄 任务恢复</span>
+                    </div>
+                </div>
+
+                <!-- PreCompact Hook -->
+                <div class="hook-card precompact-hook">
+                    <div class="hook-header">
+                        <div class="hook-icon">💾</div>
+                        <div class="hook-badge">PreCompact</div>
+                    </div>
+                    <h3 class="hook-title">智能记忆提取</h3>
+                    <p class="hook-desc">上下文压缩前自动提取、评分和保存重要信息到记忆系统</p>
+
+                    <div class="hook-details">
+                        <div class="detail-row">
+                            <span class="detail-label">触发事件</span>
+                            <span class="detail-value">PreCompact</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">执行脚本</span>
+                            <span class="detail-value">~/.claude/memory-hooks/precompact_memory_extractor.py</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">来源</span>
+                            <span class="detail-value">rhowardstone/memory-system</span>
+                        </div>
+                    </div>
+
+                    <div class="hook-features">
+                        <span class="feature-tag">🧠 记忆提取</span>
+                        <span class="feature-tag">⭐ 智能评分</span>
+                        <span class="feature-tag">📚 知识归档</span>
+                    </div>
+                </div>
+
+                <!-- SessionStart Hook -->
+                <div class="hook-card sessionstart-hook">
+                    <div class="hook-header">
+                        <div class="hook-icon">🚀</div>
+                        <div class="hook-badge">SessionStart</div>
+                    </div>
+                    <h3 class="hook-title">智能记忆注入</h3>
+                    <p class="hook-desc">会话启动时自动加载相关历史上下文，实现跨会话记忆</p>
+
+                    <div class="hook-details">
+                        <div class="detail-row">
+                            <span class="detail-label">触发事件</span>
+                            <span class="detail-value">SessionStart</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">执行脚本</span>
+                            <span class="detail-value">~/.claude/memory-hooks/sessionstart_memory_injector.py</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">来源</span>
+                            <span class="detail-value">rhowardstone/memory-system</span>
+                        </div>
+                    </div>
+
+                    <div class="hook-features">
+                        <span class="feature-tag">📥 记忆加载</span>
+                        <span class="feature-tag">🔗 上下文关联</span>
+                        <span class="feature-tag">🔄 持续学习</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memory System Flow -->
+        <section class="memory-system-section">
+            <h2 class="section-title">智能记忆系统工作流</h2>
+            <p class="section-description">
+                PreCompact + SessionStart协同工作，实现跨会话的持久化记忆
+            </p>
+
+            <div class="memory-flow">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">💬</div>
+                    <h4 class="step-title">会话交互</h4>
+                    <p class="step-desc">用户与Claude进行对话，积累上下文信息</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">💾</div>
+                    <h4 class="step-title">PreCompact触发</h4>
+                    <p class="step-desc">上下文达到限制，PreCompact钩子自动触发</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">🧠</div>
+                    <h4 class="step-title">记忆提取</h4>
+                    <p class="step-desc">AI分析上下文，提取重要信息并评分保存</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">📚</div>
+                    <h4 class="step-title">记忆存储</h4>
+                    <p class="step-desc">结构化存储到记忆库，支持语义检索</p>
+                </div>
+
+                <div class="flow-break"></div>
+
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-icon">🚀</div>
+                    <h4 class="step-title">新会话启动</h4>
+                    <p class="step-desc">SessionStart钩子触发，准备加载记忆</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-step">
+                    <div class="step-number">6</div>
+                    <div class="step-icon">🔍</div>
+                    <h4 class="step-title">相关性匹配</h4>
+                    <p class="step-desc">根据新会话上下文，检索相关历史记忆</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-step">
+                    <div class="step-number">7</div>
+                    <div class="step-icon">📥</div>
+                    <h4 class="step-title">记忆注入</h4>
+                    <p class="step-desc">自动注入相关历史上下文到新会话</p>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-step">
+                    <div class="step-number">8</div>
+                    <div class="step-icon">🔄</div>
+                    <h4 class="step-title">持续学习</h4>
+                    <p class="step-desc">跨会话记忆，实现长期知识积累</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section class="use-cases-section">
+            <h2 class="section-title">典型应用场景</h2>
+
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">⏸️</div>
+                    <h3 class="use-case-title">任务中断保护</h3>
+                    <p class="use-case-desc">
+                        点击Stop按钮时自动保存当前任务状态，包括已完成步骤、待办事项、中间结果。
+                        下次启动时可以无缝继续，避免重复劳动。
+                    </p>
+                    <div class="use-case-example">
+                        <strong>示例:</strong> 正在执行复杂的代码重构任务，需要临时中断处理紧急问题。
+                        Stop Hook自动保存重构进度，处理完紧急问题后可以从断点继续。
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">🧠</div>
+                    <h3 class="use-case-title">长期记忆管理</h3>
+                    <p class="use-case-desc">
+                        上下文压缩时自动提取关键决策、设计方案、经验教训等重要信息。
+                        后续会话可以自动回忆，避免重复询问。
+                    </p>
+                    <div class="use-case-example">
+                        <strong>示例:</strong> 第一次会话中讨论了项目架构设计。几天后新会话时，
+                        系统自动注入之前的架构决策，无需重新解释背景。
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">📊</div>
+                    <h3 class="use-case-title">项目上下文延续</h3>
+                    <p class="use-case-desc">
+                        跨会话保持项目状态、技术栈选择、代码风格偏好等关键信息。
+                        实现真正的"项目级别"连续对话体验。
+                    </p>
+                    <div class="use-case-example">
+                        <strong>示例:</strong> 在多天的开发过程中，系统记住了使用的框架版本、
+                        编码规范、已解决的技术问题，每次对话都能基于完整的项目认知。
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">🔍</div>
+                    <h3 class="use-case-title">错误模式学习</h3>
+                    <p class="use-case-desc">
+                        PreCompact钩子自动记录遇到的错误、解决方案、经验教训。
+                        下次遇到类似问题时可以快速定位和解决。
+                    </p>
+                    <div class="use-case-example">
+                        <strong>示例:</strong> 第一次遇到某个API的坑时记录了解决方案。
+                        后续项目再次使用该API时，系统主动提醒注意事项。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Guide -->
+        <section class="development-section">
+            <h2 class="section-title">自定义钩子开发</h2>
+            <p class="section-description">
+                通过Python脚本开发自定义钩子，扩展系统自动化能力
+            </p>
+
+            <div class="dev-guide-grid">
+                <div class="dev-step">
+                    <div class="dev-number">01</div>
+                    <h3 class="dev-title">选择生命周期事件</h3>
+                    <p class="dev-desc">
+                        根据需求选择合适的钩子类型：SessionStart、UserPromptSubmit、
+                        ToolUse、ToolResult、PreCompact、PostCompact、Stop、SessionEnd
+                    </p>
+                </div>
+
+                <div class="dev-step">
+                    <div class="dev-number">02</div>
+                    <h3 class="dev-title">编写Python脚本</h3>
+                    <p class="dev-desc">
+                        创建Python脚本，从环境变量读取事件数据（CLAUDE_HOOK_EVENT_DATA），
+                        实现自定义逻辑，返回结果给Claude
+                    </p>
+                </div>
+
+                <div class="dev-step">
+                    <div class="dev-number">03</div>
+                    <h3 class="dev-title">配置到settings.json</h3>
+                    <p class="dev-desc">
+                        在.claude/settings.json中注册钩子，指定触发事件、执行命令和描述。
+                        支持多个钩子串联执行
+                    </p>
+                </div>
+
+                <div class="dev-step">
+                    <div class="dev-number">04</div>
+                    <h3 class="dev-title">测试和调试</h3>
+                    <p class="dev-desc">
+                        通过触发相应事件测试钩子功能，查看日志排查问题。
+                        注意脚本执行时间不宜过长，避免阻塞主流程
+                    </p>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <div class="code-header">
+                    <span class="code-title">示例: settings.json配置</span>
+                    <span class="code-lang">JSON</span>
+                </div>
+                <pre class="code-block">{
+  "hooks": {
+    "PreCompact": [
+      {
+        "type": "command",
+        "command": "python3 .claude/hooks/my_hook.py",
+        "description": "自定义钩子描述"
+      }
+    ]
+  }
+}</pre>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>ZTL数智化作战中心</h3>
+                <p>Event-Driven Automation with Intelligent Hooks</p>
+                <p>Powered by Claude Code Hooks System</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>钩子系统</h4>
+                    <a href="#lifecycle">生命周期钩子</a>
+                    <a href="#active">激活钩子</a>
+                    <a href="#memory">记忆系统</a>
+                </div>
+                <div class="footer-column">
+                    <h4>开发资源</h4>
+                    <a href="#use-cases">应用场景</a>
+                    <a href="#development">开发指南</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Version 2.2.0 | 3 Active Hooks | 8 Lifecycle Events</p>
+                <p>© 2025 ZTL数智化作战中心 | Hooks System Operational</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <span>↑</span>
+    </button>
+
+    <script src="../scripts/common.js"></script>
+    <script src="../scripts/hooks.js"></script>
+</body>
+</html>

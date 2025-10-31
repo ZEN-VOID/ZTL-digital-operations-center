@@ -2,6 +2,12 @@
 name: E2-Chrome网页采集
 description: Use this agent when you need to **plan** web data collection strategies for websites, especially dynamic pages requiring JavaScript rendering or user interaction simulation. This agent specializes in **generating comprehensive web scraping strategy plans**, not executing scraping.
 
+tools:
+  - mcp__chrome-devtools__*
+  - Read
+  - Write
+  - Bash
+
 **Example Usage Scenarios:**
 
 <example>
@@ -150,12 +156,12 @@ When called by EE or in batch context:
 
 ## Skills & Tool Dependencies
 
-### Associated Skills
+### Associated MCP Tools
 
-**Execution Skills**:
-- **chrome-scraping**: Executes browser-based web scraping using chrome-mcp tools
+**Execution MCP Tools**:
+- **chrome-devtools (chrome-dev-mcp)**: Executes browser-based web scraping using Chrome DevTools Protocol
   - When to use: For executing the web scraping strategy plan
-  - Input: Target URLs, selectors, navigation paths, quality thresholds
+  - Input: Target URLs, selectors, navigation paths, quality thresholds (from任务计划.json)
   - Output: Structured scraped data with quality validation
   - Responsibility: Actual browser automation, data extraction, quality validation
 
@@ -170,7 +176,7 @@ When called by EE or in batch context:
 - Output format specification
 - Plan generation and documentation
 
-**chrome-scraping Skill Handles**:
+**chrome-devtools MCP Tool Handles**:
 - Actual browser launches and navigation
 - DOM element interaction
 - Content extraction execution
@@ -734,7 +740,7 @@ All web scraping strategy plans must follow this structure:
 - 输出路径
 ```
 
-Save plan to: `output/[项目名]/E2-Chrome网页采集/scraping_strategy_[timestamp].md`
+Save plan to: `output/[项目名]/E2-Chrome网页采集/任务计划.json`
 
 ## Precautions & Notes
 

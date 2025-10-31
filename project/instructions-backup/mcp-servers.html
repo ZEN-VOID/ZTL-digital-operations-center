@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP服务器 - ZTL数智化作战中心</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/mcp-servers.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="nav-logo">
+                    <span class="logo-icon">🚀</span>
+                    <span class="logo-text">ZTL数智化作战中心</span>
+                </a>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">主页</a></li>
+                    <li><a href="agents.html">智能体</a></li>
+                    <li><a href="skills.html">技能包</a></li>
+                    <li><a href="commands.html">命令系统</a></li>
+                    <li><a href="mcp-servers.html" class="active">Hooks</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="mcp-hero">
+        <div class="container">
+            <div class="mcp-hero-container">
+                <!-- Left Content -->
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-icon">🔌</span>
+                        <span>Model Context Protocol</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        MCP服务器
+                        <span class="title-highlight">能力矩阵</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        基于MCP协议的8个专业服务器，提供浏览器自动化、数据库管理、云存储、协同办公等全方位能力支持，
+                        实现智能体与外部系统的无缝集成。
+                    </p>
+
+                    <div class="hero-stats">
+                        <div class="hero-stat-item">
+                            <div class="hero-stat-number" data-count="8">0</div>
+                            <div class="hero-stat-label">MCP服务器</div>
+                        </div>
+                        <div class="hero-stat-item">
+                            <div class="hero-stat-number" data-count="150">0</div>
+                            <div class="hero-stat-label">可用工具</div>
+                        </div>
+                        <div class="hero-stat-item">
+                            <div class="hero-stat-number" data-count="100">0</div>
+                            <div class="hero-stat-label">集成能力</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-cta">
+                        <a href="#servers" class="btn btn-primary">
+                            <span>探索服务器</span>
+                            <span class="btn-icon">→</span>
+                        </a>
+                        <a href="#integration" class="btn btn-secondary">
+                            <span>查看集成架构</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual - MCP Network -->
+                <div class="mcp-network-visual">
+                    <div class="network-core">
+                        <div class="core-icon">MCP</div>
+                        <div class="core-pulse"></div>
+                    </div>
+
+                    <div class="network-nodes">
+                        <div class="network-node node-chrome" data-server="chrome-mcp">
+                            <div class="node-icon">🌐</div>
+                            <div class="node-label">Chrome</div>
+                        </div>
+                        <div class="network-node node-playwright" data-server="playwright-mcp">
+                            <div class="node-icon">🎭</div>
+                            <div class="node-label">Playwright</div>
+                        </div>
+                        <div class="network-node node-context7" data-server="context7">
+                            <div class="node-icon">📚</div>
+                            <div class="node-label">Context7</div>
+                        </div>
+                        <div class="network-node node-lark" data-server="lark-mcp">
+                            <div class="node-icon">🕊️</div>
+                            <div class="node-label">Lark</div>
+                        </div>
+                        <div class="network-node node-github" data-server="github-mcp">
+                            <div class="node-icon">💻</div>
+                            <div class="node-label">GitHub</div>
+                        </div>
+                        <div class="network-node node-cos" data-server="cos-mcp">
+                            <div class="node-icon">☁️</div>
+                            <div class="node-label">COS</div>
+                        </div>
+                        <div class="network-node node-supabase" data-server="supabase-mcp">
+                            <div class="node-icon">🗄️</div>
+                            <div class="node-label">Supabase</div>
+                        </div>
+                        <div class="network-node node-shadcn" data-server="shadcn-ui">
+                            <div class="node-icon">🎨</div>
+                            <div class="node-label">shadcn/ui</div>
+                        </div>
+                    </div>
+
+                    <svg class="network-connections">
+                        <!-- Connection lines will be drawn here by JavaScript -->
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">能力总览</h2>
+                <p class="section-subtitle">8个专业服务器，150+工具方法，覆盖全业务场景</p>
+            </div>
+
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="overview-icon">🌐</div>
+                    <div class="overview-number" data-count="2">0</div>
+                    <div class="overview-label">浏览器自动化</div>
+                    <div class="overview-detail">chrome-mcp + playwright-mcp</div>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-icon">💾</div>
+                    <div class="overview-number" data-count="2">0</div>
+                    <div class="overview-label">数据存储管理</div>
+                    <div class="overview-detail">cos-mcp + supabase-mcp</div>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-icon">🤝</div>
+                    <div class="overview-number" data-count="2">0</div>
+                    <div class="overview-label">协同与代码</div>
+                    <div class="overview-detail">lark-mcp + github-mcp</div>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-icon">🎨</div>
+                    <div class="overview-number" data-count="2">0</div>
+                    <div class="overview-label">开发资源</div>
+                    <div class="overview-detail">context7 + shadcn/ui</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servers Section -->
+    <section class="servers-section" id="servers">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">MCP服务器详情</h2>
+                <p class="section-subtitle">每个服务器都是一个专业的能力领域</p>
+            </div>
+
+            <!-- Chrome MCP -->
+            <div class="server-block chrome-server">
+                <div class="server-header">
+                    <div class="server-icon">🌐</div>
+                    <div class="server-info">
+                        <h3 class="server-name">chrome-mcp</h3>
+                        <p class="server-tagline">浏览器自动化操作</p>
+                    </div>
+                    <div class="server-badge">20+ 工具</div>
+                </div>
+
+                <div class="server-content">
+                    <div class="server-description">
+                        <p>基于Chrome浏览器的自动化操作框架，支持页面导航、元素交互、内容抓取、网络监控等核心功能。
+                        适用于网页自动化、数据采集、UI测试等场景。</p>
+                    </div>
+
+                    <div class="server-capabilities">
+                        <h4 class="capabilities-title">核心能力</h4>
+                        <div class="capabilities-grid">
+                            <div class="capability-item">
+                                <span class="capability-icon">📍</span>
+                                <span class="capability-name">页面导航和标签管理</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🖱️</span>
+                                <span class="capability-name">元素交互（点击、填写、选择）</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📄</span>
+                                <span class="capability-name">网页内容抓取（文本、HTML）</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📸</span>
+                                <span class="capability-name">截图和网络请求监控</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">⚡</span>
+                                <span class="capability-name">JavaScript注入和执行</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🔖</span>
+                                <span class="capability-name">书签管理和历史记录</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="server-use-cases">
+                        <h4 class="use-cases-title">使用场景</h4>
+                        <ul class="use-cases-list">
+                            <li>网页自动化测试和数据采集</li>
+                            <li>竞品网站监控和信息抓取</li>
+                            <li>表单自动填写和批量操作</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Playwright MCP -->
+            <div class="server-block playwright-server">
+                <div class="server-header">
+                    <div class="server-icon">🎭</div>
+                    <div class="server-info">
+                        <h3 class="server-name">playwright-mcp</h3>
+                        <p class="server-tagline">深度网页爬虫和测试</p>
+                    </div>
+                    <div class="server-badge">30+ 工具</div>
+                </div>
+
+                <div class="server-content">
+                    <div class="server-description">
+                        <p>企业级网页自动化框架，支持真实浏览器环境操作、复杂交互自动化、表单填写、文件上传、
+                        网络请求捕获等高级功能。适用于端到端测试、企业级爬虫、复杂自动化场景。</p>
+                    </div>
+
+                    <div class="server-capabilities">
+                        <h4 class="capabilities-title">核心能力</h4>
+                        <div class="capabilities-grid">
+                            <div class="capability-item">
+                                <span class="capability-icon">🎬</span>
+                                <span class="capability-name">真实浏览器环境操作</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🎯</span>
+                                <span class="capability-name">复杂交互自动化（拖拽、键盘）</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📝</span>
+                                <span class="capability-name">表单填写和文件上传</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🌐</span>
+                                <span class="capability-name">网络请求捕获（带响应体）</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🐛</span>
+                                <span class="capability-name">控制台日志和错误监控</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📊</span>
+                                <span class="capability-name">可访问性快照和分析</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="server-use-cases">
+                        <h4 class="use-cases-title">使用场景</h4>
+                        <ul class="use-cases-list">
+                            <li>企业级网页爬虫和数据采集</li>
+                            <li>端到端自动化测试</li>
+                            <li>HTML转PPT等复杂文档处理</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Context7 -->
+            <div class="server-block context7-server">
+                <div class="server-header">
+                    <div class="server-icon">📚</div>
+                    <div class="server-info">
+                        <h3 class="server-name">context7</h3>
+                        <p class="server-tagline">实时库文档检索</p>
+                    </div>
+                    <div class="server-badge">2 工具</div>
+                </div>
+
+                <div class="server-content">
+                    <div class="server-description">
+                        <p>实时获取最新的库文档和代码示例，支持库名称解析和文档检索。帮助开发者快速获取准确的API参考、
+                        使用示例和最佳实践，无需离开开发环境。</p>
+                    </div>
+
+                    <div class="server-capabilities">
+                        <h4 class="capabilities-title">核心能力</h4>
+                        <div class="capabilities-grid">
+                            <div class="capability-item">
+                                <span class="capability-icon">🔍</span>
+                                <span class="capability-name">库名称解析为Context7 ID</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📖</span>
+                                <span class="capability-name">获取最新文档和代码示例</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🎯</span>
+                                <span class="capability-name">按主题搜索文档内容</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">⚡</span>
+                                <span class="capability-name">实时同步官方更新</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="server-use-cases">
+                        <h4 class="use-cases-title">使用场景</h4>
+                        <ul class="use-cases-list">
+                            <li>库文档查询和API参考</li>
+                            <li>代码示例获取和学习</li>
+                            <li>技术栈选型和调研</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lark MCP -->
+            <div class="server-block lark-server">
+                <div class="server-header">
+                    <div class="server-icon">🕊️</div>
+                    <div class="server-info">
+                        <h3 class="server-name">lark-mcp</h3>
+                        <p class="server-tagline">飞书协同集成</p>
+                    </div>
+                    <div class="server-badge">15+ 工具</div>
+                </div>
+
+                <div class="server-content">
+                    <div class="server-description">
+                        <p>飞书企业协同平台集成，支持消息推送、群聊管理、多维表格操作、云文档管理、权限控制等全套协同功能。
+                        实现智能体与飞书的深度集成，提升团队协作效率。</p>
+                    </div>
+
+                    <div class="server-capabilities">
+                        <h4 class="capabilities-title">核心能力</h4>
+                        <div class="capabilities-grid">
+                            <div class="capability-item">
+                                <span class="capability-icon">💬</span>
+                                <span class="capability-name">消息推送和群聊管理</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📊</span>
+                                <span class="capability-name">多维表格CRUD操作</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📄</span>
+                                <span class="capability-name">云文档搜索和管理</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">👥</span>
+                                <span class="capability-name">用户ID批量查询</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🔐</span>
+                                <span class="capability-name">权限管理和审批流</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📅</span>
+                                <span class="capability-name">日程管理和会议</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="server-use-cases">
+                        <h4 class="use-cases-title">使用场景</h4>
+                        <ul class="use-cases-list">
+                            <li>飞书自动化和团队协作</li>
+                            <li>多维表格数据同步</li>
+                            <li>企业知识库管理</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub MCP -->
+            <div class="server-block github-server">
+                <div class="server-header">
+                    <div class="server-icon">💻</div>
+                    <div class="server-info">
+                        <h3 class="server-name">github-mcp</h3>
+                        <p class="server-tagline">GitHub代码协作</p>
+                    </div>
+                    <div class="server-badge">25+ 工具</div>
+                </div>
+
+                <div class="server-content">
+                    <div class="server-description">
+                        <p>GitHub代码协作平台集成，支持仓库管理、文件操作、Issue/PR管理、代码搜索和审查、分支和提交操作等。
+                        实现智能体与GitHub的无缝集成，自动化Git工作流。</p>
+                    </div>
+
+                    <div class="server-capabilities">
+                        <h4 class="capabilities-title">核心能力</h4>
+                        <div class="capabilities-grid">
+                            <div class="capability-item">
+                                <span class="capability-icon">📦</span>
+                                <span class="capability-name">仓库创建和文件管理</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🐛</span>
+                                <span class="capability-name">Issue和PR管理</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🔍</span>
+                                <span class="capability-name">代码搜索和审查</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🌿</span>
+                                <span class="capability-name">分支和提交操作</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🔀</span>
+                                <span class="capability-name">Fork和PR创建</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📝</span>
+                                <span class="capability-name">批量文件推送</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="server-use-cases">
+                        <h4 class="use-cases-title">使用场景</h4>
+                        <ul class="use-cases-list">
+                            <li>Git工作流自动化</li>
+                            <li>代码审查和PR管理</li>
+                            <li>项目文档自动更新</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COS MCP -->
+            <div class="server-block cos-server">
+                <div class="server-header">
+                    <div class="server-icon">☁️</div>
+                    <div class="server-info">
+                        <h3 class="server-name">cos-mcp</h3>
+                        <p class="server-tagline">腾讯云COS存储管理</p>
+                    </div>
+                    <div class="server-badge">10+ 工具</div>
+                </div>
+
+                <div class="server-content">
+                    <div class="server-description">
+                        <p>腾讯云对象存储（COS）管理服务，支持文件上传/下载/删除、对象URL生成、图片处理（AI增强、抠图、质量评估）、
+                        媒体智能封面生成等。适用于云存储管理、图片处理、媒体资源管理场景。</p>
+                    </div>
+
+                    <div class="server-capabilities">
+                        <h4 class="capabilities-title">核心能力</h4>
+                        <div class="capabilities-grid">
+                            <div class="capability-item">
+                                <span class="capability-icon">📤</span>
+                                <span class="capability-name">文件上传/下载/删除</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🔗</span>
+                                <span class="capability-name">对象URL生成</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🖼️</span>
+                                <span class="capability-name">图片处理（AI增强、抠图）</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📊</span>
+                                <span class="capability-name">图片质量评估</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🎬</span>
+                                <span class="capability-name">媒体智能封面生成</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">💧</span>
+                                <span class="capability-name">文字水印添加</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="server-use-cases">
+                        <h4 class="use-cases-title">使用场景</h4>
+                        <ul class="use-cases-list">
+                            <li>云存储管理和文件分发</li>
+                            <li>图片处理和优化</li>
+                            <li>媒体资源智能管理</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Supabase MCP -->
+            <div class="server-block supabase-server">
+                <div class="server-header">
+                    <div class="server-icon">🗄️</div>
+                    <div class="server-info">
+                        <h3 class="server-name">supabase-mcp</h3>
+                        <p class="server-tagline">Supabase云数据库管理</p>
+                    </div>
+                    <div class="server-badge">全套数据库操作</div>
+                </div>
+
+                <div class="server-content">
+                    <div class="server-description">
+                        <p>Supabase云数据库管理服务，基于PostgreSQL提供完整的数据库操作能力。支持表结构管理、数据CRUD和查询、
+                        实时订阅等功能。适用于云数据库管理、数据持久化、实时数据同步场景。</p>
+                    </div>
+
+                    <div class="server-capabilities">
+                        <h4 class="capabilities-title">核心能力</h4>
+                        <div class="capabilities-grid">
+                            <div class="capability-item">
+                                <span class="capability-icon">🗃️</span>
+                                <span class="capability-name">PostgreSQL数据库操作</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📋</span>
+                                <span class="capability-name">表结构管理</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">✏️</span>
+                                <span class="capability-name">数据CRUD和查询</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">⚡</span>
+                                <span class="capability-name">实时订阅</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🔒</span>
+                                <span class="capability-name">行级权限控制</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🔄</span>
+                                <span class="capability-name">数据迁移和备份</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="server-use-cases">
+                        <h4 class="use-cases-title">使用场景</h4>
+                        <ul class="use-cases-list">
+                            <li>云数据库管理</li>
+                            <li>数据持久化和查询</li>
+                            <li>实时数据同步</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- shadcn/ui -->
+            <div class="server-block shadcn-server">
+                <div class="server-header">
+                    <div class="server-icon">🎨</div>
+                    <div class="server-info">
+                        <h3 class="server-name">shadcn-ui</h3>
+                        <p class="server-tagline">shadcn/ui v4组件库</p>
+                    </div>
+                    <div class="server-badge">5 工具</div>
+                </div>
+
+                <div class="server-content">
+                    <div class="server-description">
+                        <p>shadcn/ui v4组件库集成，提供高质量的React组件源码、演示代码、组件元数据等。支持组件快速集成、
+                        代码示例获取、设计系统构建。适用于React组件开发、UI库集成场景。</p>
+                    </div>
+
+                    <div class="server-capabilities">
+                        <h4 class="capabilities-title">核心能力</h4>
+                        <div class="capabilities-grid">
+                            <div class="capability-item">
+                                <span class="capability-icon">📦</span>
+                                <span class="capability-name">获取组件源码</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📖</span>
+                                <span class="capability-name">查看组件演示代码</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📋</span>
+                                <span class="capability-name">列出所有可用组件</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">📄</span>
+                                <span class="capability-name">获取组件元数据</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🌳</span>
+                                <span class="capability-name">浏览仓库目录结构</span>
+                            </div>
+                            <div class="capability-item">
+                                <span class="capability-icon">🧩</span>
+                                <span class="capability-name">获取区块(blocks)源码</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="server-use-cases">
+                        <h4 class="use-cases-title">使用场景</h4>
+                        <ul class="use-cases-list">
+                            <li>React组件开发</li>
+                            <li>UI库快速集成</li>
+                            <li>设计系统构建</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Architecture Section -->
+    <section class="integration-section" id="integration">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">集成架构</h2>
+                <p class="section-subtitle">MCP协议实现智能体与外部系统的标准化集成</p>
+            </div>
+
+            <div class="architecture-diagram">
+                <div class="architecture-layer layer-agents">
+                    <div class="layer-title">智能体层</div>
+                    <div class="layer-content">
+                        <div class="layer-node">G系列</div>
+                        <div class="layer-node">X系列</div>
+                        <div class="layer-node">E系列</div>
+                        <div class="layer-node">R系列</div>
+                        <div class="layer-node">M系列</div>
+                        <div class="layer-node">Z系列</div>
+                    </div>
+                </div>
+
+                <div class="architecture-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-label">MCP Protocol</div>
+                </div>
+
+                <div class="architecture-layer layer-mcp">
+                    <div class="layer-title">MCP服务层</div>
+                    <div class="layer-content">
+                        <div class="layer-node">chrome-mcp</div>
+                        <div class="layer-node">playwright-mcp</div>
+                        <div class="layer-node">context7</div>
+                        <div class="layer-node">lark-mcp</div>
+                        <div class="layer-node">github-mcp</div>
+                        <div class="layer-node">cos-mcp</div>
+                        <div class="layer-node">supabase-mcp</div>
+                        <div class="layer-node">shadcn-ui</div>
+                    </div>
+                </div>
+
+                <div class="architecture-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-label">External APIs</div>
+                </div>
+
+                <div class="architecture-layer layer-external">
+                    <div class="layer-title">外部系统层</div>
+                    <div class="layer-content">
+                        <div class="layer-node">浏览器</div>
+                        <div class="layer-node">飞书</div>
+                        <div class="layer-node">GitHub</div>
+                        <div class="layer-node">腾讯云</div>
+                        <div class="layer-node">Supabase</div>
+                        <div class="layer-node">等等...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="architecture-benefits">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔌</div>
+                    <h4 class="benefit-title">标准化集成</h4>
+                    <p class="benefit-text">基于MCP协议的统一接口，降低集成复杂度</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h4 class="benefit-title">高度解耦</h4>
+                    <p class="benefit-text">智能体与外部系统解耦，易于扩展和维护</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔄</div>
+                    <h4 class="benefit-title">即插即用</h4>
+                    <p class="benefit-text">新增MCP服务器无需修改智能体代码</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h4 class="benefit-title">安全可控</h4>
+                    <p class="benefit-text">统一的权限控制和访问管理机制</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">核心价值</h2>
+                <p class="section-subtitle">MCP服务器为智能体系统带来的关键能力提升</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-number">01</div>
+                    <h3 class="benefit-item-title">全场景覆盖</h3>
+                    <p class="benefit-item-text">
+                        8个专业服务器覆盖浏览器自动化、数据存储、协同办公、代码管理等全业务场景，
+                        150+工具方法满足各类需求。
+                    </p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">02</div>
+                    <h3 class="benefit-item-title">即插即用</h3>
+                    <p class="benefit-item-text">
+                        基于MCP协议的标准化接口，新增服务器无需修改智能体代码，
+                        实现真正的即插即用和快速扩展。
+                    </p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">03</div>
+                    <h3 class="benefit-item-title">高度解耦</h3>
+                    <p class="benefit-item-text">
+                        智能体层与外部系统层完全解耦，通过MCP服务层进行通信，
+                        提升系统稳定性和可维护性。
+                    </p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">04</div>
+                    <h3 class="benefit-item-title">安全可控</h3>
+                    <p class="benefit-item-text">
+                        统一的权限控制和访问管理机制，确保外部系统调用的安全性，
+                        支持细粒度的权限配置。
+                    </p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">05</div>
+                    <h3 class="benefit-item-title">专业能力</h3>
+                    <p class="benefit-item-text">
+                        每个MCP服务器都是特定领域的专业工具，提供深度集成能力，
+                        从简单操作到复杂工作流全面支持。
+                    </p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">06</div>
+                    <h3 class="benefit-item-title">生态开放</h3>
+                    <p class="benefit-item-text">
+                        MCP协议是开放标准，支持社区贡献和第三方服务器，
+                        不断扩展平台能力边界。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🚀</span>
+                        <span class="logo-text">ZTL数智化作战中心</span>
+                    </div>
+                    <p class="footer-tagline">餐饮行业数智化转型的智能体协作平台</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">核心系统</h4>
+                        <ul class="footer-list">
+                            <li><a href="agents.html">60个智能体</a></li>
+                            <li><a href="skills.html">33个技能包</a></li>
+                            <li><a href="commands.html">24个命令</a></li>
+                            <li><a href="mcp-servers.html">8个MCP服务</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">技术架构</h4>
+                        <ul class="footer-list">
+                            <li><a href="#">三层架构</a></li>
+                            <li><a href="#">执行流程</a></li>
+                            <li><a href="#">MCP协议</a></li>
+                            <li><a href="#">API文档</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">资源</h4>
+                        <ul class="footer-list">
+                            <li><a href="#">项目文档</a></li>
+                            <li><a href="#">开发指南</a></li>
+                            <li><a href="#">最佳实践</a></li>
+                            <li><a href="#">更新日志</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ZTL数智化作战中心. Powered by Claude Sonnet 4.5</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/common.js"></script>
+    <script src="scripts/mcp-servers.js"></script>
+</body>
+</html>

@@ -87,6 +87,7 @@ The command system (`/command`) provides one-shot workflows. Key commands:
 
 **Agent Orchestration**:
 - `/trees <feature> <parallel-count> <description>` - Parallel execution workflow for multi-solution exploration
+- `/trees-clean` - Thoroughly clean all worktrees, branches, and directory remnants created by /trees command
 
 ### Common Development Tasks
 
@@ -304,7 +305,7 @@ trees/                   # Parallel execution workspaces
 ### Naming Conventions
 
 **Agents**: `[字母][数字]-名称.md`
-- Examples: `G1-经营分析优化师.md`, `X3-平面设计师.md`, `GG-战略规划总监.md`
+- Examples: `G1-经营分析优化师.md`, `X3-平面设计师.md`, `GG-战略组组长.md`
 
 **Commands**: Short verbs or abbreviations
 - Examples: `prp.md`, `test.md`, `github-pull.md`

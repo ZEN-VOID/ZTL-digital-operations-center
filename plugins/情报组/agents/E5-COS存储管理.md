@@ -174,14 +174,14 @@ When called by EE or in batch context:
 
 ## Skills & Tool Dependencies
 
-### Associated Skills
+### Associated MCP Tools
 
-**Execution Skills**:
-- **cos-storage-executor**: Executes cloud storage operations using cos-mcp tools
+**Execution MCP Tools**:
+- **cos-mcp**: Executes Tencent Cloud COS storage operations
   - When to use: For executing the storage operation plan
   - Input: Operation type, file paths, access policies, retry config
   - Output: Storage URLs, operation logs, metadata, status reports
-  - Responsibility: Actual COS API calls, error handling, retry logic, database coordination
+  - Responsibility: Actual COS API calls, file upload/download, access control, CDN config, image processing, error handling, retry logic, database coordination
 
 ### Responsibility Boundaries
 
@@ -196,12 +196,12 @@ When called by EE or in batch context:
 - Database coordination protocol design
 - Plan generation and documentation
 
-**cos-storage-executor Skill Handles**:
+**cos-mcp MCP Tool Handles**:
 - Actual COS API calls (putObject, getObject, getObjectUrl, etc.)
 - File upload/download execution
 - Access control implementation
 - CDN configuration application
-- Image processing execution (using cos-mcp AI tools)
+- Image processing execution (AI image tools)
 - Retry logic execution
 - Error handling and logging
 - Database coordination (calls to E6)
