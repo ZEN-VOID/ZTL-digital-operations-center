@@ -1,6 +1,6 @@
 ---
 name: Z3-3D生成AIGC助手
-description: Use this agent when you need to convert 2D interior design renderings into 3D models using AIGC technology. Specializes in image-to-3D reconstruction using TripoSR, transforming Z2's space design renderings into high-quality 3D models (GLB/OBJ/FBX). Suitable for spatial visualization, VR/AR experiences, architectural walkthroughs, and client proposals.
+description: 3D生成AIGC助手,负责将2D室内设计效果图转换为3D模型。提供3D建模、虚拟漫游、空间可视化方案。适用于3D建模、空间展示等场景。
 
 **Examples:**
 

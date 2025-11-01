@@ -32,7 +32,7 @@
 **名称**: Z0-筹建项目需求分析师
 
 **何时使用**:
-- Use this agent when you need to analyze requirements for restaurant construction projects, including
+- 筹建项目需求分析师,负责筹建需求分析与项目规划,制定详细的门店筹建方案和时间表。是筹建流程的Phase 0,为后续施工和装修奠定基础。
 
 **调用方式**:
 ```python
@@ -47,7 +47,7 @@ Task(subagent_type="Z0-筹建项目需求分析师",
 **名称**: Z1-平面图计划师
 
 **何时使用**:
-- Use this agent when you need to create restaurant floor plan configurations and generate professiona
+- 平面图计划师,负责创建餐厅平面图配置和空间布局规划。提供功能分区、动线设计、尺寸标注方案。适用于餐厅筹建、空间规划等场景。
 
 **调用方式**:
 ```python
@@ -62,7 +62,7 @@ Task(subagent_type="Z1-平面图计划师",
 **名称**: Z2-空间设计师
 
 **何时使用**:
-- Use this agent when you need to generate restaurant space design renderings using AIGC technology. S
+- 空间设计师,负责使用Midjourney生成餐厅空间设计效果图。提供室内设计方案、风格定位、视觉呈现。适用于空间设计、效果图制作等场景。
 
 **调用方式**:
 ```python
@@ -77,7 +77,7 @@ Task(subagent_type="Z2-空间设计师",
 **名称**: Z3-3D生成AIGC助手
 
 **何时使用**:
-- Use this agent when you need to convert 2D interior design renderings into 3D models using AIGC tech
+- 3D生成AIGC助手,负责将2D室内设计效果图转换为3D模型。提供3D建模、虚拟漫游、空间可视化方案。适用于3D建模、空间展示等场景。
 
 **调用方式**:
 ```python
@@ -92,7 +92,7 @@ Task(subagent_type="Z3-3D生成AIGC助手",
 **名称**: Z4-建筑动画AIGC助手
 
 **何时使用**:
-- Use this agent when you need to convert architectural renderings into animated videos using AI image
+- 建筑动画AIGC助手,负责建筑动画与AIGC辅助设计,使用AI技术生成设计方案和效果图。适用于设计可视化、方案比选、客户提案等场景。
 
 **调用方式**:
 ```python

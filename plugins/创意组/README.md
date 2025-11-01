@@ -34,7 +34,7 @@
 14. **X6-内容营销专家** - X6-内容营销专家
 15. **X7-React前端设计师** - X6-React前端设计师
 16. **X8-Gif动图设计师** - X7-Gif动图设计师
-17. **X9-算法艺术家** - X8-算法艺术家
+17. **X9-算法艺术家** - X9-算法艺术家
 18. **XX-创意组组长** - XX-创意组组长
 
 ### 智能体详情
@@ -44,7 +44,7 @@
 **名称**: X0-内容创意需求分析师
 
 **何时使用**:
-- Use this agent when:\
+- 内容创意需求分析师,负责创意项目需求分析与策划,将模糊创意转化为结构化需求文档。是创意生产流程的Phase 0,为下游执行团队提供清晰的项目规格。适用于视频制作、营销活动、品牌内容等创意项目启动阶段。
 
 **调用方式**:
 ```python
@@ -59,7 +59,7 @@ Task(subagent_type="X0-内容创意需求分析师",
 **名称**: X1-广告策划师
 
 **何时使用**:
-- Use this agent when:
+- 广告策划师,专注于广告策略规划与创意提案,基于市场洞察和消费者心理,提供创新的广告解决方案。适用于广告campaign策划、品牌传播、营销活动设计等场景。
 
 **调用方式**:
 ```python
@@ -74,7 +74,7 @@ Task(subagent_type="X1-广告策划师",
 **名称**: X9-AIGC图片处理
 
 **何时使用**:
-- Use this agent when:\
+- AIGC图片处理,提供AIGC图片生成与处理能力,通过AI技术快速生成高质量创意内容。适用于批量内容生产、快速原型制作、创意素材生成等场景。
 
 **调用方式**:
 ```python
@@ -89,7 +89,7 @@ Task(subagent_type="X10-AIGC图片处理",
 **名称**: X11-AIGC视频生成
 
 **何时使用**:
-- Use this agent when:
+- AIGC视频生成,提供AIGC视频生成能力,通过AI技术快速生成高质量创意内容。适用于批量内容生产、快速原型制作、创意素材生成等场景。
 
 **调用方式**:
 ```python
@@ -104,7 +104,7 @@ Task(subagent_type="X11-AIGC视频生成",
 **名称**: X10-AIGC音乐创作
 
 **何时使用**:
-- Use this agent when:
+- AIGC音乐创作,提供AIGC音乐创作能力,通过AI技术快速生成高质量创意内容。适用于批量内容生产、快速原型制作、创意素材生成等场景。
 
 **调用方式**:
 ```python
@@ -119,7 +119,7 @@ Task(subagent_type="X12-AIGC音乐创作",
 **名称**: X12-AIGC语音合成
 
 **何时使用**:
-- Use this agent when:
+- AIGC语音合成,提供AIGC语音合成能力,通过AI技术快速生成高质量创意内容。适用于批量内容生产、快速原型制作、创意素材生成等场景。
 
 **调用方式**:
 ```python
@@ -134,7 +134,7 @@ Task(subagent_type="X13-AIGC语音合成",
 **名称**: X14-社交媒体视频剪辑师
 
 **何时使用**:
-- Use this agent when:
+- 社交媒体视频剪辑师,提供AIGC社交媒体视频剪辑能力,通过AI技术快速生成高质量创意内容。适用于批量内容生产、快速原型制作、创意素材生成等场景。
 
 **调用方式**:
 ```python
@@ -149,7 +149,7 @@ Task(subagent_type="X14-社交媒体视频剪辑师",
 **名称**: X15-视频编辑师
 
 **何时使用**:
-- Use this agent when:
+- 视频编辑师,提供AIGC视频编辑能力,通过AI技术快速生成高质量创意内容。适用于批量内容生产、快速原型制作、创意素材生成等场景。
 
 **调用方式**:
 ```python
@@ -164,7 +164,7 @@ Task(subagent_type="X15-视频编辑师",
 **名称**: X16-时间戳精准专家
 
 **何时使用**:
-- Use this agent when:
+- 时间戳精准专家,专注于视频音频的帧级精确时间戳提取与剪辑点分析。通过波形分析和静音检测技术,提供帧精度的剪辑建议。适用于视频精剪、播客制作、多轨同步、语音边界检测等场景。
 
 **调用方式**:
 ```python
@@ -179,7 +179,7 @@ Task(subagent_type="X16-时间戳精准专家",
 **名称**: X2-文案创作师
 
 **何时使用**:
-- Use this agent when:
+- 文案创作师,负责营销文案创作与内容策划,撰写具有说服力和感染力的商业文案。适用于产品文案、营销推文、品牌故事、活动策划等场景。
 
 **调用方式**:
 ```python
@@ -194,7 +194,7 @@ Task(subagent_type="X2-文案创作师",
 **名称**: X3-设计模板解构师
 
 **何时使用**:
-- Use this agent when:\
+- 设计模板解构师,专注于设计模板解构与视觉元素分析,将优秀设计拆解为可复用的设计语言和模板。适用于设计系统建设、品牌VI规范、模板库构建等场景。
 
 **调用方式**:
 ```python
@@ -209,7 +209,7 @@ Task(subagent_type="X3-设计模板解构师",
 **名称**: X4-X4-品牌Style策划师
 
 **何时使用**:
-- Use this agent when:
+- 品牌Style策划师,负责品牌风格定义与视觉识别设计,建立统一的品牌视觉语言和设计规范。适用于品牌设计、VI系统、风格指南制定等场景。
 
 **调用方式**:
 ```python
@@ -224,7 +224,7 @@ Task(subagent_type="X4-品牌Style策划师",
 **名称**: X5-X5-Canvas图文排版师
 
 **何时使用**:
-- Use this agent when you need professional graphic design, layout composition, poster design, icon de
+- Canvas图文排版师,专注于社交媒体内容策划与运营,制定social内容矩阵和传播策略。适用于抖音、小红书、微信等平台的内容运营和增长策略。
 
 **调用方式**:
 ```python
@@ -239,7 +239,7 @@ Task(subagent_type="X5-Canvas图文排版师",
 **名称**: X6-内容营销专家
 
 **何时使用**:
-- Use this agent when:
+- 内容营销专家,负责内容营销策略与传播规划,通过优质内容驱动用户增长和品牌认知。适用于内容矩阵搭建、传播策略、用户增长等场景。
 
 **调用方式**:
 ```python
@@ -254,7 +254,7 @@ Task(subagent_type="X6-内容营销专家",
 **名称**: X6-React前端设计师
 
 **何时使用**:
-- Use this agent when you need professional frontend design and UX/UI architecture for React-based app
+- React前端设计师,负责专业的前端设计和UX/UI架构,精通React生态系统和现代前端开发。提供组件设计、交互方案、前端架构。适用于前端开发、用户体验优化等场景。
 
 **调用方式**:
 ```python
@@ -269,7 +269,7 @@ Task(subagent_type="X7-React前端设计师",
 **名称**: X7-Gif动图设计师
 
 **何时使用**:
-- Use this agent when users need animated GIF creation for Slack, social media, or digital marketing c
+- Gif动图设计师,专注于短视频视觉叙事的动画GIF艺术家。擅长创建引人入胜的循环动画、表情包、社交媒体内容。适用于社交媒体营销、品牌传播等场景。
 
 **调用方式**:
 ```python
@@ -281,10 +281,10 @@ Task(subagent_type="X8-Gif动图设计师",
 
 #### X9-算法艺术家
 
-**名称**: X8-算法艺术家
+**名称**: X9-算法艺术家
 
 **何时使用**:
-- Use this agent when users need computational algorithmic art creation, generative art design, or cod
+- 算法艺术家,专注于创建计算生成艺术和代码驱动的视觉设计。使用p5.js构建原创算法哲学,通过流场、粒子系统、噪声驱动图案创造独特的数字美学。适用于品牌视觉创新、菜单背景设计、包装图案生成等场景。
 
 **调用方式**:
 ```python
@@ -299,7 +299,7 @@ Task(subagent_type="X9-算法艺术家",
 **名称**: XX-创意组组长
 
 **何时使用**:
-- Use this agent when the user needs creative work coordination, task decomposition, or quality contro
+- 创意组组长,负责创意工作协调、任务分解和质量保障,统筹X0-X16专业智能体。适用于创意项目管理、团队协调、跨职能协作等场景。
 
 **调用方式**:
 ```python

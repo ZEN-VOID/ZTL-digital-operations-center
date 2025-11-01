@@ -1,0 +1,1243 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2025-11-01T19:16:50.382Z",
+  "totalAgents": 93,
+  "groups": [
+    "供应组",
+    "创意组",
+    "开发组",
+    "情报组",
+    "战略组",
+    "指挥部",
+    "筹建组",
+    "美团组",
+    "行政组"
+  ],
+  "agents": [
+    {
+      "id": "C0",
+      "name": "供应需求分析师",
+      "description": "供应需求分析师,负责供应链需求分析与方案设计,识别供应链痛点并提供解决方案。是供应链优化的Phase 0,为后续执行奠定基础。",
+      "group": "供应组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组/agents/C0-供应需求分析师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "C1",
+      "name": "采购执行经理",
+      "description": "采购执行经理,负责餐饮企业采购计划制定、供应商订单管理、采购流程优化、交付协调。主动用于采购计划生成、批量订单规划、供应商协调、紧急采购响应、采购成本优化等场景。",
+      "group": "供应组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组/agents/C1-采购执行经理.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "C2",
+      "name": "库存管理员",
+      "description": "库存管理员,负责餐饮企业库存优化规划、补货策略设计、库存周转率分析、损耗控制方案。主动用于库存策略优化、补货计划生成、库存预警设置、跨店调拨规划、损耗分析等场景。",
+      "group": "供应组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组/agents/C2-库存管理员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "C3",
+      "name": "成本卡管理员",
+      "description": "成本卡管理员,负责餐饮企业菜品成本核算规划、成本卡体系设计、成本优化分析、定价策略制定。主动用于成本卡创建规划、成本差异分析、成本优化方案、定价模型设计、成本预算编制等场景。",
+      "group": "供应组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组/agents/C3-成本卡管理员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "C4",
+      "name": "供应商管理员",
+      "description": "供应商关系管理与绩效评估规划专家,负责供应商准入评估方案、供应商绩效评估体系、供应商风险管理策略、合同管理与谈判策略。主动用于供应商准入评审、季度绩效考核规划、供应商风险预警、合同续签谈判等场景。",
+      "group": "供应组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组/agents/C4-供应商管理员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "C5",
+      "name": "分账管理员",
+      "description": "分账规则设计与利润分配规划专家,负责分账规则设计、利润分配计算方案、多方财务分配机制、分账透明度审计。主动用于合伙人分账规则配置、平台抽佣分账设计、员工提成方案设计、供应商返点分配规划等场景。",
+      "group": "供应组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组/agents/C5-分账管理员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "CC",
+      "name": "供应组组长",
+      "description": "供应组战略规划与协调指挥官,负责供应链全局战略规划、统筹协调C0-C5专业智能体、供应链数字化转型和持续优化。主动用于供应链战略制定、跨智能体协同调度、重大供应链问题决策、供应链系统性优化等场景。",
+      "group": "供应组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/供应组/agents/CC-供应组组长.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "E0",
+      "name": "情报需求分析师",
+      "description": "情报需求分析师,负责调研需求分析与项目规划,设计调研方案和数据采集策略。是情报获取流程的Phase 0,为数据收集和分析奠定基础。",
+      "group": "情报组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组/agents/E0-情报需求分析师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "E1",
+      "name": "深度调研员",
+      "description": "深度调研员,专注于行业深度调研与竞品分析,通过多维度研究提供战略洞察。适用于市场调研、竞品分析、行业研究等场景。",
+      "group": "情报组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组/agents/E1-深度调研员.md",
+      "expertise": [],
+      "tools": [
+        "mcp__chart-generator__*",
+        "Read",
+        "Write",
+        "Bash",
+        "Grep",
+        "Glob"
+      ],
+      "model": "sonnet",
+      "mcpServers": [
+        {
+          "name": "chart-generator",
+          "tools": [
+            "mcp__chart-generator__*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "name": "Chrome网页采集",
+      "description": "Chrome网页采集,专注于网页数据采集策略规划与浏览器自动化方案设计。通过反爬策略、选择器设计、质量验证框架提供完整的采集计划。适用于电商数据采集、竞品信息抓取、行业资讯监控等场景。",
+      "group": "情报组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组/agents/E2-Chrome网页采集.md",
+      "expertise": [],
+      "tools": [
+        "mcp__chrome-devtools__*",
+        "Read",
+        "Write",
+        "Bash"
+      ],
+      "model": "sonnet",
+      "mcpServers": [
+        {
+          "name": "chrome-devtools",
+          "tools": [
+            "mcp__chrome-devtools__*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E3",
+      "name": "深度爬虫",
+      "description": "深度爬虫,负责企业级网页爬取策略规划,处理复杂的多页面导航、动态内容加载、反爬虫机制。提供分布式爬虫架构设计和大规模数据采集方案。适用于行业数据库构建、市场数据监控等场景。",
+      "group": "情报组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组/agents/E3-深度爬虫.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "E4",
+      "name": "深度情报分析",
+      "description": "深度情报分析,负责综合情报分析策略规划,整合多源数据进行深度洞察。提供竞品分析框架、市场趋势预测、战略决策支持。适用于战略研究、市场分析、风险评估等场景。",
+      "group": "情报组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组/agents/E4-深度情报分析.md",
+      "expertise": [],
+      "tools": [
+        "mcp__chart-generator__*",
+        "Read",
+        "Write",
+        "Bash",
+        "Grep",
+        "Glob"
+      ],
+      "model": "sonnet",
+      "mcpServers": [
+        {
+          "name": "chart-generator",
+          "tools": [
+            "mcp__chart-generator__*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E5",
+      "name": "COS存储管理",
+      "description": "COS存储管理,负责腾讯云对象存储(COS)管理策略规划,提供文件上传、下载、图片处理、数据归档方案。支持AIGC内容存储、数据备份、CDN加速。适用于媒体资产管理、数据湖构建等场景。",
+      "group": "情报组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组/agents/E5-COS存储管理.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "E6",
+      "name": "Supabase数据库管理",
+      "description": "Supabase数据库管理,负责Supabase PostgreSQL数据库管理策略规划,提供表结构设计、查询优化、数据迁移方案。支持实时数据订阅、行级安全策略。适用于应用数据管理、数据分析等场景。",
+      "group": "情报组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组/agents/E6-Supabase数据库管理.md",
+      "expertise": [],
+      "tools": [
+        "mcp__supabase-mcp__*",
+        "mcp__lark-mcp__*",
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Grep",
+        "Glob"
+      ],
+      "model": "sonnet",
+      "mcpServers": [
+        {
+          "name": "supabase-mcp",
+          "tools": [
+            "mcp__supabase-mcp__*"
+          ]
+        },
+        {
+          "name": "lark-mcp",
+          "tools": [
+            "mcp__lark-mcp__*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EE",
+      "name": "情报组组长",
+      "description": "情报组组长,负责情报组整体战略规划与协调,统筹E0-E6专业智能体,提供情报级决策支持和多智能体编排能力。适用于复杂情报项目、市场研究、数据采集等场景。",
+      "group": "情报组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/情报组/agents/EE-情报组组长.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "F0",
+      "name": "产品经理",
+      "description": "产品经理,负责需求分析与技术方案设计,将业务需求转化为可执行的技术规格。是开发流程的Phase 0,为后续编码和测试奠定基础。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F0-产品经理.md",
+      "expertise": [],
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Glob",
+        "Grep"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "F1",
+      "name": "前端开发",
+      "description": "前端开发,负责软件开发与技术实现,提供专业的编程和系统集成服务。适用于系统开发、功能实现、技术攻关等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F1-前端开发.md",
+      "expertise": [],
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Glob",
+        "Grep"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "F10",
+      "name": "Python专家",
+      "description": "Python专家,FastAPI后端开发专家,精通Pydantic V2、AsyncIO和Supabase集成。提供高性能异步API开发、数据验证、数据库交互方案。适用于后端开发、API设计、性能优化等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F10-Python专家.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "F11",
+      "name": "TypeScript专家",
+      "description": "TypeScript专家,Next.js 16 + React + TypeScript多智能体协作平台专家。精通Server Components、App Router、TypeScript高级特性。适用于前端开发、应用架构、类型安全等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F11-TypeScript专家.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash, Grep, Glob"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "F12",
+      "name": "JavaScript专家",
+      "description": "JavaScript专家,现代JavaScript (ES2024+)专家,深入掌握浏览器API和异步编程。提供原生JS解决方案、性能优化、浏览器兼容性方案。适用于前端开发、性能优化等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F12-JavaScript专家.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash, Grep, Glob"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "F13",
+      "name": "代码审查专家",
+      "description": "代码审查专家,资深代码审查专家,专注于质量、安全性和可维护性。提供代码审查标准、安全漏洞检测、重构建议。适用于代码审查、质量保障、技术债务管理等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F13-代码审查专家.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash, Grep, Glob"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "F14",
+      "name": "测试工程师",
+      "description": "测试工程师,测试自动化和质量保障专家。提供测试策略、自动化测试框架、持续集成方案。主动用于测试策略制定、测试用例生成、质量把关等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F14-测试工程师.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "F15",
+      "name": "性能优化专家",
+      "description": "性能优化专家,Web应用性能优化专家,擅长Core Web Vitals优化。提供性能分析、加载优化、渲染优化方案。适用于性能调优、用户体验提升等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F15-性能优化专家.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash, Grep, Glob"
+      ],
+      "model": "opus"
+    },
+    {
+      "id": "F16",
+      "name": "调试专家",
+      "description": "调试专家,系统级调试和问题诊断专家。提供深度调试技术、问题定位方法、根因分析方案。主动用于调试复杂问题、性能瓶颈分析等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F16-调试专家.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash, Grep, Glob, WebSearch, TodoWrite"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "F17",
+      "name": "错误侦探",
+      "description": "错误侦探,错误分析和根因诊断专家。提供错误模式识别、根因分析框架、预防措施建议。主动用于错误模式分析、问题预防等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F17-错误侦探.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash, Grep, Glob, WebSearch, TodoWrite"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "F2",
+      "name": "UI设计师",
+      "description": "UI设计师,负责数字智能平台的UI/UX设计,专注于用户体验优化和界面设计规范。提供设计系统、原型设计、交互方案。适用于产品设计、界面优化、用户体验改进等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F2-UI设计师.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "F3",
+      "name": "全栈开发",
+      "description": "全栈开发,负责数字智能协作平台的全栈开发,精通前后端技术栈。提供完整的应用开发解决方案,从需求分析到部署上线。适用于系统开发、功能实现、技术攻关等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F3-全栈开发.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash"
+      ],
+      "model": "opus"
+    },
+    {
+      "id": "F4",
+      "name": "文档报告生成",
+      "description": "文档报告生成,负责技术文档和报告生成,专注于数字智能协作平台的文档体系建设。提供API文档、用户手册、技术规范。适用于文档编写、知识库建设等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F4-文档报告生成.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash, Grep"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "F5",
+      "name": "后端架构师",
+      "description": "后端架构师,负责数字智能协作平台的后端架构设计,专注于系统可扩展性和性能优化。提供微服务架构、API设计、数据库优化方案。适用于系统架构设计、技术选型等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F5-后端架构师.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "F6",
+      "name": "数据库架构师",
+      "description": "数据库架构师,负责Supabase PostgreSQL数据库架构设计,专注于数据建模和性能优化。提供表结构设计、索引优化、查询性能调优方案。适用于数据架构设计、性能优化等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F6-数据库架构师.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash"
+      ],
+      "model": "opus"
+    },
+    {
+      "id": "F7",
+      "name": "API文档生成",
+      "description": "API文档生成,负责数字智能协作平台的API文档生成,专注于接口规范和文档自动化。提供OpenAPI规范、接口文档、SDK生成方案。适用于API设计、接口文档管理等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F7-API文档生成.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash"
+      ],
+      "model": "haiku"
+    },
+    {
+      "id": "F8",
+      "name": "云架构师",
+      "description": "云架构师,负责腾讯云基础设施架构设计,专注于云原生架构和DevOps实践。提供云资源规划、容器编排、CI/CD流水线方案。适用于云迁移、基础设施优化等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F8-云架构师.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash"
+      ],
+      "model": "opus"
+    },
+    {
+      "id": "F9",
+      "name": "架构评审",
+      "description": "架构评审,负责数字智能协作平台的架构评审,专注于代码质量和架构合理性审查。提供架构建议、重构方案、技术债务管理。适用于代码审查、架构优化等场景。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/F9-架构评审.md",
+      "expertise": [],
+      "tools": [],
+      "model": "opus",
+      "color": "gray"
+    },
+    {
+      "id": "FF",
+      "name": "开发组组长",
+      "description": "开发组组长,负责统筹协调开发组全部智能体(F0-F17),制定开发计划,分配任务,质量把控,进度管理和团队协作。主动用于复杂开发项目、多智能体协作和全流程开发管理。",
+      "group": "开发组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/agents/FF-开发组组长.md",
+      "expertise": [],
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Glob",
+        "Grep",
+        "Task"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "G0",
+      "name": "战略需求解析师",
+      "description": "战略需求解析师,负责战略需求的深度分析与澄清,通过系统性访谈和需求建模,将模糊的业务目标转化为清晰的执行方案。适用于项目启动、战略规划、需求定义等场景。",
+      "group": "战略组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组/agents/G0-战略需求解析师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "purple"
+    },
+    {
+      "id": "G1",
+      "name": "经营分析优化师",
+      "description": "经营分析优化师,专注于经营数据分析与业务优化,通过数据驱动的方法识别经营问题、提供改进建议。适用于门店经营分析、成本优化、效率提升等场景。",
+      "group": "战略组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组/agents/G1-经营分析优化师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "G2",
+      "name": "产品力打造专家",
+      "description": "产品力打造专家,负责产品定位与优化策略,基于市场分析和用户洞察,提供产品创新和差异化竞争方案。适用于新品开发、产品重塑、市场定位等场景。",
+      "group": "战略组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组/agents/G2-产品力打造专家.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "purple"
+    },
+    {
+      "id": "G3",
+      "name": "区域扩张策略师",
+      "description": "区域扩张策略师,专注于选址策略与区域扩张规划,通过商圈分析、人流预测、竞争评估,提供科学的选址决策支持。适用于新店选址、区域拓展、门店布局等场景。",
+      "group": "战略组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组/agents/G3-区域扩张策略师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "purple"
+    },
+    {
+      "id": "G4",
+      "name": "商业模式设计师",
+      "description": "商业模式设计师,负责商业模式创新与盈利模式设计,通过价值链分析和商业逻辑重构,提供可持续的商业模式方案。适用于商业模式创新、盈利能力提升等场景。",
+      "group": "战略组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组/agents/G4-商业模式设计师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "purple"
+    },
+    {
+      "id": "G5",
+      "name": "连锁复制专家",
+      "description": "连锁复制专家,专注于连锁复制与标准化体系建设,将成功经验模式化,支持快速规模化扩张。适用于连锁扩张、标准化管理、复制体系建设等场景。",
+      "group": "战略组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组/agents/G5-连锁复制专家.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "purple"
+    },
+    {
+      "id": "G6",
+      "name": "数字化转型架构师",
+      "description": "数字化转型架构师,负责数字化转型战略规划与IT架构设计,推动企业数字化升级和智能化改造。适用于数字化转型、系统规划、技术架构设计等场景。",
+      "group": "战略组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组/agents/G6-数字化转型架构师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "purple"
+    },
+    {
+      "id": "G7",
+      "name": "精细化管理专家",
+      "description": "精细化管理专家,专注于流程优化与精细化管理,通过精益管理方法提升运营效率和管理水平。适用于流程优化、成本控制、效率提升等场景。",
+      "group": "战略组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组/agents/G7-精细化管理专家.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "purple"
+    },
+    {
+      "id": "G8",
+      "name": "商业数据分析师",
+      "description": "商业数据分析师,负责执行数据分析和生成商业报告,提供数据驱动的业务洞察。擅长数据可视化、趋势分析、业务建议。适用于数据分析、报告生成、决策支持等场景。",
+      "group": "战略组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组/agents/G8-商业数据分析师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "G9",
+      "name": "营销归因分析师",
+      "description": "营销归因分析师,负责设计全面的营销归因框架,分析营销渠道效果和ROI。提供多触点归因模型、营销效果评估、预算优化方案。适用于营销分析、渠道优化、ROI提升等场景。",
+      "group": "战略组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组/agents/G9-营销归因分析师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "GG",
+      "name": "战略组组长",
+      "description": "战略组组长,负责战略组整体规划与协调,统筹G0-G9专业智能体,提供战略级决策支持和多智能体编排能力。适用于复杂战略项目、业务转型规划、跨部门协作等场景。",
+      "group": "战略组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/战略组/agents/GG-战略组组长.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "purple"
+    },
+    {
+      "id": "Q1",
+      "name": "报告生成专员",
+      "description": "报告生成专员,负责将研究成果转化为结构化的综合报告。擅长从复杂数据中提炼关键洞察,创建逻辑清晰、引用规范的专业文档。适用于研究报告撰写、技术文档编制、政策建议书等场景。",
+      "group": "指挥部",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents/Q1-报告生成专员.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "Q2",
+      "name": "技术文档专员",
+      "description": "技术文档专员,技术写作和内容创作专家。主动用于用户指南、教程、README文件、架构文档,提升内容清晰度和可访问性。适用于文档编写、技术传播等场景。",
+      "group": "指挥部",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents/Q2-技术文档专员.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Grep"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "Q3",
+      "name": "变更日志专员",
+      "description": "变更日志专员,变更日志和发布说明专家。主动用于从git历史生成变更日志、创建发布说明、维护版本文档。适用于版本管理、发布流程等场景。",
+      "group": "指挥部",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents/Q3-变更日志专员.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "Q4",
+      "name": "深度研究协调官",
+      "description": "深度研究协调官,负责协调管理复杂研究项目的全流程执行。采用Open Deep Research方法论,统筹多个专业智能体按序协作,从需求澄清到最终报告生成,确保研究的系统性和完整性。适用于深度调研、学术研究、战略分析等场景。",
+      "group": "指挥部",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents/Q4-深度研究协调官.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Task, TodoWrite"
+      ],
+      "model": "opus"
+    },
+    {
+      "id": "Q5",
+      "name": "上下文协调官",
+      "description": "上下文协调官,多智能体工作流和长时任务的上下文管理专家。主动用于复杂项目、会话协调、需要跨多个智能体保持上下文连续性的场景。",
+      "group": "指挥部",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents/Q5-上下文协调官.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, TodoWrite, Bash"
+      ],
+      "model": "opus"
+    },
+    {
+      "id": "Q6",
+      "name": "项目流程协调官",
+      "description": "项目流程协调官,项目工作流编排器。主动用于管理复杂的多步骤工作流,协调多个专业智能体按序工作,进行智能路由和负载验证。适用于复杂项目管理、流程自动化等场景。",
+      "group": "指挥部",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents/Q6-项目流程协调官.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "Q7",
+      "name": "运维监控协调官",
+      "description": "运维监控协调官,监控和可观测性基础设施专家。主动用于指标收集、告警系统、日志聚合、分布式追踪、SLA监控、性能仪表板。适用于运维监控、系统可观测性等场景。",
+      "group": "指挥部",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents/Q7-运维监控协调官.md",
+      "expertise": [],
+      "tools": [
+        "Read, Write, Edit, Bash"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "Q8",
+      "name": "质量审核协调官",
+      "description": "质量审核协调官,Obsidian知识库质量保障专家。主动用于交叉检查增强工作、验证一致性、确保整个知识库的质量。适用于质量保障、内容审核等场景。",
+      "group": "指挥部",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents/Q8-质量审核协调官.md",
+      "expertise": [],
+      "tools": [
+        "Read, Grep, LS"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "QQ",
+      "name": "总指挥官",
+      "description": "总指挥官,负责全局战略规划与多智能体协同编排,统筹所有业务组,提供端到端的项目解决方案。是系统最高指挥中枢,适用于复杂项目、战略决策、跨组协作等场景。",
+      "group": "指挥部",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/agents/QQ-总指挥官.md",
+      "expertise": [],
+      "tools": [
+        "Glob",
+        "Read",
+        "Write",
+        "Task",
+        "Grep"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "R0",
+      "name": "办公业务需求分析员",
+      "description": "办公业务需求分析员,负责行政需求分析与方案制定,提供系统化的行政管理解决方案。是行政流程优化的Phase 0,为规范化管理奠定基础。",
+      "group": "行政组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组/agents/R0-办公业务需求分析员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "R1",
+      "name": "财务管理员",
+      "description": "财务管理员,负责专业的财务规划和预算管理,提供财务分析、成本控制、预算编制方案。适用于财务规划、成本优化、预算管理等场景。",
+      "group": "行政组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组/agents/R1-财务管理员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "R2",
+      "name": "人事管理员",
+      "description": "人事管理员,负责专业的人力资源规划和劳动力管理,提供招聘计划、培训方案、绩效管理方案。适用于人力资源规划、团队建设等场景。",
+      "group": "行政组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组/agents/R2-人事管理员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "R3",
+      "name": "法务专家",
+      "description": "法务专家,负责专业的法律规划和风险管理,提供合同审查、法律咨询、合规建议。适用于法律事务、风险管理等场景。",
+      "group": "行政组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组/agents/R3-法务专家.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "R4",
+      "name": "秘书",
+      "description": "秘书,负责专业的高管协助和协调支持,提供日程管理、会议组织、文件管理方案。适用于行政支持、协调管理等场景。",
+      "group": "行政组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组/agents/R4-秘书.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "R5",
+      "name": "飞书管理员",
+      "description": "飞书管理员,负责专业的飞书平台协调规划,提供飞书应用配置、工作流自动化、团队协作方案。适用于飞书管理、协作优化等场景。",
+      "group": "行政组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组/agents/R5-飞书管理员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "R6",
+      "name": "文件管理员",
+      "description": "文件管理员,负责专业的文件和文档管理规划,提供文档分类、版本控制、归档方案。适用于文档管理、知识库建设等场景。",
+      "group": "行政组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组/agents/R6-文件管理员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "R7",
+      "name": "存储管理员",
+      "description": "存储管理员,负责专业的存储基础设施规划和管理,提供存储架构设计、数据备份、容量规划方案。适用于存储管理、数据备份等场景。",
+      "group": "行政组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组/agents/R7-存储管理员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "RR",
+      "name": "行政组组长",
+      "description": "行政组组长,负责财务、人力资源、法务、IT支持等行政任务管理,统筹R1-R7专业智能体,提供行政级决策支持。适用于行政管理、跨部门协调等场景。",
+      "group": "行政组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/行政组/agents/RR-行政组组长.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "V0",
+      "name": "办公业务需求分析员",
+      "description": "办公业务需求分析员,负责美团运营需求分析与策略规划,制定针对性的运营方案。是运营流程的Phase 0,为后续执行提供清晰的策略方向。",
+      "group": "美团组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组/agents/V0-办公业务需求分析员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "V1",
+      "name": "运营管理员",
+      "description": "运营管理员,负责创建美团管家平台的运营管理计划,设计运营配置方案、流程优化方案。适用于美团运营规划、配置管理等场景。",
+      "group": "美团组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组/agents/V1-运营管理员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "V2",
+      "name": "营销管理员",
+      "description": "营销管理员,负责餐饮行业的营销策略规划和设计,提供营销活动方案、优惠券配置、RFM客户分群方案。适用于美团营销规划、活动设计等场景。",
+      "group": "美团组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组/agents/V2-营销管理员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "V4",
+      "name": "报表管理员",
+      "description": "报表管理员,负责数据分析和报表规划设计,提供报表架构、数据查询、可视化方案。适用于美团数据分析、报表设计等场景。",
+      "group": "美团组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组/agents/V4-报表管理员.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "V5",
+      "name": "网页自动化",
+      "description": "网页自动化,负责美团平台运营与效果优化,提升店铺曝光和订单转化。适用于美团店铺运营、活动策划、数据优化等场景。",
+      "group": "美团组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组/agents/V5-网页自动化.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "yellow"
+    },
+    {
+      "id": "VV",
+      "name": "美团组组长",
+      "description": "美团组组长,负责美团平台运营战略规划与团队协调,统筹V0-V8专业智能体,提升平台经营效果与数据化运营能力。适用于美团战略规划、运营优化、团队管理、跨职能协作等场景。",
+      "group": "美团组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组/agents/VV-美团组组长.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "yellow"
+    },
+    {
+      "id": "X0",
+      "name": "内容创意需求分析师",
+      "description": "内容创意需求分析师,负责创意项目需求分析与策划,将模糊创意转化为结构化需求文档。是创意生产流程的Phase 0,为下游执行团队提供清晰的项目规格。适用于视频制作、营销活动、品牌内容等创意项目启动阶段。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X0-内容创意需求分析师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "pink"
+    },
+    {
+      "id": "X1",
+      "name": "广告策划师",
+      "description": "广告策划师,专注于广告策略规划与创意提案,基于市场洞察和消费者心理,提供创新的广告解决方案。适用于广告campaign策划、品牌传播、营销活动设计等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X1-广告策划师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "pink"
+    },
+    {
+      "id": "X10",
+      "name": "AIGC图片处理",
+      "description": "AIGC图片处理,提供AIGC图片生成与处理能力,通过AI技术快速生成高质量创意内容。适用于批量内容生产、快速原型制作、创意素材生成等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X10-AIGC图片处理.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "pink"
+    },
+    {
+      "id": "X11",
+      "name": "AIGC视频生成",
+      "description": "AIGC视频生成,提供AIGC视频生成能力,通过AI技术快速生成高质量创意内容。适用于批量内容生产、快速原型制作、创意素材生成等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X11-AIGC视频生成.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "cyan"
+    },
+    {
+      "id": "X12",
+      "name": "AIGC音乐创作",
+      "description": "AIGC音乐创作,提供AIGC音乐创作能力,通过AI技术快速生成高质量创意内容。适用于批量内容生产、快速原型制作、创意素材生成等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X12-AIGC音乐创作.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "purple"
+    },
+    {
+      "id": "X13",
+      "name": "AIGC语音合成",
+      "description": "AIGC语音合成,提供AIGC语音合成能力,通过AI技术快速生成高质量创意内容。适用于批量内容生产、快速原型制作、创意素材生成等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X13-AIGC语音合成.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "purple"
+    },
+    {
+      "id": "X14",
+      "name": "社交媒体视频剪辑师",
+      "description": "社交媒体视频剪辑师,提供AIGC社交媒体视频剪辑能力,通过AI技术快速生成高质量创意内容。适用于批量内容生产、快速原型制作、创意素材生成等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X14-社交媒体视频剪辑师.md",
+      "expertise": [],
+      "tools": [
+        "Bash, Read, Write"
+      ],
+      "model": "sonnet",
+      "color": "purple"
+    },
+    {
+      "id": "X15",
+      "name": "视频编辑师",
+      "description": "视频编辑师,提供AIGC视频编辑能力,通过AI技术快速生成高质量创意内容。适用于批量内容生产、快速原型制作、创意素材生成等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X15-视频编辑师.md",
+      "expertise": [],
+      "tools": [
+        "Bash, Read, Write"
+      ],
+      "model": "sonnet",
+      "color": "indigo"
+    },
+    {
+      "id": "X16",
+      "name": "时间戳精准专家",
+      "description": "时间戳精准专家,专注于视频音频的帧级精确时间戳提取与剪辑点分析。通过波形分析和静音检测技术,提供帧精度的剪辑建议。适用于视频精剪、播客制作、多轨同步、语音边界检测等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X16-时间戳精准专家.md",
+      "expertise": [],
+      "tools": [
+        "Bash, Read, Write"
+      ],
+      "model": "opus",
+      "color": "teal"
+    },
+    {
+      "id": "X2",
+      "name": "文案创作师",
+      "description": "文案创作师,负责营销文案创作与内容策划,撰写具有说服力和感染力的商业文案。适用于产品文案、营销推文、品牌故事、活动策划等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X2-文案创作师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "pink"
+    },
+    {
+      "id": "X3",
+      "name": "设计模板解构师",
+      "description": "设计模板解构师,专注于设计模板解构与视觉元素分析,将优秀设计拆解为可复用的设计语言和模板。适用于设计系统建设、品牌VI规范、模板库构建等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X3-设计模板解构师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "pink"
+    },
+    {
+      "id": "X4",
+      "name": "品牌Style策划师",
+      "description": "品牌Style策划师,负责品牌风格定义与视觉识别设计,建立统一的品牌视觉语言和设计规范。适用于品牌设计、VI系统、风格指南制定等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X4-品牌Style策划师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "purple"
+    },
+    {
+      "id": "X5",
+      "name": "Canvas图文排版师",
+      "description": "Canvas图文排版师,专注于社交媒体内容策划与运营,制定social内容矩阵和传播策略。适用于抖音、小红书、微信等平台的内容运营和增长策略。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X5-Canvas图文排版师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "X6",
+      "name": "内容营销专家",
+      "description": "内容营销专家,负责内容营销策略与传播规划,通过优质内容驱动用户增长和品牌认知。适用于内容矩阵搭建、传播策略、用户增长等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X6-内容营销专家.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "orange"
+    },
+    {
+      "id": "X7",
+      "name": "React前端设计师",
+      "description": "React前端设计师,负责专业的前端设计和UX/UI架构,精通React生态系统和现代前端开发。提供组件设计、交互方案、前端架构。适用于前端开发、用户体验优化等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X7-React前端设计师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "X8",
+      "name": "Gif动图设计师",
+      "description": "Gif动图设计师,专注于短视频视觉叙事的动画GIF艺术家。擅长创建引人入胜的循环动画、表情包、社交媒体内容。适用于社交媒体营销、品牌传播等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X8-Gif动图设计师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "X9",
+      "name": "算法艺术家",
+      "description": "算法艺术家,专注于创建计算生成艺术和代码驱动的视觉设计。使用p5.js构建原创算法哲学,通过流场、粒子系统、噪声驱动图案创造独特的数字美学。适用于品牌视觉创新、菜单背景设计、包装图案生成等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/X9-算法艺术家.md",
+      "expertise": [],
+      "tools": []
+    },
+    {
+      "id": "XX",
+      "name": "创意组组长",
+      "description": "创意组组长,负责创意工作协调、任务分解和质量保障,统筹X0-X16专业智能体。适用于创意项目管理、团队协调、跨职能协作等场景。",
+      "group": "创意组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/创意组/agents/XX-创意组组长.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "Z0",
+      "name": "筹建项目需求分析师",
+      "description": "筹建项目需求分析师,负责筹建需求分析与项目规划,制定详细的门店筹建方案和时间表。是筹建流程的Phase 0,为后续施工和装修奠定基础。",
+      "group": "筹建组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组/agents/Z0-筹建项目需求分析师.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet"
+    },
+    {
+      "id": "Z1",
+      "name": "平面图计划师",
+      "description": "平面图计划师,负责创建餐厅平面图配置和空间布局规划。提供功能分区、动线设计、尺寸标注方案。适用于餐厅筹建、空间规划等场景。",
+      "group": "筹建组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组/agents/Z1-平面图计划师.md",
+      "expertise": [],
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Skill",
+        "Grep",
+        "Glob"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "Z2",
+      "name": "空间设计师",
+      "description": "空间设计师,负责使用Midjourney生成餐厅空间设计效果图。提供室内设计方案、风格定位、视觉呈现。适用于空间设计、效果图制作等场景。",
+      "group": "筹建组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组/agents/Z2-空间设计师.md",
+      "expertise": [],
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Skill",
+        "Grep",
+        "Glob"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "Z3",
+      "name": "3D生成AIGC助手",
+      "description": "3D生成AIGC助手,负责将2D室内设计效果图转换为3D模型。提供3D建模、虚拟漫游、空间可视化方案。适用于3D建模、空间展示等场景。",
+      "group": "筹建组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组/agents/Z3-3D生成AIGC助手.md",
+      "expertise": [],
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Skill",
+        "Grep",
+        "Glob"
+      ],
+      "model": "sonnet"
+    },
+    {
+      "id": "Z4",
+      "name": "建筑动画AIGC助手",
+      "description": "建筑动画AIGC助手,负责建筑动画与AIGC辅助设计,使用AI技术生成设计方案和效果图。适用于设计可视化、方案比选、客户提案等场景。",
+      "group": "筹建组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组/agents/Z4-建筑动画AIGC助手.md",
+      "expertise": [],
+      "tools": [],
+      "model": "sonnet",
+      "color": "purple"
+    },
+    {
+      "id": "ZZ",
+      "name": "筹建组组长",
+      "description": "筹建组AIGC总指挥官，负责门店筹建全流程管理，统筹协调Z0需求分析、Z1平面图设计、Z2空间设计AIGC、Z3三维重建AIGC、Z4动画生成AIGC，实现从需求分析到视觉交付的高效AIGC工作流",
+      "group": "筹建组",
+      "groupPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组/agents/ZZ-筹建组组长.md",
+      "expertise": [],
+      "tools": [
+        "Task",
+        "Read",
+        "Write",
+        "Edit",
+        "Grep",
+        "Glob",
+        "Bash"
+      ],
+      "color": "blue"
+    }
+  ]
+}

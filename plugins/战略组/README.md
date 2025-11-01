@@ -37,7 +37,7 @@
 **名称**: strategic-needs-analyzer
 
 **何时使用**:
-- Use this agent when the user needs to analyze strategic requirements, break down high-level goals in
+- 战略需求解析师,负责战略需求的深度分析与澄清,通过系统性访谈和需求建模,将模糊的业务目标转化为清晰的执行方案。适用于项目启动、战略规划、需求定义等场景。
 
 **调用方式**:
 ```python
@@ -52,7 +52,7 @@ Task(subagent_type="G0-战略需求解析师",
 **名称**: g1-business-analyst
 
 **何时使用**:
-- Use this agent when you need to design business analysis frameworks, plan data-driven decision syste
+- 经营分析优化师,专注于经营数据分析与业务优化,通过数据驱动的方法识别经营问题、提供改进建议。适用于门店经营分析、成本优化、效率提升等场景。
 
 **调用方式**:
 ```python
@@ -67,7 +67,7 @@ Task(subagent_type="G1-经营分析优化师",
 **名称**: g2-product-strategy
 
 **何时使用**:
-- Use this agent when the user needs strategic product development and optimization for restaurant bus
+- 产品力打造专家,负责产品定位与优化策略,基于市场分析和用户洞察,提供产品创新和差异化竞争方案。适用于新品开发、产品重塑、市场定位等场景。
 
 **调用方式**:
 ```python
@@ -82,7 +82,7 @@ Task(subagent_type="G2-产品力打造专家",
 **名称**: g3-regional-expansion-strategist
 
 **何时使用**:
-- Use this agent when the user needs strategic regional expansion planning, market entry frameworks, s
+- 区域扩张策略师,专注于选址策略与区域扩张规划,通过商圈分析、人流预测、竞争评估,提供科学的选址决策支持。适用于新店选址、区域拓展、门店布局等场景。
 
 **调用方式**:
 ```python
@@ -97,7 +97,7 @@ Task(subagent_type="G3-区域扩张策略师",
 **名称**: business-model-designer
 
 **何时使用**:
-- Use this agent when you need to design business model architectures, develop profit structure framew
+- 商业模式设计师,负责商业模式创新与盈利模式设计,通过价值链分析和商业逻辑重构,提供可持续的商业模式方案。适用于商业模式创新、盈利能力提升等场景。
 
 **调用方式**:
 ```python
@@ -112,7 +112,7 @@ Task(subagent_type="G4-商业模式设计师",
 **名称**: franchise-standardization-architect
 
 **何时使用**:
-- Use this agent when you need to design standardization system architectures, develop SOP frameworks,
+- 连锁复制专家,专注于连锁复制与标准化体系建设,将成功经验模式化,支持快速规模化扩张。适用于连锁扩张、标准化管理、复制体系建设等场景。
 
 **调用方式**:
 ```python
@@ -127,7 +127,7 @@ Task(subagent_type="G5-连锁复制专家",
 **名称**: strategic-dashboard-architect
 
 **何时使用**:
-- Use this agent when the user needs to design strategic data dashboards, plan digital transformation 
+- 数字化转型架构师,负责数字化转型战略规划与IT架构设计,推动企业数字化升级和智能化改造。适用于数字化转型、系统规划、技术架构设计等场景。
 
 **调用方式**:
 ```python
@@ -142,7 +142,7 @@ Task(subagent_type="G6-数字化转型架构师",
 **名称**: g7-sop-specialist
 
 **何时使用**:
-- Use this agent when you need to standardize restaurant operations through SOP (Standard Operating Pr
+- 精细化管理专家,专注于流程优化与精细化管理,通过精益管理方法提升运营效率和管理水平。适用于流程优化、成本控制、效率提升等场景。
 
 **调用方式**:
 ```python
@@ -157,7 +157,7 @@ Task(subagent_type="G7-精细化管理专家",
 **名称**: g8-business-data-analyst
 
 **何时使用**:
-- Use this agent when you need to execute data analysis, generate business reports, create visualizati
+- 商业数据分析师,负责执行数据分析和生成商业报告,提供数据驱动的业务洞察。擅长数据可视化、趋势分析、业务建议。适用于数据分析、报告生成、决策支持等场景。
 
 **调用方式**:
 ```python
@@ -172,7 +172,7 @@ Task(subagent_type="G8-商业数据分析师",
 **名称**: g9-marketing-attribution-strategist
 
 **何时使用**:
-- Use this agent when you need to design comprehensive marketing attribution frameworks, multi-channel
+- 营销归因分析师,负责设计全面的营销归因框架,分析营销渠道效果和ROI。提供多触点归因模型、营销效果评估、预算优化方案。适用于营销分析、渠道优化、ROI提升等场景。
 
 **调用方式**:
 ```python
@@ -187,7 +187,7 @@ Task(subagent_type="G9-营销归因分析师",
 **名称**: gg-strategic-director
 
 **何时使用**:
-- Use this agent when you need strategic planning oversight, multi-agent orchestration for complex str
+- 战略组组长,负责战略组整体规划与协调,统筹G0-G9专业智能体,提供战略级决策支持和多智能体编排能力。适用于复杂战略项目、业务转型规划、跨部门协作等场景。
 
 **调用方式**:
 ```python

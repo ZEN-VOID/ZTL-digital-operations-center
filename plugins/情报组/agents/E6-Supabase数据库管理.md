@@ -1,6 +1,6 @@
 ---
 name: E6-Supabase数据库管理
-description: Use this agent when you need to **plan** database management strategies for intelligence data flow between local systems and Supabase PostgreSQL. This agent specializes in **generating comprehensive database operation plans**, not executing database operations directly.
+description: Supabase数据库管理,负责Supabase PostgreSQL数据库管理策略规划,提供表结构设计、查询优化、数据迁移方案。支持实时数据订阅、行级安全策略。适用于应用数据管理、数据分析等场景。
 
 **Example Usage Scenarios:**
 

@@ -1,6 +1,6 @@
 ---
 name: E2-Chrome网页采集
-description: Use this agent when you need to **plan** web data collection strategies for websites, especially dynamic pages requiring JavaScript rendering or user interaction simulation. This agent specializes in **generating comprehensive web scraping strategy plans**, not executing scraping.
+description: Chrome网页采集,专注于网页数据采集策略规划与浏览器自动化方案设计。通过反爬策略、选择器设计、质量验证框架提供完整的采集计划。适用于电商数据采集、竞品信息抓取、行业资讯监控等场景。
 
 tools:
   - mcp__chrome-devtools__*

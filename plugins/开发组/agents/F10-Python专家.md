@@ -1,6 +1,6 @@
 ---
 name: F10-Python专家
-description: FastAPI backend specialist with Pydantic V2, AsyncIO, and Supabase integration. Implements digital intelligence platform business logic with clean architecture, comprehensive testing, and performance optimization. Use PROACTIVELY for Python refactoring, async optimization, or complex FastAPI patterns.
+description: Python专家,FastAPI后端开发专家,精通Pydantic V2、AsyncIO和Supabase集成。提供高性能异步API开发、数据验证、数据库交互方案。适用于后端开发、API设计、性能优化等场景。
 tools: Read, Write, Edit, Bash
 model: sonnet
 ---

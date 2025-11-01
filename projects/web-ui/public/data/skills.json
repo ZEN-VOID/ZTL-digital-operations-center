@@ -1,0 +1,195 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2025-11-01T19:00:00.000Z",
+  "totalSkills": 9,
+  "categories": [
+    "系统核心",
+    "美团业务",
+    "空间设计",
+    "开发工具"
+  ],
+  "skills": [
+    {
+      "id": "global-plugins-inspector",
+      "name": "全局照见",
+      "description": "全局插件可视化查询系统 - 自动扫描和索引全局Claude Code插件（~/.claude/plugins/），提供快速查询和智能推荐",
+      "category": "系统核心",
+      "categoryPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/skills",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/skills/全局照见/SKILL.md",
+      "version": "1.0.0",
+      "tools": ["Read", "Bash", "Grep", "Glob"],
+      "tags": ["plugin-management", "indexing", "visualization", "query-system"],
+      "capabilities": [
+        "三重快速索引机制(marketplace.json + plugin.json + Glob扫描)",
+        "自动同步全局配置变更",
+        "结构化索引和智能推荐",
+        "plugin-status技能包加速诊断"
+      ]
+    },
+    {
+      "id": "abyss-gaze",
+      "name": "深渊凝视",
+      "description": "iTerm终端控制与输出捕获 - 向iTerm发送任意命令并捕获执行结果，支持新建窗口、指定窗口、多窗口管理",
+      "category": "系统核心",
+      "categoryPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/skills",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/skills/深渊凝视/SKILL.md",
+      "version": "1.0.0",
+      "tools": ["Bash", "Read", "Write"],
+      "tags": ["iterm", "terminal", "automation", "output-capture", "multi-window"],
+      "capabilities": [
+        "向iTerm发送任意命令",
+        "捕获命令执行输出",
+        "新建iTerm窗口执行",
+        "指定窗口ID执行",
+        "多窗口管理和状态追踪"
+      ]
+    },
+    {
+      "id": "manus-context",
+      "name": "上下求索",
+      "description": "基于MANUS上下文工程的智能上下文管理能力包，支持注意力管理、错误学习、知识沉淀和长期记忆。自动识别10种类型，双层级分类(全局/项目)，KV缓存优化",
+      "category": "系统核心",
+      "categoryPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/skills",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/skills/上下求索/SKILL.md",
+      "version": "3.0.0",
+      "tools": ["Read", "Write", "Edit", "Bash"],
+      "tags": ["context-management", "memory", "learning", "knowledge-base"],
+      "capabilities": [
+        "10种上下文类型(FOCUS/TODO/PROCESS/ERROR/SUCCESS/INSIGHTS/PATTERNS/CONTEXT/MEMORY/SNAPSHOT)",
+        "双层级分类(全局级/项目级)",
+        "KV缓存优化",
+        "自动化上下文操作",
+        "智能检索和推荐"
+      ]
+    },
+    {
+      "id": "meituan-operations-center",
+      "name": "运营中心知识库",
+      "description": "美团管家运营中心完整知识库，包含12个核心运营模块的全面指南和最佳实践",
+      "category": "美团业务",
+      "categoryPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组/skills",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组/skills/运营中心/SKILL.md",
+      "version": "1.0.0",
+      "tools": ["Read"],
+      "tags": ["meituan", "operations", "knowledge-base", "restaurant"],
+      "capabilities": [
+        "门店管理",
+        "商品管理",
+        "订单管理",
+        "配送管理",
+        "评价管理",
+        "会员管理",
+        "数据分析",
+        "营销活动",
+        "财务对账",
+        "供应链管理",
+        "客服管理",
+        "系统设置"
+      ]
+    },
+    {
+      "id": "meituan-report-center",
+      "name": "报表中心知识库",
+      "description": "美团管家报表中心完整知识库，包含10个核心报表模块的详细说明和分析方法",
+      "category": "美团业务",
+      "categoryPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组/skills",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组/skills/报表中心/SKILL.md",
+      "version": "1.0.0",
+      "tools": ["Read"],
+      "tags": ["meituan", "reports", "analytics", "data-analysis"],
+      "capabilities": [
+        "经营概况报表",
+        "订单报表",
+        "商品报表",
+        "营销报表",
+        "会员报表",
+        "配送报表",
+        "评价报表",
+        "财务报表",
+        "供应链报表",
+        "自定义报表"
+      ]
+    },
+    {
+      "id": "meituan-marketing-center",
+      "name": "营销中心知识库",
+      "description": "美团管家营销中心完整知识库，包含12个核心营销模块的策略和执行指南",
+      "category": "美团业务",
+      "categoryPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组/skills",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/美团组/skills/营销中心/SKILL.md",
+      "version": "1.0.0",
+      "tools": ["Read"],
+      "tags": ["meituan", "marketing", "promotion", "customer-acquisition"],
+      "capabilities": [
+        "优惠券管理",
+        "满减活动",
+        "限时抢购",
+        "新客优惠",
+        "会员专享",
+        "组合套餐",
+        "赠品活动",
+        "积分兑换",
+        "裂变营销",
+        "节日营销",
+        "地推活动",
+        "数据分析"
+      ]
+    },
+    {
+      "id": "nano-banana",
+      "name": "Nano Banana建筑空间设计图生成",
+      "description": "专为筹建组设计的建筑空间设计图生成技能包。支持文生图和图生图两大模式，专业建筑空间设计呈现",
+      "category": "空间设计",
+      "categoryPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组/skills",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组/skills/Nano-banana/SKILL.md",
+      "version": "1.0.0",
+      "tools": ["Read", "Write", "Edit", "Bash"],
+      "tags": ["aigc", "architecture", "space-design", "text-to-image", "image-to-image"],
+      "capabilities": [
+        "文生图(空间设计主图)",
+        "图生图(多角度透视图)",
+        "提示词优化",
+        "专业建筑渲染",
+        "空间布局可视化"
+      ]
+    },
+    {
+      "id": "wan-aigc",
+      "name": "通义万相图像与视频生成专家",
+      "description": "基于阿里通义万相Wan 2.1/2.2的专业AIGC工具，支持文生视频(T2V)、图生视频(I2V)、专业镜头运动、作曲生成等功能",
+      "category": "空间设计",
+      "categoryPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组/skills",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/筹建组/skills/Wan/SKILL.md",
+      "version": "4.0.0",
+      "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"],
+      "tags": ["aigc", "video-generation", "text-to-video", "image-to-video", "wan"],
+      "capabilities": [
+        "文生视频(T2V)带音频",
+        "图生视频(I2V)带音频",
+        "专业镜头运动",
+        "Composer作曲生成",
+        "高清视频输出(720P/1080P)",
+        "多时长支持(5s/10s)"
+      ]
+    },
+    {
+      "id": "webapp-testing",
+      "name": "Web应用测试工具包",
+      "description": "基于Playwright的Web应用交互和测试工具包，支持前端功能验证、UI行为调试、浏览器截图和日志查看",
+      "category": "开发工具",
+      "categoryPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/skills",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/plugins/开发组/skills/webapp-testing/SKILL.md",
+      "version": "1.0.0",
+      "tools": ["Read", "Write", "Bash"],
+      "tags": ["testing", "playwright", "web-automation", "qa", "e2e"],
+      "capabilities": [
+        "本地Web应用交互",
+        "前端功能验证",
+        "UI行为调试",
+        "浏览器截图捕获",
+        "浏览器日志查看",
+        "自动化测试"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 ---
 name: F12-JavaScript专家
-description: Modern JavaScript (ES2024+) expert with deep browser API knowledge. Masters async patterns, functional programming, Web APIs (Storage, Workers, WebSocket), and performance optimization. Specializes in event loop understanding, microtask/macrotask queues, and vanilla JS patterns. Use PROACTIVELY for async debugging, browser API integration, or performance-critical JavaScript.
+description: JavaScript专家,现代JavaScript (ES2024+)专家,深入掌握浏览器API和异步编程。提供原生JS解决方案、性能优化、浏览器兼容性方案。适用于前端开发、性能优化等场景。
 tools: Read, Write, Edit, Bash, Grep, Glob
 model: sonnet
 ---

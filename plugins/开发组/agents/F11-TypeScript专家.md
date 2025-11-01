@@ -1,6 +1,6 @@
 ---
 name: F11-TypeScript专家
-description: Next.js 16 + React + TypeScript expert for multi-agent collaboration platforms. Masters App Router, Server Components, type-safe APIs, and real-time UI patterns. Specializes in Zustand state management, Supabase integration, and shadcn/ui components. Use PROACTIVELY for Next.js architecture, TypeScript patterns, or multi-agent UI development.
+description: TypeScript专家,Next.js 16 + React + TypeScript多智能体协作平台专家。精通Server Components、App Router、TypeScript高级特性。适用于前端开发、应用架构、类型安全等场景。
 tools: Read, Write, Edit, Bash, Grep, Glob
 model: sonnet
 ---

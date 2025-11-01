@@ -26,7 +26,7 @@
 6. **R5-飞书管理员** - r5-feishu-planner
 7. **R6-文件管理员** - r6-file-planner
 8. **R7-存储管理员** - r7-storage-planner
-9. **RR-行政组组长** - rr-admin-orchestrator
+9. **RR-行政组组长** - RR-行政组组长
 
 ### 智能体详情
 
@@ -35,7 +35,7 @@
 **名称**: r0-admin-requirements-analyst
 
 **何时使用**:
-- Use this agent when users need to analyze administrative or office management requirements, break do
+- 办公业务需求分析员,负责行政需求分析与方案制定,提供系统化的行政管理解决方案。是行政流程优化的Phase 0,为规范化管理奠定基础。
 
 **调用方式**:
 ```python
@@ -50,7 +50,7 @@ Task(subagent_type="R0-办公业务需求分析员",
 **名称**: r1-finance-planner
 
 **何时使用**:
-- Use this agent when you need professional financial planning and budgeting support for administrativ
+- 财务管理员,负责专业的财务规划和预算管理,提供财务分析、成本控制、预算编制方案。适用于财务规划、成本优化、预算管理等场景。
 
 **调用方式**:
 ```python
@@ -65,7 +65,7 @@ Task(subagent_type="R1-财务管理员",
 **名称**: r2-hr-planner
 
 **何时使用**:
-- Use this agent when you need professional human resources planning and workforce management support 
+- 人事管理员,负责专业的人力资源规划和劳动力管理,提供招聘计划、培训方案、绩效管理方案。适用于人力资源规划、团队建设等场景。
 
 **调用方式**:
 ```python
@@ -80,7 +80,7 @@ Task(subagent_type="R2-人事管理员",
 **名称**: r3-legal-planner
 
 **何时使用**:
-- Use this agent when you need professional legal planning and risk management support for administrat
+- 法务专家,负责专业的法律规划和风险管理,提供合同审查、法律咨询、合规建议。适用于法律事务、风险管理等场景。
 
 **调用方式**:
 ```python
@@ -95,7 +95,7 @@ Task(subagent_type="R3-法务专家",
 **名称**: r4-secretary-planner
 
 **何时使用**:
-- Use this agent when you need professional executive assistance and coordination planning support for
+- 秘书,负责专业的高管协助和协调支持,提供日程管理、会议组织、文件管理方案。适用于行政支持、协调管理等场景。
 
 **调用方式**:
 ```python
@@ -110,7 +110,7 @@ Task(subagent_type="R4-秘书",
 **名称**: r5-feishu-planner
 
 **何时使用**:
-- Use this agent when you need professional Feishu platform coordination planning support for administ
+- 飞书管理员,负责专业的飞书平台协调规划,提供飞书应用配置、工作流自动化、团队协作方案。适用于飞书管理、协作优化等场景。
 
 **调用方式**:
 ```python
@@ -125,7 +125,7 @@ Task(subagent_type="R5-飞书管理员",
 **名称**: r6-file-planner
 
 **何时使用**:
-- Use this agent when you need professional file and document management planning support for administ
+- 文件管理员,负责专业的文件和文档管理规划,提供文档分类、版本控制、归档方案。适用于文档管理、知识库建设等场景。
 
 **调用方式**:
 ```python
@@ -140,7 +140,7 @@ Task(subagent_type="R6-文件管理员",
 **名称**: r7-storage-planner
 
 **何时使用**:
-- Use this agent when you need professional storage infrastructure planning and management support for
+- 存储管理员,负责专业的存储基础设施规划和管理,提供存储架构设计、数据备份、容量规划方案。适用于存储管理、数据备份等场景。
 
 **调用方式**:
 ```python
@@ -152,10 +152,10 @@ Task(subagent_type="R7-存储管理员",
 
 #### RR-行政组组长
 
-**名称**: rr-admin-orchestrator
+**名称**: RR-行政组组长
 
 **何时使用**:
-- Use this agent when you need to manage administrative tasks across finance, HR, legal, secretarial, 
+- 行政组组长,负责财务、人力资源、法务、IT支持等行政任务管理,统筹R1-R7专业智能体,提供行政级决策支持。适用于行政管理、跨部门协调等场景。
 
 **调用方式**:
 ```python

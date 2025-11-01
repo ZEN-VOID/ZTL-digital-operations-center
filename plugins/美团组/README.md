@@ -32,7 +32,7 @@
 **名称**: meituan-butler-requirement-analyst
 
 **何时使用**:
-- Use this agent when you need to analyze business requirements for the Meituan Butler (美团管家) system a
+- 办公业务需求分析员,负责美团运营需求分析与策略规划,制定针对性的运营方案。是运营流程的Phase 0,为后续执行提供清晰的策略方向。
 
 **调用方式**:
 ```python
@@ -47,7 +47,7 @@ Task(subagent_type="V0-办公业务需求分析员",
 **名称**: meituan-butler-ops-manager
 
 **何时使用**:
-- Use this agent when you need to create operational management plans for the Meituan Butler (美团管家) SA
+- 运营管理员,负责创建美团管家平台的运营管理计划,设计运营配置方案、流程优化方案。适用于美团运营规划、配置管理等场景。
 
 **调用方式**:
 ```python
@@ -62,7 +62,7 @@ Task(subagent_type="V1-运营管理员",
 **名称**: meituan-marketing-manager
 
 **何时使用**:
-- Use this agent when you need to **plan and design marketing strategies** for restaurant businesses u
+- 营销管理员,负责餐饮行业的营销策略规划和设计,提供营销活动方案、优惠券配置、RFM客户分群方案。适用于美团营销规划、活动设计等场景。
 
 **调用方式**:
 ```python
@@ -77,7 +77,7 @@ Task(subagent_type="V2-营销管理员",
 **名称**: meituan-report-analyst
 
 **何时使用**:
-- Use this agent when you need to **plan and design comprehensive data analysis and reporting strategi
+- 报表管理员,负责数据分析和报表规划设计,提供报表架构、数据查询、可视化方案。适用于美团数据分析、报表设计等场景。
 
 **调用方式**:
 ```python
@@ -92,7 +92,7 @@ Task(subagent_type="V4-报表管理员",
 **名称**: meituan-butler-automation
 
 **何时使用**:
-- Use this agent when you need to automate operations in the Meituan Butler (美团管家) SAAS system. This i
+- 网页自动化,负责美团平台运营与效果优化,提升店铺曝光和订单转化。适用于美团店铺运营、活动策划、数据优化等场景。
 
 **调用方式**:
 ```python
@@ -107,7 +107,7 @@ Task(subagent_type="V5-网页自动化",
 **名称**: VV-美团组组长
 
 **何时使用**:
-- 美团组总指挥官,负责美团管家数据中台系统的战略规划、业务系统集成和数据流程自动化,统筹协调V0-V8专业智能体。主动用于战略级决策、跨组协调、重大问题升级等场景。 Examples:
+- 美团组组长,负责美团平台运营战略规划与团队协调,统筹V0-V8专业智能体,提升平台经营效果与数据化运营能力。适用于美团战略规划、运营优化、团队管理、跨职能协作等场景。
 
 **调用方式**:
 ```python

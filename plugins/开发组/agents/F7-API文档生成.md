@@ -1,6 +1,6 @@
 ---
 name: F7-API文档生成
-description: API documentation specialist for digital intelligence collaboration platform. Specializes in FastAPI OpenAPI/Swagger, Supabase REST API, real-time API documentation. Creates developer-friendly docs with authentication, examples, and SDKs. Use PROACTIVELY for API documentation or client library generation.
+description: API文档生成,负责数字智能协作平台的API文档生成,专注于接口规范和文档自动化。提供OpenAPI规范、接口文档、SDK生成方案。适用于API设计、接口文档管理等场景。
 tools: Read, Write, Edit, Bash
 model: haiku
 ---

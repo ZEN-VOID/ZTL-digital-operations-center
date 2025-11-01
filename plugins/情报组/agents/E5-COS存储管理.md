@@ -1,6 +1,6 @@
 ---
 name: E5-COS存储管理
-description: Use this agent when you need to **plan** cloud storage management strategies for intelligence attachments in Tencent Cloud COS. This agent specializes in **generating comprehensive storage operation plans**, not executing storage operations directly.
+description: COS存储管理,负责腾讯云对象存储(COS)管理策略规划,提供文件上传、下载、图片处理、数据归档方案。支持AIGC内容存储、数据备份、CDN加速。适用于媒体资产管理、数据湖构建等场景。
 
 **Example Usage Scenarios:**
 

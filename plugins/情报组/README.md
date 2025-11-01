@@ -34,7 +34,7 @@
 **名称**: E0-情报需求分析师
 
 **何时使用**:
-- Use this agent when you need to analyze and decompose intelligence gathering requirements into struc
+- 情报需求分析师,负责调研需求分析与项目规划,设计调研方案和数据采集策略。是情报获取流程的Phase 0,为数据收集和分析奠定基础。
 
 **调用方式**:
 ```python
@@ -49,7 +49,7 @@ Task(subagent_type="E0-情报需求分析师",
 **名称**: E1-深度调研员
 
 **何时使用**:
-- Use this agent when you need to **plan** comprehensive research strategies for publicly available so
+- 深度调研员,专注于行业深度调研与竞品分析,通过多维度研究提供战略洞察。适用于市场调研、竞品分析、行业研究等场景。
 
 **调用方式**:
 ```python
@@ -64,7 +64,7 @@ Task(subagent_type="E1-深度调研员",
 **名称**: E2-Chrome网页采集
 
 **何时使用**:
-- Use this agent when you need to **plan** web data collection strategies for websites, especially dyn
+- Chrome网页采集,专注于网页数据采集策略规划与浏览器自动化方案设计。通过反爬策略、选择器设计、质量验证框架提供完整的采集计划。适用于电商数据采集、竞品信息抓取、行业资讯监控等场景。
 
 **调用方式**:
 ```python
@@ -79,7 +79,7 @@ Task(subagent_type="E2-Chrome网页采集",
 **名称**: E3-深度爬虫
 
 **何时使用**:
-- Use this agent when you need to **plan** enterprise-grade web crawling strategies, especially for la
+- 深度爬虫,负责企业级网页爬取策略规划,处理复杂的多页面导航、动态内容加载、反爬虫机制。提供分布式爬虫架构设计和大规模数据采集方案。适用于行业数据库构建、市场数据监控等场景。
 
 **调用方式**:
 ```python
@@ -94,7 +94,7 @@ Task(subagent_type="E3-深度爬虫",
 **名称**: E4-深度情报分析
 
 **何时使用**:
-- Use this agent when you need to **plan** comprehensive intelligence analysis strategies for transfor
+- 深度情报分析,负责综合情报分析策略规划,整合多源数据进行深度洞察。提供竞品分析框架、市场趋势预测、战略决策支持。适用于战略研究、市场分析、风险评估等场景。
 
 **调用方式**:
 ```python
@@ -109,7 +109,7 @@ Task(subagent_type="E4-深度情报分析",
 **名称**: E5-COS存储管理
 
 **何时使用**:
-- Use this agent when you need to **plan** cloud storage management strategies for intelligence attach
+- COS存储管理,负责腾讯云对象存储(COS)管理策略规划,提供文件上传、下载、图片处理、数据归档方案。支持AIGC内容存储、数据备份、CDN加速。适用于媒体资产管理、数据湖构建等场景。
 
 **调用方式**:
 ```python
@@ -124,7 +124,7 @@ Task(subagent_type="E5-COS存储管理",
 **名称**: E6-Supabase数据库管理
 
 **何时使用**:
-- Use this agent when you need to **plan** database management strategies for intelligence data flow b
+- Supabase数据库管理,负责Supabase PostgreSQL数据库管理策略规划,提供表结构设计、查询优化、数据迁移方案。支持实时数据订阅、行级安全策略。适用于应用数据管理、数据分析等场景。
 
 **调用方式**:
 ```python
@@ -139,7 +139,7 @@ Task(subagent_type="E6-Supabase数据库管理",
 **名称**: EE-情报组组长
 
 **何时使用**:
-- Use this agent when you need to coordinate complex intelligence gathering and analysis tasks that in
+- 情报组组长,负责情报组整体战略规划与协调,统筹E0-E6专业智能体,提供情报级决策支持和多智能体编排能力。适用于复杂情报项目、市场研究、数据采集等场景。
 
 **调用方式**:
 ```python
