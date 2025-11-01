@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能体网络拓扑 - ZTL数智化作战中心</title>
+    <link rel="stylesheet" href="styles/common.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Electrolize&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+    <script src="https://unpkg.com/cytoscape-dagre@2.5.0/cytoscape-dagre.js"></script>
+    <script src="https://unpkg.com/dagre@0.8.5/dist/dagre.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-cyan: #00ffff;
+            --neon-purple: #b000ff;
+            --cyber-bg-primary: #0a0a0f;
+            --cyber-bg-secondary: #0f0f23;
+
+            /* Battle Group Colors */
+            --color-F: #00BFFF;  /* 开发组 - 深空蓝 */
+            --color-G: #FF1493;  /* 战略组 - 玫红 */
+            --color-X: #9400D3;  /* 创意组 - 紫罗兰 */
+            --color-E: #00FA9A;  /* 情报组 - 薄荷绿 */
+            --color-R: #FF6347;  /* 行政组 - 番茄红 */
+            --color-V: #FFD700;  /* 美团组 - 金黄 */
+            --color-Z: #32CD32;  /* 筹建组 - 酸橙绿 */
+            --color-C: #FF8C00;  /* 供应组 - 暗橙 */
+        }
+
+        body {
+            font-family: 'Electrolize', sans-serif;
+            background: var(--cyber-bg-primary);
+            color: #a8a8ff;
+            overflow-x: hidden;
+        }
+
+        /* Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(0deg, transparent 24%, rgba(255, 0, 255, 0.05) 25%, rgba(255, 0, 255, 0.05) 26%, transparent 27%),
+                linear-gradient(90deg, transparent 24%, rgba(255, 0, 255, 0.05) 25%, rgba(255, 0, 255, 0.05) 26%, transparent 27%);
+            background-size: 50px 50px;
+            animation: grid-move 20s linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes grid-move {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--neon-cyan);
+            text-shadow:
+                0 0 10px var(--neon-cyan),
+                0 0 20px var(--neon-cyan),
+                0 0 40px rgba(0, 255, 255, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        /* Control Panel */
+        .control-panel {
+            background: linear-gradient(135deg, var(--cyber-bg-secondary) 0%, rgba(26, 10, 46, 0.8) 100%);
+            border: 2px solid var(--neon-pink);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            box-shadow:
+                0 0 20px rgba(255, 0, 255, 0.3),
+                inset 0 0 20px rgba(255, 0, 255, 0.1);
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .control-group label {
+            font-size: 14px;
+            color: var(--neon-cyan);
+            font-weight: bold;
+        }
+
+        .control-group select,
+        .control-group button {
+            padding: 8px 16px;
+            background: rgba(255, 0, 255, 0.1);
+            border: 2px solid var(--neon-pink);
+            border-radius: 4px;
+            color: var(--neon-cyan);
+            font-family: 'Electrolize', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .control-group button:hover {
+            background: rgba(255, 0, 255, 0.3);
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+
+        /* Network Container */
+        .network-container {
+            background: linear-gradient(135deg, var(--cyber-bg-secondary) 0%, rgba(26, 10, 46, 0.8) 100%);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow:
+                0 0 20px rgba(0, 255, 255, 0.3),
+                inset 0 0 20px rgba(0, 255, 255, 0.1);
+            height: 800px;
+            position: relative;
+        }
+
+        #cy {
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        /* Legend */
+        .legend {
+            background: linear-gradient(135deg, var(--cyber-bg-secondary) 0%, rgba(26, 10, 46, 0.8) 100%);
+            border: 2px solid var(--neon-purple);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow:
+                0 0 20px rgba(180, 0, 255, 0.3),
+                inset 0 0 20px rgba(180, 0, 255, 0.1);
+        }
+
+        .legend-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            color: var(--neon-purple);
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        .legend-label {
+            font-size: 14px;
+            color: #a8a8ff;
+        }
+
+        /* Stats Panel */
+        .stats-panel {
+            background: linear-gradient(135deg, var(--cyber-bg-secondary) 0%, rgba(26, 10, 46, 0.8) 100%);
+            border: 2px solid var(--neon-pink);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow:
+                0 0 20px rgba(255, 0, 255, 0.3),
+                inset 0 0 20px rgba(255, 0, 255, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #a8a8ff;
+            margin-top: 5px;
+        }
+
+        /* Navigation */
+        .nav-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: rgba(255, 0, 255, 0.1);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 4px;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            background: rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⚡</span>
+                <span class="brand-text">ZTL数智化作战中心</span>
+            </div>
+            <div class="nav-links">
+                <a href="pages/index.html" class="nav-link">🏠 首页</a>
+                <a href="ZTL数智化作战中心项目介绍.html" class="nav-link">📖 项目介绍</a>
+                <a href="architecture.html" class="nav-link">🏗️ 架构图</a>
+                <a href="pages/agents.html" class="nav-link">🤖 智能体</a>
+                <a href="pages/skills.html" class="nav-link">🛠️ 技能包</a>
+                <a href="pages/commands.html" class="nav-link">⌨️ 命令</a>
+                <a href="mcp-servers.html" class="nav-link">🔌 MCP服务</a>
+                <a href="use-cases.html" class="nav-link">💡 用例</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header">
+            <h1>智能体网络拓扑</h1>
+            <p>71 AGENTS | 8 BATTLE GROUPS | DISTRIBUTED ORCHESTRATION</p>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <div class="control-group">
+                <label>布局算法:</label>
+                <select id="layoutSelector">
+                    <option value="dagre">层次布局 (Dagre)</option>
+                    <option value="circle">环形布局 (Circle)</option>
+                    <option value="concentric">同心圆布局 (Concentric)</option>
+                    <option value="grid">网格布局 (Grid)</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>显示过滤:</label>
+                <select id="groupFilter">
+                    <option value="all">全部显示</option>
+                    <option value="F">F系列 - 开发组</option>
+                    <option value="G">G系列 - 战略组</option>
+                    <option value="X">X系列 - 创意组</option>
+                    <option value="E">E系列 - 情报组</option>
+                    <option value="R">R系列 - 行政组</option>
+                    <option value="V">V系列 - 美团组</option>
+                    <option value="Z">Z系列 - 筹建组</option>
+                    <option value="C">C系列 - 供应组</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <button id="resetBtn">重置视图</button>
+            </div>
+        </div>
+
+        <!-- Network Visualization -->
+        <div class="network-container">
+            <div id="cy"></div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-title">业务组图例</div>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: var(--color-F); color: var(--color-F);"></div>
+                    <div class="legend-label">F系列 - 开发组 (11)</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: var(--color-G); color: var(--color-G);"></div>
+                    <div class="legend-label">G系列 - 战略组 (9)</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: var(--color-X); color: var(--color-X);"></div>
+                    <div class="legend-label">X系列 - 创意组 (9)</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: var(--color-E); color: var(--color-E);"></div>
+                    <div class="legend-label">E系列 - 情报组 (8)</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: var(--color-R); color: var(--color-R);"></div>
+                    <div class="legend-label">R系列 - 行政组 (9)</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: var(--color-V); color: var(--color-V);"></div>
+                    <div class="legend-label">V系列 - 美团组 (6)</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: var(--color-Z); color: var(--color-Z);"></div>
+                    <div class="legend-label">Z系列 - 筹建组 (6)</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: var(--color-C); color: var(--color-C);"></div>
+                    <div class="legend-label">C系列 - 供应组 (7)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Panel -->
+        <div class="stats-panel">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">71</div>
+                    <div class="stat-label">总智能体数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">战斗小组</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">65</div>
+                    <div class="stat-label">专家智能体</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">组长智能体</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">34</div>
+                    <div class="stat-label">技能包集成</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-footer">
+            <a href="ZTL数智化作战中心项目介绍.html" class="nav-link">🏠 返回首页</a>
+            <a href="architecture.html" class="nav-link">🏗️ 架构视图</a>
+            <a href="battle-plan-visualizer.html" class="nav-link">⚔️ 作战指令</a>
+            <a href="mcp-servers.html" class="nav-link">🔧 MCP服务器</a>
+        </div>
+    </div>
+
+    <script>
+        // Agent Network Data (71 agents across 8 groups)
+        const agentData = {
+            F: ['FF-开发团队组长', 'F0-产品经理', 'F1-前端开发', 'F2-组件开发', 'F3-数据库开发', 'F4-API开发', 'F5-后端开发', 'F6-AI集成开发', 'F7-测试性能工程师', 'F8-版本控制助手', 'F9-云部署管理'],
+            G: ['GG-战略组组长', 'G0-战略需求解析师', 'G1-经营分析优化师', 'G2-产品力打造专家', 'G3-区域扩张策略师', 'G4-商业模式设计师', 'G5-连锁复制专家', 'G6-数字化转型架构师', 'G7-精细化管理专家'],
+            X: ['XX-创意组组长', 'X0-内容创意需求分析师', 'X1-广告策划师', 'X2-文案创作师', 'X3-设计模板解构师', 'X4-品牌Style策划师', 'X5-Canvas图文排版师', 'X6-React前端设计师', 'X7-Gif动图设计师', 'X8-算法艺术家', 'X9-AIGC图片处理', 'X10-AIGC音乐创作', 'X11-AIGC视频生成', 'X12-AIGC语音合成'],
+            E: ['EE-情报组组长', 'E0-情报需求分析师', 'E1-深度调研员', 'E2-Chrome网页采集', 'E3-深度爬虫', 'E4-深度情报分析', 'E5-COS存储管理', 'E6-Supabase数据库管理'],
+            R: ['RR-行政组组长', 'R0-办公业务需求分析员', 'R1-财务管理员', 'R2-人事管理员', 'R3-法务专家', 'R4-秘书', 'R5-飞书管理员', 'R6-文件管理员', 'R7-存储管理员'],
+            V: ['VV-美团组组长', 'V0-办公业务需求分析员', 'V1-运营管理员', 'V2-营销管理员', 'V4-报表管理员', 'V5-网页自动化'],
+            Z: ['ZZ-筹建组组长', 'Z0-筹建项目需求分析师', 'Z1-平面图计划师', 'Z2-空间设计师', 'Z3-3D生成AIGC助手', 'Z4-建筑动画AIGC助手'],
+            C: ['CC-供应组组长', 'C0-供应需求分析师', 'C1-采购执行经理', 'C2-库存管理员', 'C3-成本卡管理员', 'C4-供应商管理员', 'C5-分账管理员']
+        };
+
+        // Color mapping
+        const groupColors = {
+            'F': '#00BFFF',  // 深空蓝
+            'G': '#FF1493',  // 玫红
+            'X': '#9400D3',  // 紫罗兰
+            'E': '#00FA9A',  // 薄荷绿
+            'R': '#FF6347',  // 番茄红
+            'V': '#FFD700',  // 金黄
+            'Z': '#32CD32',  // 酸橙绿
+            'C': '#FF8C00'   // 暗橙
+        };
+
+        // Build network elements
+        const elements = [];
+
+        // Add group leader nodes
+        Object.keys(agentData).forEach(group => {
+            const leader = agentData[group][0];
+            elements.push({
+                data: {
+                    id: leader,
+                    label: leader,
+                    group: group,
+                    isLeader: true
+                }
+            });
+        });
+
+        // Add member nodes and edges
+        Object.keys(agentData).forEach(group => {
+            const agents = agentData[group];
+            const leader = agents[0];
+
+            for (let i = 1; i < agents.length; i++) {
+                const agent = agents[i];
+
+                // Add agent node
+                elements.push({
+                    data: {
+                        id: agent,
+                        label: agent,
+                        group: group,
+                        isLeader: false
+                    }
+                });
+
+                // Add edge to leader
+                elements.push({
+                    data: {
+                        id: `${leader}-${agent}`,
+                        source: leader,
+                        target: agent
+                    }
+                });
+            }
+        });
+
+        // Add cross-group collaborations (selected examples)
+        const collaborations = [
+            ['FF-开发组组长', 'XX-创意组组长'],  // 开发-创意协作
+            ['GG-战略组组长', 'VV-美团组组长'],  // 战略-美团协作
+            ['EE-情报组组长', 'GG-战略组组长'],  // 情报-战略协作
+            ['RR-行政组组长', 'CC-供应组组长'],  // 行政-供应协作
+            ['ZZ-筹建组组长', 'XX-创意组组长'],  // 筹建-创意协作
+            ['X3-平面设计师', 'V3-AIGC文生图设计师'],  // 设计师协作
+        ];
+
+        collaborations.forEach(([source, target]) => {
+            elements.push({
+                data: {
+                    id: `collab-${source}-${target}`,
+                    source: source,
+                    target: target,
+                    collaboration: true
+                }
+            });
+        });
+
+        // Initialize Cytoscape
+        const cy = cytoscape({
+            container: document.getElementById('cy'),
+            elements: elements,
+            style: [
+                {
+                    selector: 'node',
+                    style: {
+                        'background-color': function(ele) {
+                            return groupColors[ele.data('group')];
+                        },
+                        'label': 'data(label)',
+                        'color': '#ffffff',
+                        'text-valign': 'center',
+                        'text-halign': 'center',
+                        'font-size': function(ele) {
+                            return ele.data('isLeader') ? '14px' : '10px';
+                        },
+                        'font-family': 'Electrolize',
+                        'text-outline-color': '#0a0a0f',
+                        'text-outline-width': 2,
+                        'width': function(ele) {
+                            return ele.data('isLeader') ? 60 : 40;
+                        },
+                        'height': function(ele) {
+                            return ele.data('isLeader') ? 60 : 40;
+                        },
+                        'border-width': function(ele) {
+                            return ele.data('isLeader') ? 4 : 2;
+                        },
+                        'border-color': function(ele) {
+                            return groupColors[ele.data('group')];
+                        },
+                        'box-shadow': function(ele) {
+                            const color = groupColors[ele.data('group')];
+                            return `0 0 20px ${color}`;
+                        }
+                    }
+                },
+                {
+                    selector: 'edge',
+                    style: {
+                        'width': function(ele) {
+                            return ele.data('collaboration') ? 2 : 1;
+                        },
+                        'line-color': function(ele) {
+                            if (ele.data('collaboration')) {
+                                return '#ff00ff';
+                            }
+                            const sourceGroup = cy.$id(ele.data('source')).data('group');
+                            return groupColors[sourceGroup];
+                        },
+                        'line-style': function(ele) {
+                            return ele.data('collaboration') ? 'dashed' : 'solid';
+                        },
+                        'target-arrow-shape': 'triangle',
+                        'target-arrow-color': function(ele) {
+                            if (ele.data('collaboration')) {
+                                return '#ff00ff';
+                            }
+                            const sourceGroup = cy.$id(ele.data('source')).data('group');
+                            return groupColors[sourceGroup];
+                        },
+                        'curve-style': 'bezier',
+                        'opacity': 0.6
+                    }
+                },
+                {
+                    selector: 'node:selected',
+                    style: {
+                        'border-width': 6,
+                        'border-color': '#00ffff',
+                        'box-shadow': '0 0 30px #00ffff'
+                    }
+                },
+                {
+                    selector: 'edge:selected',
+                    style: {
+                        'width': 4,
+                        'line-color': '#00ffff',
+                        'target-arrow-color': '#00ffff',
+                        'opacity': 1
+                    }
+                }
+            ],
+            layout: {
+                name: 'dagre',
+                rankDir: 'TB',
+                nodeSep: 50,
+                rankSep: 100,
+                padding: 30
+            },
+            minZoom: 0.3,
+            maxZoom: 3,
+            wheelSensitivity: 0.2
+        });
+
+        // Layout selector
+        document.getElementById('layoutSelector').addEventListener('change', function(e) {
+            const layoutName = e.target.value;
+            let layoutOptions = { name: layoutName, padding: 30, animate: true };
+
+            if (layoutName === 'dagre') {
+                layoutOptions.rankDir = 'TB';
+                layoutOptions.nodeSep = 50;
+                layoutOptions.rankSep = 100;
+            } else if (layoutName === 'concentric') {
+                layoutOptions.concentric = function(node) {
+                    return node.data('isLeader') ? 10 : 1;
+                };
+                layoutOptions.levelWidth = function() { return 2; };
+            } else if (layoutName === 'circle') {
+                layoutOptions.radius = 400;
+            }
+
+            cy.layout(layoutOptions).run();
+        });
+
+        // Group filter
+        document.getElementById('groupFilter').addEventListener('change', function(e) {
+            const selectedGroup = e.target.value;
+
+            if (selectedGroup === 'all') {
+                cy.elements().style('display', 'element');
+            } else {
+                cy.nodes().forEach(node => {
+                    if (node.data('group') === selectedGroup) {
+                        node.style('display', 'element');
+                        node.connectedEdges().style('display', 'element');
+                    } else {
+                        node.style('display', 'none');
+                    }
+                });
+
+                // Hide collaboration edges if both nodes are hidden
+                cy.edges().forEach(edge => {
+                    const source = cy.$id(edge.data('source'));
+                    const target = cy.$id(edge.data('target'));
+                    if (source.style('display') === 'none' || target.style('display') === 'none') {
+                        edge.style('display', 'none');
+                    }
+                });
+            }
+        });
+
+        // Reset button
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            cy.fit();
+            cy.zoom(1);
+            cy.center();
+        });
+
+        // Node click event
+        cy.on('tap', 'node', function(evt) {
+            const node = evt.target;
+            console.log('Clicked node:', node.data());
+
+            // Highlight connected nodes
+            cy.elements().removeClass('highlighted');
+            node.addClass('highlighted');
+            node.neighborhood().addClass('highlighted');
+        });
+
+        // Initial fit
+        cy.fit();
+    </script>
+</body>
+</html>

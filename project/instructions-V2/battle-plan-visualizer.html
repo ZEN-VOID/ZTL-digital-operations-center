@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作战指令可视化 - ZTL数智化作战中心</title>
+    <link rel="stylesheet" href="styles/common.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Electrolize&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-cyan: #00ffff;
+            --neon-purple: #b000ff;
+            --neon-green: #00ff00;
+            --cyber-bg-primary: #0a0a0f;
+            --cyber-bg-secondary: #0f0f23;
+        }
+
+        body {
+            font-family: 'Electrolize', sans-serif;
+            background: var(--cyber-bg-primary);
+            color: #a8a8ff;
+            overflow-x: hidden;
+        }
+
+        /* Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(0deg, transparent 24%, rgba(255, 0, 255, 0.05) 25%, rgba(255, 0, 255, 0.05) 26%, transparent 27%),
+                linear-gradient(90deg, transparent 24%, rgba(255, 0, 255, 0.05) 25%, rgba(255, 0, 255, 0.05) 26%, transparent 27%);
+            background-size: 50px 50px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--neon-cyan);
+            text-shadow:
+                0 0 10px var(--neon-cyan),
+                0 0 20px var(--neon-cyan),
+                0 0 40px rgba(0, 255, 255, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        /* JSON Viewer */
+        .json-viewer {
+            background: linear-gradient(135deg, var(--cyber-bg-secondary) 0%, rgba(26, 10, 46, 0.8) 100%);
+            border: 2px solid var(--neon-purple);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow:
+                0 0 20px rgba(180, 0, 255, 0.3),
+                inset 0 0 20px rgba(180, 0, 255, 0.1);
+        }
+
+        .json-viewer h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            color: var(--neon-purple);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        .json-content {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            border-radius: 4px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #00ff00;
+            max-height: 500px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .json-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .json-content::-webkit-scrollbar-track {
+            background: rgba(255, 0, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .json-content::-webkit-scrollbar-thumb {
+            background: var(--neon-pink);
+            border-radius: 4px;
+        }
+
+        /* Execution Timeline */
+        .execution-timeline {
+            background: linear-gradient(135deg, var(--cyber-bg-secondary) 0%, rgba(26, 10, 46, 0.8) 100%);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow:
+                0 0 20px rgba(0, 255, 255, 0.3),
+                inset 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+        .execution-timeline h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            color: var(--neon-cyan);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 0, 255, 0.05);
+            border-left: 4px solid var(--neon-pink);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 0, 255, 0.15);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+        }
+
+        .timeline-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--neon-pink);
+            min-width: 50px;
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--neon-cyan);
+            margin-bottom: 5px;
+        }
+
+        .timeline-desc {
+            font-size: 14px;
+            color: #a8a8ff;
+            line-height: 1.6;
+        }
+
+        .timeline-agent {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid var(--neon-cyan);
+            border-radius: 12px;
+            font-size: 12px;
+            color: var(--neon-cyan);
+            margin: 5px 5px 0 0;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--cyber-bg-secondary) 0%, rgba(26, 10, 46, 0.8) 100%);
+            border: 2px solid var(--neon-pink);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow:
+                0 0 20px rgba(255, 0, 255, 0.3),
+                inset 0 0 20px rgba(255, 0, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 30px rgba(255, 0, 255, 0.5);
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 42px;
+            font-weight: bold;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #a8a8ff;
+        }
+
+        /* Navigation */
+        .nav-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: rgba(255, 0, 255, 0.1);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 4px;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            background: rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⚡</span>
+                <span class="brand-text">ZTL数智化作战中心</span>
+            </div>
+            <div class="nav-links">
+                <a href="pages/index.html" class="nav-link">🏠 首页</a>
+                <a href="ZTL数智化作战中心项目介绍.html" class="nav-link">📖 项目介绍</a>
+                <a href="architecture.html" class="nav-link">🏗️ 架构图</a>
+                <a href="pages/agents.html" class="nav-link">🤖 智能体</a>
+                <a href="pages/skills.html" class="nav-link">🛠️ 技能包</a>
+                <a href="pages/commands.html" class="nav-link">⌨️ 命令</a>
+                <a href="mcp-servers.html" class="nav-link">🔌 MCP服务</a>
+                <a href="use-cases.html" class="nav-link">💡 用例</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="page-header">
+            <h1>作战指令可视化</h1>
+            <p>BATTLE PLAN JSON → AGENT ORCHESTRATION → EXECUTION RESULTS</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">8</div>
+                <div class="stat-label">战斗小组组长</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">65</div>
+                <div class="stat-label">专家智能体</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">3</div>
+                <div class="stat-label">编排模式</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">JSON</div>
+                <div class="stat-label">指令格式</div>
+            </div>
+        </div>
+
+        <!-- JSON Battle Plan Example -->
+        <div class="json-viewer">
+            <h2>📋 作战指令示例 (Battle Plan JSON)</h2>
+            <div class="json-content">{
+  "battle_plan_id": "BP-20251031-001",
+  "project_name": "火锅店开业筹备",
+  "generated_by": "GG-战略组组长",
+  "generated_at": "2025-10-31T09:00:00Z",
+  "orchestration_mode": "hybrid",
+  "
+": [
+    {
+      "phase": "Phase 1: 市场情报收集",
+      "mode": "parallel",
+      "agents": [
+        {
+          "agent_id": "E1-深度调研员",
+          "task": "调研本地火锅市场竞品情况",
+          "output": "output/火锅店开业筹备/E1-深度调研员/市场调研报告.md"
+        },
+        {
+          "agent_id": "E2-Chrome网页采集",
+          "task": "采集美团/大众点评火锅店数据",
+          "output": "output/火锅店开业筹备/E2-Chrome网页采集/竞品数据.json"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "phase": "Phase 2: 战略规划分析",
+      "mode": "sequential",
+      "agents": [
+        {
+          "agent_id": "G0-战略需求解析师",
+          "task": "基于情报数据制定战略方案",
+          "input_from": ["E1-深度调研员", "E2-Chrome网页采集"],
+          "output": "output/火锅店开业筹备/G0-战略需求解析师/战略方案.pdf"
+        }
+      ],
+      "dependencies": ["Phase 1"]
+    },
+    {
+      "phase": "Phase 3: 创意物料制作",
+      "mode": "parallel",
+      "agents": [
+        {
+          "agent_id": "X1-广告文案创意总监",
+          "task": "撰写开业宣传文案",
+          "output": "output/火锅店开业筹备/X1-广告文案创意总监/开业文案.md"
+        },
+        {
+          "agent_id": "X3-平面设计师",
+          "task": "设计开业海报",
+          "output": "output/火锅店开业筹备/X3-平面设计师/开业海报.png"
+        },
+        {
+          "agent_id": "X7-Gif动图设计师",
+          "task": "制作开业倒计时动图",
+          "output": "output/火锅店开业筹备/X7-Gif动图设计师/倒计时.gif"
+        }
+      ],
+      "dependencies": ["Phase 2"]
+    },
+    {
+      "phase": "Phase 4: 门店筹建执行",
+      "mode": "parallel",
+      "agents": [
+        {
+          "agent_id": "Z2-平面设计师",
+          "task": "设计门店平面图",
+          "output": "output/火锅店开业筹备/Z2-平面设计师/平面图.dwg"
+        },
+        {
+          "agent_id": "Z3-BIM建模师",
+          "task": "创建门店3D模型",
+          "output": "output/火锅店开业筹备/Z3-BIM建模师/3D模型.rvt"
+        }
+      ],
+      "dependencies": ["Phase 2"]
+    },
+    {
+      "phase": "Phase 5: 供应链配置",
+      "mode": "sequential",
+      "agents": [
+        {
+          "agent_id": "C1-采购专员",
+          "task": "采购开业物资",
+          "output": "output/火锅店开业筹备/C1-采购专员/采购清单.xlsx"
+        },
+        {
+          "agent_id": "C3-库存管理",
+          "task": "建立库存管理系统",
+          "output": "output/火锅店开业筹备/C3-库存管理/库存系统配置.json"
+        }
+      ],
+      "dependencies": ["Phase 4"]
+    }
+  ],
+  "execution_summary": {
+    "total_phases": 5,
+    "total_agents": 12,
+    "estimated_duration": "7 days",
+    "parallel_execution_count": 3,
+    "sequential_execution_count": 2
+  }
+}</div>
+        </div>
+
+        <!-- Execution Timeline -->
+        <div class="execution-timeline">
+            <h2>⚡ 执行流程时间线</h2>
+
+            <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Phase 1: 市场情报收集 (并行执行)</div>
+                    <div class="timeline-desc">
+                        情报组同时执行市场调研和数据采集任务,收集竞品信息和用户评价数据。
+                    </div>
+                    <span class="timeline-agent">E1-深度调研员</span>
+                    <span class="timeline-agent">E2-Chrome网页采集</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Phase 2: 战略规划分析 (顺序执行)</div>
+                    <div class="timeline-desc">
+                        战略组基于Phase 1的情报数据,制定完整的开业战略方案,包括定位、定价、营销策略。
+                    </div>
+                    <span class="timeline-agent">G0-战略需求解析师</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">3</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Phase 3: 创意物料制作 (并行执行)</div>
+                    <div class="timeline-desc">
+                        创意组依据战略方案,同步创作文案、海报、动图等营销物料。
+                    </div>
+                    <span class="timeline-agent">X1-广告文案创意总监</span>
+                    <span class="timeline-agent">X3-平面设计师</span>
+                    <span class="timeline-agent">X7-Gif动图设计师</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">4</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Phase 4: 门店筹建执行 (并行执行)</div>
+                    <div class="timeline-desc">
+                        筹建组同步进行平面设计和3D建模,加速门店施工准备。
+                    </div>
+                    <span class="timeline-agent">Z2-平面设计师</span>
+                    <span class="timeline-agent">Z3-BIM建模师</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">5</div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Phase 5: 供应链配置 (顺序执行)</div>
+                    <div class="timeline-desc">
+                        供应组先完成物资采购,再建立库存管理系统,确保开业物资到位。
+                    </div>
+                    <span class="timeline-agent">C1-采购专员</span>
+                    <span class="timeline-agent">C3-库存管理</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-footer">
+            <a href="ZTL数智化作战中心项目介绍.html" class="nav-link">🏠 返回首页</a>
+            <a href="agents-network.html" class="nav-link">🕸️ 智能体网络</a>
+            <a href="architecture.html" class="nav-link">🏗️ 架构视图</a>
+            <a href="mcp-servers.html" class="nav-link">🔧 MCP服务器</a>
+        </div>
+    </div>
+</body>
+</html>

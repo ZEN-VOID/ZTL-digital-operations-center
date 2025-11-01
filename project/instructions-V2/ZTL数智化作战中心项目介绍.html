@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZTL数智化作战中心 - Cyberpunk Edition</title>
+    <link rel="stylesheet" href="styles/common.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Electrolize&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <script defer src="assets/js/embedded-divider.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -956,20 +959,48 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⚡</span>
+                <span class="brand-text">ZTL数智化作战中心</span>
+            </div>
+            <div class="nav-links">
+                <a href="pages/index.html" class="nav-link">🏠 首页</a>
+                <a href="ZTL数智化作战中心项目介绍.html" class="nav-link active">📖 项目介绍</a>
+                <a href="architecture.html" class="nav-link">🏗️ 架构图</a>
+                <a href="pages/agents.html" class="nav-link">🤖 智能体</a>
+                <a href="pages/skills.html" class="nav-link">🛠️ 技能包</a>
+                <a href="pages/commands.html" class="nav-link">⌨️ 命令</a>
+                <a href="mcp-servers.html" class="nav-link">🔌 MCP服务</a>
+                <a href="use-cases.html" class="nav-link">💡 用例</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <!-- Header -->
-        <div class="cyber-header">
-            <h1>ZTL数智化作战中心</h1>
-            <p class="subtitle">NEXT-GEN AI AGENT ORCHESTRATION PLATFORM</p>
-            <div class="version-badge">VERSION 2.1.1 | SONNET 4.5 | 2025-10-22</div>
+        <div class="cyber-header" style="position: relative;">
+            <!-- DIEA Algorithmic Background -->
+            <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 1920px; height: 100%; opacity: 0.35; z-index: 0; pointer-events: none;">
+                <iframe src="assets/p5js/diea-background.html" style="width: 100%; height: 100%; border: none;"></iframe>
+            </div>
+
+            <!-- Header Content -->
+            <div style="position: relative; z-index: 1;">
+                <h1>ZTL数智化作战中心</h1>
+                <p class="subtitle">NEXT-GEN AI AGENT ORCHESTRATION PLATFORM</p>
+                <div class="version-badge">VERSION 2.1.1 | SONNET 4.5 | 2025-10-31</div>
+            </div>
         </div>
 
         <!-- Stats -->
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-number" data-count="60">0</div>
+                <div class="stat-number" data-count="71">0</div>
                 <div class="stat-label">AI Agents</div>
-                <div class="stat-sublabel">7业务组 • 专业编排</div>
+                <div class="stat-sublabel">8组长 + 60+专家 + 3创意智能体</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number" data-count="34">0</div>
@@ -1021,6 +1052,11 @@
             </div>
         </div>
 
+        <!-- Section Transition -->
+        <div class="section-transition" style="height: 60px; margin: 40px 0; position: relative; overflow: hidden;">
+            <canvas id="divider-1"></canvas>
+        </div>
+
         <!-- Performance Dashboard -->
         <div class="cyber-card">
             <h2 class="section-title">实时性能仪表盘</h2>
@@ -1058,6 +1094,11 @@
             </div>
         </div>
 
+        <!-- DIEA Section Divider -->
+        <div class="section-transition" style="height: 60px; margin: 40px 0; position: relative; overflow: hidden;">
+            <canvas id="divider-2"></canvas>
+        </div>
+
         <!-- Technology Stack -->
         <div class="cyber-card">
             <h2 class="section-title">技术栈全景图</h2>
@@ -1083,6 +1124,11 @@
                     <div class="tech-stack-desc">8个MCP服务器<br>浏览器/数据库/云存储<br>飞书/GitHub/UI组件</div>
                 </div>
             </div>
+        </div>
+
+        <!-- DIEA Section Divider -->
+        <div class="section-transition" style="height: 60px; margin: 40px 0; position: relative; overflow: hidden;">
+            <canvas id="divider-3"></canvas>
         </div>
 
         <!-- MCP Capability Matrix -->
@@ -1191,6 +1237,11 @@
             </div>
         </div>
 
+        <!-- DIEA Section Divider -->
+        <div class="section-transition" style="height: 60px; margin: 40px 0; position: relative; overflow: hidden;">
+            <canvas id="divider-4"></canvas>
+        </div>
+
         <!-- Architecture -->
         <div class="cyber-card">
             <h2 class="section-title">三层架构可视化</h2>
@@ -1203,7 +1254,7 @@
                     <div class="layer-content">
                         <p>Agents智能体 + Skills技能包构成的知识基础，提供角色决策框架和工具能力包</p>
                         <div class="layer-items">
-                            <div class="layer-item">60个专业智能体</div>
+                            <div class="layer-item">71个智能体</div>
                             <div class="layer-item">34个技能包</div>
                             <div class="layer-item">渐进披露设计</div>
                             <div class="layer-item">自包含架构</div>
@@ -1281,6 +1332,11 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- DIEA Section Divider -->
+        <div class="section-transition" style="height: 60px; margin: 40px 0; position: relative; overflow: hidden;">
+            <canvas id="divider-5"></canvas>
         </div>
 
         <!-- Agent Network -->
@@ -1594,15 +1650,16 @@ R5飞书管理员:
                 Powered by Claude Sonnet 4.5 | MCP Protocol Ecosystem
             </p>
             <div class="footer-links">
-                <a href="#" class="footer-link">📚 Documentation</a>
-                <a href="#" class="footer-link">🤖 Agents</a>
-                <a href="#" class="footer-link">📦 Skills</a>
-                <a href="#" class="footer-link">⚡ Commands</a>
-                <a href="#" class="footer-link">🔧 MCP Servers</a>
+                <a href="ZTL数智化作战中心项目介绍.html" class="footer-link">🏠 Home</a>
+                <a href="agents-network.html" class="footer-link">🕸️ Agent Network</a>
+                <a href="architecture.html" class="footer-link">🏗️ Architecture</a>
+                <a href="battle-plan-visualizer.html" class="footer-link">⚔️ Battle Plans</a>
+                <a href="mcp-servers.html" class="footer-link">🔧 MCP Servers</a>
+                <a href="use-cases.html" class="footer-link">💡 Use Cases</a>
             </div>
             <div class="footer-info">
-                <p>Version 2.2.0 | Generated 2025-10-23</p>
-                <p>Project Size: 73M | 60 Agents | 34 Skills | 25 Commands | 8 MCP Servers</p>
+                <p>Version 2.2.0 | Generated 2025-10-31</p>
+                <p>Project Size: 73M | 71 Agents | 34 Skills | 25 Commands | 8 MCP Servers</p>
                 <p>© 2025 ZTL数智化作战中心 | All Systems Operational</p>
             </div>
         </div>
@@ -1906,10 +1963,10 @@ R5飞书管理员:
         new Chart(growthCtx, {
             type: 'line',
             data: {
-                labels: ['2024-12', '2025-01', '2025-02', '2025-03', '2025-04', '2025-05', '2025-10'],
+                labels: ['2024-12', '2025-01', '2025-02', '2025-03', '2025-04', '2025-05', '2025-10', '2025-10-31'],
                 datasets: [{
                     label: 'Agents数量',
-                    data: [15, 25, 35, 42, 50, 55, 60],
+                    data: [15, 25, 35, 42, 50, 55, 60, 71],
                     borderColor: chartColors.cyan,
                     backgroundColor: 'rgba(0, 255, 255, 0.1)',
                     tension: 0.4,
@@ -2013,6 +2070,48 @@ R5飞书管理员:
                     }
                 }
             }
+        });
+    </script>
+
+    <!-- Initialize Embedded Dividers -->
+    <script>
+        // Wait for p5.js to load before initializing dividers
+        window.addEventListener('load', function() {
+            // Initialize all 5 embedded dividers with optimized settings
+            new EmbeddedDivider('divider-1', {
+                height: 60,
+                particleCount: 15,
+                flowSpeed: 1.0,
+                accentColor: '#00BFFF'
+            });
+
+            new EmbeddedDivider('divider-2', {
+                height: 60,
+                particleCount: 15,
+                flowSpeed: 1.0,
+                accentColor: '#00BFFF'
+            });
+
+            new EmbeddedDivider('divider-3', {
+                height: 60,
+                particleCount: 15,
+                flowSpeed: 1.0,
+                accentColor: '#00BFFF'
+            });
+
+            new EmbeddedDivider('divider-4', {
+                height: 60,
+                particleCount: 15,
+                flowSpeed: 1.0,
+                accentColor: '#00BFFF'
+            });
+
+            new EmbeddedDivider('divider-5', {
+                height: 60,
+                particleCount: 15,
+                flowSpeed: 1.0,
+                accentColor: '#00BFFF'
+            });
         });
     </script>
 </body>

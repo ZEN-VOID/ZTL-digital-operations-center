@@ -143,15 +143,19 @@
 }
 
 .pyramid-layer.layer-1 {
-    width: 500px;
+    max-width: 100%;
 }
 
 .pyramid-layer.layer-2 {
-    width: 400px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pyramid-layer.layer-3 {
-    width: 300px;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .layer-icon {
@@ -284,6 +288,9 @@
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     margin-top: 60px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Layer Diagram */
@@ -369,6 +376,8 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    max-width: 100%;
+    width: 100%;
 }
 
 .features-title {
@@ -382,6 +391,8 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    max-width: 100%;
+    width: 100%;
 }
 
 .feature-block {
@@ -390,6 +401,9 @@
     border-radius: 16px;
     padding: 24px;
     transition: all 0.3s ease;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .feature-block:hover {
@@ -1012,5 +1026,24 @@
 
     .execution-paths {
         grid-template-columns: 1fr;
+    }
+
+    /* Responsive fixes for pyramid layers */
+    .pyramid-layer.layer-1,
+    .pyramid-layer.layer-2,
+    .pyramid-layer.layer-3 {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* Additional responsive breakpoints for pyramid */
+@media (max-width: 1200px) {
+    .pyramid-layer.layer-2 {
+        max-width: 85%;
+    }
+
+    .pyramid-layer.layer-3 {
+        max-width: 70%;
     }
 }
