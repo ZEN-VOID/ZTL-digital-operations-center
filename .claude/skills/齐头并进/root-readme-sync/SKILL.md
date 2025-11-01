@@ -1,6 +1,6 @@
 ---
 name: root-readme-sync
-description: Automatically synchronize root-level README.md files (project root, plugin root) by analyzing entire project structure changes from .claude/logs/changes.log or git diff, generating professional GitHub-standard documentation with project overview, architecture, features, and comprehensive navigation.
+description: Automatically synchronize root-level README.md files (project root, plugin root) by analyzing entire project structure changes from git diff, generating professional GitHub-standard documentation with project overview, architecture, features, and comprehensive navigation.
 ---
 
 # Root README Sync Skill
@@ -36,7 +36,7 @@ User: "项目结构改了很多,更新根目录文档"
 This skill provides **intelligent root README synchronization** with:
 
 1. **Comprehensive Analysis** - Scans entire project structure, all subdirectories, all capabilities
-2. **Change Detection** - Uses `.claude/logs/changes.log` or git diff to identify updates since last sync
+2. **Change Detection** - Uses git diff to identify updates since last sync
 3. **Professional Documentation** - GitHub-standard README with badges, architecture diagrams, feature highlights
 4. **Smart Composition** - Aggregates data from all subdirectories, plugin.json, agent files
 5. **Template-Driven** - Uses proven README templates (project root, plugin root have different formats)
@@ -48,11 +48,10 @@ This skill provides **intelligent root README synchronization** with:
 
 ```
 Step 1: Change Detection & Scope Analysis
-├─ Priority 1: Read .claude/logs/changes.log
+├─ Use Git diff to detect changes
+│  ├─ Compare HEAD with recent commits (HEAD~10..HEAD)
 │  ├─ Parse changes since last root README update
 │  └─ Identify affected modules/plugins
-├─ Priority 2: Git diff (fallback)
-│  └─ Detect structural changes at root level
 └─ Determine update scope:
    ├─ Full regeneration (major changes)
    └─ Incremental update (minor changes)
@@ -221,35 +220,42 @@ Step 5: Output & Reporting
 
 ## Change Detection Logic
 
-### Reading changes.log
+### Git Diff Analysis
+
+```bash
+# Detect changes using git diff
+git diff --name-status HEAD~10..HEAD
+
+# Analyze output to identify:
+# - New plugins (A plugins/新组/)
+# - Deleted plugins (D plugins/旧组/)
+# - Agent changes (M plugins/*/agents/*.md)
+# - Command changes (M .claude/commands/*.md)
+# - Skill changes (M .claude/skills/*/)
+# - Structure changes (plugin.json, CLAUDE.md)
+```
+
+### Python Implementation
 
 ```python
+import subprocess
 from pathlib import Path
-from datetime import datetime
 
-def detect_changes_since_last_update(changes_log_path):
-    """Detect what changed since last root README update"""
+def detect_changes_via_git():
+    """Detect project changes using git diff"""
 
-    if not Path(changes_log_path).exists():
-        return fallback_to_git_diff()
+    # Run git diff to get changes since HEAD~10
+    result = subprocess.run(
+        ['git', 'diff', '--name-status', 'HEAD~10..HEAD'],
+        capture_output=True,
+        text=True
+    )
 
-    with open(changes_log_path, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
+    if result.returncode != 0:
+        # Fallback: analyze current state without delta
+        return analyze_current_state()
 
-    # Find last root README update timestamp
-    last_update = None
-    for line in reversed(lines):
-        if 'README.md' in line and ('root' in line or 'project' in line):
-            timestamp_match = re.search(r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}', line)
-            if timestamp_match:
-                last_update = datetime.strptime(timestamp_match.group(), '%Y-%m-%d %H:%M:%S')
-                break
-
-    if not last_update:
-        # No previous update found, analyze all recent changes
-        last_update = datetime.now() - timedelta(days=7)
-
-    # Extract changes since last_update
+    # Parse git diff output
     recent_changes = {
         'plugins_changed': [],
         'agents_added': [],
@@ -259,50 +265,48 @@ def detect_changes_since_last_update(changes_log_path):
         'structure_changed': False
     }
 
-    for line in lines:
-        timestamp_match = re.search(r'\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}', line)
-        if not timestamp_match:
+    for line in result.stdout.splitlines():
+        if not line.strip():
             continue
 
-        line_time = datetime.strptime(timestamp_match.group(), '%Y-%m-%d %H:%M:%S')
-        if line_time <= last_update:
+        parts = line.split('\t', 1)
+        if len(parts) < 2:
             continue
 
-        # Parse change
-        if 'plugins/' in line:
-            plugin_match = re.search(r'plugins/([^/]+)', line)
+        status, filepath = parts[0], parts[1]
+
+        # Parse plugins changes
+        if 'plugins/' in filepath:
+            plugin_match = re.search(r'plugins/([^/]+)', filepath)
             if plugin_match:
                 plugin_name = plugin_match.group(1)
                 if plugin_name not in recent_changes['plugins_changed']:
                     recent_changes['plugins_changed'].append(plugin_name)
 
-        if 'agents/' in line:
-            if 'added' in line.lower() or 'created' in line.lower():
-                recent_changes['agents_added'].append(extract_filename(line))
-            elif 'deleted' in line.lower() or 'removed' in line.lower():
-                recent_changes['agents_removed'].append(extract_filename(line))
+        # Parse agent changes
+        if 'agents/' in filepath and filepath.endswith('.md'):
+            if status == 'A':
+                recent_changes['agents_added'].append(Path(filepath).name)
+            elif status == 'D':
+                recent_changes['agents_removed'].append(Path(filepath).name)
 
-        if 'commands/' in line:
-            recent_changes['commands_changed'].append(extract_filename(line))
+        # Parse other changes
+        if 'commands/' in filepath:
+            recent_changes['commands_changed'].append(Path(filepath).name)
 
-        if 'skills/' in line:
-            recent_changes['skills_changed'].append(extract_filename(line))
+        if 'skills/' in filepath:
+            recent_changes['skills_changed'].append(Path(filepath).name)
+
+        if filepath in ['plugin.json', 'CLAUDE.md', '.claude/settings.json']:
+            recent_changes['structure_changed'] = True
 
     return recent_changes
-```
 
-### Git diff fallback
-
-```bash
-# If changes.log unavailable
-git diff --name-status HEAD~10..HEAD
-
-# Analyze output
-# Focus on:
-# - New plugins (A plugins/新组/)
-# - Deleted plugins (D plugins/旧组/)
-# - Agent changes (M plugins/*/agents/*.md)
-# - Structure changes (plugin.json, CLAUDE.md)
+def analyze_current_state():
+    """Fallback: analyze current project state without git history"""
+    # Scan entire project structure
+    # Return comprehensive analysis
+    pass
 ```
 
 ---
@@ -498,7 +502,7 @@ Similar structure but focused on single plugin scope. (See subdirectory-readme-s
 **When**: Minor changes, agent additions, small tweaks
 
 **Process**:
-1. Identify changed sections (via changes.log)
+1. Identify changed sections (via git diff)
 2. Update only affected sections:
    - Plugin count badges
    - Agent statistics
@@ -612,9 +616,9 @@ metadata:
 
 ### Common Issues
 
-**Issue 1**: changes.log corrupt or unparseable
-- **Solution**: Fallback to git diff immediately
-- **Log**: Error logged to .claude/logs/skill-errors.log
+**Issue 1**: Git diff unavailable or repo not initialized
+- **Solution**: Fallback to full project scan (analyze current state)
+- **Log**: Warning logged to .claude/logs/skill-errors.log
 - **Recovery**: Generate from current state (no delta detection)
 
 **Issue 2**: Plugin metadata missing (no plugin.json)
@@ -684,7 +688,7 @@ def get_plugins_cached():
 
 ### Incremental Processing
 
-- Only re-analyze plugins that changed (from changes.log)
+- Only re-analyze plugins that changed (from git diff)
 - Reuse existing statistics for unchanged plugins
 - Update only affected README sections
 
@@ -702,7 +706,7 @@ def get_plugins_cached():
 User: "更新项目主README,结构改了很多"
 
 Skill workflow:
-1. Read changes.log → Detect 3 new plugins, 10 new agents
+1. Git diff → Detect 3 new plugins, 10 new agents
 2. Full project scan:
    - 8 plugins (was 5)
    - 84 agents (was 74)
@@ -723,7 +727,7 @@ Skill workflow:
 User: "开发组agents增加了,更新plugins/开发组/README.md"
 
 Skill workflow:
-1. changes.log → Detect 2 agents added to 开发组
+1. Git diff → Detect 2 agents added to 开发组
 2. Scan plugins/开发组/:
    - 19 agents (was 17)
    - 6 commands
@@ -743,7 +747,7 @@ Skill workflow:
 ## Best Practices
 
 1. **Run after major milestones** - Sprint end, version release, major refactoring
-2. **Check changes.log accuracy** - Ensure logging is working correctly
+2. **Ensure git is up-to-date** - Commit recent changes before running for accurate diff detection
 3. **Review before committing** - Generated content should be verified
 4. **Preserve manual customizations** - Use `<!-- MANUAL -->` markers
 5. **Validate thoroughly** - Run full validation checklist
@@ -764,16 +768,181 @@ Skill workflow:
 
 ---
 
+## 🚀 执行指令 (Execution Instructions)
+
+**⚠️ 重要**: 当Claude需要更新root README时,请严格按照以下步骤执行。
+
+### Step 1: 运行统计分析引擎
+
+**Claude,请执行以下命令获取实时准确的项目统计数据**:
+
+```bash
+python3 .claude/skills/齐头并进/root-readme-sync/scripts/readme_analyzer.py
+```
+
+**预期输出**: JSON格式的完整项目统计
+```json
+{
+  "agents": {
+    "business_agents": 84,
+    "system_agents": 9,
+    "total_agents": 93,
+    "by_group": {
+      "战略组": 9,
+      "创意组": 16,
+      "情报组": 8,
+      ...
+    }
+  },
+  "commands": {
+    "total": 13,
+    "commands": ["prp", "test", "context-aware", ...]
+  },
+  "skills": {
+    "total": 22,
+    "skills": [...]
+  },
+  "mcp_servers": {
+    "total": 7,
+    "servers": ["chrome-mcp", "github-mcp", ...]
+  },
+  "plugins": {...},
+  "timestamp": "2025-11-01T...",
+  "version": "1.1.0"
+}
+```
+
+### Step 2: 使用统计数据更新README
+
+**Claude,请使用Step 1获取的准确数据,更新README.md的以下部分**:
+
+1. **项目概述部分** (第8行附近):
+   - 更新智能体总数: `协调 **{total_agents}个专业智能体**`
+   - 更新业务组数量: `横跨 **8大业务组**` (固定)
+
+2. **核心特性部分** (第28-30行附近):
+   - 更新: `**{total_agents}个专业智能体**: {business_agents}个业务组智能体 + {system_agents}个系统级智能体`
+   - 更新: `**{commands.total}个斜杠命令**`
+   - 更新: `**{skills.total}个技能包**`
+
+3. **业务组概览表格** (第163-171行附近):
+   - 根据`by_group`数据更新每个业务组的智能体数量
+   - 格式: `| **战略组** (Strategy) | {by_group['战略组']}个 | 核心职能 |`
+
+4. **命令系统部分** (第179行附近):
+   - 更新: `提供 **{commands.total}个斜杠命令** 用于一键式工作流`
+
+5. **项目统计部分** (第205-209行附近):
+   - 智能体总数: `**{total_agents}个** ({business_agents}个业务组智能体 + {system_agents}个系统级智能体)`
+   - 斜杠命令: `**{commands.total}个**`
+   - 技能包: `**{skills.total}个**`
+   - MCP服务器: `**{mcp_servers.total}+个**`
+
+### Step 3: 运行准确性验证
+
+**Claude,请执行验证脚本确保更新后的README准确无误**:
+
+```bash
+python3 .claude/skills/齐头并进/root-readme-sync/scripts/validator.py README.md .
+```
+
+**预期输出**:
+```
+📊 README准确性验证报告
+======================================================================
+
+✅ 验证通过的项目 (8个):
+✅ 智能体总数准确: 93个
+✅ 命令数量准确: 13个
+✅ 技能包数量准确: 22个
+✅ 业务组表格数据准确
+✅ 所有内部链接有效
+✅ Markdown语法检查完成
+
+======================================================================
+✨ 完美! README信息准确无误,所有检查通过。
+======================================================================
+```
+
+**如果验证失败**:
+- ❌ 查看错误报告,识别不准确的部分
+- 🔧 重新执行Step 1获取最新数据
+- 🔄 返回Step 2,使用准确数据修正
+- ✅ 重新运行Step 3验证,直到通过
+
+### Step 4: 更新元数据
+
+**Claude,请更新README底部的元数据**:
+
+```markdown
+**文档生成**: 自动更新于 {当前日期} by `/github-pull` 命令
+**版本**: v{project_version}
+**最后更新**: {当前日期}
+**更新内容**: {简要描述本次更新的内容}
+```
+
+---
+
+## 工作流集成
+
+### 在github-pull命令中的调用方式
+
+在`.claude/commands/github-pull.md`的Step 0.5中:
+
+```markdown
+**0.5 调用 root-readme-sync 技能包**
+
+**Claude,请现在执行以下操作**:
+
+1. **运行统计引擎**:
+   ```bash
+   python3 .claude/skills/齐头并进/root-readme-sync/scripts/readme_analyzer.py
+   ```
+
+2. **解析输出的JSON数据** (会保存到 `output/project-stats.json`)
+
+3. **使用统计数据更新README.md**:
+   - 按照root-readme-sync skill的Step 2指令执行
+   - 确保所有统计数据使用实时扫描的准确值
+
+4. **运行验证**:
+   ```bash
+   python3 .claude/skills/齐头并进/root-readme-sync/scripts/validator.py
+   ```
+
+5. **如果验证失败,中止github-pull流程并报告错误**
+```
+
+---
+
+## 故障排查
+
+### 常见问题
+
+**Q1: 统计脚本报错 "ModuleNotFoundError: No module named 'yaml'"**
+- **解决方案**: 安装依赖 `pip install pyyaml`
+
+**Q2: 验证失败,提示数量不匹配**
+- **原因**: README可能包含手动编辑的内容
+- **解决方案**: 重新运行统计脚本,使用最新数据覆盖
+
+**Q3: JSON输出格式错误**
+- **解决方案**: 检查Python版本 ≥3.8,确保编码为UTF-8
+
+---
+
 ## Related Documentation
 
 - [subdirectory-readme-sync SKILL.md](../subdirectory-readme-sync/SKILL.md) - Subdirectory README sync
 - [/readme-generator command](../../../commands/readme-generator.md) - Full README generator command
 - [Global CLAUDE.md](~/.claude/CLAUDE.md) - Project configuration standards
+- [readme_analyzer.py](./scripts/readme_analyzer.py) - 统计分析引擎源码
+- [validator.py](./scripts/validator.py) - 验证器源码
 
 ---
 
-**Skill Version**: 1.0.0
+**Skill Version**: 2.0.0
 **Created**: 2025-11-01
 **Last Updated**: 2025-11-01
-**Status**: ✅ Production Ready
+**Status**: ✅ Production Ready (新增执行引擎层)
 **Maintained by**: ZTL Digital Intelligence Operations Center

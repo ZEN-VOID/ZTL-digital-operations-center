@@ -1,0 +1,13 @@
+{
+  "task_id": "T1",
+  "status": "completed",
+  "execution_time": "2025-11-01T10:05:00Z",
+  "duration_seconds": 300,
+  "output_data": {
+    "key": "value"
+  },
+  "summary": "任务执行摘要",
+  "errors": [],
+  "warnings": [],
+  "next_steps": []
+}

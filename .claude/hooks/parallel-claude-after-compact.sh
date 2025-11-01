@@ -1,21 +1,34 @@
 #!/bin/bash
 # ========================================================================
-# PreCompact Hook: 并行 Claude 实例协作 v2.0
+# PreCompact Hook: 智能任务分割 + 并行Worker执行 v3.0
 # ========================================================================
-# 功能: 在 compact 执行前保存上下文，启动新 iTerm 窗口运行并行 Claude
-# 触发时机: PreCompact (compact 执行前)
-# 改进: 确保命令发送到正确窗口，自动提交输入
-# 版本: 2.0.0
+# 功能:
+#   1. 在compact执行前保存上下文
+#   2. 智能分析任务并分割为子任务
+#   3. 启动多个Worker实例并行执行
+#   4. 启动结果汇总器自动整合输出
+# 触发时机: PreCompact (compact执行前)
+# 版本: 3.0.0 (剑刃风暴)
+# 创建时间: 2025-11-01
 # ========================================================================
 
 # ========== Configuration ==========
-SCRIPT_NAME="parallel-claude-after-compact"
+SCRIPT_NAME="parallel-claude-after-compact-v3"
 LOG_DIR=".claude/logs"
 LOG_FILE="${LOG_DIR}/${SCRIPT_NAME}.log"
 CONTEXT_DIR="context/snapshots"
 CONTEXT_FILE="${CONTEXT_DIR}/last-compact-context.txt"
 LOCK_FILE=".claude/locks/parallel-claude.lock"
+
+# 剑刃风暴组件路径
+SKILL_BASE=".claude/skills/剑刃风暴/multi-threading-executor"
+TASK_SPLITTER_SCRIPT="${SKILL_BASE}/scripts/task_splitter.py"
+RESULT_AGGREGATOR_SCRIPT="${SKILL_BASE}/scripts/result_aggregator.py"
+WORKER_LAUNCHER_SCRIPT="${SKILL_BASE}/scripts/launch_workers.sh"
+
+# 深渊凝视脚本
 ABYSS_GAZE_SCRIPT=".claude/skills/深渊凝视/scripts/abyss_gaze.py"
+
 DEBUG=${DEBUG:-false}
 
 # 创建必需的目录
@@ -49,12 +62,36 @@ handle_error() {
     exit 0
 }
 
-acquire_lock() {
-    # 使用 mkdir 实现原子锁（macOS 兼容）
-    local lock_dir=".claude/locks/parallel-claude.lock.d"
-    local max_age=300  # 锁文件最大存活时间(秒)
+check_dependencies() {
+    """检查依赖组件是否存在"""
 
-    # 检查是否有过期的锁
+    if [[ ! -f "$TASK_SPLITTER_SCRIPT" ]]; then
+        log "WARNING: TaskSplitter未找到: $TASK_SPLITTER_SCRIPT"
+        return 1
+    fi
+
+    if [[ ! -f "$RESULT_AGGREGATOR_SCRIPT" ]]; then
+        log "WARNING: ResultAggregator未找到: $RESULT_AGGREGATOR_SCRIPT"
+        return 1
+    fi
+
+    if [[ ! -f "$WORKER_LAUNCHER_SCRIPT" ]]; then
+        log "WARNING: Worker启动器未找到: $WORKER_LAUNCHER_SCRIPT"
+        return 1
+    fi
+
+    if [[ ! -f "$ABYSS_GAZE_SCRIPT" ]]; then
+        log "WARNING: 深渊凝视未找到: $ABYSS_GAZE_SCRIPT"
+        return 1
+    fi
+
+    return 0
+}
+
+acquire_lock() {
+    local lock_dir=".claude/locks/parallel-claude.lock.d"
+    local max_age=300
+
     if [[ -d "$lock_dir" ]]; then
         local lock_age=$(( $(date +%s) - $(stat -f %m "$lock_dir" 2>/dev/null || echo 0) ))
         if [[ $lock_age -gt $max_age ]]; then
@@ -63,18 +100,15 @@ acquire_lock() {
         fi
     fi
 
-    # 尝试创建锁目录（原子操作）
     if mkdir "$lock_dir" 2>/dev/null; then
         echo $$ > "$lock_dir/pid"
         log "Lock acquired (PID: $$)"
         return 0
     else
         local lock_pid=$(cat "$lock_dir/pid" 2>/dev/null || echo "unknown")
-        # 检查锁的进程是否还在运行
         if [[ "$lock_pid" != "unknown" ]] && ! ps -p "$lock_pid" > /dev/null 2>&1; then
             log "Cleaning up stale lock (PID: $lock_pid no longer exists)"
             rmdir "$lock_dir" 2>/dev/null || true
-            # 再次尝试获取锁
             if mkdir "$lock_dir" 2>/dev/null; then
                 echo $$ > "$lock_dir/pid"
                 log "Lock acquired (PID: $$)"
@@ -90,7 +124,6 @@ release_lock() {
     local lock_dir=".claude/locks/parallel-claude.lock.d"
     local lock_pid=$(cat "$lock_dir/pid" 2>/dev/null || echo "unknown")
 
-    # 只释放自己创建的锁
     if [[ "$lock_pid" == "$$" ]]; then
         rm -f "$lock_dir/pid"
         rmdir "$lock_dir" 2>/dev/null || true
@@ -98,124 +131,124 @@ release_lock() {
     fi
 }
 
-launch_parallel_claude() {
-    local context_summary="$1"
+analyze_task_from_context() {
+    """从上下文中分析当前任务"""
+    local context="$1"
+
+    # 提取任务相关信息
+    # 简单策略: 查找"任务"、"目标"、"需要"等关键词
+    local task_description=""
+
+    # 尝试从上下文中提取任务描述
+    if echo "$context" | grep -q "任务:"; then
+        task_description=$(echo "$context" | grep "任务:" | head -1 | sed 's/任务://g')
+    elif echo "$context" | grep -q "目标:"; then
+        task_description=$(echo "$context" | grep "目标:" | head -1 | sed 's/目标://g')
+    else
+        # 使用上下文前200字符作为任务描述
+        task_description=$(echo "$context" | head -c 200)
+    fi
+
+    echo "$task_description"
+}
+
+generate_project_name() {
+    """生成项目名称"""
+    local context="$1"
+
+    # 尝试从上下文中提取项目名称
+    if echo "$context" | grep -q "项目名称:"; then
+        echo "$context" | grep "项目名称:" | head -1 | sed 's/项目名称://g' | xargs
+    elif echo "$context" | grep -q "项目:"; then
+        echo "$context" | grep "项目:" | head -1 | sed 's/项目://g' | xargs
+    else
+        # 使用时间戳作为默认项目名称
+        echo "任务-$(date +%Y%m%d-%H%M%S)"
+    fi
+}
+
+split_task_and_launch_workers() {
+    """任务分割和Worker启动"""
+    local context="$1"
     local current_dir="$2"
 
-    log "=== Starting parallel Claude instance ==="
+    log "=== 开始任务分割与Worker启动 ==="
 
-    # 尝试获取锁
-    if ! acquire_lock; then
-        log "Cannot launch: lock acquisition failed"
+    # 分析任务
+    local task_description=$(analyze_task_from_context "$context")
+    log "任务描述: $task_description"
+
+    # 生成项目名称
+    local project_name=$(generate_project_name "$context")
+    log "项目名称: $project_name"
+
+    # 调用TaskSplitter分割任务
+    log "调用TaskSplitter分割任务..."
+
+    cd "$current_dir"
+
+    python3 "$TASK_SPLITTER_SCRIPT" \
+        "$project_name" \
+        "$task_description" \
+        >> "$LOG_FILE" 2>&1
+
+    if [[ $? -ne 0 ]]; then
+        log "ERROR: TaskSplitter执行失败"
         return 1
     fi
 
-    # 确保退出时释放锁
-    trap release_lock EXIT
+    log "✅ 任务分割完成"
 
-    if [[ ! -f "$ABYSS_GAZE_SCRIPT" ]]; then
-        log "ERROR: 深渊凝视 script not found at $ABYSS_GAZE_SCRIPT"
-        release_lock
+    # 启动Worker实例
+    log "启动Worker实例..."
+
+    bash "$WORKER_LAUNCHER_SCRIPT" "$project_name" >> "$LOG_FILE" 2>&1
+
+    if [[ $? -ne 0 ]]; then
+        log "ERROR: Worker启动失败"
         return 1
     fi
 
-    # Step 1: 记录当前窗口数
-    local before_windows=$(python3 "$ABYSS_GAZE_SCRIPT" list_windows 2>/dev/null)
-    local before_count=$(echo "$before_windows" | grep -o '"total"[[:space:]]*:[[:space:]]*[0-9]*' | grep -o '[0-9]*')
-    log "Current window count: $before_count"
+    log "✅ Worker启动完成"
 
-    # Step 2: 创建新窗口并启动 Claude
-    local startup_cmd="cd '$current_dir' && claude --dangerously-skip-permissions"
-    log "Executing: $startup_cmd"
+    # 启动结果汇总器(后台运行)
+    log "启动结果汇总器..."
 
-    local window_result=$(python3 "$ABYSS_GAZE_SCRIPT" execute_in_new_window "$startup_cmd" 2>&1)
-    log "Window creation result: $window_result"
+    (python3 "$RESULT_AGGREGATOR_SCRIPT" "$project_name" --monitor >> "$LOG_FILE" 2>&1) &
 
-    # Step 3: 获取新窗口的索引
-    local new_window_index=$((before_count + 1))
-    log "New window index should be: $new_window_index"
+    local aggregator_pid=$!
+    log "✅ 结果汇总器已启动 (PID: $aggregator_pid)"
 
-    # Step 4: 验证新窗口已创建
-    sleep 2
-    local after_windows=$(python3 "$ABYSS_GAZE_SCRIPT" list_windows 2>/dev/null)
-    local after_count=$(echo "$after_windows" | grep -o '"total"[[:space:]]*:[[:space:]]*[0-9]*' | grep -o '[0-9]*')
-    log "After creation window count: $after_count"
+    # 保存项目信息到文件
+    local project_info_file="output/${project_name}/project-info.json"
+    mkdir -p "output/${project_name}"
 
-    if [[ "$after_count" -le "$before_count" ]]; then
-        log "ERROR: New window was not created"
-        return 1
-    fi
+    cat > "$project_info_file" <<EOF
+{
+  "project_name": "$project_name",
+  "task_description": "$task_description",
+  "created_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "aggregator_pid": $aggregator_pid,
+  "task_queue_dir": "output/${project_name}/task-queue",
+  "results_dir": "output/${project_name}/results",
+  "report_path": "output/${project_name}/final-report.md"
+}
+EOF
 
-    log "✓ New window created successfully at index $new_window_index"
-
-    # Step 5: 等待 Claude Code 完全启动
-    log "Waiting for Claude Code to initialize (20 seconds)..."
-    sleep 20
-
-    # Step 6: 构造任务提示（简洁版，避免特殊字符问题）
-    local task_prompt="请帮我继续执行任务。上下文状态：
-
-$context_summary"
-
-    log "Preparing to send task context (${#task_prompt} chars)"
-
-    # Step 7: 将任务写入临时文件
-    local prompt_file="/tmp/claude-compact-context-$$.txt"
-    echo "$task_prompt" > "$prompt_file"
-    log "Context saved to temp file: $prompt_file"
-
-    # Step 8: 使用 type_text_in_window 命令发送并提交
-    log "Sending context to window $new_window_index using type_text_in_window..."
-
-    # 直接使用 type_text_in_window (submit=true 自动按回车)
-    python3 "$ABYSS_GAZE_SCRIPT" type_text_in_window "$task_prompt" "$new_window_index" true > /tmp/send-context-result.json 2>&1
-
-    local send_result=$(cat /tmp/send-context-result.json 2>/dev/null)
-    log "Send result: $send_result"
-
-    # Step 9: 清理临时文件
-    rm -f "$prompt_file"
-    rm -f /tmp/send-context-result.json
-
-    # Step 10: 验证发送状态
-    sleep 3
-    log "Task context sent to window $new_window_index"
-    log "✓ Parallel Claude instance is now processing the task"
-
-    # Step 11: 启动监控（可选）
-    monitor_parallel_claude "$new_window_index" &
+    log "✅ 项目信息已保存: $project_info_file"
 
     return 0
 }
 
-monitor_parallel_claude() {
-    local window_index="$1"
-    local monitor_interval=30
-    local max_checks=10
-
-    for ((i=1; i<=max_checks; i++)); do
-        sleep "$monitor_interval"
-
-        local window_check=$(python3 "$ABYSS_GAZE_SCRIPT" list_windows 2>&1)
-
-        if echo "$window_check" | grep -q "\"index\": $window_index"; then
-            log "Monitor [$i/$max_checks]: Window $window_index is active"
-        else
-            log "Monitor [$i/$max_checks]: Window $window_index closed"
-            break
-        fi
-    done
-
-    log "Monitoring completed for window $window_index"
-}
-
 # ========== Main Logic ==========
 main() {
-    log "=== PreCompact Hook Triggered ==="
+    log "=== PreCompact Hook Triggered (v3.0 剑刃风暴) ==="
 
+    # 读取输入
     input=$(cat)
     log "Input length: ${#input} characters"
 
+    # 提取字段
     context=$(extract_field "$input" "context_to_compact")
     reason=$(extract_field "$input" "reason")
 
@@ -238,27 +271,33 @@ main() {
 
     log "Context saved to $CONTEXT_FILE"
 
-    # 创建摘要（前800字符）
-    local context_summary
-    if [[ ${#context} -gt 800 ]]; then
-        context_summary="${context:0:800}
-
-... (上下文已截断，完整内容共 ${#context} 字符)
-
-请根据以上信息继续执行任务。"
-    else
-        context_summary="$context"
+    # 检查依赖
+    if ! check_dependencies; then
+        log "WARNING: 剑刃风暴组件不完整,回退到传统模式"
+        echo "{}"
+        return 0
     fi
 
+    # 尝试获取锁
+    if ! acquire_lock; then
+        log "Cannot launch: lock acquisition failed"
+        echo "{}"
+        return 0
+    fi
+
+    trap release_lock EXIT
+
+    # 当前目录
     local current_dir=$(pwd)
     log "Current directory: $current_dir"
 
-    # 异步启动并行实例（不阻塞 compact）
-    (launch_parallel_claude "$context_summary" "$current_dir" >> "$LOG_FILE" 2>&1) &
+    # 异步启动任务分割和Worker(不阻塞compact)
+    (split_task_and_launch_workers "$context" "$current_dir" >> "$LOG_FILE" 2>&1) &
 
-    log "Parallel Claude launch initiated (PID: $!)"
+    local worker_launcher_pid=$!
+    log "Worker启动流程已启动 (PID: $worker_launcher_pid)"
+
     log "Hook completed, compact will proceed"
-
     echo "{}"
 }
 

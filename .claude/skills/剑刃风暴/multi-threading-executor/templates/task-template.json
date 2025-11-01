@@ -1,0 +1,16 @@
+{
+  "task_id": "T1",
+  "description": "任务描述",
+  "dependencies": [],
+  "status": "pending",
+  "input_data": {
+    "key": "value"
+  },
+  "execution_plan": "详细执行计划...",
+  "output_path": "output/项目名/results/T1-result.json",
+  "created_at": "2025-11-01T10:00:00Z",
+  "estimated_duration": 300,
+  "worker_window_index": null,
+  "started_at": null,
+  "completed_at": null
+}

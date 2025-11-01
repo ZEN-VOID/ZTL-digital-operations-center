@@ -657,7 +657,7 @@ HTML页面:
 
 **mcp-servers.html**
 - ✅ 更新MCP服务器数量
-- ✅ 新增shadcn-ui服务器说明
+- ✅ 更新MCP服务器配置状态
 
 **use-cases.html**
 - ✅ 新增2个典型用例场景

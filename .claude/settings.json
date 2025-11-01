@@ -31,18 +31,6 @@
           }
         ]
       }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit|MultiEdit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": ".claude/hooks/post-tool-use-logger.sh",
-            "description": "Log file creation and modification to changes.log"
-          }
-        ]
-      }
     ]
   }
 }

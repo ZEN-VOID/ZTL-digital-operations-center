@@ -894,18 +894,60 @@ git diff --name-status HEAD
 **说明**: 这个步骤会自动触发 `.claude/skills/齐头并进/subdirectory-readme-sync` 技能包
 
 **0.5 调用 root-readme-sync 技能包**
-**Claude，请现在执行以下操作**:
-1. 分析整个项目的当前状态（agent数量、plugin数量、命令数量等）
-2. 扫描所有 plugin 的 README.md 获取业务组信息
-3. 统计项目的完整数据（文件数、代码行数、配置数等）
-4. 生成/更新根目录的 `README.md` 文件，包含:
-   - 项目徽章和统计数据
-   - 业务组架构概览
-   - 快速导航链接
-   - 最新更新时间
-5. 验证生成的 README 格式正确、数据准确
 
-**说明**: 这个步骤会自动触发 `.claude/skills/齐头并进/root-readme-sync` 技能包
+**Claude，请严格按照以下步骤执行**:
+
+**Step 1: 运行统计分析引擎**
+```bash
+python3 .claude/skills/齐头并进/root-readme-sync/scripts/readme_analyzer.py
+```
+- 该脚本将实时扫描整个项目结构
+- 自动生成准确的统计数据（agents、commands、skills、MCP服务器、plugins）
+- 输出JSON格式到 `output/project-stats.json`
+- 在终端显示完整统计信息供Claude解析
+
+**Step 2: 使用统计数据更新README**
+
+使用Step 1获取的准确数据，更新 `README.md` 的以下部分:
+
+1. **项目概述部分** (第8行附近):
+   - 更新智能体总数: `协调 **{total_agents}个专业智能体**`
+
+2. **核心特性部分** (第28-40行附近):
+   - 更新: `**{total_agents}个专业智能体**: {business_agents}个业务组智能体 + {system_agents}个系统级智能体`
+   - 更新: `**{commands.total}个斜杠命令**`
+   - 更新: `**{skills.total}个技能包**`
+
+3. **业务组概览表格** (第163-171行附近):
+   - 根据`by_group`数据更新每个业务组的智能体数量
+   - 格式: `| **战略组** (Strategy) | {count}个 | ...`
+
+4. **项目统计部分** (第205-209行附近):
+   - 智能体总数、命令数量、技能包数量、MCP服务器数量
+
+**Step 3: 运行准确性验证**
+```bash
+python3 .claude/skills/齐头并进/root-readme-sync/scripts/validator.py README.md .
+```
+- 该脚本将验证README中的所有统计数据是否与实际项目状态一致
+- 检查智能体计数、命令计数、技能包计数、业务组表格
+- 验证内部链接有效性和Markdown语法
+
+**如果验证失败**:
+- ❌ 查看错误报告，识别不准确的部分
+- 🔧 重新执行Step 1获取最新数据
+- 🔄 返回Step 2，使用准确数据修正
+- ✅ 重新运行Step 3验证，直到通过
+- ⛔ **如果验证失败，中止github-pull流程并报告错误**
+
+**Step 4: 验证通过后继续**
+- 只有在validator.py返回成功（退出码0）后，才继续执行后续的Git操作
+- 这确保了README的准确性，避免将错误信息推送到远程仓库
+
+**说明**:
+- 这个步骤使用 `.claude/skills/齐头并进/root-readme-sync` 技能包的执行引擎
+- 通过自动化脚本确保README信息的准确性
+- 基于实时扫描而非手动计数，从根本上避免数据不准确问题
 
 ### Step 1-3: Git 操作
 

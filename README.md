@@ -5,7 +5,7 @@
 [![Agent Framework](https://img.shields.io/badge/Framework-Multi--Agent-orange)](https://docs.claude.com/en/docs/claude-code/)
 [![License](https://img.shields.io/badge/License-MIT-green)](#)
 
-ZTL数智化作战中心 (ZTL Digital Intelligence Operations Center) 是面向餐饮行业数字化转型的多智能体协同平台,基于 Claude Code + Sonnet 4.5 构建,协调 **93个专业智能体** 横跨 **8大业务组**,处理从战略规划到门店筹建的全链条业务。
+ZTL数智化作战中心 (ZTL Digital Intelligence Operations Center) 是面向餐饮行业数字化转型的多智能体协同平台,基于 Claude Code + Sonnet 4.5 构建,协调 **94个专业智能体** 横跨 **8大业务组**,处理从战略规划到门店筹建的全链条业务。
 
 ---
 
@@ -14,7 +14,7 @@ ZTL数智化作战中心 (ZTL Digital Intelligence Operations Center) 是面向�
 这不是传统的单体应用,而是一个**智能体编排框架**,Claude 通过动态组合专业智能体来构建解决方案,每个智能体都在其 Markdown 定义中编码了领域专业知识。
 
 **核心价值**:
-- 🎯 **领域专精**: 93个专业智能体覆盖餐饮全业态
+- 🎯 **领域专精**: 94个专业智能体覆盖餐饮全业态
 - 🔄 **动态协同**: 智能体按需组合,灵活应对复杂场景
 - 📊 **数据驱动**: 整合多个MCP服务器实现外部系统访问
 - 🚀 **快速迭代**: PRP工作流确保功能开发的高质量交付
@@ -25,7 +25,7 @@ ZTL数智化作战中心 (ZTL Digital Intelligence Operations Center) 是面向�
 
 ### 🤖 多智能体架构
 - **8大业务组**: 战略、创意、情报、筹建、开发、美团、供应、行政
-- **93个专业智能体**: 84个业务组智能体 + 9个系统级智能体
+- **94个专业智能体**: 85个业务组智能体 + 9个系统级智能体
 - **动态编排**: QQ-总指挥官智能体协调跨组任务执行
 
 ### 📜 命令系统
@@ -34,7 +34,7 @@ ZTL数智化作战中心 (ZTL Digital Intelligence Operations Center) 是面向�
 - **上下文管理**: MANUS系统整合注意力管理、错误学习、知识沉淀
 
 ### 🛠️ 技能包生态
-- **22个技能包**: 覆盖办公、AIGC、爬虫、元系统、文档同步等
+- **52个技能包**: 覆盖办公、AIGC、爬虫、元系统、文档同步等
 - **渐进披露**: 按需加载技能包内容,优化token使用
 - **自主发现**: Claude自动匹配并调用相关技能
 
@@ -154,28 +154,29 @@ Task(subagent_type="QQ-总指挥官",
 
 ## 🤖 智能体系统
 
-本项目采用多智能体协作架构,共有 **69个专业智能体** 分布在 **8个业务组**。
+本项目采用多智能体协作架构,共有 **94个专业智能体** (85个业务组智能体 + 9个系统级智能体) 分布在 **8个业务组**。
 
 ### 业务组概览
 
 | 业务组 | 智能体数量 | 核心职能 |
 |--------|-----------|----------|
-| **战略组** (Strategy) | 9个 | 商业战略、经营分析、产品定位 |
-| **创意组** (Creative) | 13个 | 广告策划、文案设计、视频制作、AIGC |
+| **战略组** (Strategy) | 11个 | 商业战略、经营分析、产品定位 |
+| **创意组** (Creative) | 18个 | 广告策划、文案设计、视频制作、AIGC |
 | **情报组** (Intelligence) | 8个 | 市场调研、网页采集、数据分析 |
 | **筹建组** (Construction) | 6个 | 平面规划、空间设计、BIM建模 |
-| **开发组** (Development) | 11个 | 全栈开发、测试、部署 |
+| **开发组** (Development) | 20个 | 全栈开发、UI设计、后端架构、测试、部署 |
 | **美团组** (Meituan Ops) | 6个 | 平台运营、营销、报表 |
 | **供应组** (Supply Chain) | 7个 | 采购、库存、成本管理 |
 | **行政组** (Admin) | 9个 | 财务、人事、法务、文档管理 |
+| **系统级** (Q Series) | 9个 | 跨组协调、报告生成、研究编排、质量审核 |
 
-详细信息请参阅 [OVERVIEW.md](OVERVIEW.md#智能体系统)
+详细信息请参阅各业务组README文档
 
 ---
 
 ## 📜 命令系统
 
-提供 **14个斜杠命令** 用于一键式工作流:
+提供 **13个斜杠命令** 用于一键式工作流:
 
 | 命令 | 功能 |
 |------|------|
@@ -192,9 +193,8 @@ Task(subagent_type="QQ-总指挥官",
 | `/project-instructions` | 更新项目指令文档 |
 | `/learn [step]` | 从组件学习转向生态研究 |
 | `/github-start` | 初始化GitHub仓库 |
-| `/context-aware` | 项目上下文分析 |
 
-详细说明请参阅 [OVERVIEW.md](OVERVIEW.md#命令系统)
+详细说明请参阅 `.claude/commands/` 目录中的各命令文档
 
 ---
 
@@ -202,10 +202,10 @@ Task(subagent_type="QQ-总指挥官",
 
 ### 系统规模
 
-- **智能体总数**: 69个 (8个业务组)
-- **斜杠命令**: 14个
-- **技能包**: 21个
-- **MCP服务器**: 7个
+- **智能体总数**: 94个 (85个业务组智能体 + 9个系统级智能体)
+- **斜杠命令**: 13个
+- **技能包**: 52个
+- **MCP服务器**: 7+个
 - **生命周期钩子**: 1个 (PreCompact)
 
 ### 代码规模
@@ -243,9 +243,10 @@ Task(subagent_type="QQ-总指挥官",
 
 ## 📄 相关文档
 
-- **OVERVIEW.md**: 深度技术文档
 - **CLAUDE.md**: 项目指令和约定
+- **.claude/agents/README.md**: 系统级智能体文档
 - **.claude/commands/README.md**: 命令系统文档
+- **plugins/*/README.md**: 各业务组文档
 - **PRPs/**: 功能规划文档
 - **reports/**: 执行报告和分析
 

@@ -1,0 +1,92 @@
+# ========================================================================
+# 剑刃风暴 - 多线程执行器配置文件
+# ========================================================================
+# 版本: 1.0.0
+# 创建时间: 2025-11-01
+# ========================================================================
+
+# Worker启动器配置
+worker_launcher:
+  max_workers: 3                    # 最大并发Worker数
+  worker_startup_delay: 5           # Worker启动间隔(秒)
+  claude_init_delay: 20             # Claude初始化等待时间(秒)
+  claude_startup_command: "claude --dangerously-skip-permissions"
+
+# 结果汇总器配置
+result_aggregator:
+  check_interval: 10                # 任务状态检查间隔(秒)
+  max_wait_time: 3600               # 最大等待时间(秒)
+  auto_cleanup_age: 7               # 自动清理N天前的结果(天)
+
+# 任务分割器配置
+task_splitter:
+  max_subtasks: 10                  # 单个任务最大分割数
+  min_task_duration: 200            # 最小任务时长(秒)
+  max_task_duration: 600            # 最大任务时长(秒)
+
+# PreCompact Hook配置
+precompact_hook:
+  enabled: true                     # 是否启用自动触发
+  context_save_enabled: true        # 是否保存上下文快照
+  async_launch: true                # 是否异步启动Worker
+
+# 路径配置
+paths:
+  output_base: "output"             # 输出基础路径
+  context_snapshots: "context/snapshots"
+  logs: ".claude/logs"
+  locks: ".claude/locks"
+
+# 调试配置
+debug:
+  enabled: false                    # 是否启用调试模式
+  verbose_logging: false            # 是否启用详细日志
+  save_intermediate_results: false  # 是否保存中间结果
+
+# 任务类型识别关键词
+task_type_keywords:
+  data_analysis:
+    - "数据分析"
+    - "数据采集"
+    - "数据清洗"
+    - "统计分析"
+    - "数据报告"
+
+  content_generation:
+    - "内容生成"
+    - "文章创作"
+    - "海报设计"
+    - "视频制作"
+    - "文案撰写"
+
+  research:
+    - "调研"
+    - "研究"
+    - "信息收集"
+    - "分析报告"
+    - "市场调查"
+
+  development:
+    - "开发"
+    - "编码"
+    - "实现"
+    - "功能"
+    - "系统构建"
+
+# 错误处理配置
+error_handling:
+  max_retries: 3                    # 最大重试次数
+  retry_delay: 30                   # 重试间隔(秒)
+  fail_fast: false                  # 是否遇错即停
+
+# 性能优化配置
+performance:
+  task_queue_batch_size: 10         # 任务队列批量处理大小
+  result_collection_batch_size: 5   # 结果收集批量大小
+  enable_caching: true              # 是否启用缓存
+
+# 通知配置
+notifications:
+  enabled: false                    # 是否启用通知
+  on_completion: false              # 任务完成时通知
+  on_error: false                   # 错误时通知

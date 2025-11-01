@@ -1,6 +1,6 @@
 ---
 name: subdirectory-readme-sync
-description: Automatically synchronize README.md files for subdirectories (agents/, commands/, skills/, etc.) by analyzing project structure changes from .claude/logs/changes.log or git diff, ensuring documentation stays current with actual directory state.
+description: Automatically synchronize README.md files for subdirectories (agents/, commands/, skills/, etc.) by analyzing project structure changes from git diff, ensuring documentation stays current with actual directory state.
 ---
 
 # Subdirectory README Sync Skill
@@ -33,7 +33,7 @@ User: "agents 目录改动了,更新一下文档"
 
 This skill provides **intelligent subdirectory README synchronization** with:
 
-1. **Change Detection** - Analyzes `.claude/logs/changes.log` or git diff to identify what changed
+1. **Change Detection** - Analyzes `git diff` or git diff to identify what changed
 2. **Smart Analysis** - Extracts metadata from agent/command/skill files (YAML frontmatter)
 3. **Professional Documentation** - Generates GitHub-standard README with badges, tables, examples
 4. **Incremental Updates** - Only updates sections that changed, preserves manual customizations
@@ -45,9 +45,9 @@ This skill provides **intelligent subdirectory README synchronization** with:
 
 ```
 Step 1: Change Detection
-├─ Priority 1: Read .claude/logs/changes.log
-│  └─ Parse recent changes since last update
-├─ Priority 2: Run git diff (if changes.log unavailable)
+├─ Priority 1: Read git diff
+│  └─ Compare HEAD with recent commits (HEAD~10..HEAD)
+├─ Priority 2: Fallback: Analyze current state if git unavailable
 │  └─ Detect file additions/deletions/modifications
 └─ Identify target subdirectories needing updates
 
@@ -211,8 +211,8 @@ Total: **XX items**
 ### Reading changes.log
 
 ```python
-# Parse .claude/logs/changes.log
-with open('.claude/logs/changes.log', 'r') as f:
+# Parse git diff
+with open('git diff', 'r') as f:
     lines = f.readlines()
 
 # Look for last README update timestamp
@@ -351,9 +351,9 @@ config = {
 
 ### Common Issues
 
-**Issue 1**: changes.log not found or empty
-- **Solution**: Fallback to git diff automatically
-- **Log**: Warning logged, proceed with git diff
+**Issue 1**: Git diff unavailable or repo not initialized
+- **Solution**: Fallback to full directory scan automatically
+- **Log**: Warning logged, proceed with full scan
 
 **Issue 2**: YAML frontmatter parse error
 - **Solution**: Use filename as fallback, log warning
@@ -373,7 +373,7 @@ config = {
 User: "刚添加了F10-新智能体,更新agents的README"
 
 Skill workflow:
-1. Read changes.log → Detect F10-新智能体.md added
+1. Git diff → Detect F10-新智能体.md added
 2. Scan agents/ → Find all 20 agent files
 3. Extract metadata from all agents
 4. Generate updated README:
@@ -425,7 +425,7 @@ Can be invoked via slash command:
 ## Best Practices
 
 1. **Run after structural changes** - Add/remove/rename files
-2. **Check changes.log first** - More accurate than git diff
+2. **Ensure git is up-to-date first** - Clean commit history helps accuracy
 3. **Review generated README** - Verify accuracy before committing
 4. **Preserve customizations** - Mark manual sections with `<!-- MANUAL -->`
 5. **Validate thoroughly** - Use validation checklist
