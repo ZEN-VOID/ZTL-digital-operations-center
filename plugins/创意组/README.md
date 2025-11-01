@@ -1,462 +1,442 @@
 # 创意组 Plugin
 
-> Professional creative production plugin for Claude Code with restaurant industry specialization
+> 专业创意内容生产插件 - 从品牌策划到视觉传达的完整创意流程管理
 
-## Overview
+[![Agents](https://img.shields.io/badge/agents-18-blue)](agents/)
+[![Commands](https://img.shields.io/badge/commands-0-green)](commands/)
+[![Skills](https://img.shields.io/badge/skills-3-orange)](skills/)
 
-Comprehensive creative content production plugin featuring advertising strategy, copywriting, graphic design, algorithmic art, photography, and video production. Includes **10 specialized agents** and **7 professional skills** tailored for restaurant branding and marketing.
+## 📋 概述
 
-### Core Capabilities
+综合创意内容生产插件,涵盖广告策划、文案创作、平面设计、算法艺术、摄影、视频制作等领域,专注于餐饮行业品牌营销。
 
-**Agent Expertise**:
-- X0: Creative Content Analyst
-- X1: Advertising Strategist
-- X2: Copywriter
-- X3: Graphic Designer & Layout Specialist (integrated design + typesetting)
-- X5: Short Video Scriptwriter
-- X6: Photographer
-- X7: Video Editor
-- XX: Creative Team Director
+本插件包含 **18个专业智能体**,0个斜杠命令,3个技能包,提供完整的业务流程支持。
 
-**Specialized Skills**:
-- 5 Restaurant Design Skills (algorithmic art, canvas design, brand guidelines, theme factory, artifacts builder)
-- Figma Integration (file management, design system, image export)
-- Social Platform Content Library
+## 🤖 智能体架构
 
-## Features
+### 组织结构
 
-### 🤖 Specialized Agents (10 Total)
+本组共有18个智能体:
 
-This plugin includes **10 specialized agents** covering all aspects of creative operations:
+1. **X0-内容创意需求分析师** - X0-内容创意需求分析师
+2. **X1-广告策划师** - X1-广告策划师
+3. **X10-AIGC图片处理** - X9-AIGC图片处理
+4. **X11-AIGC视频生成** - X11-AIGC视频生成
+5. **X12-AIGC音乐创作** - X10-AIGC音乐创作
+6. **X13-AIGC语音合成** - X12-AIGC语音合成
+7. **X14-社交媒体视频剪辑师** - X14-社交媒体视频剪辑师
+8. **X15-视频编辑师** - X15-视频编辑师
+9. **X16-时间戳精准专家** - X16-时间戳精准专家
+10. **X2-文案创作师** - X2-文案创作师
+11. **X3-设计模板解构师** - X3-设计模板解构师
+12. **X4-品牌Style策划师** - X4-X4-品牌Style策划师
+13. **X5-Canvas图文排版师** - X5-X5-Canvas图文排版师
+14. **X6-内容营销专家** - X6-内容营销专家
+15. **X7-React前端设计师** - X6-React前端设计师
+16. **X8-Gif动图设计师** - X7-Gif动图设计师
+17. **X9-算法艺术家** - X8-算法艺术家
+18. **XX-创意组组长** - XX-创意组组长
 
-| Agent | Role | Key Capabilities |
-|-------|------|------------------|
-| **X0** | 创意内容分析师 | Creative brief analysis, requirement clarification |
-| **X1** | 广告策划师 | Advertising strategy, campaign planning, creative briefs |
-| **X2** | 文案撰稿人 | Copywriting, storytelling, multi-platform content |
-| **X3** | 设计模板解构师 | Design deconstruction, Figma reverse-engineering, template analysis |
-| **X4** | 平面设计与排版师 | **Integrated design + layout** (logo, VI, posters, menus, H5 pages) |
-| **X5** | AIGC图片设计师 | Photorealistic image generation, commercial photography planning |
-| **X6** | 摄影师 | Photography art direction, food photography, brand imagery |
-| **X7** | 剪辑师 | Video editing, post-production, motion graphics |
-| **X8** | Algorithmic算法艺术家 | **Computational art, generative design, algorithmic patterns** |
-| **XX** | 创意总监 | Creative direction, quality control, team coordination |
+### 智能体详情
 
-**⭐ X4 Enhanced**: Now combines graphic design expertise with professional layout skills, providing end-to-end design solutions from brand identity to final production files.
+#### X0-内容创意需求分析师
 
-**🆕 X8 Added**: New algorithmic artist specializing in computational art and generative design. Creates original algorithmic philosophies and expresses them through p5.js visualizations. Perfect for unique brand patterns, menu backgrounds, packaging designs, and immersive digital experiences.
+**名称**: X0-内容创意需求分析师
 
-See `agents/` directory for complete agent documentation.
+**何时使用**:
+- Use this agent when:\
 
-### 🎨 Restaurant Design Skills (5 Specialized Skills)
-
-**NEW**: X3-平面设计与排版师 now has access to 5 专属餐饮设计技能包:
-
-#### 1. `algorithmic-art-restaurant`
-Generate unique, reproducible patterns using p5.js for restaurant branding.
-
-**Use Cases**:
-- Menu background textures and patterns
-- Packaging design elements
-- Brand visual identity patterns
-- Store decoration graphics
-
-**Key Features**:
-- Flow fields, particle systems, geometric patterns
-- Seeded randomness for reproducibility
-- Cuisine-specific themes (Chinese, Japanese, Italian, etc.)
-- 300 DPI print-ready output
-
-#### 2. `canvas-design-restaurant`
-Create visual art following professional design philosophy for restaurant materials.
-
-**Use Cases**:
-- Promotional posters and marketing materials
-- Menu covers and packaging designs
-- Digital marketing graphics (social media, web)
-- Brand experience materials
-
-**Key Features**:
-- Design philosophy principles (hierarchy, balance, color theory)
-- Cuisine-specific color palettes
-- Typography pairings and systems
-- Multi-format output (PDF, PNG)
-
-#### 3. `brand-guidelines-restaurant`
-Manage and enforce comprehensive brand visual identity systems.
-
-**Use Cases**:
-- Create brand guidelines documents
-- Ensure brand consistency across materials
-- Logo usage rules and specifications
-- Color, typography, and imagery standards
-
-**Key Features**:
-- Complete VI system development
-- Logo system management
-- Color palette specifications (Hex, RGB, CMYK, Pantone)
-- Cuisine-specific brand guidelines
-- Asset library management
-
-#### 4. `theme-factory-restaurant`
-Apply cohesive design themes across all restaurant materials.
-
-**Use Cases**:
-- Select from 10 pre-designed cuisine themes
-- Generate custom themes on-demand
-- Ensure visual consistency across touchpoints
-- Themed design systems
-
-**Pre-Designed Themes**:
-1. Chinese Imperial (traditional fine dining)
-2. Japanese Zen (minimalist aesthetic)
-3. Italian Rustico (rustic trattoria)
-4. French Elegance (sophisticated bistro)
-5. American Classic (retro diner)
-6. Hotpot Fiesta (vibrant hotpot)
-7. Cafe Moderne (contemporary coffee shop)
-8. BBQ Smokehouse (bold BBQ joint)
-9. Fine Dining Luxury (upscale elegance)
-10. Fast Casual Fresh (healthy, modern)
-
-#### 5. `artifacts-builder-restaurant`
-Build interactive HTML artifacts for restaurant digital presence.
-
-**Use Cases**:
-- H5 promotional pages (grand opening, campaigns)
-- Digital menu interfaces
-- Brand experience pages
-- Online reservation and ordering forms
-
-**Key Features**:
-- React + Tailwind CSS + shadcn/ui
-- Mobile-optimized, responsive design
-- Interactive components and animations
-- Fast loading, accessible
-
-### 🔧 Additional Skills
-
-#### Figma Integration
-- **figma/file-management-v2**: Manage Figma projects and files
-- **figma/design-system-v2**: Maintain design systems and components
-- **figma/image-export-v2**: Export production-ready assets
-
-#### Content Library
-- **社交平台文案知识库**: Social media content templates and best practices
-
-## Installation
-
-### Method 1: Project-Level (Recommended)
-
-1. Keep the plugin in your project directory: `plugins/创意组/`
-
-2. The plugin is automatically discovered by Claude Code (no configuration needed)
-
-3. Restart Claude Code (complete exit and restart required)
-
-### Method 2: Global Installation
-
-1. Copy the plugin to your Claude Code plugins directory:
-```bash
-cp -r "plugins/创意组" ~/.claude/plugins/creative-team
+**调用方式**:
+```python
+Task(subagent_type="X0-内容创意需求分析师",
+     prompt="您的任务描述")
 ```
 
-2. Enable the plugin in your `~/.claude/settings.json`:
-```json
-{
-  "enabledPlugins": ["creative-team"]
-}
+---
+
+#### X1-广告策划师
+
+**名称**: X1-广告策划师
+
+**何时使用**:
+- Use this agent when:
+
+**调用方式**:
+```python
+Task(subagent_type="X1-广告策划师",
+     prompt="您的任务描述")
 ```
 
-3. Restart Claude Code
+---
 
-## Usage
+#### X10-AIGC图片处理
 
-### Agent Invocation
+**名称**: X9-AIGC图片处理
 
-Agents can be invoked in two ways:
+**何时使用**:
+- Use this agent when:\
 
-1. **Automatic Delegation**: Claude automatically selects the appropriate agent based on your request
-   ```
-   User: "设计一张火锅店的开业海报"
-   → Claude delegates to X3-平面设计与排版师
-   ```
-
-2. **Explicit Invocation**: Use the Task tool to explicitly call a specific agent
-   ```python
-   Task(subagent_type="X3-平面设计与排版师",
-        prompt="设计一套火锅店的品牌视觉系统")
-   ```
-
-### Skills Integration
-
-X3-平面设计与排版师 automatically leverages specialized skills as needed:
-
-**Example Workflow**:
-```
-User: "Create a Chinese restaurant poster with branded patterns"
-
-X3 Workflow:
-1. Uses theme-factory-restaurant → Selects "Chinese Imperial" theme
-2. Uses algorithmic-art-restaurant → Generates branded background pattern
-3. Uses canvas-design-restaurant → Creates poster design
-4. Uses brand-guidelines-restaurant → Ensures brand consistency
-5. Delivers final print-ready PDF + specifications
+**调用方式**:
+```python
+Task(subagent_type="X10-AIGC图片处理",
+     prompt="您的任务描述")
 ```
 
-### Output Structure
+---
 
-All agent outputs follow standardized path convention:
+#### X11-AIGC视频生成
 
-```
-output/[项目名]/X3-平面设计与排版师/
-├── 01-planning/
-│   ├── 设计方案.md
-│   └── 参考灵感.md
-├── 02-concepts/
-│   ├── concept-A/
-│   ├── concept-B/
-│   └── concept-C/
-├── 03-refinements/
-├── 04-layouts/
-├── 05-finals/
-│   ├── print-ready/
-│   └── digital-optimized/
-└── 06-specs/
-    ├── 设计说明.md
-    └── production-notes.md
+**名称**: X11-AIGC视频生成
+
+**何时使用**:
+- Use this agent when:
+
+**调用方式**:
+```python
+Task(subagent_type="X11-AIGC视频生成",
+     prompt="您的任务描述")
 ```
 
-**Skill-Specific Outputs**:
-- `algorithmic-art/patterns/`: Generated patterns with metadata
-- `canvas-design/`: Visual designs (posters, covers, graphics)
-- `brand-guidelines/`: Guidelines documents and asset libraries
-- `themed-designs/`: Theme-applied designs with specs
-- `artifacts/`: HTML artifacts (H5 pages, digital menus)
+---
 
-## Project Structure
+#### X12-AIGC音乐创作
+
+**名称**: X10-AIGC音乐创作
+
+**何时使用**:
+- Use this agent when:
+
+**调用方式**:
+```python
+Task(subagent_type="X12-AIGC音乐创作",
+     prompt="您的任务描述")
+```
+
+---
+
+#### X13-AIGC语音合成
+
+**名称**: X12-AIGC语音合成
+
+**何时使用**:
+- Use this agent when:
+
+**调用方式**:
+```python
+Task(subagent_type="X13-AIGC语音合成",
+     prompt="您的任务描述")
+```
+
+---
+
+#### X14-社交媒体视频剪辑师
+
+**名称**: X14-社交媒体视频剪辑师
+
+**何时使用**:
+- Use this agent when:
+
+**调用方式**:
+```python
+Task(subagent_type="X14-社交媒体视频剪辑师",
+     prompt="您的任务描述")
+```
+
+---
+
+#### X15-视频编辑师
+
+**名称**: X15-视频编辑师
+
+**何时使用**:
+- Use this agent when:
+
+**调用方式**:
+```python
+Task(subagent_type="X15-视频编辑师",
+     prompt="您的任务描述")
+```
+
+---
+
+#### X16-时间戳精准专家
+
+**名称**: X16-时间戳精准专家
+
+**何时使用**:
+- Use this agent when:
+
+**调用方式**:
+```python
+Task(subagent_type="X16-时间戳精准专家",
+     prompt="您的任务描述")
+```
+
+---
+
+#### X2-文案创作师
+
+**名称**: X2-文案创作师
+
+**何时使用**:
+- Use this agent when:
+
+**调用方式**:
+```python
+Task(subagent_type="X2-文案创作师",
+     prompt="您的任务描述")
+```
+
+---
+
+#### X3-设计模板解构师
+
+**名称**: X3-设计模板解构师
+
+**何时使用**:
+- Use this agent when:\
+
+**调用方式**:
+```python
+Task(subagent_type="X3-设计模板解构师",
+     prompt="您的任务描述")
+```
+
+---
+
+#### X4-品牌Style策划师
+
+**名称**: X4-X4-品牌Style策划师
+
+**何时使用**:
+- Use this agent when:
+
+**调用方式**:
+```python
+Task(subagent_type="X4-品牌Style策划师",
+     prompt="您的任务描述")
+```
+
+---
+
+#### X5-Canvas图文排版师
+
+**名称**: X5-X5-Canvas图文排版师
+
+**何时使用**:
+- Use this agent when you need professional graphic design, layout composition, poster design, icon de
+
+**调用方式**:
+```python
+Task(subagent_type="X5-Canvas图文排版师",
+     prompt="您的任务描述")
+```
+
+---
+
+#### X6-内容营销专家
+
+**名称**: X6-内容营销专家
+
+**何时使用**:
+- Use this agent when:
+
+**调用方式**:
+```python
+Task(subagent_type="X6-内容营销专家",
+     prompt="您的任务描述")
+```
+
+---
+
+#### X7-React前端设计师
+
+**名称**: X6-React前端设计师
+
+**何时使用**:
+- Use this agent when you need professional frontend design and UX/UI architecture for React-based app
+
+**调用方式**:
+```python
+Task(subagent_type="X7-React前端设计师",
+     prompt="您的任务描述")
+```
+
+---
+
+#### X8-Gif动图设计师
+
+**名称**: X7-Gif动图设计师
+
+**何时使用**:
+- Use this agent when users need animated GIF creation for Slack, social media, or digital marketing c
+
+**调用方式**:
+```python
+Task(subagent_type="X8-Gif动图设计师",
+     prompt="您的任务描述")
+```
+
+---
+
+#### X9-算法艺术家
+
+**名称**: X8-算法艺术家
+
+**何时使用**:
+- Use this agent when users need computational algorithmic art creation, generative art design, or cod
+
+**调用方式**:
+```python
+Task(subagent_type="X9-算法艺术家",
+     prompt="您的任务描述")
+```
+
+---
+
+#### XX-创意组组长
+
+**名称**: XX-创意组组长
+
+**何时使用**:
+- Use this agent when the user needs creative work coordination, task decomposition, or quality contro
+
+**调用方式**:
+```python
+Task(subagent_type="XX-创意组组长",
+     prompt="您的任务描述")
+```
+
+---
+
+## 🚀 使用指南
+
+### 自动委派
+
+Claude会根据您的需求自动选择合适的智能体:
+
+```
+用户: [描述您的需求]
+→ Claude自动委派给相关智能体
+```
+
+### 显式调用
+
+使用Task工具显式调用特定智能体:
+
+```python
+Task(subagent_type="智能体ID",
+     prompt="详细任务描述")
+```
+
+### 多智能体协作
+
+复杂任务可能需要多个智能体协同工作。组长智能体可以协调团队:
+
+```python
+Task(subagent_type="XX-创意组组长",
+     prompt="需要团队协作的复杂任务")
+```
+
+## 📁 项目结构
 
 ```
 plugins/创意组/
 ├── .claude-plugin/
-│   └── plugin.json              # Plugin manifest
+│   └── plugin.json              # 插件配置
 │
-├── agents/
-│   ├── X0-创意内容分析师.md
+├── agents/                      # 18个智能体
+│   ├── X0-内容创意需求分析师.md
 │   ├── X1-广告策划师.md
-│   ├── X2-文案撰稿人.md
-│   ├── X3-平面设计与排版师.md    # ⭐ NEW: Integrated design + layout
-│   ├── X3-平面设计师.md          # Legacy (deprecated)
-│   ├── X4-图文排版师.md          # Legacy (merged into X3)
-│   ├── X5-短视频脚本创作师.md
-│   ├── X6-摄影师.md
-│   ├── X7-剪辑师.md
-│   └── XX-创意总监.md
+│   ├── X10-AIGC图片处理.md
+│   ├── X11-AIGC视频生成.md
+│   ├── X12-AIGC音乐创作.md
+│   ├── X13-AIGC语音合成.md
+│   ├── X14-社交媒体视频剪辑师.md
+│   ├── X15-视频编辑师.md
+│   ├── X16-时间戳精准专家.md
+│   ├── X2-文案创作师.md
+│   ├── X3-设计模板解构师.md
+│   ├── X4-品牌Style策划师.md
+│   ├── X5-Canvas图文排版师.md
+│   ├── X6-内容营销专家.md
+│   ├── X7-React前端设计师.md
+│   ├── X8-Gif动图设计师.md
+│   ├── X9-算法艺术家.md
+│   ├── XX-创意组组长.md
 │
-├── skills/
-│   ├── algorithmic-art-restaurant/      # ⭐ NEW
-│   │   └── SKILL.md
-│   ├── canvas-design-restaurant/        # ⭐ NEW
-│   │   └── SKILL.md
-│   ├── brand-guidelines-restaurant/     # ⭐ NEW
-│   │   ├── SKILL.md
-│   │   └── templates/
-│   ├── theme-factory-restaurant/        # ⭐ NEW
-│   │   ├── SKILL.md
-│   │   └── themes/
-│   ├── artifacts-builder-restaurant/    # ⭐ NEW
-│   │   ├── SKILL.md
-│   │   └── templates/
-│   ├── figma/
-│   │   ├── file-management-v2/
-│   │   ├── design-system-v2/
-│   │   └── image-export-v2/
-│   └── 社交平台文案知识库/
-│
-├── commands/
+├── commands/                    # 0个命令
 │   └── README.md
 │
-├── hooks/
-│   └── hooks.json
+├── skills/                      # 3个技能包
+│   └── README.md
 │
-├── scripts/                            # Utility scripts
-├── .mcp.json                          # MCP servers configuration
-├── README.md                          # This file
-├── CHANGELOG.md                       # Version history
-└── LICENSE                            # MIT License
+├── hooks/                       # 钩子配置
+├── scripts/                     # 工具脚本
+└── README.md                    # 本文件
 ```
 
-## Extension Points
+## 🎯 最佳实践
 
-This plugin can be extended with:
+### 智能体选择决策树
 
-1. **Commands** (commands/*.md) - Slash commands for frequent workflows
-2. **Skills** (skills/*/SKILL.md) - Complex automated capabilities
-3. **Hooks** (hooks/hooks.json) - Event-driven automation
-4. **MCP Servers** (.mcp.json) - External tool integrations
+1. **明确任务类型** - 是什么类别的工作?(分析、设计、执行等)
+2. **查看智能体列表** - 找到最匹配的专业智能体
+3. **优先单一智能体** - 简单任务直接调用单个智能体
+4. **复杂任务协调** - 多阶段任务找组长协调
 
-## Design Workflow Example
+### 质量保障
 
-### Complete Brand Design Project
+- ✅ 所有智能体输出遵循标准化路径规范
+- ✅ 任务执行前明确需求和预期输出
+- ✅ 使用适当的模型(sonnet/opus)
+- ✅ 复杂任务启用TodoWrite跟踪进度
 
-**User Request**: "为新开的川味火锅店设计一套完整的品牌视觉系统"
+### 输出路径规范
 
-**X3-平面设计与排版师 Workflow**:
+所有智能体输出遵循统一路径规范:
 
 ```
-Phase 1: Strategic Foundation
-├─ Analyze brief and research
-├─ Define brand personality: Bold, Energetic, Communal
-├─ Select theme: "Hotpot Fiesta" (vibrant, warm colors)
-└─ Plan deliverables: Logo, VI, menu, poster, packaging
-
-Phase 2: Brand Identity Creation
-├─ Design logo (primary, variations)
-├─ Generate brand guidelines using brand-guidelines-restaurant
-│   ├─ Color palette: #FF4500, #DC143C, #FFD700
-│   ├─ Typography: Anton (headings), Noto Sans SC (body)
-│   └─ Usage rules and specifications
-└─ Create VI system materials
-
-Phase 3: Marketing Materials
-├─ Poster design using canvas-design-restaurant
-│   ├─ Apply "Hotpot Fiesta" theme
-│   ├─ Generate background pattern with algorithmic-art-restaurant
-│   └─ Export print-ready PDF (300 DPI, CMYK)
-│
-├─ Menu design (integrated layout)
-│   ├─ Category organization
-│   ├─ Typography hierarchy
-│   ├─ Dish photography guidelines
-│   └─ Print and digital versions
-│
-└─ Packaging design
-    ├─ Takeout box pattern
-    ├─ Brand consistency check
-    └─ Production specifications
-
-Phase 4: Digital Presence
-├─ H5 grand opening page using artifacts-builder-restaurant
-│   ├─ Hero section with countdown
-│   ├─ Opening offers
-│   ├─ Location map
-│   └─ Social sharing
-│
-└─ Digital menu interface
-    ├─ Category tabs
-    ├─ Dish cards with photos
-    ├─ Dietary filters
-    └─ Mobile-optimized
-
-Phase 5: Delivery
-├─ All print-ready files (PDF, CMYK, 300 DPI)
-├─ Digital assets (PNG, RGB, optimized)
-├─ HTML artifacts (H5 page, digital menu)
-├─ Brand guidelines document
-├─ Design specifications
-└─ Asset library
+output/[项目名]/[智能体ID]/
+├── plans/      # 执行计划
+├── results/    # 实际输出
+├── logs/       # 执行日志
+└── metadata/   # 元数据
 ```
 
-## Quality Standards
+## 🔧 扩展点
 
-All deliverables meet these standards:
+本插件支持以下扩展:
 
-### Design Quality
-✅ Brand consistency across all materials
-✅ Clear visual hierarchy and typography
-✅ Appropriate color harmony and contrast
-✅ Cultural sensitivity and market appropriateness
-✅ Professional composition and balance
+1. **Commands** (commands/*.md) - 频繁使用的工作流快捷命令
+2. **Skills** (skills/*/SKILL.md) - 复杂自动化能力
+3. **Hooks** (hooks/hooks.json) - 事件驱动自动化
+4. **MCP Servers** (.mcp.json) - 外部工具集成
 
-### Technical Quality
-✅ Print: 300 DPI minimum, CMYK, proper bleeds
-✅ Digital: Optimized resolution, RGB, web-safe formats
-✅ Files: Proper naming, version control, organized structure
-✅ Accessibility: WCAG AA contrast ratios (4.5:1 minimum)
+## 📚 相关文档
 
-### Production Readiness
-✅ Complete specifications documented
-✅ Font embedding and licensing
-✅ Material recommendations
-✅ Vendor production notes
+- **智能体文档**: [agents/README.md](agents/README.md)
+- **命令文档**: [commands/README.md](commands/README.md)
+- **技能包文档**: [skills/README.md](skills/README.md)
+- **主文档**: [../../README.md](../../README.md)
 
-## Requirements
+## 🔗 依赖与要求
 
 - **Claude Code**: v1.0.124+
-- **Model**: Sonnet 4.5 (recommended)
-- **Tools**: Task, Read, Write, Edit, Grep, Glob, Bash, WebFetch
-- **Skills Dependencies**: None (all skills self-contained)
+- **模型**: Sonnet 4.5 (推荐)
+- **工具**: Task, Read, Write, Edit, Grep, Glob, Bash
+- **技能包依赖**: 无(所有技能包独立)
 
-## Compatibility
+## 📊 统计信息
 
-**Cuisine Types Supported**:
-- Chinese (traditional, Szechuan, Cantonese, hotpot)
-- Japanese (sushi, ramen, kaiseki, izakaya)
-- Italian (trattoria, pizzeria, fine dining)
-- French (bistro, brasserie, patisserie)
-- American (diner, BBQ, steakhouse, fast casual)
-- Cafe & Coffee Shop
-- Fast Casual & Healthy Dining
-
-**Output Formats**:
-- Print: PDF (CMYK, 300 DPI), AI, EPS
-- Digital: PNG, JPG, SVG (RGB, optimized)
-- Web: HTML, CSS, JavaScript (React artifacts)
-- Documents: Markdown, DOCX, PDF
-
-## Support
-
-For issues, questions, or contributions:
-
-- **GitHub Issues**: [ZTL-Digital/creative-team-plugin/issues](https://github.com/ZTL-Digital/creative-team-plugin/issues)
-- **Documentation**: See individual agent files in `agents/` directory
-- **Skills Documentation**: See `skills/[skill-name]/SKILL.md` for each skill
-- **Examples**: Check `output/` directory for sample projects
-
-## License
-
-MIT License - See [LICENSE](LICENSE) file for details.
-
-## Version
-
-**Current Version**: 2.1.0 (Feature Update)
-**Last Updated**: 2025-10-30
-**Compatibility**: Claude Code v1.0.124+
-
-### What's New in 2.1
-
-✨ **New Additions**:
-- **X8-Algorithmic算法艺术家**: Computational artist specializing in generative art and algorithmic design
-  - Creates original algorithmic philosophies expressed through p5.js
-  - Integrates with global `algorithmic-art` skill package
-  - Perfect for unique brand patterns, menu backgrounds, packaging designs
-  - Expertise in flow fields, particle systems, noise-driven patterns, emergent beauty
-  - Restaurant industry focus with cuisine-specific aesthetics (Chinese, Japanese, Western)
-
-### What's New in 2.0
-
-✨ **Major Updates**:
-- **X4 Enhancement**: Merged X3 (Graphic Designer) and X4 (Layout Designer) into unified X4-平面设计与排版师
-- **5 New Skills**: Added restaurant-specific design skills (algorithmic-art-restaurant, canvas-design, brand-guidelines, theme-factory, artifacts-builder)
-- **Integrated Workflow**: Seamless design + layout workflow from concept to production
-- **Theme System**: 10 pre-designed cuisine-specific themes
-- **Interactive Artifacts**: HTML/React artifact building capability
-
-🔧 **Improvements**:
-- Enhanced output path conventions
-- Comprehensive design specifications
-- Quality assurance checklists
-- Mobile-first design principles
-- Brand consistency enforcement
-
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for detailed version history and updates.
+- **智能体数量**: 18个
+- **命令数量**: 0个
+- **技能包数量**: 3个
+- **维护状态**: ✅ 活跃维护
+- **最后更新**: 2025-11-01
 
 ---
 
 **Created by**: ZTL Digital Intelligence Operations Center
 **Plugin Type**: Professional Domain Plugin (Creative Team)
-**Agent Count**: 10 specialized agents (NEW: X8-Algorithmic算法艺术家)
-**Skill Count**: 7 specialized skills (5 restaurant design skills)
-**Status**: Production Ready ⭐ Enhanced with Computational Art
+**Status**: Production Ready ✅

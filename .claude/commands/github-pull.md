@@ -1,10 +1,10 @@
 ---
 name: GitHub同步推送
-description: 将本地项目完整同步推送到GitHub仓库，确保远程与本地完全一致。包含智能目录结构变更检测和文档引用自动同步功能。
+description: 将本地项目完整同步推送到GitHub仓库，确保远程与本地完全一致。包含智能目录结构变更检测、文档引用自动同步、README文档智能更新三大核心功能。
 allowed-tools: Bash, Read, Write, Edit, Grep, Glob
 argument-hint: ""
-version: 6.0.0
-last_updated: 2025-10-24
+version: 7.0.0
+last_updated: 2025-11-01
 ---
 
 # GitHub同步推送
@@ -16,6 +16,10 @@ last_updated: 2025-10-24
 ### 核心特性
 
 - **智能前置检查**: 自动检测目录结构变更并同步文档引用
+- **README智能同步**:
+  - 子目录README自动更新(agents/, commands/, skills/)
+  - 根目录README自动更新(项目主README及plugin根README)
+  - 智能分析变更并增量更新文档
 - **一键同步**: 单个命令完成全部Git操作
 - **引用路径同步**: 自动更新所有文档中的路径引用
 - **自动提交**: 使用时间戳生成提交信息
@@ -31,11 +35,18 @@ last_updated: 2025-10-24
 - 配置修改后的版本保存
 - 日常开发中的增量备份
 
-## 🎯 核心功能(四步流程)
+## 🎯 核心功能(六步流程)
 
-### 0. 前置检查：目录结构变更与引用同步
+### 0. 前置检查：目录结构变更与文档同步
 
-**目标**: 检测目录结构变更并自动同步文档引用
+**目标**: 检测目录结构变更并自动同步文档引用及README文档
+
+**执行顺序**:
+1. 检测目录结构变更(0.1)
+2. 扫描文档引用(0.2)
+3. 自动同步引用路径(0.3)
+4. **调用subdirectory-readme-sync技能包** - 同步子目录README
+5. **调用root-readme-sync技能包** - 同步根目录README
 
 #### 0.1 检测目录结构变更
 
@@ -163,9 +174,100 @@ grep -r --include="*.md" -E '\[.*\]\(.*\.claude.*\)' .
     📊 总计: 3个文件, 28处引用
 ```
 
-#### 0.4 执行输出
+#### 0.4 调用README同步技能包
 
-**前置检查报告格式**:
+**目标**: 自动同步受影响的README文档
+
+##### 步骤4: 子目录README同步
+
+**触发条件**: agents/, commands/, skills/ 等子目录发生变更
+
+**调用方式**:
+```python
+# Claude自动调用subdirectory-readme-sync技能包
+# 该技能包会:
+# 1. 检测哪些子目录发生变更
+# 2. 扫描子目录中的agents/commands/skills文件
+# 3. 提取元数据(YAML frontmatter)
+# 4. 生成/更新子目录的README.md
+# 5. 验证文档完整性和准确性
+```
+
+**处理范围**:
+- `plugins/*/agents/README.md` - 智能体目录文档
+- `plugins/*/commands/README.md` - 命令目录文档
+- `plugins/*/skills/README.md` - 技能包目录文档
+- `.claude/agents/*/README.md` - 系统智能体文档
+
+**输出示例**:
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📚 子目录README同步
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+检测到变更的子目录:
+  📁 plugins/开发组/agents/
+     - 新增: F17-错误侦探.md
+     - 修改: F1-前端开发.md
+     - 需要更新README
+
+  📁 .claude/commands/
+     - 新增: T.md
+     - 需要更新README
+
+正在同步子目录README...
+  ✅ 更新 plugins/开发组/agents/README.md (20 agents)
+  ✅ 更新 .claude/commands/README.md (15 commands)
+
+子目录README同步完成
+  ⏱️ 耗时: 0.5秒
+```
+
+##### 步骤5: 根目录README同步
+
+**触发条件**: 项目结构或子目录README发生变更
+
+**调用方式**:
+```python
+# Claude自动调用root-readme-sync技能包
+# 该技能包会:
+# 1. 扫描整个项目结构
+# 2. 收集所有plugins、agents、skills统计数据
+# 3. 分析项目级别的变更
+# 4. 生成/更新根目录README.md
+# 5. 更新badges、统计表格、导航链接
+```
+
+**处理范围**:
+- `README.md` - 项目根目录主文档
+- `plugins/*/README.md` - 各业务组插件根文档
+
+**输出示例**:
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📖 根目录README同步
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+项目结构分析:
+  📊 总计: 8 plugins, 84 agents, 15 skills
+  🔄 变更: 开发组 agents +2
+
+正在同步根目录README...
+  ✅ 更新 README.md
+     - Badges: agents-82+ → agents-84+
+     - 开发组plugin表格: agents 18 → 20
+     - 统计表格更新
+  ✅ 更新 plugins/开发组/README.md
+     - Badges: agents-18 → agents-20
+     - Agent列表: 新增F17, F18
+
+根目录README同步完成
+  ⏱️ 耗时: 0.8秒
+```
+
+#### 0.5 前置检查总结报告
+
+**完整前置检查报告格式**:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -177,6 +279,7 @@ grep -r --include="*.md" -E '\[.*\]\(.*\.claude.*\)' .
    → .claude/agents/system/F12-测试工程师.md
 
   [A] .claude/commands/T.md (新增)
+  [A] plugins/开发组/agents/F17-错误侦探.md (新增)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🔗 引用路径扫描结果
@@ -192,7 +295,7 @@ grep -r --include="*.md" -E '\[.*\]\(.*\.claude.*\)' .
      - 第89行: test-engineer → F12-测试工程师
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ 自动同步完成
+✅ 引用路径同步完成
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 更新统计:
@@ -200,6 +303,29 @@ grep -r --include="*.md" -E '\[.*\]\(.*\.claude.*\)' .
   ✅ 更新引用: 4处
   ⏱️ 耗时: 0.3秒
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📚 子目录README同步完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+更新统计:
+  ✅ plugins/开发组/agents/README.md (20 agents)
+  ✅ .claude/commands/README.md (15 commands)
+  ⏱️ 耗时: 0.5秒
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📖 根目录README同步完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+更新统计:
+  ✅ README.md (84 agents)
+  ✅ plugins/开发组/README.md (20 agents)
+  ⏱️ 耗时: 0.8秒
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ 前置检查全部完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+总耗时: 1.6秒
 继续执行Git同步推送...
 ```
 
@@ -263,7 +389,7 @@ git push origin main
 /github-pull
 ```
 
-**执行效果**: 自动完成 前置检查(变更检测+引用同步) → add → commit → push 四步操作
+**执行效果**: 自动完成 前置检查(变更检测+引用同步+README同步) → add → commit → push 全流程操作
 
 ## 📊 执行流程
 
@@ -276,17 +402,21 @@ graph TD
     D --> E[自动更新引用路径]
     E --> F[生成变更报告]
     F --> G
-    G --> H[git add .]
-    H --> I[添加所有变更到暂存区]
-    I --> J{是否有变更?}
-    J -->|否| K[提示无变更]
-    J -->|是| L[git commit -m 提交信息]
-    L --> M[创建提交记录]
-    M --> N[git push origin main]
-    N --> O{推送成功?}
-    O -->|是| P[同步完成]
-    O -->|否| Q[错误处理]
-    Q --> R[显示错误信息]
+    G --> H[调用subdirectory-readme-sync]
+    H --> I[更新子目录README]
+    I --> J[调用root-readme-sync]
+    J --> K[更新根目录README]
+    K --> L[git add .]
+    L --> M[添加所有变更到暂存区]
+    M --> N{是否有变更?}
+    N -->|否| O[提示无变更]
+    N -->|是| P[git commit -m 提交信息]
+    P --> Q[创建提交记录]
+    Q --> R[git push origin main]
+    R --> S{推送成功?}
+    S -->|是| T[同步完成]
+    S -->|否| U[错误处理]
+    U --> V[显示错误信息]
 ```
 
 ## 🔍 意图解析逻辑
@@ -314,10 +444,23 @@ graph TD
       - .claude/skills/**/SKILL.md
 
   自动同步机制:
-    - 构建旧路径→新路径映射表
-    - 使用Grep工具扫描引用
-    - 使用Edit工具批量更新
-    - 生成变更同步报告
+    1. 引用路径同步:
+       - 构建旧路径→新路径映射表
+       - 使用Grep工具扫描引用
+       - 使用Edit工具批量更新
+       - 生成变更同步报告
+
+    2. 子目录README同步:
+       - 调用subdirectory-readme-sync技能包
+       - 自动检测agents/, commands/, skills/变更
+       - 提取元数据并更新文档
+       - 验证文档完整性
+
+    3. 根目录README同步:
+       - 调用root-readme-sync技能包
+       - 扫描整个项目结构
+       - 更新统计数据和badges
+       - 同步导航链接
 
 状态检查:
   Git仓库验证:
@@ -387,12 +530,16 @@ graph TD
 ### 系统配置
 
 ```yaml
-配置版本: v6.0.0
-更新时间: 2025-10-24
+配置版本: v7.0.0
+更新时间: 2025-11-01
 目标分支: main
 提交信息模板: "项目同步更新 - {timestamp}"
 认证方式: Git凭据 (SSH/HTTPS)
 前置检查: 启用 (自动检测目录变更+引用同步)
+README同步: 启用
+  - subdirectory-readme-sync: 自动调用
+  - root-readme-sync: 自动调用
+  - 智能增量更新: 启用
 ```
 
 ### 执行环境
@@ -721,8 +868,13 @@ git push --force-with-lease
 
 ---
 
-**配置版本**: v6.0.0
-**更新时间**: 2025-10-24
-**核心升级**: 重命名为github-pull，优化文档结构和格式
-**维护原则**: 智能检测、自动同步、快速推送、规范化
+**配置版本**: v7.0.0
+**更新时间**: 2025-11-01
+**核心升级**: 集成README智能同步系统(subdirectory-readme-sync + root-readme-sync)
+**维护原则**: 智能检测、自动同步、文档更新、快速推送、规范化
 **兼容性**: 使用标准Git命令，无需GitHub CLI
+**新增特性**:
+  - 自动调用subdirectory-readme-sync同步子目录README
+  - 自动调用root-readme-sync同步根目录README
+  - 智能增量更新,仅更新变更部分
+  - 完整的README同步报告

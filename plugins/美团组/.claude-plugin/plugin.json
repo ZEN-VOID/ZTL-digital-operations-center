@@ -1,7 +1,7 @@
 {
   "name": "meituan-ops-team",
   "version": "1.0.0",
-  "description": "Meituan platform operations plugin for restaurant business management, including operations management, marketing campaigns, reporting, and web automation. Includes M0 business analyst, M1 operations manager, M2 marketing manager, M4 reporting manager, M5 web automation specialist, and MM platform ops leader.",
+  "description": "Meituan platform operations plugin for restaurant business management, including operations management, marketing campaigns, marketing attribution analysis, reporting, and web automation. Includes V0 business analyst, V1 operations manager, V2 marketing manager, V4 reporting manager, V5 web automation specialist, V9 marketing attribution analyst, and VV platform ops leader.",
   "author": {
     "name": "ZTL Digital Intelligence Operations Center",
     "email": "meituan-ops-team@ztl.com",
