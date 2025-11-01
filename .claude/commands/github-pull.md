@@ -868,6 +868,68 @@ git push --force-with-lease
 
 ---
 
+## 🚀 执行指令
+
+**⚠️ 重要**: 请严格按照以下步骤顺序执行：
+
+### Step 0: 前置检查与文档同步
+
+**0.1 检测目录结构变更**
+```bash
+git diff --name-status HEAD
+```
+
+**0.2-0.3 引用路径同步** (如果检测到路径变更)
+- 扫描所有文档引用
+- 自动更新变更的路径
+
+**0.4 调用 subdirectory-readme-sync 技能包**
+**Claude，请现在执行以下操作**:
+1. 检测 `plugins/*/agents/`, `plugins/*/commands/`, `plugins/*/skills/` 目录的变更
+2. 对于每个有变更的子目录，扫描其中的 `.md` 文件
+3. 提取文件的 YAML frontmatter 元数据
+4. 生成/更新该子目录的 `README.md` 文件
+5. 验证所有文件都已正确列入文档
+
+**说明**: 这个步骤会自动触发 `.claude/skills/齐头并进/subdirectory-readme-sync` 技能包
+
+**0.5 调用 root-readme-sync 技能包**
+**Claude，请现在执行以下操作**:
+1. 分析整个项目的当前状态（agent数量、plugin数量、命令数量等）
+2. 扫描所有 plugin 的 README.md 获取业务组信息
+3. 统计项目的完整数据（文件数、代码行数、配置数等）
+4. 生成/更新根目录的 `README.md` 文件，包含:
+   - 项目徽章和统计数据
+   - 业务组架构概览
+   - 快速导航链接
+   - 最新更新时间
+5. 验证生成的 README 格式正确、数据准确
+
+**说明**: 这个步骤会自动触发 `.claude/skills/齐头并进/root-readme-sync` 技能包
+
+### Step 1-3: Git 操作
+
+**Step 1: 添加所有变更**
+```bash
+git add .
+```
+
+**Step 2: 创建提交**
+```bash
+git commit -m "项目同步更新 - $(date '+%Y-%m-%d %H:%M')"
+```
+
+**Step 3: 推送到远程**
+```bash
+# 检测当前分支
+CURRENT_BRANCH=$(git branch --show-current)
+
+# 推送到对应分支
+git push origin $CURRENT_BRANCH
+```
+
+---
+
 **配置版本**: v7.0.0
 **更新时间**: 2025-11-01
 **核心升级**: 集成README智能同步系统(subdirectory-readme-sync + root-readme-sync)
