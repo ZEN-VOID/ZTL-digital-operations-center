@@ -124,6 +124,156 @@ skill-name/
 
 Skills use **progressive disclosure**: Claude loads SKILL.md first (~500-2000 tokens), then scripts/reference as needed.
 
+## Agent Execution Modes
+
+**Critical**: Not all agents follow the same execution pattern. The project uses **multiple execution modes** based on task characteristics.
+
+### Mode 1: Three-Layer Architecture (Default for AIGC, Research, Strategy)
+
+**Pattern**: Specification Layer → Plan Layer → Execution Layer
+
+**Applies to**:
+- **战略组** (Strategy): Strategic analysis, business planning, operations optimization
+- **创意组** (Creative): AIGC generation, batch design tasks, video production
+- **情报组** (Intelligence): Data collection, web scraping, competitive research
+- **筹建组** (Construction): BIM modeling, floor plans, space design
+- **美团组** (Meituan Ops): Batch operations, reporting, campaign management
+- **供应组** (Supply Chain): Inventory analysis, procurement planning
+- **行政组** (Admin): Document generation, financial reports
+
+**Execution Flow**:
+```
+1. Specification (.md) → Defines business logic and quality standards
+2. Plan (JSON/YAML) → Generates parameterized execution config
+3. Execution (Scripts) → Runs tasks and saves to output/[项目名]/[agent-name]/
+```
+
+**Output Structure**:
+```
+output/[项目名]/[agent-name]/
+├── plans/      # JSON execution configs
+├── results/    # Final outputs
+├── logs/       # Execution logs
+└── metadata/   # Traceability data
+```
+
+### Mode 2: Direct Execution (Development Group Only)
+
+**⭐ Special Rule for Development Group**: The following agents **skip the plan layer** and execute directly:
+
+**Affected Agents** (12 total):
+- F1-前端开发 (Frontend Developer)
+- F2-UI设计师 (UI Designer)
+- F3-全栈开发 (Full-Stack Developer)
+- F5-后端架构师 (Backend Architect)
+- F6-数据库架构师 (Database Architect)
+- F8-云架构师 (Cloud Architect)
+- F10-Python专家 (Python Expert)
+- F11-TypeScript专家 (TypeScript Expert)
+- F12-JavaScript专家 (JavaScript Expert)
+- F14-测试工程师 (Test Engineer)
+- F15-性能优化专家 (Performance Optimizer)
+- F16-调试专家 (Debugging Expert)
+
+**Pattern**: Specification Layer → Execution Layer (No Plan)
+
+**Why Direct Execution?**
+- Fast iteration cycles required for development tasks
+- Real-time feedback more valuable than batch processing
+- Code changes need immediate testing and validation
+- Plan layer adds unnecessary overhead for one-shot operations
+
+**Default Working Path**: `project/web-ui/`
+
+**Execution Flow**:
+```
+1. Specification (.md) → Defines role and workflow
+2. Direct Execution → Immediately uses:
+   - Tools: Read/Write/Edit for file operations
+   - MCP: chrome-mcp, github-mcp, playwright-mcp
+   - Skills: Relevant development skills
+   - Results: Directly modify files in project/web-ui/
+```
+
+**No Output Directory**: Development agents don't create output/[项目名] structure. They work directly on the codebase.
+
+**Example Workflows**:
+
+```python
+# F1-前端开发: Modify a React component
+Task(subagent_type="F1-前端开发",
+     prompt="在project/web-ui/src/components/Button.tsx中添加loading状态")
+# → Directly edits the file, no plan JSON
+
+# F14-测试工程师: Run tests
+Task(subagent_type="F14-测试工程师",
+     prompt="在project/web-ui/运行所有单元测试")
+# → Directly runs pytest, reports results
+
+# F6-数据库架构师: Design schema
+Task(subagent_type="F6-数据库架构师",
+     prompt="在project/web-ui/设计用户表schema")
+# → Directly creates migration files
+```
+
+### Mode 3: Hybrid Coordination (QQ-总指挥官)
+
+**Pattern**: Strategic coordination using three-layer + Direct execution for implementation
+
+**When to Use**:
+- Complex multi-group projects (e.g., restaurant launch campaign)
+- Strategic phase requires quality gates (three-layer)
+- Implementation phase requires speed (direct execution)
+
+**Coordination Flow**:
+```
+1. QQ-总指挥官 → Creates battle plan (JSON)
+2. 战略组/情报组 → Uses three-layer for analysis
+3. 开发组 → Uses direct execution for implementation
+4. 创意组 → Uses three-layer for batch design
+5. QQ-总指挥官 → Integrates all outputs
+```
+
+### Mode Selection Decision Tree
+
+```
+What kind of task?
+│
+├─ Batch processing / Quality tracking needed?
+│  └─ YES → Three-Layer Architecture
+│     Examples: Generate 100 posters, analyze 50 stores
+│
+├─ Fast iteration / Real-time feedback needed?
+│  └─ YES → Direct Execution
+│     Examples: Fix bug, update UI, optimize query
+│
+└─ Multi-group coordination?
+   └─ YES → Hybrid Coordination
+      Examples: Restaurant launch, platform migration
+```
+
+### Best Practices
+
+**For Development Group Agents**:
+- ✅ Work directly in `project/web-ui/`
+- ✅ Use Read/Write/Edit for file operations
+- ✅ Leverage MCP servers for browser/API testing
+- ✅ Run tests immediately after changes
+- ❌ Don't create plan JSONs
+- ❌ Don't create output/[项目名] directories
+
+**For Other Groups**:
+- ✅ Follow three-layer architecture
+- ✅ Generate plan JSONs for traceability
+- ✅ Use output/[项目名]/[agent-name]/ structure
+- ✅ Include metadata for quality tracking
+
+**Mixed Scenarios**:
+- Development prototyping → Direct execution
+- Production batch deployment → Upgrade to three-layer
+- One-time design → Direct execution
+- Campaign with 100+ assets → Three-layer architecture
+
 ## Hooks System
 
 **Hooks** are executable scripts that automatically run in response to Claude Code lifecycle events, enabling automated workflows.

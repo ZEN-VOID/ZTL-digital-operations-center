@@ -2,8 +2,7 @@
 name: universal-concurrent-executor
 description: Universal concurrent execution engine for ALL skills (AIGC, data processing, web scraping, automation, etc.). Provides intelligent dependency analysis, layered concurrent scheduling, progress tracking, and robust error handling. Automatically parallelizes independent tasks while respecting dependencies.
 ---
-
-# Universal Concurrent Executor - 通用并发执行引擎
+# 幻影之舞 - 通用并发执行引擎（Universal Concurrent Executor）
 
 > **核心理念**: 一次编写,处处复用。为**所有技能包**(AIGC、数据处理、网页爬虫、自动化等)提供标准化的并发执行能力。
 
@@ -49,6 +48,176 @@ report = execute_plan(
 print(f"✅ 成功: {report.successful_tasks}/{report.total_tasks}")
 ```
 
+## 🔍 并发可行性分析 (前置环节)
+
+> **为什么需要**: 在生成执行计划之前,先分析任务需求的并发潜力,避免盲目并发导致资源浪费或依赖冲突。
+
+### 分析目标
+
+✅ **识别独立任务**
+- 分析哪些任务之间没有因果依赖关系
+- 标识可以完全并行执行的任务组
+- 检测潜在的隐式依赖(如文件路径引用)
+
+✅ **评估并发度**
+- 根据任务类型(CPU密集/IO密集)推荐并发线程数
+- 考虑API限流和系统资源限制
+- 平衡性能与稳定性
+
+✅ **制定并行策略**
+- 生成任务执行层次图(拓扑排序)
+- 规划批次划分方案
+- 预估执行时间和资源消耗
+
+### 使用方式
+
+```python
+from .claude.skills.幻影之舞.scripts.core import analyze_concurrency_feasibility
+
+# 分析原始任务需求
+analysis = analyze_concurrency_feasibility(
+    tasks=[
+        {"id": "task1", "type": "text-to-image", "params": {...}},
+        {"id": "task2", "type": "text-to-image", "params": {...}},
+        {"id": "task3", "type": "image-to-video", "params": {"source": "task1"}},
+    ]
+)
+
+# 查看分析结果
+print(f"可并发任务组: {analysis.independent_groups}")
+print(f"推荐并发度: {analysis.recommended_workers}")
+print(f"执行层次: {analysis.execution_layers}")
+print(f"预估耗时: {analysis.estimated_duration}秒")
+```
+
+### 分析输出
+
+```json
+{
+  "total_tasks": 20,
+  "independent_tasks": 17,
+  "dependent_tasks": 3,
+  "execution_layers": [
+    {
+      "layer": 0,
+      "tasks": ["task1", "task2", ...],
+      "can_parallel": true,
+      "estimated_duration": 10.5
+    },
+    {
+      "layer": 1,
+      "tasks": ["task3"],
+      "can_parallel": false,
+      "estimated_duration": 8.0
+    }
+  ],
+  "recommended_workers": 4,
+  "parallelization_ratio": 0.85,
+  "recommendations": [
+    "任务高度独立,建议并发度4-6",
+    "第0层可完全并行,预计节省70%时间",
+    "task3依赖task1,需串行执行"
+  ]
+}
+```
+
+### 分析策略
+
+#### 1. 依赖关系检测
+
+```python
+# 显式依赖
+if "depends_on" in task:
+    # 标记为依赖任务
+    add_dependency(task, task["depends_on"])
+
+# 隐式依赖(文件路径引用)
+for param_value in task["params"].values():
+    if isinstance(param_value, str) and "output/" in param_value:
+        # 自动检测文件路径依赖
+        source_task = extract_task_id_from_path(param_value)
+        add_dependency(task, source_task)
+```
+
+#### 2. 并发度推荐
+
+```python
+# 根据任务类型推荐
+if task_type == "text-to-image":  # IO密集型
+    base_workers = os.cpu_count() * 2
+elif task_type == "image-processing":  # CPU密集型
+    base_workers = os.cpu_count()
+
+# 考虑API限流
+if has_api_rate_limit:
+    max_workers = min(base_workers, api_rate_limit_per_second * 2)
+
+# 考虑内存限制
+available_memory_gb = get_available_memory()
+task_memory_gb = estimate_task_memory(task)
+max_workers = min(max_workers, available_memory_gb // task_memory_gb)
+```
+
+#### 3. 批次划分策略
+
+```python
+# 按业务逻辑分组
+if "category" in task:
+    batch_by_category(tasks)
+
+# 按执行层次分组
+for layer in execution_layers:
+    batches.append({
+        "batch_id": f"L{layer.id}",
+        "tasks": layer.tasks,
+        "can_parallel": layer.can_parallel
+    })
+
+# 动态批次大小(避免单批过大)
+if len(layer.tasks) > 10:
+    split_into_sub_batches(layer.tasks, batch_size=5)
+```
+
+### 最佳实践
+
+✅ **先分析再执行**
+```python
+# 1. 并发可行性分析
+analysis = analyze_concurrency_feasibility(raw_tasks)
+
+# 2. 根据分析结果生成执行计划
+plan = generate_execution_plan(
+    tasks=raw_tasks,
+    max_workers=analysis.recommended_workers,
+    batches=analysis.execution_layers
+)
+
+# 3. 执行计划
+report = execute_plan(plan, adapter)
+```
+
+✅ **动态调整策略**
+```python
+# 根据实时性能调整
+if analysis.parallelization_ratio < 0.3:
+    print("⚠️  任务依赖度高,并发收益低,考虑串行执行")
+elif analysis.parallelization_ratio > 0.8:
+    print("✅ 任务高度独立,可充分并发")
+    max_workers = analysis.recommended_workers
+```
+
+✅ **预估资源消耗**
+```python
+# 检查资源充足性
+if analysis.estimated_memory_gb > available_memory_gb:
+    print("⚠️  内存不足,降低并发度")
+    max_workers = max(1, max_workers // 2)
+
+if analysis.estimated_duration > timeout_seconds:
+    print("⚠️  预计超时,考虑增加并发度")
+    max_workers = min(max_workers * 2, os.cpu_count() * 4)
+```
+
 ## 📐 核心架构
 
 ### 三层设计
@@ -74,20 +243,24 @@ print(f"✅ 成功: {report.successful_tasks}/{report.total_tasks}")
 ### 核心特性
 
 ✅ **智能依赖分析**
+
 - 显式依赖: 通过 `depends_on` 字段指定
 - 隐式依赖: 自动检测文件路径引用(如视频任务依赖图片任务)
 
 ✅ **分层并发执行**
+
 - 拓扑排序生成执行层
 - 同层任务并发执行(ThreadPoolExecutor)
 - 跨层任务串行执行(保证依赖顺序)
 
 ✅ **健壮错误处理**
+
 - 单任务失败不影响其他任务
 - 详细错误日志和追踪
 - 自动跳过依赖失败的任务
 
 ✅ **详细执行报告**
+
 - JSON 格式报告
 - 包含每个任务的状态、耗时、输出
 - 成功率统计和性能分析
@@ -367,6 +540,13 @@ if report.failed_tasks > 0:
 - **MiniMax 集成示例**: `plugins/创意组/skills/AIGC/minimax/`
 
 ## 🔄 版本历史
+
+- **v1.1.0** (2025-11-01): 新增并发可行性分析前置环节
+  - ✨ 新增 `analyze_concurrency_feasibility()` API
+  - 🔍 智能识别独立任务和依赖关系
+  - 📊 自动评估并发度和资源消耗
+  - 🎯 生成执行层次图和批次划分方案
+  - 💡 提供并行化策略建议
 
 - **v1.0.0** (2025-10-31): 初始版本
   - 通用执行器核心

@@ -23,13 +23,9 @@
   "hooks": {
     "PreCompact": [
       {
-        "hooks": [
-          {
-            "type": "command",
-            "command": ".claude/hooks/parallel-claude-after-compact.sh",
-            "description": "Launch parallel Claude instance with compact context for continued task execution"
-          }
-        ]
+        "type": "command",
+        "command": ".claude/hooks/parallel-claude-after-compact.sh",
+        "description": "Launch parallel Claude instance with compact context for continued task execution"
       }
     ]
   }

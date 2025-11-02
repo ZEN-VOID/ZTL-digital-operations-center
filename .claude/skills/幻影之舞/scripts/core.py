@@ -10,25 +10,27 @@ Universal Concurrent Executor - 通用并发执行引擎核心
 - Automation: 自动化测试、批量操作
 
 核心特性:
+- 并发可行性分析 (前置环节,评估任务并行潜力)
 - 智能依赖分析 (显式 + 隐式)
 - 分层并发执行 (同层并发,层间串行)
 - 健壮错误处理 (单任务失败不影响其他)
 - 详细执行报告 (JSON 格式)
 
 Author: ZTL Digital Intelligence Operations Center - 幻影之舞
-Version: 1.0.0
-Date: 2025-10-31
+Version: 1.1.0
+Date: 2025-11-01
 """
 
 import json
 import logging
+import os
 import time
 from abc import ABC, abstractmethod
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, asdict
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Optional, Any, Union
 from collections import defaultdict
 
 # 配置日志
@@ -107,6 +109,29 @@ class ExecutionReport:
     average_duration_seconds: float
     task_results: List[TaskResult]
     errors: List[Dict]
+
+
+@dataclass
+class ExecutionLayer:
+    """执行层定义"""
+    layer: int
+    tasks: List[str]  # task_id列表
+    can_parallel: bool
+    estimated_duration: float
+
+
+@dataclass
+class ConcurrencyAnalysis:
+    """并发可行性分析报告"""
+    total_tasks: int
+    independent_tasks: int
+    dependent_tasks: int
+    execution_layers: List[ExecutionLayer]
+    recommended_workers: int
+    parallelization_ratio: float
+    recommendations: List[str]
+    estimated_memory_gb: Optional[float] = None
+    estimated_duration: Optional[float] = None
 
 
 # ============================================
@@ -210,11 +235,8 @@ class DependencyAnalyzer:
         task_map = {task.task_id: task for task in tasks}
 
         # 计算每个任务的入度
-        in_degree = {task_id: 0 for task_id in task_map}
-        for deps in dependency_graph.values():
-            for dep_id in deps:
-                if dep_id in in_degree:
-                    in_degree[dep_id] += 1
+        # 入度 = 该任务依赖的任务数量
+        in_degree = {task_id: len(deps) for task_id, deps in dependency_graph.items()}
 
         # Kahn算法 - 拓扑排序 + 分层
         layers = []
@@ -633,3 +655,159 @@ def execute_plan(
         save_report(report, save_report_to)
 
     return report
+
+
+def analyze_concurrency_feasibility(
+    tasks: List[Union[Dict[str, Any], TaskDefinition]],
+    default_task_duration: float = 10.0,
+    default_task_memory_gb: float = 0.5
+) -> ConcurrencyAnalysis:
+    """
+    并发可行性分析 (前置环节)
+
+    在生成执行计划之前,分析任务的并发潜力,避免盲目并发导致资源浪费或依赖冲突。
+
+    Args:
+        tasks: 任务列表,可以是字典或TaskDefinition对象
+        default_task_duration: 默认任务耗时(秒),用于预估
+        default_task_memory_gb: 默认任务内存占用(GB),用于预估
+
+    Returns:
+        ConcurrencyAnalysis: 并发可行性分析报告
+
+    示例:
+        >>> tasks = [
+        ...     {"id": "task1", "type": "text-to-image", "params": {...}},
+        ...     {"id": "task2", "type": "text-to-image", "params": {...}},
+        ...     {"id": "task3", "type": "image-to-video",
+        ...      "params": {"source": "task1"}, "depends_on": ["task1"]},
+        ... ]
+        >>> analysis = analyze_concurrency_feasibility(tasks)
+        >>> print(f"推荐并发度: {analysis.recommended_workers}")
+        >>> print(f"并行化比率: {analysis.parallelization_ratio:.2%}")
+    """
+
+    # 1. 转换为 TaskDefinition 对象
+    task_definitions = []
+    for task in tasks:
+        if isinstance(task, TaskDefinition):
+            task_definitions.append(task)
+        elif isinstance(task, dict):
+            task_definitions.append(TaskDefinition(
+                task_id=task.get("id", task.get("task_id", f"task_{len(task_definitions)}")),
+                params=task.get("params", {}),
+                depends_on=task.get("depends_on"),
+                metadata=task.get("metadata")
+            ))
+        else:
+            raise ValueError(f"不支持的任务类型: {type(task)}")
+
+    total_tasks = len(task_definitions)
+
+    # 2. 依赖分析
+    dependency_graph = DependencyAnalyzer.analyze_dependencies(task_definitions)
+
+    # 计算独立任务数(无依赖的任务)
+    independent_tasks = sum(1 for deps in dependency_graph.values() if not deps)
+    dependent_tasks = total_tasks - independent_tasks
+
+    # 3. 拓扑排序生成执行层
+    execution_layers_raw = DependencyAnalyzer.get_execution_order(task_definitions)
+
+    # 转换为 ExecutionLayer 对象
+    execution_layers = []
+    for idx, layer in enumerate(execution_layers_raw):
+        layer_task_ids = [task.task_id for task in layer]
+        can_parallel = len(layer) > 1
+        estimated_duration = default_task_duration if can_parallel else default_task_duration * len(layer)
+
+        execution_layers.append(ExecutionLayer(
+            layer=idx,
+            tasks=layer_task_ids,
+            can_parallel=can_parallel,
+            estimated_duration=estimated_duration
+        ))
+
+    # 4. 推荐并发度
+    # 基础并发度:根据任务类型和CPU核心数
+    cpu_count = os.cpu_count() or 4
+
+    # 检测任务类型(从第一个任务的params推断)
+    task_type = "io-intensive"  # 默认IO密集型(如API调用)
+    if task_definitions:
+        first_task_type = task_definitions[0].params.get("task_type", "")
+        if "process" in first_task_type.lower() or "compute" in first_task_type.lower():
+            task_type = "cpu-intensive"
+
+    # 并发度推荐
+    if task_type == "io-intensive":
+        base_workers = min(cpu_count * 2, 8)
+    else:
+        base_workers = cpu_count
+
+    # 考虑任务独立性
+    if independent_tasks < 4:
+        recommended_workers = min(base_workers, independent_tasks)
+    else:
+        recommended_workers = base_workers
+
+    # 5. 计算并行化比率
+    # 并行化比率 = 可并行任务数 / 总任务数
+    parallelizable_tasks = sum(len(layer.tasks) for layer in execution_layers if layer.can_parallel)
+    parallelization_ratio = parallelizable_tasks / total_tasks if total_tasks > 0 else 0.0
+
+    # 6. 生成建议
+    recommendations = []
+
+    if parallelization_ratio < 0.3:
+        recommendations.append("⚠️  任务依赖度高,并发收益低(<30%),建议优化任务设计或考虑串行执行")
+    elif parallelization_ratio >= 0.8:
+        recommendations.append(f"✅ 任务高度独立(≥80%),建议并发度{recommended_workers}-{recommended_workers + 2}")
+        time_saved_percent = int((1 - 1/recommended_workers) * 100)
+        recommendations.append(f"📈 预计可节省{time_saved_percent}%执行时间")
+    else:
+        recommendations.append(f"⚡ 任务部分独立({parallelization_ratio:.0%}),建议并发度{recommended_workers}")
+
+    # 层级建议
+    if len(execution_layers) > 1:
+        for layer in execution_layers:
+            if layer.can_parallel and len(layer.tasks) > 1:
+                recommendations.append(
+                    f"🔄 第{layer.layer}层包含{len(layer.tasks)}个独立任务,可完全并行"
+                )
+            elif not layer.can_parallel or len(layer.tasks) == 1:
+                task_ids_str = ", ".join(layer.tasks[:3])
+                if len(layer.tasks) > 3:
+                    task_ids_str += f"... (共{len(layer.tasks)}个)"
+                recommendations.append(
+                    f"⚙️  第{layer.layer}层任务需串行执行: {task_ids_str}"
+                )
+
+    # 依赖关系建议
+    dep_tasks = [task_id for task_id, deps in dependency_graph.items() if deps]
+    if dep_tasks:
+        recommendations.append(
+            f"🔗 {len(dep_tasks)}个任务存在依赖关系,执行顺序受限"
+        )
+
+    # 7. 资源预估
+    estimated_memory_gb = default_task_memory_gb * recommended_workers
+    estimated_duration = sum(layer.estimated_duration for layer in execution_layers)
+
+    # 内存检查
+    if estimated_memory_gb > 4.0:
+        recommendations.append(
+            f"⚠️  预估内存占用{estimated_memory_gb:.1f}GB,请确保系统资源充足"
+        )
+
+    return ConcurrencyAnalysis(
+        total_tasks=total_tasks,
+        independent_tasks=independent_tasks,
+        dependent_tasks=dependent_tasks,
+        execution_layers=execution_layers,
+        recommended_workers=recommended_workers,
+        parallelization_ratio=parallelization_ratio,
+        recommendations=recommendations,
+        estimated_memory_gb=estimated_memory_gb,
+        estimated_duration=estimated_duration
+    )

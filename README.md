@@ -29,7 +29,7 @@ ZTL数智化作战中心 (ZTL Digital Intelligence Operations Center) 是面向�
 - **动态编排**: QQ-总指挥官智能体协调跨组任务执行
 
 ### 📜 命令系统
-- **13个斜杠命令**: `/prp`, `/test`, `/context-aware`, `/github-pull` 等
+- **12个斜杠命令**: `/test`, `/context-aware`, `/github-pull` 等
 - **工作流自动化**: PRP开发流程、并行任务探索、测试迭代修复
 - **上下文管理**: MANUS系统整合注意力管理、错误学习、知识沉淀
 
@@ -176,11 +176,10 @@ Task(subagent_type="QQ-总指挥官",
 
 ## 📜 命令系统
 
-提供 **13个斜杠命令** 用于一键式工作流:
+提供 **12个斜杠命令** 用于一键式工作流:
 
 | 命令 | 功能 |
 |------|------|
-| `/prp <description>` | 生成Plan-Research-Plan文档 |
 | `/test` | 运行完整测试套件并迭代修复 |
 | `/context-aware` | 8维度项目全面分析 |
 | `/manus <type>` | 统一上下文管理系统 |
@@ -203,7 +202,7 @@ Task(subagent_type="QQ-总指挥官",
 ### 系统规模
 
 - **智能体总数**: 94个 (85个业务组智能体 + 9个系统级智能体)
-- **斜杠命令**: 13个
+- **斜杠命令**: 12个
 - **技能包**: 52个
 - **MCP服务器**: 7+个
 - **生命周期钩子**: 1个 (PreCompact)
