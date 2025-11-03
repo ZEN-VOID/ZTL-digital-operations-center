@@ -1,0 +1,351 @@
+# 一刀流影视制作工作流配置文件
+# One-Blade-Flow Production Workflow Configuration
+
+# 项目配置
+project:
+  # 默认输出路径
+  default_output_path: "output/"
+
+  # 自动创建子目录
+  auto_create_subdirs: true
+
+  # 项目命名规则
+  naming_convention: "{project_name}"  # 可选: {project_name}_{date}
+
+  # 元数据记录
+  metadata:
+    enable: true
+    include_timestamps: true
+    include_agent_versions: true
+    include_execution_logs: true
+
+# 工作流配置
+workflow:
+  # 执行模式
+  mode: "auto"
+    # auto: 全自动执行,无需用户干预
+    # manual: 每个阶段需要用户确认后才继续
+    # hybrid: 关键阶段(阶段3/4/5)需要用户确认
+
+  # 阶段控制
+  stages:
+    # 启用的阶段 (可选择性禁用某些阶段)
+    enable:
+      - "阶段1: 需求分析与剧本准备"
+      - "阶段2: 分镜脚本设计"
+      - "阶段3: 8部门批量处理"
+      - "阶段4: Super-Director整合与质量检查"
+      - "阶段5: AIGC素材生成"
+      - "阶段6: 最终输出与交付"
+
+    # 跳过的阶段 (用于自定义工作流)
+    skip: []
+      # 示例: ["阶段5: AIGC素材生成"]
+
+  # 质量门控
+  quality_gates:
+    enable: true
+
+    # 最低质量要求
+    min_grade: "B"  # A | B | C
+      # A: Production-ready,可直接用于制片
+      # B: Minor issues,需要微调
+      # C: Major issues,需要重新处理
+
+    # 自动重试机制
+    auto_retry: true
+    max_retries: 2
+
+    # 质量检查失败时的行为
+    on_failure: "halt"  # halt | warn | continue
+      # halt: 停止执行,等待用户处理
+      # warn: 发出警告,继续执行
+      # continue: 忽略质量问题,继续执行
+
+# 智能体配置
+agents:
+  # 超时设置 (单位: 秒)
+  timeout:
+    screenplay_writer: 300        # 5分钟
+    storyboard_director: 600      # 10分钟
+    film_aesthetic_advisor: 300   # 5分钟
+    department_agents: 900        # 15分钟/组
+    super_director: 1200          # 20分钟
+    aigc_tools: 1800              # 30分钟
+
+  # 并行执行
+  parallel_execution:
+    enable: true
+    max_concurrent: 5  # 最多5个智能体同时运行
+
+    # 组内并行 (表演组/场景组/摄影组/制作组的智能体并行执行)
+    group_parallel: true
+
+  # 重试策略
+  retry:
+    enable: true
+    max_attempts: 3
+    backoff_factor: 2  # 指数退避: 2秒, 4秒, 8秒
+
+# 部门配置
+departments:
+  # 启用的部门 (可选择性禁用某些部门)
+  enable:
+    - "表演组"
+    - "场景组"
+    - "摄影组"
+    - "制作组"
+
+  # 禁用的部门
+  disable: []
+    # 示例: ["制作组"]  # 只生成前12字段
+
+  # 表演组配置
+  表演组:
+    agents:
+      - character-style-consultant
+      - action-choreographer
+      - micro-performance-designer
+    parallel: true
+
+  # 场景组配置
+  场景组:
+    agents:
+      - costume-designer
+      - makeup-hair-designer
+      - spatial-designer
+    parallel: true
+
+  # 摄影组配置
+  摄影组:
+    agents:
+      - cinematography-designer
+      - cinematography-equipment-master
+      - cinematography-lighting-designer
+      - film-color-design-master
+      - cinematography-movement-designer
+    parallel: true
+
+  # 制作组配置
+  制作组:
+    agents:
+      - film-composer
+      - vfx-design-advisor
+      - film-editor-advisor
+    parallel: true
+
+# AIGC工具配置
+aigc:
+  # 启用AIGC素材生成
+  enable: true
+
+  # 自动选择工具 (使用EE队长的决策矩阵)
+  auto_select: true
+
+  # 手动指定工具 (覆盖EE决策,用于测试特定工具)
+  manual_tools: []
+    # 示例: ["SORA-2", "Midjourney"]
+
+  # 决策矩阵权重配置 (用于EE队长)
+  decision_matrix:
+    weights:
+      时长支持: 1.0
+      运动控制: 0.9
+      音频同步: 0.8
+      3D场景理解: 0.7
+      物理精确性: 0.7
+      中文提示词: 0.6
+      多镜头切换: 0.6
+      分辨率: 0.8
+      图像生成质量: 0.9
+      角色一致性: 1.0
+      价格: 0.5
+
+  # 图像生成配置
+  image_generation:
+    enable: true
+    format: "png"  # png | jpg | webp
+    resolution: "2048x2048"  # 分辨率
+    quality: 95  # 质量 (1-100)
+
+    # Midjourney配置
+    midjourney:
+      version: "6.1"
+      style: "raw"
+      aspect_ratio: "2:3"
+
+    # Nano-banana配置
+    nano_banana:
+      consistency_threshold: 95  # 一致性阈值 (%)
+      variation_count: 10  # 衍生图数量
+
+  # 视频生成配置
+  video_generation:
+    enable: true
+    format: "mp4"  # mp4 | mov | avi
+    resolution: "4K"  # 4K | 1080p | 720p
+    frame_rate: 30  # fps
+    max_duration: 60  # 最大时长 (秒)
+
+    # SORA-2配置
+    sora2:
+      audio_sync: true  # 原生音频同步
+      max_duration: 20  # SORA-2最大时长20秒
+
+    # Runway配置
+    runway:
+      motion_brush: true  # 启用Motion Brush
+      camera_control: true  # 启用摄像机控制
+
+    # VEO配置
+    veo:
+      resolution: "4K"  # VEO支持4K
+      audio_sync: true
+
+# 输出配置
+output:
+  # CSV文件配置
+  csv:
+    enable: true
+    filename: "全组分镜脚本.csv"
+    encoding: "utf-8-sig"  # UTF-8 BOM (Excel兼容)
+    delimiter: ","
+
+    # 字段配置 (15字段标准)
+    fields:
+      - 场景ID
+      - 分镜序号
+      - 场景描述
+      - 镜头描述
+      - 角色演绎(character-style-consultant)
+      - 动作(action-choreographer)
+      - 微表演(micro-performance-designer)
+      - 服装(costume-designer)
+      - 妆造(makeup-hair-designer)
+      - 空间(spatial-designer)
+      - 构图(cinematography-designer)
+      - 摄影器材及参数(cinematography-equipment-master)
+      - 光影(cinematography-lighting-designer)
+      - 色彩(film-color-design-master)
+      - 运镜(cinematography-movement-designer)
+      - 配乐(film-composer)
+      - 特效(vfx-design-advisor)
+      - 剪辑(film-editor-advisor)
+
+  # 批量整合报告配置
+  report:
+    enable: true
+    filename: "批量整合报告.md"
+    format: "markdown"  # markdown | pdf | docx
+
+    # 报告章节 (8章节标准)
+    sections:
+      - "1. 整体统计信息"
+      - "2. 部门输出质量分析"
+      - "3. 跨部门协调分析"
+      - "4. 质量检查结果"
+      - "5. 美学基调统一性分析"
+      - "6. 叙事结构分析"
+      - "7. 生产就绪度评估"
+      - "8. 特别说明与建议"
+
+  # 素材文件配置
+  materials:
+    # 图片素材
+    images:
+      enable: true
+      path: "images/"
+      naming: "{scene_id}_{shot_number}_{type}.{ext}"
+        # scene_id: 场景ID (如S01)
+        # shot_number: 分镜序号 (如001)
+        # type: 类型 (如character_ref, scene_concept)
+        # ext: 扩展名
+
+    # 视频素材
+    videos:
+      enable: true
+      path: "videos/"
+      naming: "{scene_id}_{description}.{ext}"
+
+  # 文档配置
+  documents:
+    enable: true
+    path: "documents/"
+
+    # 自动生成的文档
+    auto_generate:
+      - "剧本.md"  # 如果从概念生成
+      - "美学指导文档.md"
+      - "部门设计文档/"
+
+  # 版本控制
+  versioning:
+    enable: true
+    format: "v{major}.{minor}_{date}"  # 示例: v1.0_2024-01-25
+    auto_increment: true
+
+# 性能优化
+performance:
+  # 缓存配置
+  cache:
+    enable: true
+    ttl: 3600  # 缓存有效期 (秒)
+
+    # 缓存内容
+    cache_items:
+      - "aesthetic_doc"  # 美学指导文档
+      - "aigc_decisions"  # AIGC决策结果
+      - "department_outputs"  # 部门输出
+
+  # 增量更新
+  incremental_update:
+    enable: true
+    # 自动检测剧本变更,只更新变更场景
+
+  # 资源限制
+  resources:
+    max_memory: 4096  # MB
+    max_cpu_cores: 4
+
+# 日志配置
+logging:
+  enable: true
+  level: "INFO"  # DEBUG | INFO | WARNING | ERROR
+
+  # 日志输出
+  output:
+    console: true
+    file: true
+    file_path: "logs/one_blade_flow.log"
+
+  # 日志轮转
+  rotation:
+    max_size: 10  # MB
+    max_files: 5
+
+# 调试配置
+debug:
+  # 调试模式
+  enable: false
+
+  # 详细输出
+  verbose: false
+
+  # 保存中间结果
+  save_intermediate: false
+  intermediate_path: "debug/"
+
+  # 性能分析
+  profiling: false
+
+# 扩展配置
+extensions:
+  # 自定义钩子
+  hooks:
+    pre_execution: null  # 执行前钩子
+    post_execution: null  # 执行后钩子
+    on_error: null  # 错误处理钩子
+
+  # 自定义插件
+  plugins: []
+    # 示例: ["custom_plugin_name"]

@@ -33,7 +33,7 @@ error_exit() {
 }
 
 check_dependencies() {
-    """检查依赖工具是否存在"""
+    # 检查依赖工具是否存在
 
     if [[ ! -f "$ABYSS_GAZE_SCRIPT" ]]; then
         error_exit "深渊凝视脚本不存在: $ABYSS_GAZE_SCRIPT"
@@ -49,7 +49,7 @@ check_dependencies() {
 }
 
 scan_pending_tasks() {
-    """扫描待执行任务"""
+    # 扫描待执行任务
     local task_queue_dir="$1"
 
     if [[ ! -d "$task_queue_dir" ]]; then
@@ -75,7 +75,7 @@ scan_pending_tasks() {
 }
 
 check_task_dependencies() {
-    """检查任务依赖是否已完成"""
+    # 检查任务依赖是否已完成
     local task_file="$1"
     local task_queue_dir=$(dirname "$task_file")
 
@@ -109,7 +109,7 @@ check_task_dependencies() {
 }
 
 get_current_worker_count() {
-    """获取当前运行的Worker数量"""
+    # 获取当前运行的Worker数量
     local windows=$(python3 "$ABYSS_GAZE_SCRIPT" list_windows 2>/dev/null)
     local total=$(echo "$windows" | jq -r '.total' 2>/dev/null || echo "0")
 
@@ -124,7 +124,7 @@ get_current_worker_count() {
 }
 
 launch_worker_instance() {
-    """启动单个Worker实例"""
+    # 启动单个Worker实例
     local task_id="$1"
     local task_queue_dir="$2"
     local task_file="$task_queue_dir/task-${task_id}.json"
@@ -244,7 +244,7 @@ $execution_plan
 }
 
 launch_workers() {
-    """启动Worker实例(主入口)"""
+    # 启动Worker实例(主入口)
     local project_name="$1"
     local task_queue_dir="output/${project_name}/task-queue"
 

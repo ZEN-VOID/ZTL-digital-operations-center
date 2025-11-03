@@ -1,64 +1,44 @@
 # ZTL数智化作战中心
 
-[![Claude Code](https://img.shields.io/badge/Claude-Code-8A2BE2?logo=claude)](https://claude.ai/code)
-[![Sonnet 4.5](https://img.shields.io/badge/Sonnet-4.5-blue)](https://www.anthropic.com)
-[![Agent Framework](https://img.shields.io/badge/Framework-Multi--Agent-orange)](https://docs.claude.com/en/docs/claude-code/)
-[![License](https://img.shields.io/badge/License-MIT-green)](#)
+> Multi-Agent Orchestration Platform for Restaurant Industry Digital Transformation
 
-ZTL数智化作战中心 (ZTL Digital Intelligence Operations Center) 是面向餐饮行业数字化转型的多智能体协同平台,基于 Claude Code + Sonnet 4.5 构建,协调 **94个专业智能体** 横跨 **8大业务组**,处理从战略规划到门店筹建的全链条业务。
-
----
+[![Claude Code](https://img.shields.io/badge/Claude-Code-8B5CF6)](https://claude.ai/code)
+[![Agents](https://img.shields.io/badge/Agents-77-blue)](.claude/agents/)
+[![Commands](https://img.shields.io/badge/Commands-12-green)](.claude/commands/)
+[![Skills](https://img.shields.io/badge/Skills-11-orange)](.claude/skills/)
 
 ## 📖 项目简介
 
-这不是传统的单体应用,而是一个**智能体编排框架**,Claude 通过动态组合专业智能体来构建解决方案,每个智能体都在其 Markdown 定义中编码了领域专业知识。
+ZTL数智化作战中心是基于Claude Code + Sonnet 4.5构建的**多智能体编排平台**,专为餐饮行业数字化转型设计。通过协调**77个专业智能体**分布在**7个业务组**,实现从战略规划到门店筹建的全流程智能化。
 
-**核心价值**:
-- 🎯 **领域专精**: 94个专业智能体覆盖餐饮全业态
-- 🔄 **动态协同**: 智能体按需组合,灵活应对复杂场景
-- 📊 **数据驱动**: 整合多个MCP服务器实现外部系统访问
-- 🚀 **快速迭代**: PRP工作流确保功能开发的高质量交付
+### 核心理念
 
----
+这不是传统的单体应用,而是一个**智能体编排框架**。Claude通过动态组合专业智能体,每个智能体都拥有领域专业知识编码在其Markdown定义中。
 
 ## ✨ 核心特性
 
-### 🤖 多智能体架构
-- **8大业务组**: 战略、创意、情报、筹建、开发、美团、供应、行政
-- **94个专业智能体**: 85个业务组智能体 + 9个系统级智能体
-- **动态编排**: QQ-总指挥官智能体协调跨组任务执行
-
-### 📜 命令系统
-- **12个斜杠命令**: `/test`, `/context-aware`, `/github-pull` 等
-- **工作流自动化**: PRP开发流程、并行任务探索、测试迭代修复
-- **上下文管理**: MANUS系统整合注意力管理、错误学习、知识沉淀
-
-### 🛠️ 技能包生态
-- **52个技能包**: 覆盖办公、AIGC、爬虫、元系统、文档同步等
-- **渐进披露**: 按需加载技能包内容,优化token使用
-- **自主发现**: Claude自动匹配并调用相关技能
-
-### 🌐 MCP服务器集成
-- **7+外部系统**: GitHub、Chrome、Playwright、Feishu、腾讯云COS、Context7、Supabase
-- **无缝集成**: 统一工具接口访问浏览器、数据库、云存储等
-
----
+- 🤖 **60+专业智能体** - 覆盖战略、创意、情报、筹建、开发、美团、供应、行政8大业务组
+- 🎯 **三层架构** - 知识层(Agents+Skills) → 编排层(Claude推理) → 执行层(Tools+Output)
+- 🔄 **多模式执行** - 支持三层架构、直接执行、混合协调三种模式
+- 📊 **智能调度** - QQ-总指挥官统筹多智能体协作
+- 🛠️ **工具生态** - 集成7+ MCP服务器(chrome, playwright, github, context7, lark, cos, supabase)
+- 📁 **标准化输出** - output/[项目名]/[agent-name]/ 结构化输出路径
 
 ## 🏗️ 技术架构
 
-### 三层智能体架构
+### 架构层次
 
 ```
 Layer 1: 知识层 (.claude/agents/ + .claude/skills/)
-  ├── Agents: 基于角色的决策框架和领域知识
+  ├── Agents: 角色决策框架和领域知识
   └── Skills: 自包含能力包和执行引擎
 
-Layer 2: 编排层 (Claude 推理)
+Layer 2: 编排层 (Claude推理)
   ├── 运行时推理和动态能力组合
   └── 智能路由和任务调度
 
-Layer 3: 执行层 (工具 + 输出)
-  ├── 工具执行 (Bash, Python, API, MCP)
+Layer 3: 执行层 (Tools + Output)
+  ├── 工具执行(Bash, Python, API, MCP)
   └── 结果持久化到 output/[项目名]/[agent-name]/
 ```
 
@@ -66,200 +46,179 @@ Layer 3: 执行层 (工具 + 输出)
 
 | 类别 | 技术 |
 |------|------|
-| **AI引擎** | Claude Sonnet 4.5 |
-| **框架** | Claude Code (Multi-Agent Framework) |
-| **协议** | Model Context Protocol (MCP) |
-| **语言** | Python, Bash, Markdown |
-| **存储** | 腾讯云COS, Supabase PostgreSQL |
-| **自动化** | Chrome DevTools, Playwright |
-| **协作** | Feishu/Lark API |
-
----
+| AI核心 | Claude Code, Sonnet 4.5 |
+| 智能体架构 | Multi-Agent System, Task-based Delegation |
+| 协议标准 | Model Context Protocol (MCP) |
+| 开发语言 | Python, TypeScript, Markdown |
+| 浏览器自动化 | chrome-mcp, playwright-mcp |
+| 版本控制 | Git, GitHub API (github-mcp) |
+| 云服务 | Tencent COS (cos-mcp), Supabase (supabase-mcp) |
+| 企业协作 | Feishu/Lark (lark-mcp) |
 
 ## 📁 项目结构
 
+基于最新快照生成时间: 2025-11-03 02:23:30
+
 ```
-ZTL数智化作战中心/
-├── .claude/              # Claude Code配置目录
-│   ├── agents/           # 系统级智能体 (9个 Q系列)
-│   ├── commands/         # 斜杠命令 (13个)
-│   ├── skills/           # 技能包 (22个)
-│   └── hooks/            # 生命周期钩子
-├── plugins/              # 业务组插件 (8个)
-│   ├── 战略组/          # 9个智能体
-│   ├── 创意组/          # 16个智能体
-│   ├── 情报组/          # 8个智能体
-│   ├── 筹建组/          # 6个智能体
-│   ├── 开发组/          # 20个智能体
-│   ├── 美团组/          # 6个智能体
-│   ├── 供应组/          # 7个智能体
-│   └── 行政组/          # 9个智能体
-├── PRPs/                 # Plan-Research-Plan文档
-├── output/               # 智能体输出目录
-├── reports/              # 执行报告
-├── learning/             # 知识积累 (ASDW系统)
-├── trees/                # 目录结构快照
-├── scripts/              # 实用脚本
-├── context/              # 上下文快照
-└── project/              # 项目文档
+.
+├── .claude/              # Claude Code配置
+│   ├── agents/          # 智能体定义(77个)
+│   ├── commands/        # 斜杠命令(12个)
+│   ├── hooks/           # 生命周期钩子
+│   └── skills/          # 技能包(11个)
+├── plugins/             # 业务组插件(7个)
+│   ├── 战略组/
+│   ├── 创意组/
+│   ├── 情报组/
+│   ├── 筹建组/
+│   ├── 开发组/
+│   ├── 美团组/
+│   ├── 供应组/
+│   └── 行政组/
+├── output/              # 智能体输出目录
+├── reports/             # 执行报告
+├── trees/               # 目录快照
+├── PRPs/                # PRP文档
+└── project/             # 项目代码
 ```
 
----
+详细目录树参见: [trees/tree_structure_*.md](trees/)
 
 ## 🚀 快速开始
 
 ### 环境要求
 
-- **Claude Code**: [安装指南](https://docs.claude.com/en/docs/claude-code/)
-- **Python**: 3.8+ (用于脚本执行)
-- **Git**: 用于版本控制
+- Claude Code CLI
+- Python 3.12+
+- Node.js 18+ (可选,用于MCP服务器)
+- Git
 
 ### 使用指南
 
-**1. 理解智能体系统**
-```bash
-# 查看项目概览
-/context-aware
-
-# 浏览智能体组织
-ls -la plugins/*/agents/
-```
-
-**2. 调用单个智能体**
+1. **调用智能体**:
 ```python
-# 战略分析
+# 通过Task工具调用专业智能体
 Task(subagent_type="G1-经营分析优化师",
      prompt="分析本月门店经营数据")
-
-# 创意设计
-Task(subagent_type="X3-设计模板解构师",
-     prompt="设计新品海报")
 ```
 
-**3. 调用总指挥官协调多智能体**
+2. **使用命令**:
+```bash
+/prp <feature-description>     # 生成PRP文档
+/test                           # 运行测试套件
+/context-aware                  # 8维度项目分析
+/github-pull                    # 同步到GitHub
+```
+
+3. **协调多智能体**:
 ```python
+# 复杂任务调用总指挥官
 Task(subagent_type="QQ-总指挥官",
      prompt="为新开的火锅店做完整的开业筹备方案")
 ```
 
-**4. 使用命令系统**
-```bash
-/prp <feature-description>    # 生成PRP文档
-/test                          # 运行测试套件
-/github-pull                   # 同步到GitHub
-/trees <feature> <count> <desc> # 并行任务探索
-```
-
----
-
 ## 🤖 智能体系统
-
-本项目采用多智能体协作架构,共有 **94个专业智能体** (85个业务组智能体 + 9个系统级智能体) 分布在 **8个业务组**。
 
 ### 业务组概览
 
 | 业务组 | 智能体数量 | 核心职能 |
 |--------|-----------|----------|
-| **战略组** (Strategy) | 11个 | 商业战略、经营分析、产品定位 |
-| **创意组** (Creative) | 18个 | 广告策划、文案设计、视频制作、AIGC |
-| **情报组** (Intelligence) | 8个 | 市场调研、网页采集、数据分析 |
-| **筹建组** (Construction) | 6个 | 平面规划、空间设计、BIM建模 |
-| **开发组** (Development) | 20个 | 全栈开发、UI设计、后端架构、测试、部署 |
-| **美团组** (Meituan Ops) | 6个 | 平台运营、营销、报表 |
-| **供应组** (Supply Chain) | 7个 | 采购、库存、成本管理 |
-| **行政组** (Admin) | 9个 | 财务、人事、法务、文档管理 |
-| **系统级** (Q Series) | 9个 | 跨组协调、报告生成、研究编排、质量审核 |
+| 情报组 | 8个 | 专业领域智能体 |
+| 筹建组 | 6个 | 专业领域智能体 |
+| 开发组 | 20个 | 专业领域智能体 |
+| 行政组 | 9个 | 专业领域智能体 |
+| 美团组 | 5个 | 专业领域智能体 |
+| 战略组 | 11个 | 专业领域智能体 |
+| 创意组 | 18个 | 专业领域智能体 |
 
-详细信息请参阅各业务组README文档
 
----
+详细信息请参阅: [OVERVIEW.md](OVERVIEW.md#智能体系统)
 
 ## 📜 命令系统
 
-提供 **12个斜杠命令** 用于一键式工作流:
+项目包含**12个斜杠命令**,分为以下类别:
 
-| 命令 | 功能 |
-|------|------|
-| `/test` | 运行完整测试套件并迭代修复 |
-| `/context-aware` | 8维度项目全面分析 |
-| `/manus <type>` | 统一上下文管理系统 |
-| `/github-pull` | 同步项目到GitHub |
-| `/github-issue <url>` | 系统化Issue分析和修复 |
-| `/readme-generator` | 自动更新README文档 |
-| `/trees <feature> <count> <desc>` | 并行任务探索 |
-| `/trees-clean` | 清理worktrees和分支 |
-| `/links <paths>` | 跨工作区同步文件 |
-| `/project-instructions` | 更新项目指令文档 |
-| `/learn [step]` | 从组件学习转向生态研究 |
-| `/github-start` | 初始化GitHub仓库 |
+- **PRP工作流**: `/prp`, `/test`
+- **上下文管理**: `/context-aware`, `/manus`
+- **项目管理**: `/github-pull`, `/github-issue`, `/readme-generator`, `/claude`
+- **智能体编排**: `/trees`, `/trees-clean`
 
-详细说明请参阅 `.claude/commands/` 目录中的各命令文档
-
----
+完整命令列表参见: [.claude/commands/](.claude/commands/)
 
 ## 📊 项目统计
 
-### 系统规模
-
-- **智能体总数**: 94个 (85个业务组智能体 + 9个系统级智能体)
-- **斜杠命令**: 12个
-- **技能包**: 52个
+- **总目录数**: 426
+- **智能体数**: 77个(7个业务组)
+- **命令数**: 12个
+- **技能包数**: 11个
 - **MCP服务器**: 7+个
-- **生命周期钩子**: 1个 (PreCompact)
 
-### 代码规模
+## 🛣️ 开发指南
 
-- **总目录数**: ~500+
-- **配置文件**: Markdown (agents, commands, skills)
-- **执行引擎**: Python, Bash脚本
-- **文档系统**: PRPs, README, OVERVIEW
+### 创建新智能体
 
+智能体是`.claude/agents/[业务组]/`下的Markdown文件:
+
+```markdown
+---
+name: 智能体名称
+description: 简短描述
+model: claude-sonnet-4.5
+tools: ["*"]
 ---
 
-## 🛣️ 开发流程
+# 角色定位
 
-### PRP-驱动开发
+[智能体的专业领域和职责]
 
-```
-1. /prp <feature> → 生成研究驱动的计划
-2. 审查PRP,确保评分 ≥8/10
-3. 按照PRP蓝图实现
-4. /test → 使用自动化门控验证
-5. 迭代直到所有测试通过
-```
+# 工作流程
 
-### 多智能体工作流
+1. 分析需求
+2. 执行任务
+3. 输出结果
 
-```
-1. 总指挥官分析需求 → 生成JSON作战计划
-2. 情报组 → 收集数据
-3. 战略组 → 分析数据,创建建议
-4. 创意组 → 制作营销材料
-5. 总指挥官 → 整合所有输出
+# 输出规范
+
+[输出格式和质量标准]
 ```
 
----
+创建后运行 `/claude` 同步文档。
+
+### 创建新技能包
+
+技能包位于 `.claude/skills/[category]/[skill-name]/`:
+
+```
+skill-name/
+├── SKILL.md              # 元数据(YAML) + 使用指南
+├── scripts/              # 执行引擎(Python)
+│   └── core_engine.py
+└── reference.md          # 扩展文档(可选)
+```
+
+技能包使用**渐进披露原则**:Claude先加载SKILL.md(~500-2000 tokens),然后按需加载scripts/reference。
+
+### 最佳实践
+
+- ✅ 复杂功能先使用 `/prp` 生成PRP文档
+- ✅ 所有改动通过 `/test` 验证
+- ✅ 提交前使用 `/github-pull` 同步
+- ✅ 定期执行 `/context-aware` 刷新上下文
+- ✅ 手动修改配置后运行 `/claude` 更新文档
 
 ## 📄 相关文档
 
-- **CLAUDE.md**: 项目指令和约定
-- **.claude/agents/README.md**: 系统级智能体文档
-- **.claude/commands/README.md**: 命令系统文档
-- **plugins/*/README.md**: 各业务组文档
-- **PRPs/**: 功能规划文档
-- **reports/**: 执行报告和分析
-
----
+- [OVERVIEW.md](OVERVIEW.md) - 技术深度文档
+- [CLAUDE.md](CLAUDE.md) - 项目配置指南
+- [~/.claude/CLAUDE.md](~/.claude/CLAUDE.md) - 全局配置文档
 
 ## 📄 许可证
 
-MIT License
+本项目为私有项目,未经授权不得复制、修改或分发。
 
 ---
 
-**⭐ 如果这个项目对您有帮助,请给我们一个Star!**
+**⭐ 最后更新**: 2025-11-03 02:23:30
+**🔧 生成工具**: `/readme-generator` 命令
 
-**文档生成**: 自动更新于 2025-11-01 by `/github-pull` 命令
-**版本**: v1.1.0
-**最后更新**: 2025-11-01
-**更新内容**: 新增9个Q系列系统级智能体、创意组重构(16个)、开发组重构(20个)、新增2个技能包
+*这是一个活文档。运行 `/readme-generator` 在重大配置更改后保持其与实际项目状态同步。*

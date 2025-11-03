@@ -21,7 +21,7 @@ CONTEXT_FILE="${CONTEXT_DIR}/last-compact-context.txt"
 LOCK_FILE=".claude/locks/parallel-claude.lock"
 
 # 剑刃风暴组件路径
-SKILL_BASE=".claude/skills/剑刃风暴/multi-threading-executor"
+SKILL_BASE=".claude/skills/剑刃风暴"
 TASK_SPLITTER_SCRIPT="${SKILL_BASE}/scripts/task_splitter.py"
 RESULT_AGGREGATOR_SCRIPT="${SKILL_BASE}/scripts/result_aggregator.py"
 WORKER_LAUNCHER_SCRIPT="${SKILL_BASE}/scripts/launch_workers.sh"
@@ -63,7 +63,7 @@ handle_error() {
 }
 
 check_dependencies() {
-    """检查依赖组件是否存在"""
+    # 检查依赖组件是否存在
 
     if [[ ! -f "$TASK_SPLITTER_SCRIPT" ]]; then
         log "WARNING: TaskSplitter未找到: $TASK_SPLITTER_SCRIPT"
@@ -132,7 +132,7 @@ release_lock() {
 }
 
 analyze_task_from_context() {
-    """从上下文中分析当前任务"""
+    # 从上下文中分析当前任务
     local context="$1"
 
     # 提取任务相关信息
@@ -153,7 +153,7 @@ analyze_task_from_context() {
 }
 
 generate_project_name() {
-    """生成项目名称"""
+    # 生成项目名称
     local context="$1"
 
     # 尝试从上下文中提取项目名称
@@ -168,7 +168,7 @@ generate_project_name() {
 }
 
 split_task_and_launch_workers() {
-    """任务分割和Worker启动"""
+    # 任务分割和Worker启动
     local context="$1"
     local current_dir="$2"
 
