@@ -288,7 +288,7 @@ What kind of task?
   - Creates new iTerm window with Claude
   - Injects context summary to new instance
   - Uses lock mechanism to prevent duplicates
-  - Integrates with 深渊凝视 skill for terminal control
+  - Integrates with ITERM多终端调用 skill for terminal control
 
 **Workflow**:
 ```
@@ -393,7 +393,7 @@ For single-domain tasks, invoke agents directly:
 
 ```python
 # Strategic analysis
-Task(subagent_type="G1-经营分析优化师",
+Task(subagent_type="T1-经营分析优化师",
      prompt="分析本月门店经营数据")
 
 # Creative design
@@ -455,7 +455,7 @@ trees/                   # Parallel execution workspaces
 ### Naming Conventions
 
 **Agents**: `[字母][数字]-名称.md`
-- Examples: `G1-经营分析优化师.md`, `X3-平面设计师.md`, `GG-战略组组长.md`
+- Examples: `T1-经营分析优化师.md`, `X3-平面设计师.md`, `TT-战略组组长.md`
 
 **Commands**: Short verbs or abbreviations
 - Examples: `prp.md`, `test.md`, `github-pull.md`

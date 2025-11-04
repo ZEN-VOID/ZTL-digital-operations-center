@@ -3,13 +3,13 @@
 > Multi-Agent Orchestration Platform for Restaurant Industry Digital Transformation
 
 [![Claude Code](https://img.shields.io/badge/Claude-Code-8B5CF6)](https://claude.ai/code)
-[![Agents](https://img.shields.io/badge/Agents-77-blue)](.claude/agents/)
+[![Agents](https://img.shields.io/badge/Agents-71-blue)](.claude/agents/)
 [![Commands](https://img.shields.io/badge/Commands-12-green)](.claude/commands/)
-[![Skills](https://img.shields.io/badge/Skills-11-orange)](.claude/skills/)
+[![Skills](https://img.shields.io/badge/Skills-56-orange)](.claude/skills/)
 
 ## 📖 项目简介
 
-ZTL数智化作战中心是基于Claude Code + Sonnet 4.5构建的**多智能体编排平台**,专为餐饮行业数字化转型设计。通过协调**77个专业智能体**分布在**7个业务组**,实现从战略规划到门店筹建的全流程智能化。
+ZTL数智化作战中心是基于Claude Code + Sonnet 4.5构建的**多智能体编排平台**,专为餐饮行业数字化转型设计。通过协调**71个专业智能体**分布在**6个业务组**,实现从战略规划到门店筹建的全流程智能化。
 
 ### 核心理念
 
@@ -17,7 +17,7 @@ ZTL数智化作战中心是基于Claude Code + Sonnet 4.5构建的**多智能体
 
 ## ✨ 核心特性
 
-- 🤖 **60+专业智能体** - 覆盖战略、创意、情报、筹建、开发、美团、供应、行政8大业务组
+- 🤖 **71个专业智能体** - 70个业务组智能体 + 1个系统级智能体,覆盖战略、创意、情报、筹建、开发、美团6大业务组
 - 🎯 **三层架构** - 知识层(Agents+Skills) → 编排层(Claude推理) → 执行层(Tools+Output)
 - 🔄 **多模式执行** - 支持三层架构、直接执行、混合协调三种模式
 - 📊 **智能调度** - QQ-总指挥官统筹多智能体协作
@@ -123,16 +123,12 @@ Task(subagent_type="QQ-总指挥官",
 
 | 业务组 | 智能体数量 | 核心职能 |
 |--------|-----------|----------|
-| 情报组 | 8个 | 专业领域智能体 |
-| 筹建组 | 6个 | 专业领域智能体 |
-| 开发组 | 20个 | 专业领域智能体 |
-| 行政组 | 9个 | 专业领域智能体 |
-| 美团组 | 5个 | 专业领域智能体 |
-| 战略组 | 11个 | 专业领域智能体 |
-| 创意组 | 18个 | 专业领域智能体 |
-
-
-详细信息请参阅: [OVERVIEW.md](OVERVIEW.md#智能体系统)
+| **情报组** (Intelligence) | 10个 | Market intelligence and data collection - requirement analysis, deep research, web scraping, data analysis, cloud storage management |
+| **筹建组** (Construction) | 6个 | Restaurant construction project management - floor plan design, space design, BIM modeling, 3D visualization |
+| **开发组** (Development) | 20个 | Full-stack development - product management, frontend/backend dev, database, API, AI integration, testing, deployment |
+| **美团组** (Meituan Ops) | 5个 | Meituan platform operations - operations management, marketing campaigns, reporting, web automation |
+| **战略组** (Strategy) | 11个 | Strategic planning and business development - operational optimization, product development, expansion, digital transformation |
+| **创意组** (Creative) | 18个 | Creative content production - advertising, copywriting, design, AIGC (images, video, music, voice), social media |
 
 ## 📜 命令系统
 
@@ -147,11 +143,11 @@ Task(subagent_type="QQ-总指挥官",
 
 ## 📊 项目统计
 
-- **总目录数**: 426
-- **智能体数**: 77个(7个业务组)
+- **智能体数**: 71个 (70个业务组 + 1个系统级)
 - **命令数**: 12个
-- **技能包数**: 11个
-- **MCP服务器**: 7+个
+- **技能包数**: 56个
+- **业务组数**: 6个
+- **MCP服务器**: 0个
 
 ## 🛣️ 开发指南
 

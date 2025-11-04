@@ -18,21 +18,21 @@
 
 本组共有11个智能体:
 
-1. **G0-战略需求解析师** - strategic-needs-analyzer
-2. **G1-经营分析优化师** - g1-business-analyst
-3. **G2-产品力打造专家** - g2-product-strategy
-4. **G3-区域扩张策略师** - g3-regional-expansion-strategist
-5. **G4-商业模式设计师** - business-model-designer
-6. **G5-连锁复制专家** - franchise-standardization-architect
-7. **G6-数字化转型架构师** - strategic-dashboard-architect
-8. **G7-精细化管理专家** - g7-sop-specialist
-9. **G8-商业数据分析师** - g8-business-data-analyst
-10. **G9-营销归因分析师** - g9-marketing-attribution-strategist
-11. **GG-战略组组长** - gg-strategic-director
+1. **T0-战略需求解析师** - strategic-needs-analyzer
+2. **T1-经营分析优化师** - g1-business-analyst
+3. **T2-产品力打造专家** - g2-product-strategy
+4. **T3-区域扩张策略师** - g3-regional-expansion-strategist
+5. **T4-商业模式设计师** - business-model-designer
+6. **T5-连锁复制专家** - franchise-standardization-architect
+7. **T6-数字化转型架构师** - strategic-dashboard-architect
+8. **T7-精细化管理专家** - g7-sop-specialist
+9. **T8-商业数据分析师** - g8-business-data-analyst
+10. **T9-营销归因分析师** - g9-marketing-attribution-strategist
+11. **TT-战略组组长** - gg-strategic-director
 
 ### 智能体详情
 
-#### G0-战略需求解析师
+#### T0-战略需求解析师
 
 **名称**: strategic-needs-analyzer
 
@@ -41,13 +41,13 @@
 
 **调用方式**:
 ```python
-Task(subagent_type="G0-战略需求解析师",
+Task(subagent_type="T0-战略需求解析师",
      prompt="您的任务描述")
 ```
 
 ---
 
-#### G1-经营分析优化师
+#### T1-经营分析优化师
 
 **名称**: g1-business-analyst
 
@@ -56,13 +56,13 @@ Task(subagent_type="G0-战略需求解析师",
 
 **调用方式**:
 ```python
-Task(subagent_type="G1-经营分析优化师",
+Task(subagent_type="T1-经营分析优化师",
      prompt="您的任务描述")
 ```
 
 ---
 
-#### G2-产品力打造专家
+#### T2-产品力打造专家
 
 **名称**: g2-product-strategy
 
@@ -71,13 +71,13 @@ Task(subagent_type="G1-经营分析优化师",
 
 **调用方式**:
 ```python
-Task(subagent_type="G2-产品力打造专家",
+Task(subagent_type="T2-产品力打造专家",
      prompt="您的任务描述")
 ```
 
 ---
 
-#### G3-区域扩张策略师
+#### T3-区域扩张策略师
 
 **名称**: g3-regional-expansion-strategist
 
@@ -86,13 +86,13 @@ Task(subagent_type="G2-产品力打造专家",
 
 **调用方式**:
 ```python
-Task(subagent_type="G3-区域扩张策略师",
+Task(subagent_type="T3-区域扩张策略师",
      prompt="您的任务描述")
 ```
 
 ---
 
-#### G4-商业模式设计师
+#### T4-商业模式设计师
 
 **名称**: business-model-designer
 
@@ -101,13 +101,13 @@ Task(subagent_type="G3-区域扩张策略师",
 
 **调用方式**:
 ```python
-Task(subagent_type="G4-商业模式设计师",
+Task(subagent_type="T4-商业模式设计师",
      prompt="您的任务描述")
 ```
 
 ---
 
-#### G5-连锁复制专家
+#### T5-连锁复制专家
 
 **名称**: franchise-standardization-architect
 
@@ -116,13 +116,13 @@ Task(subagent_type="G4-商业模式设计师",
 
 **调用方式**:
 ```python
-Task(subagent_type="G5-连锁复制专家",
+Task(subagent_type="T5-连锁复制专家",
      prompt="您的任务描述")
 ```
 
 ---
 
-#### G6-数字化转型架构师
+#### T6-数字化转型架构师
 
 **名称**: strategic-dashboard-architect
 
@@ -131,13 +131,13 @@ Task(subagent_type="G5-连锁复制专家",
 
 **调用方式**:
 ```python
-Task(subagent_type="G6-数字化转型架构师",
+Task(subagent_type="T6-数字化转型架构师",
      prompt="您的任务描述")
 ```
 
 ---
 
-#### G7-精细化管理专家
+#### T7-精细化管理专家
 
 **名称**: g7-sop-specialist
 
@@ -146,13 +146,13 @@ Task(subagent_type="G6-数字化转型架构师",
 
 **调用方式**:
 ```python
-Task(subagent_type="G7-精细化管理专家",
+Task(subagent_type="T7-精细化管理专家",
      prompt="您的任务描述")
 ```
 
 ---
 
-#### G8-商业数据分析师
+#### T8-商业数据分析师
 
 **名称**: g8-business-data-analyst
 
@@ -161,13 +161,13 @@ Task(subagent_type="G7-精细化管理专家",
 
 **调用方式**:
 ```python
-Task(subagent_type="G8-商业数据分析师",
+Task(subagent_type="T8-商业数据分析师",
      prompt="您的任务描述")
 ```
 
 ---
 
-#### G9-营销归因分析师
+#### T9-营销归因分析师
 
 **名称**: g9-marketing-attribution-strategist
 
@@ -176,13 +176,13 @@ Task(subagent_type="G8-商业数据分析师",
 
 **调用方式**:
 ```python
-Task(subagent_type="G9-营销归因分析师",
+Task(subagent_type="T9-营销归因分析师",
      prompt="您的任务描述")
 ```
 
 ---
 
-#### GG-战略组组长
+#### TT-战略组组长
 
 **名称**: gg-strategic-director
 
@@ -191,7 +191,7 @@ Task(subagent_type="G9-营销归因分析师",
 
 **调用方式**:
 ```python
-Task(subagent_type="GG-战略组组长",
+Task(subagent_type="TT-战略组组长",
      prompt="您的任务描述")
 ```
 
@@ -222,7 +222,7 @@ Task(subagent_type="智能体ID",
 复杂任务可能需要多个智能体协同工作。组长智能体可以协调团队:
 
 ```python
-Task(subagent_type="GG-战略组组长",
+Task(subagent_type="TT-战略组组长",
      prompt="需要团队协作的复杂任务")
 ```
 
@@ -234,17 +234,17 @@ plugins/战略组/
 │   └── plugin.json              # 插件配置
 │
 ├── agents/                      # 11个智能体
-│   ├── G0-战略需求解析师.md
-│   ├── G1-经营分析优化师.md
-│   ├── G2-产品力打造专家.md
-│   ├── G3-区域扩张策略师.md
-│   ├── G4-商业模式设计师.md
-│   ├── G5-连锁复制专家.md
-│   ├── G6-数字化转型架构师.md
-│   ├── G7-精细化管理专家.md
-│   ├── G8-商业数据分析师.md
-│   ├── G9-营销归因分析师.md
-│   ├── GG-战略组组长.md
+│   ├── T0-战略需求解析师.md
+│   ├── T1-经营分析优化师.md
+│   ├── T2-产品力打造专家.md
+│   ├── T3-区域扩张策略师.md
+│   ├── T4-商业模式设计师.md
+│   ├── T5-连锁复制专家.md
+│   ├── T6-数字化转型架构师.md
+│   ├── T7-精细化管理专家.md
+│   ├── T8-商业数据分析师.md
+│   ├── T9-营销归因分析师.md
+│   ├── TT-战略组组长.md
 │
 ├── commands/                    # 0个命令
 │   └── README.md

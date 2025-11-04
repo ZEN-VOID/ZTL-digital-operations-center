@@ -27,12 +27,12 @@
       ]
     },
     {
-      "id": "abyss-gaze",
-      "name": "深渊凝视",
+      "id": "iterm-multi-terminal",
+      "name": "ITERM多终端调用",
       "description": "iTerm终端控制与输出捕获 - 向iTerm发送任意命令并捕获执行结果，支持新建窗口、指定窗口、多窗口管理",
       "category": "系统核心",
       "categoryPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/skills",
-      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/skills/深渊凝视/SKILL.md",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/skills/ITERM多终端调用/SKILL.md",
       "version": "1.0.0",
       "tools": ["Bash", "Read", "Write"],
       "tags": ["iterm", "terminal", "automation", "output-capture", "multi-window"],
@@ -45,12 +45,12 @@
       ]
     },
     {
-      "id": "manus-context",
-      "name": "上下求索",
+      "id": "context-recording",
+      "name": "上下文记录",
       "description": "基于MANUS上下文工程的智能上下文管理能力包，支持注意力管理、错误学习、知识沉淀和长期记忆。自动识别10种类型，双层级分类(全局/项目)，KV缓存优化",
       "category": "系统核心",
       "categoryPath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/skills",
-      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/skills/上下求索/SKILL.md",
+      "filePath": "/Users/vincentlee/Desktop/ZTL数智化作战中心/.claude/skills/上下文记录/SKILL.md",
       "version": "3.0.0",
       "tools": ["Read", "Write", "Edit", "Bash"],
       "tags": ["context-management", "memory", "learning", "knowledge-base"],
