@@ -1,0 +1,31 @@
+{
+  "name": "部门营业统计导出",
+  "url": "https://pos.meituan.com/web/report/main#/rms-report/department-sales",
+  "description": "按部门统计营业数据",
+  "max_pages": 1,
+  "rate_limit": 0.5,
+  "selectors": {
+    "query_button": "button:has-text('查询')",
+    "export_button": "button:has-text('导出')",
+    "form_fields": [
+      {
+        "name": "time_range",
+        "type": "daterange",
+        "label": "营业时间",
+        "required": true
+      },
+      {
+        "name": "store_ids",
+        "type": "multiselect",
+        "label": "门店选择",
+        "required": true
+      },
+      {
+        "name": "department_ids",
+        "type": "multiselect",
+        "label": "部门选择",
+        "required": false
+      }
+    ]
+  }
+}

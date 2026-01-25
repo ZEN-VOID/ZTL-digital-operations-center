@@ -1,0 +1,35 @@
+{
+  "name": "综合营业统计导出",
+  "url": "https://pos.meituan.com/web/report/main#/rms-report/businessSummary",
+  "description": "查看门店综合营业数据统计",
+  "max_pages": 1,
+  "rate_limit": 0.5,
+  "selectors": {
+    "query_button": "button:has-text('查询')",
+    "export_button": "button:has-text('导出')",
+    "form_fields": [
+      {
+        "name": "time_range",
+        "type": "daterange",
+        "label": "营业时间",
+        "required": true
+      },
+      {
+        "name": "store_ids",
+        "type": "multiselect",
+        "label": "门店选择",
+        "required": true
+      },
+      {
+        "name": "data_type",
+        "type": "select",
+        "label": "数据维度",
+        "options": [
+          "日报",
+          "周报",
+          "月报"
+        ]
+      }
+    ]
+  }
+}

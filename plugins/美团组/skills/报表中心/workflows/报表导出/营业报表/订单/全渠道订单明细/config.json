@@ -1,0 +1,46 @@
+{
+  "name": "全渠道订单明细导出",
+  "url": "https://pos.meituan.com/web/report/main#/rms-report/all-order-detail",
+  "description": "查看所有渠道订单明细",
+  "max_pages": 1,
+  "rate_limit": 0.5,
+  "selectors": {
+    "query_button": "button:has-text('查询')",
+    "export_button": "button:has-text('导出')",
+    "form_fields": [
+      {
+        "name": "time_range",
+        "type": "daterange",
+        "label": "下单时间",
+        "required": true
+      },
+      {
+        "name": "store_ids",
+        "type": "multiselect",
+        "label": "门店选择",
+        "required": true
+      },
+      {
+        "name": "order_channel",
+        "type": "select",
+        "label": "订单渠道",
+        "options": [
+          "堂食",
+          "外卖",
+          "自提",
+          "平台外卖"
+        ]
+      },
+      {
+        "name": "order_status",
+        "type": "select",
+        "label": "订单状态",
+        "options": [
+          "已完成",
+          "已取消",
+          "进行中"
+        ]
+      }
+    ]
+  }
+}

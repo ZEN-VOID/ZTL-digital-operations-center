@@ -1,0 +1,41 @@
+{
+  "name": "菜品销售统计导出",
+  "url": "https://pos.meituan.com/web/report/main#/rms-report/dishSale",
+  "description": "统计各菜品销售情况",
+  "max_pages": 1,
+  "rate_limit": 0.5,
+  "selectors": {
+    "query_button": "button:has-text('查询')",
+    "export_button": "button:has-text('导出')",
+    "form_fields": [
+      {
+        "name": "time_range",
+        "type": "daterange",
+        "label": "销售时间",
+        "required": true
+      },
+      {
+        "name": "store_ids",
+        "type": "multiselect",
+        "label": "门店选择",
+        "required": true
+      },
+      {
+        "name": "dish_category",
+        "type": "select",
+        "label": "菜品分类",
+        "required": false
+      },
+      {
+        "name": "sort_by",
+        "type": "select",
+        "label": "排序方式",
+        "options": [
+          "销量",
+          "销售额",
+          "利润"
+        ]
+      }
+    ]
+  }
+}

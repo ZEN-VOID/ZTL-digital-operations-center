@@ -1,0 +1,35 @@
+{
+  "name": "支付结算导出",
+  "url": "https://pos.meituan.com/web/report/main#/rms-report/settlement-list",
+  "description": "查看美团金融每日结算明细",
+  "max_pages": 1,
+  "rate_limit": 0.5,
+  "selectors": {
+    "query_button": "button:has-text('查询')",
+    "export_button": "button:has-text('导出')",
+    "form_fields": [
+      {
+        "name": "time_range",
+        "type": "daterange",
+        "label": "结算时间",
+        "required": true
+      },
+      {
+        "name": "store_ids",
+        "type": "multiselect",
+        "label": "门店选择",
+        "required": true
+      },
+      {
+        "name": "settlement_status",
+        "type": "select",
+        "label": "结算状态",
+        "options": [
+          "已结算",
+          "结算中",
+          "待结算"
+        ]
+      }
+    ]
+  }
+}

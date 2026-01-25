@@ -1,0 +1,35 @@
+{
+  "name": "发票明细导出",
+  "url": "https://pos.meituan.com/web/report/main#/rms-report/invoice-detail",
+  "description": "查看和导出发票开具明细数据",
+  "max_pages": 1,
+  "rate_limit": 0.5,
+  "selectors": {
+    "query_button": "button:has-text('查询')",
+    "export_button": "button:has-text('导出')",
+    "form_fields": [
+      {
+        "name": "time_range",
+        "type": "daterange",
+        "label": "开票时间",
+        "required": true
+      },
+      {
+        "name": "store_ids",
+        "type": "multiselect",
+        "label": "门店选择",
+        "required": true
+      },
+      {
+        "name": "invoice_status",
+        "type": "select",
+        "label": "发票状态",
+        "options": [
+          "已开具",
+          "已作废",
+          "待开具"
+        ]
+      }
+    ]
+  }
+}

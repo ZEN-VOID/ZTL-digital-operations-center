@@ -1,0 +1,37 @@
+{
+  "name": "记账本支出统计导出",
+  "url": "https://pos.meituan.com/web/report/main#/rms-report/expense-statistics",
+  "description": "统计门店各项支出情况",
+  "max_pages": 1,
+  "rate_limit": 0.5,
+  "selectors": {
+    "query_button": "button:has-text('查询')",
+    "export_button": "button:has-text('导出')",
+    "form_fields": [
+      {
+        "name": "time_range",
+        "type": "daterange",
+        "label": "统计时间",
+        "required": true
+      },
+      {
+        "name": "store_ids",
+        "type": "multiselect",
+        "label": "门店选择",
+        "required": true
+      },
+      {
+        "name": "expense_type",
+        "type": "select",
+        "label": "支出类型",
+        "options": [
+          "原材料",
+          "人工",
+          "房租",
+          "水电",
+          "其他"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "支付明细导出",
+  "url": "https://pos.meituan.com/web/report/main#/rms-report/payment",
+  "description": "查看每笔订单的支付明细",
+  "max_pages": 1,
+  "rate_limit": 0.5,
+  "selectors": {
+    "query_button": "button:has-text('查询')",
+    "export_button": "button:has-text('导出')",
+    "form_fields": [
+      {
+        "name": "time_range",
+        "type": "daterange",
+        "label": "支付时间",
+        "required": true
+      },
+      {
+        "name": "store_ids",
+        "type": "multiselect",
+        "label": "门店选择",
+        "required": true
+      },
+      {
+        "name": "payment_method",
+        "type": "select",
+        "label": "支付方式",
+        "options": [
+          "微信",
+          "支付宝",
+          "现金",
+          "银行卡",
+          "团购券"
+        ]
+      }
+    ]
+  }
+}
